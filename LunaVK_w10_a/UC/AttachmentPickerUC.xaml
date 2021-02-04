@@ -1,0 +1,563 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.AttachmentPickerUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="400"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:attach="using:LunaVK.UC.Attachment"
+    MaxWidth="700"
+    >
+
+    <UserControl.Resources>
+        <Style TargetType="ListViewItem" x:Key="ListViewItemType">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Grid Width="70">
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" >
+                                        <Storyboard>
+                                            <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.0"/>
+                                            </DoubleAnimationUsingKeyFrames>-->
+                                            <DoubleAnimation Duration="0:0:0.1" To="1.0"
+                                                         Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                            </DoubleAnimation>
+                                            <DoubleAnimation Duration="0:0:0.1" To="1.0"
+                                                         Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                            </DoubleAnimation>
+                                            
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.2"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.2"/>
+                                            </DoubleAnimationUsingKeyFrames>-->
+                                            <DoubleAnimation Duration="0:0:0.1" To="1.25"
+                                                         Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                            </DoubleAnimation>
+                                            <DoubleAnimation Duration="0:0:0.1" To="1.25"
+                                                         Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                            </DoubleAnimation>
+
+                                            <ColorAnimation Duration="0:0:0.1" Storyboard.TargetName="brd" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="{StaticResource SystemAccentColor}" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="text" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" To="{StaticResource SystemAccentColor}" />
+
+                                            <DoubleAnimation Storyboard.TargetName="brd" Storyboard.TargetProperty="Opacity" Duration="0:0:0.240" To="1" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="65"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+                            <Border Background="{ThemeResource SystemControlForegroundBaseHighBrush}" Opacity="0.2" Height="50" Width="50" x:Name="brd" Loaded="Ell_Loaded"
+                                    CornerRadius="25" >
+                                <Border.RenderTransform>
+                                    <ScaleTransform x:Name="ContentScaleTransform" CenterX="25" CenterY="25"/>
+                                </Border.RenderTransform>
+                            </Border>
+                            <local:IconUC Glyph="{Binding Icon}" FontSize="24" Foreground="White"/>
+
+
+                            <TextBlock Text="{Binding Title}" TextAlignment="Center" x:Name="text"
+                                               Grid.Row="1" FontSize="12" Foreground="{ThemeResource TextBrushMediumHigh}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="{ThemeResource ItemBackgroundBrush}" Name="_topPannel">
+
+
+            <!-- Горизонтальная шапка с разными типами вложений -->
+            <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollMode="Enabled"
+                    SelectionMode="Single" Name="_listViewTypes"
+                    ItemContainerStyle="{StaticResource ListViewItemType}" SelectedIndex="{Binding ElementName=pivot, Path=SelectedIndex, Mode=TwoWay}"
+                   Loaded="_listViewTypes_Loaded" Margin="0 20 0 0">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+
+
+        </Grid>
+
+        <Pivot Name="pivot" SelectionChanged="pivot_SelectionChanged" Style="{StaticResource PivotStyleNoHeader}" Grid.Row="1">
+            <PivotItem DataContext="{Binding PhotosViewModel}">
+                <controls:ExtendedGridView2 ItemsSource="{Binding Photos}" UseHeaderOffset="False"
+                                
+                                            x:Name="_variableGridView"
+                                           
+                                            VirtualizingStackPanel.VirtualizationMode="Standard"
+                          
+                          ItemWidth="130" ItemHeight="130"
+                                >
+                    <controls:ExtendedGridView2.Header>
+                        
+                            <Grid Height="48">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Orientation="Horizontal" Tapped="OverPanel_Tapped" Background="Transparent">
+                                    <TextBlock Text="All photos" VerticalAlignment="Center" Margin="20 0 5 0" FontWeight="Medium" Name="_overlayText"/>
+                                    <local:IconUC Glyph="&#xE936;" Margin="0 10 0 0" />
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="Transparent" Tapped="TakePhoto_Tapped" Grid.Column="1">
+                                    <local:IconUC Glyph="&#xE722;"/>
+                                    <TextBlock Text="ФОТО" Margin="10 0" VerticalAlignment="Center" FontWeight="Medium"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="2" Background="Transparent" Tapped="TakeVideo_Tapped">
+                                    <local:IconUC Glyph="&#xE714;"/>
+                                    <TextBlock Text="ВИДЕО" Margin="10 0" VerticalAlignment="Center" FontWeight="Medium"/>
+                                </StackPanel>
+
+                                <Line HorizontalAlignment="Right" Stroke="{ThemeResource SystemControlHighlightListAccentLowBrush}" Y2="30" VerticalAlignment="Center" Grid.Column="1"/>
+                            </Grid>
+                       
+                    </controls:ExtendedGridView2.Header>
+
+                    <controls:ExtendedGridView2.ItemTemplate>
+                        <DataTemplate>
+                            <UserControl>
+                                <Grid Tapped="Photo_Tapped" Background="Transparent" Margin="1">
+
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup >
+                                            <VisualState  >
+                                                <Storyboard>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="0.0"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="0.0"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState >
+                                                <VisualState.StateTriggers>
+                                                    <StateTrigger IsActive="{Binding IsSelected}"/>
+                                                </VisualState.StateTriggers>
+                                                <Storyboard>
+                                                    <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.0"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.0"/>
+                                                    </DoubleAnimationUsingKeyFrames>-->
+                                                    <DoubleAnimation Duration="0:0:2" To="1.0"
+                                                         Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                        <DoubleAnimation.EasingFunction>
+                                                            <ElasticEase Oscillations="2" Springiness="10" EasingMode="EaseOut"/>
+                                                        </DoubleAnimation.EasingFunction>
+                                                    </DoubleAnimation>
+                                                    <DoubleAnimation Duration="0:0:2" To="1.0"
+                                                         Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                        <DoubleAnimation.EasingFunction>
+                                                            <ElasticEase Oscillations="2" Springiness="10" EasingMode="EaseOut"/>
+                                                        </DoubleAnimation.EasingFunction>
+                                                    </DoubleAnimation>
+
+
+                                                    <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetName="_scaleBrd" Storyboard.TargetProperty="ScaleX">
+                                                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.2"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_scaleBrd" Storyboard.TargetProperty="ScaleY">
+                                                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.2"/>
+                                                    </DoubleAnimationUsingKeyFrames>-->
+                                                    <DoubleAnimation Duration="0:0:1" To="1.2"
+                                                         Storyboard.TargetName="_scaleBrd" Storyboard.TargetProperty="ScaleX">
+                                                        <DoubleAnimation.EasingFunction>
+                                                            <ElasticEase Oscillations="2" Springiness="10" EasingMode="EaseOut"/>
+                                                        </DoubleAnimation.EasingFunction>
+                                                    </DoubleAnimation>
+                                                    <DoubleAnimation Duration="0:0:1" To="1.2"
+                                                         Storyboard.TargetName="_scaleBrd" Storyboard.TargetProperty="ScaleY">
+                                                        <DoubleAnimation.EasingFunction>
+                                                            <ElasticEase Oscillations="2" Springiness="10" EasingMode="EaseOut"/>
+                                                        </DoubleAnimation.EasingFunction>
+                                                    </DoubleAnimation>
+
+                                                    <ColorAnimation Duration="0:0:0.4" Storyboard.TargetName="_brd" Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                                                    From="White" To="{StaticResource SystemAccentColor}"
+                                                                    />
+
+                                                </Storyboard>
+                                                <!--<VisualState.Setters>
+                                                    <Setter Target="_brd.Background" Value="{StaticResource PhoneAccentColor}" />
+                                                </VisualState.Setters>-->
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+
+                                    <Image Source="{Binding BitmapImage}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0" Loaded="Image_Loaded"/>
+                                    <Border Width="24" Height="24" BorderBrush="White" Background="Transparent" BorderThickness="2" VerticalAlignment="Top"
+                                            HorizontalAlignment="Right" Margin="8" CornerRadius="15" x:Name="_brd" Tapped="_brd_Tapped">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" x:Name="_scaleBrd" CenterX="12" CenterY="12"/>
+                                        </Border.RenderTransform>
+                                        <TextBlock Text="{Binding Number}" VerticalAlignment="Center" TextAlignment="Center" FontWeight="SemiBold" Foreground="White"
+                                           FontSize="15">
+                                            <TextBlock.RenderTransform>
+                                                <ScaleTransform x:Name="ContentScaleTransform" CenterX="10" CenterY="10" ScaleX="0" ScaleY="0"/>
+                                            </TextBlock.RenderTransform>
+                                        </TextBlock>
+                                    </Border>
+
+                                    <local:IconUC Glyph="&#xE979;" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15"
+                                          Foreground="{StaticResource PhoneAccentColorBrush}" Visibility="{Binding IsVideoVisibility}"/>
+                                </Grid>
+                            </UserControl>
+                        </DataTemplate>
+                    </controls:ExtendedGridView2.ItemTemplate>
+
+
+
+
+                    <!--<GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+
+                    <GridView.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <RepositionThemeTransition/>
+                                <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                            </TransitionCollection>
+                        </GridView.ItemContainerTransitions>-->
+                    
+                </controls:ExtendedGridView2>
+            </PivotItem>
+
+            <!-- Audios -->
+            <PivotItem>
+                <controls:ExtendedListView3 UseHeaderOffset="False" ItemsSource="{Binding Items}" DataContext="{Binding AudiosViewModel}"
+                                            SelectionChanged="ExtendedListView3_SelectionChanged_1" SelectionMode="Single" >
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <attach:AttachAudioUC Margin="10 10"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <!-- Location -->
+            <PivotItem Tag="location">
+                <Grid Name="itemLocation">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <!--<ProgressRing IsActive="True" Background="Transparent"/>-->
+                        <local:IconUC x:Name="locationStatusIcon" Glyph="&#xEC43;"/>
+                        <TextBlock Text="Определение местоположения" FontSize="{StaticResource FontSizeContent}" Name="locationStatusText"/>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+
+            <!-- Gift GiftsCatalogCategoryUC -->
+            <PivotItem DataContext="{Binding GiftsViewModel}">
+                <ListView x:Name="listBoxGifts" ItemsSource="{Binding Items}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Grid Height="72">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock VerticalAlignment="Top"
+                       Margin="16 18 16 0"
+                       FontSize="25.33"
+                       
+                       Text="{Binding title, FallbackValue='Category name'}" />
+
+                                    <TextBlock Grid.Column="1"
+                       VerticalAlignment="Top"
+                       Margin="0 21 16 0"
+                       
+                       Text="ShowAll" />
+                                </Grid>
+
+                                <Grid Width="480" Height="208">
+
+                                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+
+
+                                        <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollMode="Enabled"
+                      SelectionMode="None" ItemsSource="{Binding items}" Height="480"
+                                                    Width="200"
+                                                    Margin="140 -140 0 0"
+                   >
+
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="152"
+              Height="200"
+              Margin="8 0"
+              Background="Transparent">
+
+
+                                                        <Grid VerticalAlignment="Top"
+                  HorizontalAlignment="Left">
+
+                                                            <Canvas VerticalAlignment="Center"
+                        Width="152"
+                        Height="152">
+
+                                                                <Rectangle VerticalAlignment="Top"
+                               Width="152"
+                               Height="152"
+                               HorizontalAlignment="Left"
+                               RadiusX="20"
+                               RadiusY="20"
+                               Fill="Red" />
+
+
+                                                                <Image Source="{Binding ImageUrl}"
+                           Width="128"
+                           Height="128"
+                           VerticalAlignment="Top"
+                           Canvas.Left="12"
+                           Canvas.Top="12" />
+
+                                                            </Canvas>
+                                                        </Grid>
+
+                                                        <TextBlock Text="{Binding PriceStr, FallbackValue='N голосов'}"
+                       Foreground="{Binding PriceForeground}"
+                       TextAlignment="Center"
+                       LineStackingStrategy="BlockLineHeight"
+                       Margin="0 159 0 0" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                            <ListView.ItemContainerTransitions>
+                                                <TransitionCollection>
+                                                    <AddDeleteThemeTransition/>
+                                                </TransitionCollection>
+
+                                            </ListView.ItemContainerTransitions>
+
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                        </ListView>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Rectangle Height="1"
+                   Margin="16 8 0 0"
+                   Opacity="0.1"
+                   Fill="{StaticResource PhoneForegroundBrush}" />
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+
+            <!-- Money -->
+            <PivotItem>
+
+            </PivotItem>
+
+            <!-- Documents -->
+            <PivotItem DataContext="{Binding DocumentsViewModel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    
+                        <Grid Height="48">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="Transparent" Tapped="UploadPhoto_Tapped">
+                                <local:IconUC Glyph="&#xEB9F;"/>
+                                <TextBlock Text="Фото или видео" Margin="10 0" VerticalAlignment="Center" FontWeight="Medium"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Background="Transparent" Tapped="UploadFile_Tapped">
+                                <local:IconUC Glyph="&#xE898;"/>
+                                <TextBlock Text="Файл" Margin="10 0" VerticalAlignment="Center" FontWeight="Medium"/>
+                            </StackPanel>
+
+                            <Line HorizontalAlignment="Right" Stroke="{ThemeResource SystemControlHighlightListAccentLowBrush}" Y2="30" VerticalAlignment="Center" />
+                        </Grid>
+                    
+
+
+                    <Pivot Grid.Row="1" ItemsSource="{Binding Items}" SelectionChanged="Pivot_SelectionChanged_1">
+                        <Pivot.ItemTemplate>
+                            <DataTemplate>
+                                <PivotItem>
+                                    <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False"
+                                                                SelectionMode="Single" SelectionChanged="ExtendedListView3_SelectionChanged">
+                                        <controls:ExtendedListView3.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0 10">
+                                                    <ContentControl Template="{StaticResource DocumentTemplate}"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </controls:ExtendedListView3.ItemTemplate>
+
+                                        <!--<controls:ExtendedListView3.Footer>
+                                            <Border Height="48"/>
+                                        </controls:ExtendedListView3.Footer>-->
+                                    </controls:ExtendedListView3>
+                                </PivotItem>
+                            </DataTemplate>
+                        </Pivot.ItemTemplate>
+                    </Pivot>
+                </Grid>
+
+
+            </PivotItem>
+
+            <!-- Graffiti -->
+            <PivotItem DataContext="{Binding GraffitiViewModel}">
+                <GridView ItemsSource="{Binding Items}" 
+                                ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollMode="Enabled"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Enabled"
+                                 SelectionMode="Single" SelectionChanged="Graffiti_SelectionChanged"
+                                             
+                                            
+                          
+                          SizeChanged="GridView_SizeChanged" 
+                                >
+                    <GridView.Header>
+                        
+                            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="15"
+                                    Content="+ Нарисовать граффити" Click="DrawGraffiti_Click">
+                            </Button>
+                       
+                    </GridView.Header>
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ThumbnailUri}" Stretch="Uniform"/>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+
+                </GridView>
+            </PivotItem>
+
+            <!-- My Photos -->
+            <PivotItem DataContext="{Binding MyPhotosViewModel}">
+                <controls:ExtendedGridView2 ItemsSource="{Binding Items}" UseHeaderOffset="False"
+                                SelectionChanged="MyPhotos_SelectionChanged"
+                                SelectionMode="Single"  ItemWidth="130" ItemHeight="130"
+                                >
+                    <controls:ExtendedGridView2.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </controls:ExtendedGridView2.ItemsPanel>
+
+
+                    <controls:ExtendedGridView2.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="{ThemeResource ImagePlaceholderBackgroundBrush}" BorderBrush="{ThemeResource BaseBackgroundBrush}"
+                        BorderThickness="2" >
+                                <Image Source="{Binding photo_130}" Stretch="UniformToFill" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" 
+                               />
+                            </Border>
+                        </DataTemplate>
+                    </controls:ExtendedGridView2.ItemTemplate>
+
+                    <controls:ExtendedGridView2.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition/>
+                            <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                        </TransitionCollection>
+                    </controls:ExtendedGridView2.ItemContainerTransitions>
+
+                </controls:ExtendedGridView2>
+            </PivotItem>
+
+            <!-- My Videos -->
+            <PivotItem>
+                <controls:ExtendedListView3 DataContext="{Binding MyVideosViewModel}" ItemsSource="{Binding Items}" UseHeaderOffset="False"
+                                            SelectionChanged="MyVideos_SelectionChanged" SelectionMode="Single" >
+                   
+                    
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <local:CatalogItemUC Margin="10 15"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                </controls:ExtendedListView3>
+            </PivotItem>
+        </Pivot>
+
+        
+
+        <Grid VerticalAlignment="Bottom" Background="{ThemeResource SystemControlHighlightAccentBrush}" Tapped="AttachAction_Tapped" Height="48" DataContext="{Binding PhotosViewModel}"
+              Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AttachVisibility}">
+                <TextBlock Text="Прикрепить" Foreground="White" FontSize="{StaticResource FontSizeContent}"/>
+                <Border Width="25" Height="25" CornerRadius="12.5" Background="White" Margin="10 0">
+                    <TextBlock Text="{Binding Attached, FallbackValue=1}" TextAlignment="Center" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"
+                                           VerticalAlignment="Center" Padding="1 0 1 1"
+                                           FontSize="{StaticResource FontSizeContent}" FontWeight="Medium"/>
+                </Border>
+            </StackPanel>
+
+            <!--<Grid Background="{ThemeResource ItemBackgroundBrush}" Visibility="{Binding CancelAttachVisibility}">
+                <TextBlock Text="Отмена" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontSize="{StaticResource FontSizeContent}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>-->
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Отмена" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" Visibility="{Binding CancelAttachVisibility}"
+                    Background="{ThemeResource ItemBackgroundBrush}">
+
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

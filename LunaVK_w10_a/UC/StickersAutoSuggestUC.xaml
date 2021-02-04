@@ -1,0 +1,117 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.StickersAutoSuggestUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    >
+
+    <StackPanel x:Name="LayoutRoot">
+        <StackPanel.RenderTransform>
+            <TranslateTransform x:Name="DetailsPresenterTransform" />
+        </StackPanel.RenderTransform>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="SelectionStates">
+                <VisualState x:Name="NotVisible">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <DoubleAnimation BeginTime="0:0:0"
+                                                             Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="Opacity"
+                                                             From="1" To="0" Duration="0:0:0.25">
+                        </DoubleAnimation>
+
+                        <DoubleAnimation BeginTime="0:0:0"
+                                                             Storyboard.TargetName="DetailsPresenterTransform"
+                                                             Storyboard.TargetProperty="Y"
+                                                             To="-50"
+                                                             Duration="0:0:0.25">
+                            <DoubleAnimation.EasingFunction>
+                                <QuarticEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Visible">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <DoubleAnimation BeginTime="0:0:0"
+                                                             Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="Opacity"
+                                                             From="0" To="1" Duration="0:0:0.25">
+                        </DoubleAnimation>
+
+                        <DoubleAnimation BeginTime="0:0:0"
+                                                             Storyboard.TargetName="DetailsPresenterTransform"
+                                                             Storyboard.TargetProperty="Y"
+                                                             From="-50"
+                                                             To="0"
+                                                             Duration="0:0:0.3">
+                            <DoubleAnimation.EasingFunction>
+                                <QuarticEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Border Background="{ThemeResource TextBrushMedium}" CornerRadius="10">
+            <ScrollViewer 
+                      HorizontalAlignment="Left"
+                      VerticalScrollBarVisibility="Disabled"
+                      HorizontalScrollBarVisibility="Hidden"
+                      Name="scrollViewer" MinHeight="65">
+
+                <ItemsControl VerticalAlignment="Top"                        
+                          ItemsSource="{Binding AutoSuggestCollection}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Width="65" Height="65" Tapped="Grid_Tapped" Margin="10 10"
+                                   Opacity="{Binding ImageOpacity}" Source="{Binding photo_128}" >
+                            </Image>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+        <Path
+              Width="24"
+              Margin="52 0 0 0"
+              HorizontalAlignment="Left"
+              Fill="{ThemeResource TextBrushMedium}">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure IsClosed="True" StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <LineSegment Point="24,0" />
+                                        <LineSegment Point="12,13" />
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </StackPanel>
+</UserControl>

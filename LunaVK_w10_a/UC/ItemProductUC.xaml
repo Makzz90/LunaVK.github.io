@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.ItemProductUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="300">
+
+    <Grid Background="{ThemeResource ImagePlaceholderBackgroundBrush}" Tapped="Product_OnTap">
+        <Image Stretch="UniformToFill" Source="{Binding UriSource, FallbackValue='https://sun9-57.userapi.com/qtRtQogGJCQI7hZKKppKI8INxsGG10m-r4ZX9Q/BmXybONvrIg.jpg'}"/>
+
+        <Border Height="100" VerticalAlignment="Bottom">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#8C000000" Offset="1"/>
+                    <GradientStop Color="#00000000" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel VerticalAlignment="Bottom" Margin="10 0 10 10">
+            <TextBlock 
+                   FontSize="18"
+                   
+                   HorizontalAlignment="Center" TextAlignment="Center"
+                   TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxLines="2"
+                   Text="{Binding title, FallbackValue='Title'}" Foreground="White"/>
+
+            <TextBlock FontWeight="Thin"
+                   HorizontalAlignment="Center"
+                   Text="{Binding PriceString, FallbackValue='100 rub.'}" Foreground="White" Opacity="0.7"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

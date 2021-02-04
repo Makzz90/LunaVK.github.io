@@ -1,0 +1,160 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.ImageViewerDecoratorUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="400"
+    Foreground="White"
+    xmlns:converters="using:LunaVK.Network.Converters"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    >
+
+    <UserControl.Resources>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{Binding CurrentPhotoVM.UserLiked}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LikesIcon.Foreground" Value="{StaticResource VKColorBrushRed}" />
+                        <Setter Target="LikesText.Foreground" Value="{StaticResource VKColorBrushRed}" />
+                        <Setter Target="LikesIcon.Glyph" Value="&#xEB52;" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        
+        
+        
+        <Rectangle Fill="Black" Name="_blackRectangle"/>
+        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!--<local:ProgressRingUC x:Name="_progressRing" Progress="0.2" Size="48" UCForeground="White" UCBackground="{ThemeResource TextBrushLow}"/>-->
+            <controls:RadialProgressBar x:Name="_progressRing" Width="48" Height="48" Outline="Transparent"/>
+            <TextBlock Text="Загрузка" Foreground="White" Name="_loadingTextBlock" HorizontalAlignment="Center" Margin="0 10"/>
+        </StackPanel>
+
+        <Canvas Name="imageViewer" ManipulationDelta="imageViewer_ManipulationDelta"
+                ManipulationCompleted="imageViewer_ManipulationCompleted" Background="Transparent"
+                DoubleTapped="imageViewer_DoubleTapped" ManipulationMode="TranslateX,TranslateY,Scale"
+                Tapped="imageViewer_Tapped" PointerWheelChanged="imageViewer_PointerWheelChanged"/>
+
+        <Grid HorizontalAlignment="Left" Width="120" Name="ChevronLeft" Tapped="ChevronLeft_Tapped" Opacity="0.5"
+                PointerEntered="ChevronLeft_PointerEntered" PointerExited="ChevronLeft_PointerExited" PointerCanceled="ChevronLeft_PointerExited" Background="Transparent" framework:MouseOver.Cursor="Hand" Visibility="Collapsed">
+            <!--<local:IconUC Glyph="&#xE76B;" Foreground="Black" FontWeight="ExtraBold" Margin="1 1 0 0"/>-->
+            <local:IconUC Glyph="&#xE76B;" Foreground="White" FontWeight="Thin" FontSize="30"/>
+        </Grid>
+
+        <Grid HorizontalAlignment="Right" Width="120" Name="ChevronRight" Tapped="ChevronRight_Tapped" Opacity="0.5"
+                PointerEntered="ChevronLeft_PointerEntered" PointerExited="ChevronLeft_PointerExited" PointerCanceled="ChevronLeft_PointerExited" framework:MouseOver.Cursor="Hand" Visibility="Collapsed">
+
+
+            <!--<local:IconUC Glyph="&#xE76C;" Foreground="Black" FontWeight="ExtraBold" Margin="1 1 0 0"/>-->
+            <local:IconUC Glyph="&#xE76C;" Foreground="White" FontWeight="Thin" FontSize="30"/>
+        </Grid>
+        
+        <Grid VerticalAlignment="Top" Height="100" Name="gridTop">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#99000000" Offset="0"/>
+                    <GradientStop Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <TextBlock VerticalAlignment="Top" Margin="20 30 0 0"
+                       HorizontalAlignment="Left" Name="textBlockCounter" Text="1 of 1"
+                       FontSize="20" FontWeight="Medium"/>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0 25 0 0" HorizontalAlignment="Right">
+                <TextBlock Text="{Binding CurrentPhotoVM.DateStr}" Opacity="0.5" Foreground="White" VerticalAlignment="Center" Margin="10 0"/>
+
+                <AppBarButton Height="48" Width="48" Background="Transparent" Tapped="Options_Tapped">
+                    <local:IconUC Glyph="&#xE712;" FontSize="20" FontWeight="Medium" Foreground="White"/>
+                </AppBarButton>
+                <AppBarButton Height="48" Width="48" Background="Transparent" Tapped="SaveToDevice_Tapped">
+                    <local:IconUC Glyph="&#xE896;" FontSize="20" FontWeight="Medium" Foreground="White"/>
+                </AppBarButton>
+                <AppBarButton Height="48" Width="48" Background="Transparent" Tapped="Close_Tapped" Name="_closeBtn" Visibility="Collapsed">
+                    <local:IconUC Glyph="&#xE711;" FontSize="20" FontWeight="Medium" Foreground="White"/>
+                </AppBarButton>
+            </StackPanel>
+            
+        </Grid>
+
+
+        <Grid Height="100" VerticalAlignment="Bottom" Name="gridBottom">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#99000000" Offset="1"/>
+                    <GradientStop/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateY="0"/>
+            </Grid.RenderTransform>
+            <StackPanel VerticalAlignment="Bottom">
+                
+
+                <Rectangle Height="1" Margin="16 0" Opacity="0.1" IsHitTestVisible="False" Fill="White"/>
+                
+                <Grid Height="64">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center" Tapped="Like_Tapped"
+                                Background="Transparent">
+                        <local:IconUC Glyph="&#xEB51;" FontSize="20" x:Name="LikesIcon"/>
+                        <TextBlock Text="{Binding CurrentPhotoVM.LikesCountStr, FallbackValue=1}" Margin="10 0 0 0" FontSize="20"
+                                   x:Name="LikesText"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center"
+                                Background="Transparent" Tapped="CommentTap">
+                        <local:IconUC Glyph="&#xE8BD;" FontSize="20"/>
+                        <TextBlock Text="{Binding CurrentPhotoVM.CommentsCountStr, FallbackValue=1}" Margin="10 0 0 0" FontSize="20"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center"
+                                Background="Transparent" Tapped="Share_Tapped">
+                        <local:IconUC Glyph="&#xE8EB;" FontSize="20"/>
+                        <TextBlock Text="{Binding CurrentPhotoVM.RepostsCountStr}" Margin="10 0 0 0" FontSize="20"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center"
+                                Visibility="{Binding CurrentPhotoVM.UserCountStr, Converter={StaticResource StringToVisibilityConverter}}"
+                                Name="borderMarks" Width="50" Tapped="UserTap">
+                        <local:IconUC Glyph="&#xE77B;" FontSize="20"/>
+                        <TextBlock Text="{Binding CurrentPhotoVM.UserCountStr}" Margin="10 0 0 0" FontSize="20"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            
+        </Grid>
+
+        <ScrollViewer VerticalAlignment="Bottom" MaxHeight="120" Margin="16 0 16 72">
+            <local:ScrollableTextBlock x:Name="textBoxText" Opacity="0.8" Text="{Binding CurrentPhotoVM.Text}"
+                                       Foreground="White" SelectionEnabled="True" FullOnly="True"/>
+        </ScrollViewer>
+
+        
+
+        <Grid Name="OverlayGrid"/>
+    </Grid>
+</UserControl>

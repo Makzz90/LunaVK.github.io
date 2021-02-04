@@ -1,0 +1,172 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.GameViewUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    MaxWidth="600">
+
+    <Grid>
+        <!--<Image Source="{Binding Game.banner_560}" VerticalAlignment="Top"/>-->
+
+        <controls:ExtendedListView3 Background="{ThemeResource BaseBackgroundBrush}" UseHeaderOffset="False" Margin="0 30 0 0">
+            <controls:ExtendedListView3.Header>
+                <StackPanel>
+                    <Image Source="{Binding Game.banner_560}"/>
+                    <!--<Border Height="60"/>-->
+                    <StackPanel DataContext="{Binding Game}" >
+
+                        <!--<Image Source="{Binding banner_560}"/>-->
+
+                        <Grid x:Name="HeaderPanel" Height="94" Margin="16 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        >
+                                <Border Background="Yellow"
+                        Height="62"
+                        Width="62">
+                                    <Image Source="{Binding icon_75}" />
+                                </Border>
+
+                                <StackPanel Margin="13 0 0 0">
+                                    <TextBlock Text="{Binding title}"
+                               
+                               FontSize="25" />
+                                    <TextBlock Text="{Binding genre}"
+                               
+                               FontSize="20" />
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Border 
+                    Grid.Column="1"
+                    Tapped="MoreActions_OnTapped"
+                    Background="Transparent"
+                    >
+                                <uc:IconUC Glyph="&#xE712;"/>
+                            </Border>
+
+                        </Grid>
+
+                        <uc:ScrollableTextBlock FullOnly="True" Text="{Binding description}" Margin="16 0"/>
+
+                    </StackPanel>
+                </StackPanel>
+            </controls:ExtendedListView3.Header>
+        </controls:ExtendedListView3>
+        <!--<Border Background="Transparent"/>
+
+        <Border x:Name="borderBackground"
+                Background="{StaticResource PhoneBackgroundBrush}"
+                Visibility="Collapsed" />
+
+        <ViewportControl x:Name="ViewportCtrl"
+                         framework:AttachedProperties.ExtraDeltaYCropWhenHidingImage="126"
+                         VerticalContentAlignment="Stretch"
+                         HorizontalContentAlignment="Stretch">
+
+            <Grid>
+
+                <Border x:Name="borderBackgroundMock"
+                        Margin="0 182 0 0"
+                        Background="{StaticResource PhoneBackgroundBrush}" />
+
+                <uc:MyVirtualizingStackPanel x:Name="ContentPanel">
+
+                    <StackPanel x:Name="HeaderContentPanel"
+                                SizeChanged="HeaderPanel_OnSizeChanged">
+
+                        <Border Height="88" />
+
+                        <uc:GameViewHeaderUC x:Name="Header"
+                                             Tap="HeaderSticky_OnTapped">
+                            <uc:GameViewHeaderUC.RenderTransform>
+                                <TranslateTransform />
+                            </uc:GameViewHeaderUC.RenderTransform>
+                        </uc:GameViewHeaderUC>
+
+                        <uc:FooterUC x:Name="ucFooter"
+                                     Visibility="Collapsed" />
+
+                        <ProgressBar x:Name="loadingBar"
+                                     Visibility="{Binding IsIndeterminate, ElementName=loadingBar, Converter={StaticResource BoolToVisibilityConverter}}"
+                                     IsIndeterminate="False"
+                                     Margin="0 30 0 0"
+                                     Foreground="{StaticResource PhoneProgressBarForegroundBrush}" />
+
+                        <uc:GameRequestsSectionItemUC Name="ucGameRequests"
+                                                      ItemsSource="{Binding GameRequests}"
+                                                      Visibility="{Binding GameRequests.Count, Converter={StaticResource CountToVisibilityConverter}}"
+                                                      MaxDisplayedItemsCount="2" />
+
+                        <uc:GameLeaderboardUC ItemsSource="{Binding GameLeaderboard}"
+                                              Visibility="{Binding GameLeaderboard.Count, Converter={StaticResource CountToVisibilityConverter}}" />
+
+                        <uc:GamesFriendsActivitySectionItemUC ItemsSource="{Binding GameActivity}"
+                                                              Visibility="{Binding GameActivity.Count, Converter={StaticResource CountToVisibilityConverter}}"
+                                                              GameId="{Binding GameHeader.Game.id}"
+                                                              ItemsDisplayType="Short"
+                                                              MaxDisplayedItemsCount="2" />
+
+                        <uc:GameNewsHeaderUC Visibility="{Binding WallVM.Collection.Count, Converter={StaticResource CountToVisibilityConverter}}"
+                                             IsSubscribed="{Binding IsSubscribedToGameNews}"
+                                             GameGroupId="{Binding GameHeader.Game.author_group}" />
+
+                    </StackPanel>
+
+                    <framework:MyVirtualizingPanel2 Name="WallPanel"
+                                                    Visibility="{Binding IsLoadedVisibility}"
+                                                    DataContext="{Binding WallVM}"
+                                                    ItemsSource="{Binding Collection}" />
+
+
+                    <uc:FooterUC DataContext="{Binding WallVM}" />
+
+                </uc:MyVirtualizingStackPanel>
+
+            </Grid>
+        </ViewportControl>
+
+        <uc:GameViewHeaderUC x:Name="HeaderSticky"
+                             CacheMode="BitmapCache"
+                             Tap="HeaderSticky_OnTapped"
+                             Visibility="Collapsed"
+                             VerticalAlignment="Top"
+                             MoreActionsVisibility="Collapsed"
+                             IsSystemTrayPlaceholderVisible="True"
+                             DataContext="{Binding GameHeader}" />
+
+        <Grid Visibility="{Binding InstallGameButtonVisibility}"
+              Background="Transparent"
+              VerticalAlignment="Bottom">
+
+            <Border Background="{StaticResource PhoneBackgroundBrush}"
+                    Opacity="0.9" />
+
+            <Button Content="{Binding LocalizedResources.Games_Invite_Play, Source={StaticResource LocalizedStrings}}"
+                    Margin="4 0 0 0"
+                    Width="204"
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource VKNoFillAppBarButton}"
+                    Click="PlayButton_OnClicked" />
+        </Grid>
+
+        <Border x:Name="panelOverlay"
+                Background="Transparent"
+                Visibility="Collapsed"
+                >
+            <Border Background="{StaticResource PhoneBackgroundBrush}"
+                    Margin="0 182 0 0" />
+        </Border>-->
+    </Grid>
+</UserControl>

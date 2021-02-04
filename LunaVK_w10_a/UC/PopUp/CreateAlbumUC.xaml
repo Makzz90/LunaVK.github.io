@@ -1,0 +1,129 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.PopUp.CreateAlbumUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC.PopUp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="650"
+    d:DesignWidth="400"
+    MaxWidth="500"
+    VerticalAlignment="Top">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="AccessTypes">
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 21 0 20">
+                <TextBlock Text="{Binding Name}"
+                           Margin="0 0 0 0"
+                           FontSize="43"
+                            />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="{ThemeResource BrushMenu}">
+        <StackPanel Margin="15 20">
+            <TextBlock Text="{Binding Caption, FallbackValue='Edit album'}"
+                   Margin="0 10"
+                    FontSize="32"                  
+                   />
+
+            <TextBox Text="{Binding Path=Name, Mode=TwoWay}"
+                 MinHeight="72"
+                         x:Uid="CreateAlbumUC_Title"
+                         PlaceholderText="Название"
+                 InputScope="Text"
+                  />
+
+            <TextBox Text="{Binding Path=Description, Mode=TwoWay}"
+                     Visibility="{Binding DescriptionVisibility}"
+                         PlaceholderText="Описание"
+                         x:Uid="CreateAlbumUC_Description"
+                 VerticalAlignment="Top"
+                 TextWrapping="Wrap"
+                 InputScope="Text"
+                 AcceptsReturn="True"
+                 Margin="0 20 0 0"
+                 MinHeight="126" />
+
+
+            <ComboBox HorizontalAlignment="Stretch" x:Uid="CreateAlbumUC_Access"
+                        Header="Кто может просматривать альбом?"
+                           Visibility="{Binding IsUserAlbumVisibility}"
+                            Margin="0 20 0 0"
+                            
+                      
+                            ItemsSource="{Binding AccessTypes}"
+                            SelectedItem="{Binding PrivacyView, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding UserFrendlyStr}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
+
+
+
+
+            <Border Visibility="{Binding DescriptionVisibility}">
+            <ComboBox    Margin="0 20 0 0"
+                          x:Uid="CreateAlbumUC_Comments"
+                            Header="Кто может комментировать фотографии?"
+                            Visibility="{Binding IsUserAlbumVisibility}"
+                  
+                  
+                            ItemsSource="{Binding AccessTypes}"
+                            SelectedItem="{Binding PrivacyComment, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch"
+                            >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding UserFrendlyStr}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            </Border>
+            <StackPanel Visibility="{Binding IsGroupAlbumVisibility}" Margin="0 20 0 0">
+                <CheckBox Content="Отключить комментирование"/>
+                <CheckBox Content="фотографии могут добавлять только редакторы и администраторы"/>
+                
+            </StackPanel>
+
+            <Button Margin="0 20 0 0"
+                MinWidth="128"
+                 Click="Button_Click"
+                HorizontalAlignment="Left"
+                Content="{Binding ButtonText, FallbackValue=save}"                
+                />
+            
+        </StackPanel>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+            
+
+    </Grid>
+</UserControl>

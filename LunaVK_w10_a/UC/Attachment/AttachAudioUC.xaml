@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.Attachment.AttachAudioUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="40"
+    d:DesignWidth="400"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:converters="using:LunaVK.Network.Converters">
+    
+    <UserControl.Resources>
+        <converters:TimeSpanToUIStringConverter x:Key="TimeSpanToUIStringConverter"/>
+    </UserControl.Resources>
+
+    <Grid Height="40" SizeChanged="Grid_SizeChanged">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Ellipse Width="{StaticResource Double40}" Height="{StaticResource Double40}" Fill="{ThemeResource AccentOrWhiteBrush}"
+                 Tapped="Cover_Tapped"/>
+
+        <uc:IconUC Glyph="&#xEDDA;" FontSize="16" Foreground="{ThemeResource ItemBackgroundBrush}"
+                            FontWeight="ExtraBlack" x:Name="_playPauseIcon" IsHitTestVisible="False"/>
+        <!--<uc:IconUC Glyph="&#xEDDA;" FontSize="16" Foreground="{ThemeResource ItemBackgroundBrush}"
+                            FontWeight="ExtraBlack" Visibility="{Binding PlayIconVisibility}" IsHitTestVisible="False"/>
+        <uc:IconUC Glyph="&#xE769;" FontSize="16" Foreground="White"
+                              FontWeight="ExtraBlack" Visibility="{Binding PauseIconVisibility, FallbackValue=Collapsed}" IsHitTestVisible="False"/>-->
+        
+        <uc:ProgressRingUC Size="{StaticResource Double40}" UCForeground="White" x:Name="_progress" IsHitTestVisible="False"/>
+
+        <StackPanel Grid.Column="1" Margin="10 0" VerticalAlignment="Center" Name="_sp">
+            <TextBlock Text="{Binding artist, FallbackValue=Artist}" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}" FontWeight="Medium" FontSize="{StaticResource FontSizeContent}"/>
+            <TextBlock Text="{Binding title, FallbackValue=Title}" Foreground="{ThemeResource TextBrushMedium}" FontSize="{StaticResource FontSizeContent}" Opacity="0.5" Name="_tb"/>
+        </StackPanel>
+
+        <TextBlock Text="{Binding UIDuration, FallbackValue='0:00'}" Grid.Column="2" VerticalAlignment="Center" FontSize="{StaticResource FontSizeSmall}" Foreground="{ThemeResource TextBrushLow}" Margin="0 0 5 0"/>
+    </Grid>
+</UserControl>

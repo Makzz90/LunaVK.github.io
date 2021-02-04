@@ -1,0 +1,91 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestDownload"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    >
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <UserControl VerticalAlignment="Center" Name="_control">
+                <Grid Height="56" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name='DownloadStates' >
+                            <VisualState x:Name="NormalState">
+                                <Storyboard>
+                                    <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX"/>
+                                    <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY"/>
+
+                                    <!--<DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetName="DownloadScaleTransform" Storyboard.TargetProperty="ScaleX"/>
+                                <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetName="DownloadScaleTransform" Storyboard.TargetProperty="ScaleY"/>-->
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="DownloadingState">
+                                <Storyboard>
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DownloadSymbol" Storyboard.TargetProperty="Symbol" >
+                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Pause"/>
+                                    </ObjectAnimationUsingKeyFrames>
+
+                                    <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX"/>
+                                    <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY"/>
+
+                                    <DoubleAnimation Duration="0:0:1" To="1.0" Storyboard.TargetName="DownloadScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                        <DoubleAnimation.EasingFunction>
+                                            <ElasticEase Oscillations="2" Springiness="5" EasingMode="EaseOut"/>
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
+                                    <DoubleAnimation Duration="0:0:1" To="1.0" Storyboard.TargetName="DownloadScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                        <DoubleAnimation.EasingFunction>
+                                            <ElasticEase Oscillations="2" Springiness="5" EasingMode="EaseOut"/>
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
+                                </Storyboard>
+
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+
+                    <controls:RadialProgressBar Height="56" Width="56" x:Name="_progress" Outline="Transparent"/>
+
+                    <SymbolIcon x:Name="ContentSymbol" Symbol="OpenFile" RenderTransformOrigin="0.5 0.5">
+                        <SymbolIcon.RenderTransform>
+                            <ScaleTransform x:Name="ContentScaleTransform" ScaleX="1" ScaleY="1"/>
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+
+                    <SymbolIcon x:Name='DownloadSymbol' RenderTransformOrigin="0.5 0.5">
+                        <SymbolIcon.RenderTransform>
+                            <ScaleTransform x:Name="DownloadScaleTransform" ScaleX="0" ScaleY="0"/>
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+                </Grid>
+            </UserControl>
+
+            <UserControl Name="_control2">
+                <Grid>
+                    <ContentControl Template="{StaticResource DocumentTemplate}" />
+
+                    <controls:RadialProgressBar Height="56" Width="56" x:Name="_progress2" Outline="Transparent" Value="50" HorizontalAlignment="Left"
+                                                Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                                                Margin="17 0 0 0"/>
+                </Grid>
+            </UserControl>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom">
+            <Slider Maximum="100" ValueChanged="Slider_ValueChanged"/>
+            <Button Content="NormalState" Click="Button_ClickNormalState"/>
+            <Button Content="DownloadingState" Click="Button_ClickDownloadingState"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

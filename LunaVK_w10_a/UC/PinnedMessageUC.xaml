@@ -1,0 +1,39 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.PinnedMessageUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    FontSize="{StaticResource FontSizeContent}">
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <local:IconUC Glyph="&#xE842;" Margin="15" FontSize="{StaticResource FontSizeContent}" Opacity="0.3"/>
+
+        <StackPanel Grid.Column="1" Margin="0 8">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="TextBlockOwner"  FontWeight="Medium" Foreground="{ThemeResource AccentBrushHigh}"/>
+                <TextBlock Name="TextBlockDate" Margin="10 0" Foreground="{ThemeResource TextBrushMedium}" Opacity="0.5"/>
+            </StackPanel>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden"
+                          VerticalScrollMode="Enabled">
+                <StackPanel Name="MainContent"/>
+            </ScrollViewer>
+        </StackPanel>
+
+        <Border Background="Transparent" Tapped="Hide_Tapped" Grid.Column="2">
+            <local:IconUC Glyph="&#xE8BB;" Margin="15" FontSize="{StaticResource FontSizeContent}" FontWeight="ExtraBlack" Opacity="0.3"/>
+        </Border>
+        <Rectangle Height="1" VerticalAlignment="Bottom" Grid.ColumnSpan="3" Fill="{ThemeResource AccentBrushHigh}" Opacity="0.3"/>
+    </Grid>
+</UserControl>

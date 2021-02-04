@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E98AC68F-08C1-4829-927C-A2D62CEFE0ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LunaVK.Core</RootNamespace>
+    <AssemblyName>LunaVK.Core</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="DataObjects\VKBotKeyboard.cs" />
+    <Compile Include="DataObjects\VKCommunitySettings.cs" />
+    <Compile Include="DataObjects\VKEvent.cs" />
+    <Compile Include="DataObjects\VKSituationalTheme.cs" />
+    <Compile Include="DataObjects\VKStatsResponse.cs" />
+    <Compile Include="DataObjects\VKUserOrGroupSource.cs" />
+    <Compile Include="Framework\ColumnAttribute.cs" />
+    <Compile Include="Json\FixVKLink.cs" />
+    <Compile Include="Library\GenericCollectionViewModelSql.cs" />
+    <None Include="Library\ISupportCache.cs" />
+    <Compile Include="Library\StatsService.cs" />
+    <Compile Include="VKConstants.cs" />
+    <Compile Include="CountersService.cs" />
+    <Compile Include="DataObjects\AppButton.cs" />
+    <Compile Include="DataObjects\AutorizationData.cs" />
+    <Compile Include="DataObjects\ChatInfo.cs" />
+    <Compile Include="DataObjects\ConvWithLastMsg.cs" />
+    <Compile Include="DataObjects\CountersArgs.cs" />
+    <Compile Include="DataObjects\CropPhoto.cs" />
+    <Compile Include="DataObjects\DocPreview.cs" />
+    <Compile Include="DataObjects\DocPreviewPhotoSize.cs" />
+    <Compile Include="DataObjects\FeedbackCopyInfo.cs" />
+    <Compile Include="DataObjects\FeedbackUser.cs" />
+    <Compile Include="DataObjects\FriendsList.cs" />
+    <Compile Include="DataObjects\LongPollServerResponse.cs" />
+    <Compile Include="DataObjects\LongPollServerResponseExtended.cs" />
+    <Compile Include="DataObjects\NewsActivity.cs" />
+    <Compile Include="DataObjects\PhotoWithFullInfo.cs" />
+    <Compile Include="DataObjects\PostCopyright.cs" />
+    <Compile Include="DataObjects\PrivacyInfo.cs" />
+    <Compile Include="DataObjects\ProfileInfo.cs" />
+    <Compile Include="DataObjects\PushSettings.cs" />
+    <Compile Include="DataObjects\ReportReason.cs" />
+    <Compile Include="DataObjects\ResponseWithId.cs" />
+    <Compile Include="DataObjects\StockItem.cs" />
+    <Compile Include="DataObjects\StoreCatalog.cs" />
+    <Compile Include="DataObjects\StoreProduct.cs" />
+    <Compile Include="DataObjects\UpdatesResponse.cs" />
+    <Compile Include="DataObjects\UploadResponseData.cs" />
+    <Compile Include="DataObjects\UploadServerAddress.cs" />
+    <Compile Include="DataObjects\UsersAndGroups.cs" />
+    <Compile Include="DataObjects\VKAd.cs" />
+    <Compile Include="DataObjects\VKAlbumPhoto.cs" />
+    <Compile Include="DataObjects\VKAlbumPrivacy.cs" />
+    <Compile Include="DataObjects\VKArticle.cs" />
+    <Compile Include="DataObjects\VKAttachment.cs" />
+    <Compile Include="DataObjects\VKAudio.cs" />
+    <Compile Include="DataObjects\VKBanInfo.cs" />
+    <Compile Include="DataObjects\VKBaseDataForGroupOrUser.cs" />
+    <None Include="DataObjects\VKBaseDataForPostOrNews.cs" />
+    <Compile Include="DataObjects\VKCall.cs" />
+    <Compile Include="DataObjects\VKCity.cs" />
+    <Compile Include="DataObjects\VKComment.cs" />
+    <Compile Include="DataObjects\VKComments.cs" />
+    <Compile Include="DataObjects\VKConversation.cs" />
+    <Compile Include="DataObjects\VKCounters.cs" />
+    <Compile Include="DataObjects\VKCountry.cs" />
+    <Compile Include="DataObjects\VKCover.cs" />
+    <Compile Include="DataObjects\VKDialog.cs" />
+    <Compile Include="DataObjects\VKDocument.cs" />
+    <Compile Include="DataObjects\VKGame.cs" />
+    <Compile Include="DataObjects\VKGeo.cs" />
+    <Compile Include="DataObjects\VKGeoInMsg.cs" />
+    <Compile Include="DataObjects\VKGetMessagesHistoryObject.cs" />
+    <Compile Include="DataObjects\VKGift.cs" />
+    <Compile Include="DataObjects\VKGraffiti.cs" />
+    <Compile Include="DataObjects\VKGroup.cs" />
+    <Compile Include="DataObjects\VKGroupContact.cs" />
+    <Compile Include="DataObjects\VKGroupLink.cs" />
+    <Compile Include="DataObjects\VKGroupMarket.cs" />
+    <Compile Include="DataObjects\VKImageWithSize.cs" />
+    <Compile Include="DataObjects\VKLastSeen.cs" />
+    <Compile Include="DataObjects\VKLikes.cs" />
+    <Compile Include="DataObjects\VKLink.cs" />
+    <Compile Include="DataObjects\VKMarket.cs" />
+    <Compile Include="DataObjects\VKMarketItem.cs" />
+    <Compile Include="DataObjects\VKMessage.cs" />
+    <Compile Include="DataObjects\VKNarrative.cs" />
+    <Compile Include="DataObjects\VKNewsfeedPost.cs" />
+    <Compile Include="DataObjects\VKNote.cs" />
+    <Compile Include="DataObjects\VKNotification.cs" />
+    <Compile Include="DataObjects\VKOccupation.cs" />
+    <Compile Include="DataObjects\VKPhoto.cs" />
+    <Compile Include="DataObjects\VKPhotoVideoTag.cs" />
+    <Compile Include="DataObjects\VKPinnedMessage.cs" />
+    <Compile Include="DataObjects\VKPlace.cs" />
+    <Compile Include="DataObjects\VKPlaylist.cs" />
+    <Compile Include="DataObjects\VKPodcast.cs" />
+    <Compile Include="DataObjects\VKPoll.cs" />
+    <Compile Include="DataObjects\VKPollAnswers.cs" />
+    <Compile Include="DataObjects\VKPostSource.cs" />
+    <Compile Include="DataObjects\VKPrettyCard.cs" />
+    <Compile Include="DataObjects\VKProfilePhoto.cs" />
+    <Compile Include="DataObjects\VKUser.cs" />
+    <Compile Include="DataObjects\VKProfileinfoGetObject.cs" />
+    <Compile Include="DataObjects\VKPushSettings.cs" />
+    <Compile Include="DataObjects\VKReposts.cs" />
+    <Compile Include="DataObjects\VKSticker.cs" />
+    <Compile Include="DataObjects\VKStory.cs" />
+    <Compile Include="DataObjects\VKTopic.cs" />
+    <Compile Include="DataObjects\VKVideoAlbum.cs" />
+    <Compile Include="DataObjects\VKVideoBase.cs" />
+    <Compile Include="DataObjects\VKViews.cs" />
+    <Compile Include="DataObjects\VKWallPost.cs" />
+    <Compile Include="DataObjects\VKWiki.cs" />
+    <Compile Include="Emoji\StickersSettings.cs" />
+    <Compile Include="Enums\CommunityManagementRole.cs" />
+    <Compile Include="Enums\LikeObjectType.cs" />
+    <Compile Include="Enums\LongPollResultCode.cs" />
+    <Compile Include="Enums\LongPollServerUpdateType.cs" />
+    <Compile Include="Enums\MenuSectionName.cs" />
+    <Compile Include="Enums\OutboundMessageStatus.cs" />
+    <Compile Include="Enums\ProfileLoadingStatus.cs" />
+    <None Include="Enums\ResultCode.cs" />
+    <Compile Include="Enums\ProfileMediaListItemType.cs" />
+    <Compile Include="Enums\StoreProductFilter.cs" />
+    <Compile Include="Enums\VKAdminLevel.cs" />
+    <Compile Include="Enums\VKAttachmentType.cs" />
+    <Compile Include="Enums\VKAudioGenre.cs" />
+    <Compile Include="Enums\VKChatMessageActionType.cs" />
+    <Compile Include="Enums\VKConversationNotAllowedReason.cs" />
+    <Compile Include="Enums\VKConversationPeerType.cs" />
+    <Compile Include="Enums\VKDocumentType.cs" />
+    <Compile Include="Enums\VKErrors.cs" />
+    <Compile Include="Enums\VKGroupActionBtnType.cs" />
+    <Compile Include="Enums\VKGroupIsClosed.cs" />
+    <Compile Include="Enums\VKGroupMainSection.cs" />
+    <Compile Include="Enums\VKGroupMembershipType.cs" />
+    <Compile Include="Enums\VKGroupType.cs" />
+    <Compile Include="Enums\VKIsDeactivated.cs" />
+    <Compile Include="Enums\VKMessageType.cs" />
+    <Compile Include="Enums\VKNewsfeedFilters.cs" />
+    <Compile Include="Enums\VKNewsfeedPostType.cs" />
+    <Compile Include="Enums\VKPlatform.cs" />
+    <Compile Include="Enums\VKPostSourcePlatform.cs" />
+    <Compile Include="Enums\VKPostSourceType.cs" />
+    <Compile Include="Enums\VKRelationshipStatus.cs" />
+    <Compile Include="Enums\VKUserSex.cs" />
+    <Compile Include="Enums\VKUsetMembershipType.cs" />
+    <Compile Include="Framework\CacheManager2.cs" />
+    <None Include="Framework\DataAccess.cs" />
+    <Compile Include="Framework\EventAggregator.cs" />
+    <Compile Include="Framework\EventAggregator2.cs" />
+    <Compile Include="Framework\Execute.cs" />
+    <Compile Include="Framework\IBinarySerializable.cs" />
+    <Compile Include="Framework\ObservableGroupingCollection.cs" />
+    <Compile Include="Json\SecondsToTimeSpanConverter.cs" />
+    <Compile Include="Json\SizesToDictionaryConverter.cs" />
+    <Compile Include="Json\StringToCharConverter.cs" />
+    <Compile Include="Json\UnixtimeToDateTimeConverter.cs" />
+    <Compile Include="Json\VKBooleanConverter.cs" />
+    <Compile Include="Json\VKChatMessageActionTypeConverter.cs" />
+    <Compile Include="Json\VKConversationPeerTypeConverter.cs" />
+    <Compile Include="AudioCacheManager.cs" />
+    <Compile Include="Library\AppsService.cs" />
+    <Compile Include="Library\ArticlesService.cs" />
+    <Compile Include="Library\AudioService.cs" />
+    <Compile Include="Library\AccountService.cs" />
+    <Compile Include="Library\ChatService.cs" />
+    <Compile Include="Library\ConversationTileImageFormatter.cs" />
+    <Compile Include="Library\DatabaseService.cs" />
+    <Compile Include="Library\DocumentsService.cs" />
+    <Compile Include="Library\FavoritesService.cs" />
+    <Compile Include="Library\FriendsCache.cs" />
+    <Compile Include="Library\GenericCollectionViewModel.cs" />
+    <Compile Include="Library\GiftsService.cs" />
+    <Compile Include="Library\GroupsService.cs" />
+    <None Include="Library\IMsgItem.cs" />
+    <Compile Include="Library\IMusicPageItem.cs" />
+    <Compile Include="Library\IOutboundAttachment.cs" />
+    <Compile Include="Library\IScroll.cs" />
+    <Compile Include="Library\ISupportDownIncrementalLoading.cs" />
+    <Compile Include="Library\ISupportGroup.cs" />
+    <Compile Include="Library\ISupportReload.cs" />
+    <Compile Include="Library\ISupportUpDownIncrementalLoading.cs" />
+    <Compile Include="Library\ISupportUpIncrementalLoading.cs" />
+    <Compile Include="Library\LikesService.cs" />
+    <Compile Include="Library\MarketService.cs" />
+    <Compile Include="Library\MD5Core.cs" />
+    <Compile Include="Library\MessagesService.cs" />
+    <Compile Include="Library\NewsFeedService.cs" />
+    <Compile Include="Library\OutboundAddAttachment.cs" />
+    <Compile Include="Library\OutboundAttachmentContainer.cs" />
+    <Compile Include="Library\OutboundAudioAttachment.cs" />
+    <Compile Include="Library\OutboundDocumentAttachment.cs" />
+    <Compile Include="Library\OutboundForwardedMessages.cs" />
+    <Compile Include="Library\OutboundGeoAttachment.cs" />
+    <Compile Include="Library\OutboundGraffitiAttachment.cs" />
+    <Compile Include="Library\OutboundMessageViewModel.cs" />
+    <Compile Include="Library\OutboundPhotoAttachment.cs" />
+    <Compile Include="Library\OutboundPollAttachment.cs" />
+    <Compile Include="Library\OutboundTimerAttachment.cs" />
+    <Compile Include="Library\OutboundVideoAttachment.cs" />
+    <Compile Include="Library\OutboundVoiceMessageAttachment.cs" />
+    <Compile Include="Library\OutboundWallPostAttachment.cs" />
+    <Compile Include="Library\PhotosService.cs" />
+    <Compile Include="Library\PodcastsService.cs" />
+    <Compile Include="Library\SecondaryTileCreator.cs" />
+    <Compile Include="Library\StickersAutoSuggestDictionary.cs" />
+    <Compile Include="Library\StoreService.cs" />
+    <Compile Include="Library\Threelen.cs" />
+    <Compile Include="Library\TileManager.cs" />
+    <Compile Include="Library\UsersService.cs" />
+    <Compile Include="Library\VideoService.cs" />
+    <Compile Include="Library\WallService.cs" />
+    <Compile Include="LocalizedResources.cs" />
+    <Compile Include="Network\JsonWebRequest.cs" />
+    <Compile Include="Network\RequestsDispatcher.cs" />
+    <Compile Include="Network\VKCountedItemsObject.cs" />
+    <Compile Include="Network\VKRequestsDispatcher.cs" />
+    <Compile Include="Network\VKResponse.cs" />
+    <Compile Include="PrimaryTileManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecondaryTileManager.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsHelper.cs" />
+    <Compile Include="Utils\AnimationUtils.cs" />
+    <Compile Include="Utils\ArrayExtensions.cs" />
+    <Compile Include="Utils\BaseFormatterHelper.cs" />
+    <Compile Include="Utils\BinarySerializerExtensions.cs" />
+    <Compile Include="Utils\ColorExtensions.cs" />
+    <Compile Include="Utils\DelayedExecutor.cs" />
+    <Compile Include="Utils\DelayedExecutorWithQueue.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\ExtensionsBase.cs" />
+    <Compile Include="Utils\IBufferExtensions.cs" />
+    <Compile Include="Utils\ListExtensions2.cs" />
+    <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Utils\ObservableCollectionExtensions.cs" />
+    <Compile Include="Utils\RectangleLayoutHelper.cs" />
+    <Compile Include="Utils\RectangleUtils.cs" />
+    <Compile Include="Utils\StreamUtils.cs" />
+    <Compile Include="Utils\ThemeUtils.cs" />
+    <Compile Include="Utils\ThumbAttachment.cs" />
+    <Compile Include="Utils\ThumbnailsLayoutHelper.cs" />
+    <Compile Include="Utils\UIStringFormatterHelper.cs" />
+    <Compile Include="Utils\UriExtensions.cs" />
+    <Compile Include="Utils\UserExtensions.cs" />
+    <Compile Include="Utils\VisualTree.cs" />
+    <Compile Include="Utils\WallPostExtensions.cs" />
+    <Compile Include="Utils\WriteableBitmapColorPickerExtensions.cs" />
+    <None Include="ViewModels\CommunityInformationViewModel.cs" />
+    <Compile Include="ViewModels\CommunitySubscribersViewModel.cs" />
+    <Compile Include="ViewModels\ConversationAvatarViewModel.cs" />
+    <Compile Include="ViewModels\FavoritesViewModel.cs" />
+    <Compile Include="ViewModels\GamesMainViewModel.cs" />
+    <Compile Include="ViewModels\GroupsListViewModel.cs" />
+    <None Include="ViewModels\GroupsViewModel.cs" />
+    <Compile Include="ViewModels\GroupVideosViewModel.cs" />
+    <Compile Include="ViewModels\InfoListItem.cs" />
+    <Compile Include="ViewModels\ManagersViewModel.cs" />
+    <Compile Include="ViewModels\MarketViewModel.cs" />
+    <Compile Include="ViewModels\PhotoAlbumViewModel.cs" />
+    <Compile Include="ViewModels\PhotosViewModel.cs" />
+    <None Include="ViewModels\PlaylistViewModel.cs" />
+    <None Include="ViewModels\PostCommentsViewModel.cs" />
+    <Compile Include="ViewModels\RequestsViewModel.cs" />
+    <Compile Include="ViewModels\SettingsAccountViewModel.cs" />
+    <Compile Include="ViewModels\SettingsPrivacyViewModel.cs" />
+    <Compile Include="ViewModels\StickersStoreViewModel.cs" />
+    <Compile Include="ViewModels\VideoCatalogViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <EmbeddedResource Include="Properties\LunaVK.Core.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.11</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

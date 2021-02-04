@@ -1,0 +1,78 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.ItemVideoCatalog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:attachments="using:LunaVK.UC.Attachment"
+    xmlns:library="using:LunaVK.Library">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="Video">
+            <local:CatalogItemUC Tapped="CatalogItemUC_Tapped" Margin="10 0"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VideoAlbum">
+            <Grid Margin="5 5" Tapped="Item_Tapped">
+                <Border SizeChanged="Border_SizeChanged">
+                    <Image Source="{Binding ImageUri}" Stretch="UniformToFill" VerticalAlignment="Center" framework:PointOverScale.OverScale="1.1"/>
+                </Border>
+
+                <Grid VerticalAlignment="Bottom" Height="50" IsHitTestVisible="False">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Offset="0"/>
+                            <GradientStop Color="#70000000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                </Grid>
+
+                <TextBlock Text="{Binding title}" Foreground="White" IsHitTestVisible="False" VerticalAlignment="Bottom"
+                                FontSize="{StaticResource FontSizeContent}" TextWrapping="NoWrap" MaxLines="1"
+                                                                   TextTrimming="CharacterEllipsis" Margin="5"/>
+            </Grid>
+        </DataTemplate>
+
+        <library:VideoTemplateSelector x:Key="videoTemplateSelector"
+                                         VideoAlbumTemplate="{StaticResource VideoAlbum}"
+                                         VideoTemplate="{StaticResource Video}"/>
+    </UserControl.Resources>
+    
+    <StackPanel >
+        <StackPanel Orientation="Horizontal" Margin="10 10" Background="Transparent" Tapped="CatalogName_Tapped">
+            <Image Source="{Binding IconUri}" Height="25" Width="25" Margin="0 0 10 0"/>
+            <TextBlock Text="{Binding name, FallbackValue='Popular'}" FontSize="{StaticResource FontSizeLarge}" />
+        </StackPanel>
+        
+
+        <GridView ItemsSource="{Binding items}" SizeChanged="GridView_SizeChanged" SelectionMode="None"
+                  ItemTemplateSelector="{StaticResource videoTemplateSelector}">
+
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid MaximumRowsOrColumns="2" Orientation="Horizontal" ItemHeight="100" ItemWidth="200"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+            </GridView.ItemContainerStyle>
+        </GridView>
+
+        <Rectangle Height="1" Fill="{ThemeResource SystemControlForegroundBaseHighBrush}" Margin="10 0" Opacity="0.2"/>
+        <Grid Background="Transparent" Tapped="LoadMore_Tapped">
+            <TextBlock Text="Загрузить ещё" FontSize="{StaticResource FontSizeContent}" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+        </Grid>
+
+    </StackPanel>
+</UserControl>

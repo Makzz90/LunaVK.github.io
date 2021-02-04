@@ -1,0 +1,72 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.NewsActivityLikesUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="82"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Style TargetType="Ellipse" x:Key="EllipseStrokeStyle">
+            <Setter Property="Width" Value="44" />
+            <Setter Property="Height" Value="44" />
+            <Setter Property="Fill" Value="{ThemeResource ImagePlaceholderBackgroundBrush}" />
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid Height="82">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <Grid x:Name="gridImages">
+
+                <Grid x:Name="gridUser3" Margin="86 0 0 0">
+                    <Ellipse Style="{StaticResource EllipseStrokeStyle}" />
+
+                    <Ellipse Width="40" Height="40" Name="imageUser3">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding UserPhoto}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+
+                <Grid x:Name="gridUser2"
+                      Margin="50 0 0 0"
+                      HorizontalAlignment="Left">
+                    <Ellipse Style="{StaticResource EllipseStrokeStyle}" />
+
+                    <Ellipse Width="40" Height="40" Name="imageUser2">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding UserPhoto}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+
+                <Grid x:Name="gridUser1"
+                      Margin="14 0 0 0"
+                      HorizontalAlignment="Left">
+                    <Ellipse Style="{StaticResource EllipseStrokeStyle}" />
+
+                    <Ellipse Width="40" Height="40" Name="imageUser1">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding UserPhoto}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+            </Grid>
+
+            <TextBlock x:Name="textBlockCaption"
+                       Margin="14 0 0 0"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Center"
+                       Text="Понравилось Алексею Цветкову-Омеличеву и ещё 5 друзьям" />
+        </StackPanel>
+
+        <Rectangle x:Name="rectSeparator"
+                       Height="1"
+                   VerticalAlignment="Bottom"
+                       Opacity="0.1"
+                       Fill="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+    </Grid>
+</UserControl>

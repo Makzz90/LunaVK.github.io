@@ -1,0 +1,79 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.PopUp.PlacementSelectionUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="500"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--<uc:GenericHeaderUC Title="{Binding Path=LocalizedResources.PlacementEditing, Source={StaticResource LocalizedStrings}, Converter={StaticResource StringToUpper}}"
+                            HideSandwitchButton="True"/>-->
+        <local:HeaderOffsetUC/>
+
+        <ScrollViewer Grid.Row="1" Name="Viewer">
+            <StackPanel Name="ViewerContent" Loaded="ViewerContent_Loaded" Margin="16 20">
+
+                <ComboBox Header="Settings_EditProfile_Country"
+                                     PlaceholderText="ChooseCountry"
+                                     SelectedItem="{Binding Country}"
+                                     IsEnabled="{Binding IsFormEnabled}"
+                                     
+                                     />
+                <ComboBox Header="Settings_EditProfile_City"
+                                     PlaceholderText="ChooseCity"
+                                     SelectedItem="{Binding City}"
+                                     IsHitTestVisible="{Binding IsFormEnabled}"
+                                     Visibility="{Binding CityFieldVisibility}"
+                                     
+                                     Margin="0 10 0 0"/>
+
+                
+                <TextBox Header="Address"
+                         InputScope="Text" Margin="0 10 0 0"
+                         
+                         
+                         Text="{Binding Address, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                         Visibility="{Binding AddressFieldVisibility}"
+                         PlaceholderText="NotDefined"
+                         IsEnabled="{Binding IsFormEnabled}"
+                         />
+                
+                <!--<TextBlock Text="NotDefined"
+                           
+                           Opacity="{Binding AddressPlaceholderOpacity}"
+                           Visibility="{Binding AddressFieldVisibility}"
+                           IsHitTestVisible="False"
+                           Margin="0,-60,0,0"
+                           Padding="25,4,0,0"/>-->
+
+                
+                <TextBox Header="MapAttachment_Place"
+                         InputScope="Text"
+                         Margin="0 10 0 0"
+                         
+                         Text="{Binding Place, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                         
+                         IsEnabled="{Binding IsFormEnabled}"
+                         />
+
+                <!--<maps:Map x:Name="Map"
+                          Loaded="Map_OnLoaded"
+                          Tap="Map_OnTapped"
+                          Margin="16,21,16,4"
+                          Height="252"/>-->
+
+            </StackPanel>
+        </ScrollViewer>
+
+
+    </Grid>
+</UserControl>

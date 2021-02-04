@@ -1,0 +1,91 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.EmojiControlUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:converters="using:LunaVK.Network.Converters"
+    >
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Name="EmojiSource" Source="{Binding GroupedItems.Items, Mode=OneWay}" IsSourceGrouped="True" />
+
+        <converters:CategoryResourceConverter x:Key="CategoryResourceConverter"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <SemanticZoom ScrollViewer.ZoomMode="Enabled">
+            <SemanticZoom.ZoomedOutView>
+                <GridView x:Name="AuthorsKeys"
+                          SelectionMode="None"
+                          HorizontalAlignment="Center"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          >
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Group.Key, Converter={StaticResource CategoryResourceConverter}}" Margin="15" Width="36" Height="36"
+                                   ToolTipService.ToolTip="{Binding Group.Key}"/>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="6"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+
+            <SemanticZoom.ZoomedInView>
+                <GridView SelectionMode="None"
+                          ItemsSource="{Binding Source={StaticResource EmojiSource}}"
+                          SizeChanged="GridView_SizeChanged"
+                          >
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="Transparent" Tapped="Border_Tapped">
+                                <Image Source="{Binding Uri}" Margin="8"/>
+                            </Border>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+
+                    <GridView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Border Height="24">
+                                        <TextBlock Text="{Binding Key}"
+                                           Foreground="{ThemeResource TextBrushMediumLow}"
+                                           Margin="20 0"
+                                           VerticalAlignment="Center" FontSize="14"/>
+                                    </Border>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+
+                            <GroupStyle.HeaderContainerStyle>
+                                <Style TargetType="GridViewHeaderItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="GridViewHeaderItem">
+                                                <ContentPresenter
+                                                    Margin="0" HorizontalContentAlignment="Stretch"
+                                                    Padding="0"
+                                                    Content="{TemplateBinding Content}"
+                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                    ContentTransitions="{TemplateBinding ContentTransitions}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </GroupStyle.HeaderContainerStyle>
+                        </GroupStyle>
+                    </GridView.GroupStyle>
+                </GridView>
+            </SemanticZoom.ZoomedInView>
+        </SemanticZoom>
+    </Grid>
+</UserControl>

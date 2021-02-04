@@ -1,0 +1,2652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Menu_Audios.Content" xml:space="preserve">
+    <value>Музыка</value>
+  </data>
+  <data name="Menu_Bookmarks.Content" xml:space="preserve">
+    <value>Закладки</value>
+  </data>
+  <data name="Menu_Communities.Content" xml:space="preserve">
+    <value>Сообщества</value>
+  </data>
+  <data name="Menu_Friends.Content" xml:space="preserve">
+    <value>Друзья</value>
+  </data>
+  <data name="Menu_Games.Content" xml:space="preserve">
+    <value>Игры</value>
+  </data>
+  <data name="Menu_Messages" xml:space="preserve">
+    <value>Сообщения</value>
+  </data>
+  <data name="Menu_News" xml:space="preserve">
+    <value>Новости</value>
+  </data>
+  <data name="Menu_Notifications" xml:space="preserve">
+    <value>Уведомления</value>
+  </data>
+  <data name="Menu_Photos" xml:space="preserve">
+    <value>Фотографии</value>
+  </data>
+  <data name="Menu_Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Menu_Settings.Content" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Menu_Videos" xml:space="preserve">
+    <value>Видео</value>
+  </data>
+  <data name="Gift" xml:space="preserve">
+    <value>Подарок</value>
+  </data>
+  <data name="Sticker" xml:space="preserve">
+    <value>Стикер</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>сегодня</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>в сети</value>
+  </data>
+  <data name="NewsFeedPhotos.Content" xml:space="preserve">
+    <value>Фотографии</value>
+  </data>
+  <data name="NewsFeedFriends.Content" xml:space="preserve">
+    <value>Друзья</value>
+  </data>
+  <data name="MomentAgo" xml:space="preserve">
+    <value>Только что</value>
+  </data>
+  <data name="NewsFeedSuggestions.Content" xml:space="preserve">
+    <value>Рекомендации</value>
+  </data>
+  <data name="NewsFeedVideos.Content" xml:space="preserve">
+    <value>Видео</value>
+  </data>
+  <data name="AttachmentType_Location" xml:space="preserve">
+    <value>Местоположение</value>
+  </data>
+  <data name="At" xml:space="preserve">
+    <value>в</value>
+  </data>
+  <data name="AtOneInTheNight" xml:space="preserve">
+    <value>в</value>
+  </data>
+  <data name="OfApril" xml:space="preserve">
+    <value>Апреля</value>
+  </data>
+  <data name="OfAugust" xml:space="preserve">
+    <value>Августа</value>
+  </data>
+  <data name="OfDecember" xml:space="preserve">
+    <value>Декабря</value>
+  </data>
+  <data name="OfFebruary" xml:space="preserve">
+    <value>Февраля</value>
+  </data>
+  <data name="OfJanuary" xml:space="preserve">
+    <value>Января</value>
+  </data>
+  <data name="OfJuly" xml:space="preserve">
+    <value>Июля</value>
+  </data>
+  <data name="OfJune" xml:space="preserve">
+    <value>Июня</value>
+  </data>
+  <data name="OfMarch" xml:space="preserve">
+    <value>Марта</value>
+  </data>
+  <data name="OfMay" xml:space="preserve">
+    <value>Мая</value>
+  </data>
+  <data name="OfNovember" xml:space="preserve">
+    <value>Ноября</value>
+  </data>
+  <data name="OfOctober" xml:space="preserve">
+    <value>Октября</value>
+  </data>
+  <data name="OfSeptember" xml:space="preserve">
+    <value>Сентября</value>
+  </data>
+  <data name="TermsOfUse.Text" xml:space="preserve">
+    <value>правила использования</value>
+  </data>
+  <data name="SignUp.Text" xml:space="preserve">
+    <value>зарегистрироваться</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Вчера</value>
+  </data>
+  <data name="LastSeenYesterdayFemaleFrm" xml:space="preserve">
+    <value>была вчера в {0}</value>
+  </data>
+  <data name="LastSeenYesterdayMaleFrm" xml:space="preserve">
+    <value>был вчера в {0}</value>
+  </data>
+  <data name="LastSeenTodayFemaleFrm" xml:space="preserve">
+    <value>была сегодня в {0}</value>
+  </data>
+  <data name="LastSeenTodayMaleFrm" xml:space="preserve">
+    <value>был сегодня в {0}</value>
+  </data>
+  <data name="OneForwardedMessage" xml:space="preserve">
+    <value>{0} пересылаемое сообщение</value>
+  </data>
+  <data name="OneDocument" xml:space="preserve">
+    <value>{0} документ</value>
+  </data>
+  <data name="OnePhoto" xml:space="preserve">
+    <value>{0} фотография</value>
+  </data>
+  <data name="OneVideoFrm" xml:space="preserve">
+    <value>{0} видео</value>
+  </data>
+  <data name="Community" xml:space="preserve">
+    <value>Сообщество</value>
+  </data>
+  <data name="OneMinuteFrm" xml:space="preserve">
+    <value>{0} минут назад</value>
+  </data>
+  <data name="SettingsNotifications" xml:space="preserve">
+    <value>Уведомления</value>
+  </data>
+  <data name="SettingsGeneral" xml:space="preserve">
+    <value>Основные</value>
+  </data>
+  <data name="OneAudio" xml:space="preserve">
+    <value>{0} аудиозапись</value>
+  </data>
+  <data name="FiveMinutes" xml:space="preserve">
+    <value>{0} минут назад</value>
+  </data>
+  <data name="FiveMoreDocumentsFrm" xml:space="preserve">
+    <value>{0} документов</value>
+  </data>
+  <data name="FiveMoreForwardedMessagesFrm" xml:space="preserve">
+    <value>{0} пересылаемых сообщений</value>
+  </data>
+  <data name="FiveOrMorePhotosFrm" xml:space="preserve">
+    <value>{0} фотографий</value>
+  </data>
+  <data name="ChatCreateFemaleFrm" xml:space="preserve">
+    <value>{0} создала беседу "{1}"</value>
+  </data>
+  <data name="ChatCreateMaleFrm" xml:space="preserve">
+    <value>{0} создал беседу "{1}"</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Ссылка</value>
+  </data>
+  <data name="ChatInviteFemaleFrm" xml:space="preserve">
+    <value>{0} пригласила {1}</value>
+  </data>
+  <data name="ChatInviteMaleFrm" xml:space="preserve">
+    <value>{0} пригласил {1}</value>
+  </data>
+  <data name="ChatKickoutFemaleFrm" xml:space="preserve">
+    <value>{0} выкинула {1}</value>
+  </data>
+  <data name="ChatKickoutMaleFrm" xml:space="preserve">
+    <value>{0} выкинул {1}</value>
+  </data>
+  <data name="ChatLeftConversationFemaleFrm" xml:space="preserve">
+    <value>{0} покинула беседу</value>
+  </data>
+  <data name="ChatLeftConversationMaleFrm" xml:space="preserve">
+    <value>{0} покинул беседу</value>
+  </data>
+  <data name="ChatPhotoDeleteFemaleFrm" xml:space="preserve">
+    <value>{0} удалила обложку беседы</value>
+  </data>
+  <data name="ChatPhotoDeleteMaleFrm" xml:space="preserve">
+    <value>{0} удалил обложку беседы</value>
+  </data>
+  <data name="ChatPhotoUpdateFemaleFrm" xml:space="preserve">
+    <value>{0} обновила обложку беседы</value>
+  </data>
+  <data name="ChatPhotoUpdateMaleFrm" xml:space="preserve">
+    <value>{0} обновил обложку беседы</value>
+  </data>
+  <data name="ChatReturnedToConversationFemaleFrm" xml:space="preserve">
+    <value>{0} вернулась в беседу</value>
+  </data>
+  <data name="ChatReturnedToConversationMaleFrm" xml:space="preserve">
+    <value>{0} вернулся в беседу</value>
+  </data>
+  <data name="ChatTitleUpdateFemaleFrm" xml:space="preserve">
+    <value>{0} переименовала беседу в "{1}"</value>
+  </data>
+  <data name="ChatTitleUpdateMaleFrm" xml:space="preserve">
+    <value>{0} переименовал беседу в "{1}"</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="FiveOrMoreAudioFrm" xml:space="preserve">
+    <value>{0} аудиозаписей</value>
+  </data>
+  <data name="FiveOrMoreVideosFrm" xml:space="preserve">
+    <value>{0} видеозаписей</value>
+  </data>
+  <data name="LastSeenAMomentAgoFemale" xml:space="preserve">
+    <value>была только что</value>
+  </data>
+  <data name="LastSeenAMomentAgoMale" xml:space="preserve">
+    <value>был только что</value>
+  </data>
+  <data name="LastSeenOnFemaleFrm" xml:space="preserve">
+    <value>была {0} в {1}</value>
+  </data>
+  <data name="LastSeenOnMaleFrm" xml:space="preserve">
+    <value>был {0} в {1}</value>
+  </data>
+  <data name="LastSeenX1MinutesAgoFemaleFrm" xml:space="preserve">
+    <value>была {0} минуту назад</value>
+  </data>
+  <data name="LastSeenX1MinutesAgoMaleFrm" xml:space="preserve">
+    <value>был {0} минуту назад</value>
+  </data>
+  <data name="LastSeenXFiveMinutesAgoFemaleFrm" xml:space="preserve">
+    <value>была {0} минут назад</value>
+  </data>
+  <data name="LastSeenXFiveMinutesAgoMaleFrm" xml:space="preserve">
+    <value>был {0} минут назад</value>
+  </data>
+  <data name="LastSeenXTwoFourMinutesAgoFemaleFrm" xml:space="preserve">
+    <value>была {0} минуты назад</value>
+  </data>
+  <data name="LastSeenXTwoFourMinutesAgoMaleFrm" xml:space="preserve">
+    <value>был {0} минуты назад</value>
+  </data>
+  <data name="TwoFourAudioFrm" xml:space="preserve">
+    <value>{0} аудиозаписи</value>
+  </data>
+  <data name="TwoFourDocumentsFrm" xml:space="preserve">
+    <value>{0} документа</value>
+  </data>
+  <data name="TwoFourForwardedMessagesFrm" xml:space="preserve">
+    <value>{0} пересылаемых сообщения</value>
+  </data>
+  <data name="TwoFourMinutes" xml:space="preserve">
+    <value>{0} минуты назад</value>
+  </data>
+  <data name="TwoFourPhotosFrm" xml:space="preserve">
+    <value>{0} фотографии</value>
+  </data>
+  <data name="TwoFourVideosFrm" xml:space="preserve">
+    <value>{0} видеозаписи</value>
+  </data>
+  <data name="WallPost" xml:space="preserve">
+    <value>Запись на стене</value>
+  </data>
+  <data name="Content.On" xml:space="preserve">
+    <value>Включено</value>
+  </data>
+  <data name="Content.Off" xml:space="preserve">
+    <value>Выключено</value>
+  </data>
+  <data name="OneMemberFrm" xml:space="preserve">
+    <value>{0} участник</value>
+  </data>
+  <data name="TwoFourMembersFrm" xml:space="preserve">
+    <value>{0} участника</value>
+  </data>
+  <data name="FiveMembersFrm" xml:space="preserve">
+    <value>{0} участников</value>
+  </data>
+  <data name="ImageViewer_PhotoCounterFrm" xml:space="preserve">
+    <value>{0} из {1}</value>
+  </data>
+  <data name="Notification_FollowMale" xml:space="preserve">
+    <value>подписался на Ваши обновления</value>
+  </data>
+  <data name="Notification_FollowFemale" xml:space="preserve">
+    <value>подписалась на Ваши обновления</value>
+  </data>
+  <data name="Notification_FollowPlural" xml:space="preserve">
+    <value>подписались на Ваши обновления</value>
+  </data>
+  <data name="Notification_FriendAcceptedMale" xml:space="preserve">
+    <value>принял Вашу заявку в друзья</value>
+  </data>
+  <data name="Notification_FriendAcceptedFemale" xml:space="preserve">
+    <value>приняла Вашу заявку в друзья</value>
+  </data>
+  <data name="Notification_FriendAcceptedPlural" xml:space="preserve">
+    <value>приняли Вашу заявку в друзья</value>
+  </data>
+  <data name="Notification_MentionCommentsFemale" xml:space="preserve">
+    <value>в комментариях к записи</value>
+  </data>
+  <data name="Notification_MentionCommentsMale" xml:space="preserve">
+    <value>в комментариях к записи</value>
+  </data>
+  <data name="Notification_CommentPost" xml:space="preserve">
+    <value>на Вашу запись</value>
+  </data>
+  <data name="Notification_CommentPhotoFemale" xml:space="preserve">
+    <value>прокомментировала Вашу фотографию</value>
+  </data>
+  <data name="Notification_CommentPhotoMale" xml:space="preserve">
+    <value>прокомментировал Вашу фотографию</value>
+  </data>
+  <data name="Notification_CommentVideoFemale" xml:space="preserve">
+    <value>прокомментировала Вашу видеозапись</value>
+  </data>
+  <data name="Notification_CommentVideoMale" xml:space="preserve">
+    <value>прокомментировал Вашу видеозапись</value>
+  </data>
+  <data name="Notification_ReplyCommentOrTopic" xml:space="preserve">
+    <value>в ответ на Ваш комментарий</value>
+  </data>
+  <data name="Notification_LikePostMale" xml:space="preserve">
+    <value>оценил Вашу запись</value>
+  </data>
+  <data name="Notification_LikePostFemale" xml:space="preserve">
+    <value>оценила Вашу запись</value>
+  </data>
+  <data name="Notification_LikePostPlural" xml:space="preserve">
+    <value>оценили Вашу запись</value>
+  </data>
+  <data name="Notification_LikeCommentMale" xml:space="preserve">
+    <value>оценил Ваш комментарий</value>
+  </data>
+  <data name="Notification_LikeCommentFemale" xml:space="preserve">
+    <value>оценила Ваш комментарий</value>
+  </data>
+  <data name="Notification_LikeCommentPlural" xml:space="preserve">
+    <value>оценили Ваш комментарий</value>
+  </data>
+  <data name="Notification_LikePhotoMale" xml:space="preserve">
+    <value>оценил Вашу фотографию</value>
+  </data>
+  <data name="Notification_LikePhotoFemale" xml:space="preserve">
+    <value>оценила Вашу фотографию</value>
+  </data>
+  <data name="Notification_LikePhotoPlural" xml:space="preserve">
+    <value>оценили Вашу фотографию</value>
+  </data>
+  <data name="Notification_LikeVideoMale" xml:space="preserve">
+    <value>оценил Вашу видеозапись</value>
+  </data>
+  <data name="Notification_LikeVideoFemale" xml:space="preserve">
+    <value>оценила Вашу видеозапись</value>
+  </data>
+  <data name="Notification_LikeVideoPlural" xml:space="preserve">
+    <value>оценили Вашу видеозапись</value>
+  </data>
+  <data name="Notification_CopyPostMale" xml:space="preserve">
+    <value>поделился Вашей записью</value>
+  </data>
+  <data name="Notification_CopyPostFemale" xml:space="preserve">
+    <value>поделилась Вашей записью</value>
+  </data>
+  <data name="Notification_CopyPostPlural" xml:space="preserve">
+    <value>поделились Вашей записью</value>
+  </data>
+  <data name="Notification_CopyPhotoMale" xml:space="preserve">
+    <value>поделился Вашей фотографией</value>
+  </data>
+  <data name="Notification_CopyPhotoFemale" xml:space="preserve">
+    <value>поделилась Вашей фотографией</value>
+  </data>
+  <data name="Notification_CopyPhotoPlural" xml:space="preserve">
+    <value>поделились Вашей фотографией</value>
+  </data>
+  <data name="Notification_CopyVideoMale" xml:space="preserve">
+    <value>поделился Вашей видеозаписью</value>
+  </data>
+  <data name="Notification_CopyVideoFemale" xml:space="preserve">
+    <value>поделилась Вашей видеозаписью</value>
+  </data>
+  <data name="Notification_CopyVideoPlural" xml:space="preserve">
+    <value>поделились Вашей видеозаписью</value>
+  </data>
+  <data name="Notification_MentionInPhotoComment" xml:space="preserve">
+    <value>в комментариях к фотографии</value>
+  </data>
+  <data name="Notification_MentionInVideoComment" xml:space="preserve">
+    <value>в комментариях к видеозаписи</value>
+  </data>
+  <data name="PullToRefresh.Text" xml:space="preserve">
+    <value>Тяните для обновления</value>
+  </data>
+  <data name="LogOut.Text" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="Poll_AnonymousPoll.Content" xml:space="preserve">
+    <value>Анонимное голосование</value>
+  </data>
+  <data name="Poll_PublicPoll" xml:space="preserve">
+    <value>Открытое голосование</value>
+  </data>
+  <data name="Poll_FiveVotesFrm" xml:space="preserve">
+    <value>{0} голосов</value>
+  </data>
+  <data name="Poll_OneVoteFrm" xml:space="preserve">
+    <value>{0} голос</value>
+  </data>
+  <data name="Poll_TwoFourVotesFrm" xml:space="preserve">
+    <value>{0} голоса</value>
+  </data>
+  <data name="OneMessageFrm" xml:space="preserve">
+    <value>{0} сообщение</value>
+  </data>
+  <data name="FiveMessagesFrm" xml:space="preserve">
+    <value>{0} сообщений</value>
+  </data>
+  <data name="TwoFourMessagesFrm" xml:space="preserve">
+    <value>{0} сообщения</value>
+  </data>
+  <data name="Profile_YouAreFriends" xml:space="preserve">
+    <value>У вас в друзьях</value>
+  </data>
+  <data name="Profile_YouAreFollowing" xml:space="preserve">
+    <value>Вы подписаны</value>
+  </data>
+  <data name="Group_Joined" xml:space="preserve">
+    <value>Вы участник</value>
+  </data>
+  <data name="Group_Following" xml:space="preserve">
+    <value>Вы подписаны</value>
+  </data>
+  <data name="Group_Attending" xml:space="preserve">
+    <value>Вы пойдёте</value>
+  </data>
+  <data name="Group_MayAttend" xml:space="preserve">
+    <value>Возможно пойдёте</value>
+  </data>
+  <data name="Profile_RequestSent" xml:space="preserve">
+    <value>Заявка отправлена</value>
+  </data>
+  <data name="FiveAlbumsFrm" xml:space="preserve">
+    <value>{0} альбомов</value>
+  </data>
+  <data name="OneAlbumFrm" xml:space="preserve">
+    <value>{0} альбом</value>
+  </data>
+  <data name="TwoFourAlbumsFrm" xml:space="preserve">
+    <value>{0} альбома</value>
+  </data>
+  <data name="AlbumsPhotosCountFiveFrm" xml:space="preserve">
+    <value>{0} фотографий</value>
+  </data>
+  <data name="AlbumsPhotosCountOneFrm" xml:space="preserve">
+    <value>{0} фотография</value>
+  </data>
+  <data name="AlbumsPhotosCountTwoFrm" xml:space="preserve">
+    <value>{0} фотографии</value>
+  </data>
+  <data name="Conversation_OnePerson" xml:space="preserve">
+    <value>{0} участник</value>
+  </data>
+  <data name="Conversation_TwoToFourPersonsFrm" xml:space="preserve">
+    <value>{0} участника</value>
+  </data>
+  <data name="Conversation_FiveOrMorePersionsFrm" xml:space="preserve">
+    <value>{0} участников</value>
+  </data>
+  <data name="Search.PlaceholderText" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="ChooseConversation" xml:space="preserve">
+    <value>Выберите диалог</value>
+  </data>
+  <data name="Video_Title" xml:space="preserve">
+    <value>Видеозапись</value>
+  </data>
+  <data name="OneSubscriberFrm" xml:space="preserve">
+    <value>{0} подписчик</value>
+  </data>
+  <data name="TwoFourSubscribersFrm" xml:space="preserve">
+    <value>{0} подписчика</value>
+  </data>
+  <data name="FiveSubscribersFrm" xml:space="preserve">
+    <value>{0} подписчиков</value>
+  </data>
+  <data name="Settings_DisabledNotifications" xml:space="preserve">
+    <value>Уведомления отключены до</value>
+  </data>
+  <data name="Menu_Market.Content" xml:space="preserve">
+    <value>Товары</value>
+  </data>
+  <data name="TryAgain.Text" xml:space="preserve">
+    <value>повторить</value>
+  </data>
+  <data name="ChatInviteUserByLinkFemaleFrm" xml:space="preserve">
+    <value>{0} присоединилась к беседе по ссылке</value>
+  </data>
+  <data name="ChatInviteUserByLinkMaleFrm" xml:space="preserve">
+    <value>{0} присоединился к беседе по ссылке</value>
+  </data>
+  <data name="OneFriendFrm" xml:space="preserve">
+    <value>{0} друг</value>
+  </data>
+  <data name="TwoFourFriendsFrm" xml:space="preserve">
+    <value>{0} друга</value>
+  </data>
+  <data name="FiveFriendsFrm" xml:space="preserve">
+    <value>{0} друзей</value>
+  </data>
+  <data name="OneMutualFrm" xml:space="preserve">
+    <value>{0} общий</value>
+  </data>
+  <data name="TwoFourMutualFrm" xml:space="preserve">
+    <value>{0} общих</value>
+  </data>
+  <data name="FiveMutualFrm" xml:space="preserve">
+    <value>{0} общих</value>
+  </data>
+  <data name="OneFollowerFrm" xml:space="preserve">
+    <value>{0} подписчик</value>
+  </data>
+  <data name="TwoFourFollowersFrm" xml:space="preserve">
+    <value>{0} подписчика</value>
+  </data>
+  <data name="FiveFollowersFrm" xml:space="preserve">
+    <value>{0} подписчиков</value>
+  </data>
+  <data name="ProfilePage_Info_Birthday" xml:space="preserve">
+    <value>День рождения</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Город</value>
+  </data>
+  <data name="OccupationType_Work" xml:space="preserve">
+    <value>Место работы</value>
+  </data>
+  <data name="ProfilePage_Info_Education" xml:space="preserve">
+    <value>Образование</value>
+  </data>
+  <data name="OneGift" xml:space="preserve">
+    <value>{0} подарок</value>
+  </data>
+  <data name="TwoFourGiftsFrm" xml:space="preserve">
+    <value>{0} подарка</value>
+  </data>
+  <data name="FiveMoreGiftsFrm" xml:space="preserve">
+    <value>{0} подарков</value>
+  </data>
+  <data name="OneGroup" xml:space="preserve">
+    <value>{0} группа</value>
+  </data>
+  <data name="TwoFourGroupsFrm" xml:space="preserve">
+    <value>{0} группы</value>
+  </data>
+  <data name="FiveMoreGroupsFrm" xml:space="preserve">
+    <value>{0} групп</value>
+  </data>
+  <data name="OneMark" xml:space="preserve">
+    <value>{0} отметка</value>
+  </data>
+  <data name="TwoFourMarksFrm" xml:space="preserve">
+    <value>{0} отметки</value>
+  </data>
+  <data name="FiveMoreMarksFrm" xml:space="preserve">
+    <value>{0} отметок</value>
+  </data>
+  <data name="AttachmentType_Graffiti" xml:space="preserve">
+    <value>Графити</value>
+  </data>
+  <data name="VoiceMessage" xml:space="preserve">
+    <value>Голосовое сообщение</value>
+  </data>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="OnePageFrm" xml:space="preserve">
+    <value>{0} страница</value>
+  </data>
+  <data name="TwoFourPageFrm" xml:space="preserve">
+    <value>{0} страницы</value>
+  </data>
+  <data name="FiveMorePageFrm" xml:space="preserve">
+    <value>{0} страниц</value>
+  </data>
+  <data name="ChatPinMsgFemaleFrm" xml:space="preserve">
+    <value>{0} закрепила сообщение {1}</value>
+  </data>
+  <data name="ChatPinMsgMaleFrm" xml:space="preserve">
+    <value>{0} закрепил сообщение {1}</value>
+  </data>
+  <data name="ChatUnPinMsgFemaleFrm" xml:space="preserve">
+    <value>{0} открепила сообщение</value>
+  </data>
+  <data name="ChatUnPinMsgMaleFrm" xml:space="preserve">
+    <value>{0} открепил сообщение</value>
+  </data>
+  <data name="Menu_Documents" xml:space="preserve">
+    <value>Файлы</value>
+  </data>
+  <data name="LogIn.Content" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="UserName.PlaceholderText" xml:space="preserve">
+    <value>Телефон или почта</value>
+  </data>
+  <data name="Password.PlaceholderText" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Event_Happened" xml:space="preserve">
+    <value>Событие состоялось</value>
+  </data>
+  <data name="RemoveFromBookmarks" xml:space="preserve">
+    <value>Удалить из закладок</value>
+  </data>
+  <data name="AddToBookmarks" xml:space="preserve">
+    <value>Добавить в закладки</value>
+  </data>
+  <data name="Group_Join" xml:space="preserve">
+    <value>Вступить</value>
+  </data>
+  <data name="Profile_Follow" xml:space="preserve">
+    <value>Подписаться</value>
+  </data>
+  <data name="Profile_AddToFriends" xml:space="preserve">
+    <value>Добавить в друзья</value>
+  </data>
+  <data name="Profile_FollowingYou_Female" xml:space="preserve">
+    <value>Подписана на Вас</value>
+  </data>
+  <data name="Profile_ReplyToRequest" xml:space="preserve">
+    <value>Ответить на заявку</value>
+  </data>
+  <data name="Profile_Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Group_SendAMessage" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="User_SendAMessage" xml:space="preserve">
+    <value>Личное сообщение</value>
+  </data>
+  <data name="ProfilePage_Info_NotMarriedMale" xml:space="preserve">
+    <value>Не женат</value>
+  </data>
+  <data name="ProfilePage_Info_NotMarriedFemale" xml:space="preserve">
+    <value>Не замужем</value>
+  </data>
+  <data name="ProfilePage_Info_InARelationshipWith" xml:space="preserve">
+    <value>Встречается с</value>
+  </data>
+  <data name="ProfilePage_Info_InARelationship" xml:space="preserve">
+    <value>Встречается</value>
+  </data>
+  <data name="ProfilePage_Info_EngagedMaleWith" xml:space="preserve">
+    <value>Помолвлен с</value>
+  </data>
+  <data name="ProfilePage_Info_EngagedFemaleWith" xml:space="preserve">
+    <value>Помолвлена с</value>
+  </data>
+  <data name="ProfilePage_Info_EngagedMale" xml:space="preserve">
+    <value>Помолвлен</value>
+  </data>
+  <data name="ProfilePage_Info_EngagedFemale" xml:space="preserve">
+    <value>Помолвлена</value>
+  </data>
+  <data name="ProfilePage_Info_MarriedMaleWith" xml:space="preserve">
+    <value>Женат на</value>
+  </data>
+  <data name="ProfilePage_Info_MarriedFemaleWith" xml:space="preserve">
+    <value>Замужем за</value>
+  </data>
+  <data name="ProfilePage_Info_MarriedMale" xml:space="preserve">
+    <value>Женат</value>
+  </data>
+  <data name="ProfilePage_Info_MarriedFemale" xml:space="preserve">
+    <value>Замужем</value>
+  </data>
+  <data name="ProfilePage_Info_ItIsComplicatedWith" xml:space="preserve">
+    <value>Все сложно с</value>
+  </data>
+  <data name="ProfilePage_Info_ItIsComplicated" xml:space="preserve">
+    <value>Все сложно</value>
+  </data>
+  <data name="ProfilePage_Info_ActivelySearching" xml:space="preserve">
+    <value>В активном поиске</value>
+  </data>
+  <data name="ProfilePage_Info_InLoveMaleWith" xml:space="preserve">
+    <value>Влюблен в</value>
+  </data>
+  <data name="ProfilePage_Info_InLoveFemaleWith" xml:space="preserve">
+    <value>Влюблена в</value>
+  </data>
+  <data name="ProfilePage_Info_InLoveMale" xml:space="preserve">
+    <value>Влюблен</value>
+  </data>
+  <data name="ProfilePage_Info_InLoveFemale" xml:space="preserve">
+    <value>Влюблена</value>
+  </data>
+  <data name="InCivilUnionWith" xml:space="preserve">
+    <value>В гражданском браке с</value>
+  </data>
+  <data name="InCivilUnion" xml:space="preserve">
+    <value>В гражданском браке</value>
+  </data>
+  <data name="ProfilePage_Info_ContactInformation" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="ProfilePage_Info_Beliefs" xml:space="preserve">
+    <value>Жизненная позиция</value>
+  </data>
+  <data name="ProfilePage_Info_PoliticalViews" xml:space="preserve">
+    <value>Политические предпочтения</value>
+  </data>
+  <data name="PoliticalViews_Communist" xml:space="preserve">
+    <value>Коммунистические</value>
+  </data>
+  <data name="PoliticalViews_Socialist" xml:space="preserve">
+    <value>Социалистические</value>
+  </data>
+  <data name="PoliticalViews_Moderate" xml:space="preserve">
+    <value>Умеренные</value>
+  </data>
+  <data name="PoliticalViews_Libertarian" xml:space="preserve">
+    <value>Либертарианские</value>
+  </data>
+  <data name="PoliticalViews_Liberal" xml:space="preserve">
+    <value>Либеральные</value>
+  </data>
+  <data name="PoliticalViews_Conservative" xml:space="preserve">
+    <value>Консервативные</value>
+  </data>
+  <data name="PoliticalViews_Monarchist" xml:space="preserve">
+    <value>Монархические</value>
+  </data>
+  <data name="PoliticalViews_Ultraconservative" xml:space="preserve">
+    <value>Ультраконсервативные</value>
+  </data>
+  <data name="PoliticalViews_Apathetic" xml:space="preserve">
+    <value>Индифферентные</value>
+  </data>
+  <data name="ProfilePage_Info_WorldView" xml:space="preserve">
+    <value>Мировоззрение</value>
+  </data>
+  <data name="PersonalPriority_FamilyAndChildren" xml:space="preserve">
+    <value>Семья и дети</value>
+  </data>
+  <data name="PersonalPriority_CareerAndMoney" xml:space="preserve">
+    <value>Карьера и деньги</value>
+  </data>
+  <data name="PersonalPriority_EntertainmentAndLeisure" xml:space="preserve">
+    <value>Развлечения и отдых</value>
+  </data>
+  <data name="PersonalPriority_ScienceAndResearch" xml:space="preserve">
+    <value>Наука и исследования</value>
+  </data>
+  <data name="PersonalPriority_ImprovingTheWorld" xml:space="preserve">
+    <value>Совершенствование мира</value>
+  </data>
+  <data name="PersonalPriority_PersonalDevelopment" xml:space="preserve">
+    <value>Саморазвитие</value>
+  </data>
+  <data name="PersonalPriority_BeautyAndArt" xml:space="preserve">
+    <value>Красота и искусство</value>
+  </data>
+  <data name="PersonalPriority_FameAndInfluence" xml:space="preserve">
+    <value>Слава и влияние</value>
+  </data>
+  <data name="ProfilePage_Info_ViewsOnSmoking" xml:space="preserve">
+    <value>Отношение к курению</value>
+  </data>
+  <data name="ProfilePage_Info_ViewsOnAlcohol" xml:space="preserve">
+    <value>Отношение к алкоголю</value>
+  </data>
+  <data name="ProfilePage_Info_InspiredBy" xml:space="preserve">
+    <value>Источники вдохновения</value>
+  </data>
+  <data name="ProfilePage_Info_Activities" xml:space="preserve">
+    <value>Деятельность</value>
+  </data>
+  <data name="ProfilePage_Info_Interests" xml:space="preserve">
+    <value>Интересы</value>
+  </data>
+  <data name="ProfilePage_Info_Music" xml:space="preserve">
+    <value>любимая музыка</value>
+  </data>
+  <data name="ProfilePage_Info_Movies" xml:space="preserve">
+    <value>любимые фильмы</value>
+  </data>
+  <data name="ProfilePage_Info_TV" xml:space="preserve">
+    <value>Любимые телешоу</value>
+  </data>
+  <data name="ProfilePage_Info_Books" xml:space="preserve">
+    <value>любимые книги</value>
+  </data>
+  <data name="ProfilePage_Info_Games" xml:space="preserve">
+    <value>Любимые игры</value>
+  </data>
+  <data name="ProfilePage_Info_Quotes" xml:space="preserve">
+    <value>Любимые цитаты</value>
+  </data>
+  <data name="ProfilePage_Info_About" xml:space="preserve">
+    <value>О себе</value>
+  </data>
+  <data name="ProfilePage_Info_PersonalInfomation" xml:space="preserve">
+    <value>Личная информация</value>
+  </data>
+  <data name="ChangeStatusText" xml:space="preserve">
+    <value>Изменить статус</value>
+  </data>
+  <data name="ProfilePage_Info_Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="ProfilePage_Info_StartDate" xml:space="preserve">
+    <value>Время начала</value>
+  </data>
+  <data name="ProfilePage_Info_FinishDate" xml:space="preserve">
+    <value>время окончания</value>
+  </data>
+  <data name="ProfilePage_Info_Location" xml:space="preserve">
+    <value>местоположение</value>
+  </data>
+  <data name="ProfilePage_Info_Links" xml:space="preserve">
+    <value>Ссылки</value>
+  </data>
+  <data name="ProfilePage_Info_Contacts" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="Footer_FullInformation.Text" xml:space="preserve">
+    <value>Подробная информация</value>
+  </data>
+  <data name="ProfilePage_Info_PersonalPriority" xml:space="preserve">
+    <value>Главное в жизни</value>
+  </data>
+  <data name="ProfilePage_Info_ImportantInOthers" xml:space="preserve">
+    <value>Главное в людях</value>
+  </data>
+  <data name="BadHabitsViews_Neutral" xml:space="preserve">
+    <value>Нейтральное</value>
+  </data>
+  <data name="BadHabitsViews_VeryNegative" xml:space="preserve">
+    <value>Резко негативное</value>
+  </data>
+  <data name="BadHabitsViews_Negative" xml:space="preserve">
+    <value>Негативное</value>
+  </data>
+  <data name="BadHabitsViews_Compromisable" xml:space="preserve">
+    <value>Компромиссное</value>
+  </data>
+  <data name="BadHabitsViews_Positive" xml:space="preserve">
+    <value>Положительное</value>
+  </data>
+  <data name="ImportantInOthers_CourageAndPersistance" xml:space="preserve">
+    <value>Смелость и упорство</value>
+  </data>
+  <data name="ImportantInOthers_HumorAndLoveForLife" xml:space="preserve">
+    <value>Юмор и жизнелюбие</value>
+  </data>
+  <data name="ImportantInOthers_HealthAndBeauty" xml:space="preserve">
+    <value>Красота и здоровье</value>
+  </data>
+  <data name="ImportantInOthers_WealthAndPower" xml:space="preserve">
+    <value>Власть и богатство</value>
+  </data>
+  <data name="ImportantInOthers_IntellectAndCreativity" xml:space="preserve">
+    <value>Ум и креативность</value>
+  </data>
+  <data name="ImportantInOthers_KindnessAndHonesty" xml:space="preserve">
+    <value>Доброта и честность</value>
+  </data>
+  <data name="OccupationType_SchoolUniversity" xml:space="preserve">
+    <value>Место учёбы</value>
+  </data>
+  <data name="FailedToConnectError" xml:space="preserve">
+    <value>Ошибка загрузки данных.\r\nПожалуйста, проверьте интернет-соединение.</value>
+  </data>
+  <data name="Loading.Text" xml:space="preserve">
+    <value>Загрузка...</value>
+  </data>
+  <data name="UserDeleted" xml:space="preserve">
+    <value>Страница пользователя удалена.</value>
+  </data>
+  <data name="UserBanned" xml:space="preserve">
+    <value>Страница пользователя заблокирована.</value>
+  </data>
+  <data name="UserBlacklisted" xml:space="preserve">
+    <value>{0} ограничил доступ к своей странице.</value>
+  </data>
+  <data name="User101_Description" xml:space="preserve">
+    <value>Страница используется для обратной совместимости сервиса комментариев от имени сообщества.</value>
+  </data>
+  <data name="InformationUnavailable" xml:space="preserve">
+    <value>Информация недоступна.</value>
+  </data>
+  <data name="User333_Description" xml:space="preserve">
+    <value>Официальная страница мобильной поддержки ВКонтакте.</value>
+  </data>
+  <data name="Group_Banned" xml:space="preserve">
+    <value>Сообщество заблокировано.</value>
+  </data>
+  <data name="Group_Private" xml:space="preserve">
+    <value>Это частное сообщество. Доступ только по приглашениям администраторов.</value>
+  </data>
+  <data name="ProfilePage_Info_Grandparents" xml:space="preserve">
+    <value>дедушки, бабушки</value>
+  </data>
+  <data name="ProfilePage_Info_Parents" xml:space="preserve">
+    <value>Родители</value>
+  </data>
+  <data name="ProfilePage_Info_Siblings" xml:space="preserve">
+    <value>Братья, сестры</value>
+  </data>
+  <data name="ProfilePage_Info_Grandchildren" xml:space="preserve">
+    <value>внуки</value>
+  </data>
+  <data name="ProfilePage_Info_Children" xml:space="preserve">
+    <value>дети</value>
+  </data>
+  <data name="GroupPage_SendRequest" xml:space="preserve">
+    <value>Подать заявку</value>
+  </data>
+  <data name="GroupPage_LeaveCommunity" xml:space="preserve">
+    <value>Выйти из группы</value>
+  </data>
+  <data name="EventMaybe" xml:space="preserve">
+    <value>Возможно пойду</value>
+  </data>
+  <data name="EventAttend" xml:space="preserve">
+    <value>Точно пойду</value>
+  </data>
+  <data name="Event_Join" xml:space="preserve">
+    <value>Присоединиться</value>
+  </data>
+  <data name="GroupPage_Unfollow" xml:space="preserve">
+    <value>Отписаться</value>
+  </data>
+  <data name="EventNotAttend" xml:space="preserve">
+    <value>Не могу пойти</value>
+  </data>
+  <data name="GroupPage_Follow" xml:space="preserve">
+    <value>Подписаться</value>
+  </data>
+  <data name="GroupPage_CancelRequest" xml:space="preserve">
+    <value>Отменить заявку</value>
+  </data>
+  <data name="Profile_AcceptRequest" xml:space="preserve">
+    <value>Принять заявку</value>
+  </data>
+  <data name="Profile_KeepAsFollower" xml:space="preserve">
+    <value>Оставить в подписчиках</value>
+  </data>
+  <data name="Profile_RemoveFromFriends" xml:space="preserve">
+    <value>Удалить из друзей</value>
+  </data>
+  <data name="AttachmentType_Audio" xml:space="preserve">
+    <value>Аудиозапись</value>
+  </data>
+  <data name="AttachmentType_PhotoVideo" xml:space="preserve">
+    <value>Фото или видео</value>
+  </data>
+  <data name="AttachmentType_Document" xml:space="preserve">
+    <value>Документ</value>
+  </data>
+  <data name="AttachmentType_Camera" xml:space="preserve">
+    <value>Камера</value>
+  </data>
+  <data name="OneCommonFriendFrm" xml:space="preserve">
+    <value>{0} общий друг</value>
+  </data>
+  <data name="FiveCommonFriendsFrm" xml:space="preserve">
+    <value>{0} общих друзей</value>
+  </data>
+  <data name="TwoFourCommonFriendsFrm" xml:space="preserve">
+    <value>{0} общих друга</value>
+  </data>
+  <data name="OneFriendRequestFrm" xml:space="preserve">
+    <value>{0} заявка в друзья</value>
+  </data>
+  <data name="TwoFourFriendRequestsFrm" xml:space="preserve">
+    <value>{0} заявки в друзья</value>
+  </data>
+  <data name="FiveFriendRequestsFrm" xml:space="preserve">
+    <value>{0} заявок в друзья</value>
+  </data>
+  <data name="Friends_Add.Content" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="Communities_Hide.Content" xml:space="preserve">
+    <value>Оставить в подписчиках</value>
+  </data>
+  <data name="Communities_ShowAll.Text" xml:space="preserve">
+    <value>Показать все</value>
+  </data>
+  <data name="TwoFourTopicsFrm" xml:space="preserve">
+    <value>{0} обсуждения</value>
+  </data>
+  <data name="OneTopicFrm" xml:space="preserve">
+    <value>{0} обсуждение</value>
+  </data>
+  <data name="FiveTopicsFrm" xml:space="preserve">
+    <value>{0} обсуждений</value>
+  </data>
+  <data name="AppBarMenu_SaveInAlbum" xml:space="preserve">
+    <value>Сохранить к себе в альбом</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Пожаловаться</value>
+  </data>
+  <data name="ReportReasonSpam" xml:space="preserve">
+    <value>спам</value>
+  </data>
+  <data name="ReportReasonExtremism" xml:space="preserve">
+    <value>экстремизм</value>
+  </data>
+  <data name="ReportReasonChildPorn" xml:space="preserve">
+    <value>детская порнография</value>
+  </data>
+  <data name="ReportReasonViolence" xml:space="preserve">
+    <value>насилие</value>
+  </data>
+  <data name="ReportReasonDrug" xml:space="preserve">
+    <value>пропаганда наркотиков</value>
+  </data>
+  <data name="ReportReasonAdult" xml:space="preserve">
+    <value>материал для взрослых</value>
+  </data>
+  <data name="ReportReasonInsult" xml:space="preserve">
+    <value>оскорбление</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>редактировать</value>
+  </data>
+  <data name="PublishNow" xml:space="preserve">
+    <value>опубликовать сейчас</value>
+  </data>
+  <data name="SuggestedNews_Publish" xml:space="preserve">
+    <value>опубликовать</value>
+  </data>
+  <data name="PinPost" xml:space="preserve">
+    <value>закрепить</value>
+  </data>
+  <data name="UnpinPost" xml:space="preserve">
+    <value>открепить</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Conversation_Copy" xml:space="preserve">
+    <value>копировать</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Копировать ссылку</value>
+  </data>
+  <data name="GoToOriginal" xml:space="preserve">
+    <value>Перейти к оригиналу</value>
+  </data>
+  <data name="HideThisPost" xml:space="preserve">
+    <value>Это не интересно</value>
+  </data>
+  <data name="HideFromNews" xml:space="preserve">
+    <value>Скрыть новости источника</value>
+  </data>
+  <data name="AttachmentType_IncomingCall" xml:space="preserve">
+    <value>Входящий звонок</value>
+  </data>
+  <data name="AttachmentType_OutcomingCall" xml:space="preserve">
+    <value>Исходящий звонок</value>
+  </data>
+  <data name="OneAnswerFrm" xml:space="preserve">
+    <value>{0} ответ</value>
+  </data>
+  <data name="TwoFourAnswersFrm" xml:space="preserve">
+    <value>{0} ответа</value>
+  </data>
+  <data name="FiveAnswersFrm" xml:space="preserve">
+    <value>{0} ответов</value>
+  </data>
+  <data name="PrivateProfile" xml:space="preserve">
+    <value>Это закрытый профиль</value>
+  </data>
+  <data name="UserPrivateMale" xml:space="preserve">
+    <value>Добавьте {0} в друзья, чтобы смотреть его записи, фотографии и другие материалы</value>
+  </data>
+  <data name="UserPrivateFamale" xml:space="preserve">
+    <value>Добавьте {0} в друзья, чтобы смотреть её записи, фотографии и другие материалы</value>
+  </data>
+  <data name="NewTopicTextLbl" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="NewsPage_EnterComment.PlaceholderText" xml:space="preserve">
+    <value>Добавить комментарий</value>
+  </data>
+  <data name="NewsPage_WhatsNew.Text" xml:space="preserve">
+    <value>Что у Вас нового?</value>
+  </data>
+  <data name="NewTopicTitleLbl.PlaceholderText" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="NewPost_FromGroup.Content" xml:space="preserve">
+    <value>От имени группы</value>
+  </data>
+  <data name="NewPost_Signature.Content" xml:space="preserve">
+    <value>Подпись</value>
+  </data>
+  <data name="NewPost_FriendsOnly.Content" xml:space="preserve">
+    <value>Только для друзей</value>
+  </data>
+  <data name="Poll_Question.Text" xml:space="preserve">
+    <value>Тема опроса</value>
+  </data>
+  <data name="Poll_PollOptions.Text" xml:space="preserve">
+    <value>Варианты ответа</value>
+  </data>
+  <data name="Question.Text" xml:space="preserve">
+    <value>Вопрос</value>
+  </data>
+  <data name="Poll_MultiplePoll.Content" xml:space="preserve">
+    <value>Выбор нескольких вариантов</value>
+  </data>
+  <data name="Poll_AddAnOption.Content" xml:space="preserve">
+    <value>добавить вариант</value>
+  </data>
+  <data name="Privacy_OnlyMe.Content" xml:space="preserve">
+    <value>Только я</value>
+  </data>
+  <data name="Privacy_AllUsers.Content" xml:space="preserve">
+    <value>Все пользователи</value>
+  </data>
+  <data name="Privacy_Friends.Content" xml:space="preserve">
+    <value>Только друзья</value>
+  </data>
+  <data name="Privacy_FriendsOfFriends.Content" xml:space="preserve">
+    <value>Друзья и друзья друзей</value>
+  </data>
+  <data name="Privacy_Nobody.Content" xml:space="preserve">
+    <value>Никто</value>
+  </data>
+  <data name="MainMenu_Birthdays.Text" xml:space="preserve">
+    <value>Дни рождения</value>
+  </data>
+  <data name="HasABirthdayToday" xml:space="preserve">
+    <value>сегодня день рождения</value>
+  </data>
+  <data name="Tomorrow" xml:space="preserve">
+    <value>завтра</value>
+  </data>
+  <data name="Privacy_PickUsersOrLists.Text" xml:space="preserve">
+    <value>добавить друзей или списки</value>
+  </data>
+  <data name="Privacy_CertainFriends.Content" xml:space="preserve">
+    <value>Некоторые друзья</value>
+  </data>
+  <data name="CommunityManager_Moderator.Text" xml:space="preserve">
+    <value>Модератор</value>
+  </data>
+  <data name="CommunityManager_Editor.Text" xml:space="preserve">
+    <value>Редактор</value>
+  </data>
+  <data name="CommunityManager_Administrator.Text" xml:space="preserve">
+    <value>Администратор</value>
+  </data>
+  <data name="CommunityManager_Creator.Text" xml:space="preserve">
+    <value>Создатель</value>
+  </data>
+  <data name="BannedUsers_BanUser" xml:space="preserve">
+    <value>Заблокировать</value>
+  </data>
+  <data name="RemoveFromCommunity" xml:space="preserve">
+    <value>удалить из сообщества</value>
+  </data>
+  <data name="AddToManagers" xml:space="preserve">
+    <value>назначить руководителем</value>
+  </data>
+  <data name="AuthorityLevel.Text" xml:space="preserve">
+    <value>Уровень полномочий</value>
+  </data>
+  <data name="CommunityManager_Moderator_Description.Text" xml:space="preserve">
+    <value>Может удалять добавленные пользователями материалы, управлять чёрным списком сообщества</value>
+  </data>
+  <data name="CommunityManager_Editor_Description.Text" xml:space="preserve">
+    <value>Может писать от имени сообщества, добавлять, удалять и редактировать контент, обновлять главную фотографию</value>
+  </data>
+  <data name="CommunityManager_Administrator_Description.Text" xml:space="preserve">
+    <value>Может назначать и снимать администраторов, изменять название и адрес сообщества</value>
+  </data>
+  <data name="ShowInContactsBlock.Content" xml:space="preserve">
+    <value>Отображать в блоке контактов</value>
+  </data>
+  <data name="Position.PlaceholderText" xml:space="preserve">
+    <value>должность</value>
+  </data>
+  <data name="Phone.PlaceholderText" xml:space="preserve">
+    <value>телефон</value>
+  </data>
+  <data name="RemoveFromManagers.Text" xml:space="preserve">
+    <value>Разжаловать руководителя</value>
+  </data>
+  <data name="WillBeCommunityManager" xml:space="preserve">
+    <value>Вы собираетесь назначить {0} руководителем сообщества</value>
+  </data>
+  <data name="IsCommunityManager" xml:space="preserve">
+    <value>Руководитель сообщества</value>
+  </data>
+  <data name="BlockDuration.Header" xml:space="preserve">
+    <value>Срок блокировки</value>
+  </data>
+  <data name="Forever.Content" xml:space="preserve">
+    <value>Навсегда</value>
+  </data>
+  <data name="ForYear.Content" xml:space="preserve">
+    <value>На год</value>
+  </data>
+  <data name="ForMonth.Content" xml:space="preserve">
+    <value>На месяц</value>
+  </data>
+  <data name="ForWeek.Content" xml:space="preserve">
+    <value>На неделю</value>
+  </data>
+  <data name="ForDay.Content" xml:space="preserve">
+    <value>На день</value>
+  </data>
+  <data name="ForHour.Content" xml:space="preserve">
+    <value>На час</value>
+  </data>
+  <data name="Group_BanReason.Header" xml:space="preserve">
+    <value>Причина</value>
+  </data>
+  <data name="Group_BanReason_Other.Content" xml:space="preserve">
+    <value>Другое</value>
+  </data>
+  <data name="Group_BanReason_Spam.Content" xml:space="preserve">
+    <value>Спам</value>
+  </data>
+  <data name="Group_BanReason_VerbalAbuse.Content" xml:space="preserve">
+    <value>Оскорбление участников</value>
+  </data>
+  <data name="Group_BanReason_StrongLanguage.Content" xml:space="preserve">
+    <value>Нецензурные выражения</value>
+  </data>
+  <data name="Group_BanReason_IrrelevantMessages.Content" xml:space="preserve">
+    <value>Сообщения не по теме</value>
+  </data>
+  <data name="ShowCommentForUser.Text" xml:space="preserve">
+    <value>Показывать комментарий пользователю</value>
+  </data>
+  <data name="Group_BanComment.Text" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="IsCommunityMemberOrFollower" xml:space="preserve">
+    <value>Состоит в сообществе</value>
+  </data>
+  <data name="BlockedInCommunityFemale" xml:space="preserve">
+    <value>Заблокирована в сообществе</value>
+  </data>
+  <data name="BlockedInCommunityMale" xml:space="preserve">
+    <value>Заблокирован в сообществе</value>
+  </data>
+  <data name="AddedFemale" xml:space="preserve">
+    <value>Добавила</value>
+  </data>
+  <data name="AddedMale" xml:space="preserve">
+    <value>Добавил</value>
+  </data>
+  <data name="YearsOld_TwoFourFrm" xml:space="preserve">
+    <value>{0} года</value>
+  </data>
+  <data name="YearsOld_OneFrm" xml:space="preserve">
+    <value>{0} год</value>
+  </data>
+  <data name="YearsOld_FiveFrm" xml:space="preserve">
+    <value>{0} лет</value>
+  </data>
+  <data name="VideoNew_AddToMyVideos" xml:space="preserve">
+    <value>Добавить в мои видео</value>
+  </data>
+  <data name="VideoNew_AddToAlbum" xml:space="preserve">
+    <value>Добавить в альбом</value>
+  </data>
+  <data name="OpenInBrowser" xml:space="preserve">
+    <value>Открыть в браузере</value>
+  </data>
+  <data name="VideoNew_RemovedFromMyVideos" xml:space="preserve">
+    <value>Удалить из моих видео</value>
+  </data>
+  <data name="DialogWithFrm" xml:space="preserve">
+    <value>Диалог с {0}</value>
+  </data>
+  <data name="Photo_UpdatedProfileCommunity" xml:space="preserve">
+    <value>В сообществе обновлена фотография</value>
+  </data>
+  <data name="Photo_UpdatedProfileFemale" xml:space="preserve">
+    <value>Обновила фотографию на странице</value>
+  </data>
+  <data name="Photo_UpdatedProfileMale" xml:space="preserve">
+    <value>Обновил фотографию на странице</value>
+  </data>
+  <data name="Conversation_IsTypingUsers" xml:space="preserve">
+    <value>печатают</value>
+  </data>
+  <data name="Conversation_IsTyping" xml:space="preserve">
+    <value>печатает</value>
+  </data>
+  <data name="Conversation_FewUsersAreTypingFrm" xml:space="preserve">
+    <value>{0} и ещё {1} печатают</value>
+  </data>
+  <data name="OneViewFrm" xml:space="preserve">
+    <value>{0} просмотр</value>
+  </data>
+  <data name="TwoFourViewsFrm" xml:space="preserve">
+    <value>{0} просмотра</value>
+  </data>
+  <data name="FiveViewsFrm" xml:space="preserve">
+    <value>{0} просмотров</value>
+  </data>
+  <data name="GroupsListPage_All.Content" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="GroupsListPage_Events.Content" xml:space="preserve">
+    <value>События</value>
+  </data>
+  <data name="GroupsListPage_Manage.Content" xml:space="preserve">
+    <value>Управление</value>
+  </data>
+  <data name="GroupsListPage_FutureEvents" xml:space="preserve">
+    <value>Ближайшие события</value>
+  </data>
+  <data name="GroupsListPage_PastEvents" xml:space="preserve">
+    <value>Прошедшие события</value>
+  </data>
+  <data name="Story" xml:space="preserve">
+    <value>История</value>
+  </data>
+  <data name="User100_Description" xml:space="preserve">
+    <value>Официальная страница администрации ВКонтакте. Используется только для персональных оповещений. Если у Вас возникла проблема или Вам требуется помощь, обратитесь в службу поддержки.</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Беседа</value>
+  </data>
+  <data name="Messenger_Materials" xml:space="preserve">
+    <value>Вложения</value>
+  </data>
+  <data name="NewSettings_About.Title" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="Conversation_WallPost" xml:space="preserve">
+    <value>Запись на стене</value>
+  </data>
+  <data name="NewSettings_BlackList.Title" xml:space="preserve">
+    <value>Чёрный список</value>
+  </data>
+  <data name="Management_Members" xml:space="preserve">
+    <value>Участники</value>
+  </data>
+  <data name="Management_Managers.Title" xml:space="preserve">
+    <value>Руководители</value>
+  </data>
+  <data name="Management_Requests.Title" xml:space="preserve">
+    <value>Заявки</value>
+  </data>
+  <data name="RecommendedGroups_Title" xml:space="preserve">
+    <value>Найти страницы</value>
+  </data>
+  <data name="CommunityType_PublicPage.Text" xml:space="preserve">
+    <value>Публичная страница</value>
+  </data>
+  <data name="CommunityType_Group.Text" xml:space="preserve">
+    <value>Группа</value>
+  </data>
+  <data name="CommunityCreation.Text" xml:space="preserve">
+    <value>Создание сообщества</value>
+  </data>
+  <data name="ChatEdit_Title" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="CommunityType.Text" xml:space="preserve">
+    <value>Вид сообщества</value>
+  </data>
+  <data name="CommunityType_Group_Description.Text" xml:space="preserve">
+    <value>Подходит для дискуссий и обмена мнениями</value>
+  </data>
+  <data name="CommunityType_PublicPage_Description.Text" xml:space="preserve">
+    <value>Идеально для распространения новостей и информации</value>
+  </data>
+  <data name="CommunityType_Event.Text" xml:space="preserve">
+    <value>Мероприятие</value>
+  </data>
+  <data name="CommunityType_Event_Description.Text" xml:space="preserve">
+    <value>Удобно для организации концертов и вечеринок</value>
+  </data>
+  <data name="PublicPageType.Text" xml:space="preserve">
+    <value>Тип страницы</value>
+  </data>
+  <data name="PublicPageType_Place.Text" xml:space="preserve">
+    <value>Место или небольшая компания</value>
+  </data>
+  <data name="PublicPageType_Place_Description.Text" xml:space="preserve">
+    <value>Кафе, торговый центр, кинотеатр, музей</value>
+  </data>
+  <data name="PublicPageType_Company_Description.Text" xml:space="preserve">
+    <value>«Яндекс», «Ведомости», «Врачи без границ», МГУ</value>
+  </data>
+  <data name="PublicPageType_Company.Text" xml:space="preserve">
+    <value>Компания, организация или веб-сайт</value>
+  </data>
+  <data name="PublicPageType_Person.Text" xml:space="preserve">
+    <value>Известная личность или коллектив</value>
+  </data>
+  <data name="PublicPageType_Person_Description.Text" xml:space="preserve">
+    <value>Дмитрий Медведев, «Сплин», Валерия</value>
+  </data>
+  <data name="PublicPageType_Production.Text" xml:space="preserve">
+    <value>Произведение или продукция</value>
+  </data>
+  <data name="PublicPageType_Production_Description.Text" xml:space="preserve">
+    <value>Фильм, музыкальный альбом, книга, дезодорант</value>
+  </data>
+  <data name="TermsAcceptionFirstPart.Text" xml:space="preserve">
+    <value>Я являюсь официальным представителем и принимаю </value>
+  </data>
+  <data name="TermsAcceptionSecondPart.Text" xml:space="preserve">
+    <value>Правила пользования сайтом</value>
+  </data>
+  <data name="VideoCatalog_AlreadyViewed" xml:space="preserve">
+    <value>просмотрено</value>
+  </data>
+  <data name="Profile_Videos" xml:space="preserve">
+    <value>Видеозаписи</value>
+  </data>
+  <data name="VideoCatalog_AlbumUpdated" xml:space="preserve">
+    <value>Обновлён</value>
+  </data>
+  <data name="Profile_Audios" xml:space="preserve">
+    <value>Аудиозаписи</value>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Исполнитель</value>
+  </data>
+  <data name="Group_AllPosts" xml:space="preserve">
+    <value>Все записи</value>
+  </data>
+  <data name="Group_CommunityPosts" xml:space="preserve">
+    <value>Записи сообщества</value>
+  </data>
+  <data name="User_MyPosts" xml:space="preserve">
+    <value>Мои записи</value>
+  </data>
+  <data name="User_ProfilePostsFrm" xml:space="preserve">
+    <value>Записи {0}</value>
+  </data>
+  <data name="OneWallPostFrm" xml:space="preserve">
+    <value>{0} запись</value>
+  </data>
+  <data name="TwoWallPostsFrm" xml:space="preserve">
+    <value>{0} записи</value>
+  </data>
+  <data name="FiveWallPostsFrm" xml:space="preserve">
+    <value>{0} записей</value>
+  </data>
+  <data name="BannedUsers_UnbanUser" xml:space="preserve">
+    <value>Разблокировать</value>
+  </data>
+  <data name="OnePodcastFrm" xml:space="preserve">
+    <value>{0} подкаст</value>
+  </data>
+  <data name="TwoFourPodcastsFrm" xml:space="preserve">
+    <value>{0} подкаста</value>
+  </data>
+  <data name="FiveOrMorePodcastsFrm" xml:space="preserve">
+    <value>{0} подкастов</value>
+  </data>
+  <data name="OneArticleFrm" xml:space="preserve">
+    <value>{0} статья</value>
+  </data>
+  <data name="TwoFourArticlesFrm" xml:space="preserve">
+    <value>{0} статьи</value>
+  </data>
+  <data name="FiveArticlesFrm" xml:space="preserve">
+    <value>{0} статей</value>
+  </data>
+  <data name="Poll" xml:space="preserve">
+    <value>Опрос</value>
+  </data>
+  <data name="VideoCatalog_LIVE" xml:space="preserve">
+    <value>LIVE</value>
+  </data>
+  <data name="SendAsAGift" xml:space="preserve">
+    <value>Подарить</value>
+  </data>
+  <data name="Unavailable" xml:space="preserve">
+    <value>Недоступно</value>
+  </data>
+  <data name="TwoFourAttachmentsFrm" xml:space="preserve">
+    <value>{0} вложения</value>
+  </data>
+  <data name="OneAttachment" xml:space="preserve">
+    <value>{0} вложение</value>
+  </data>
+  <data name="FiveMoreAttachmentsFrm" xml:space="preserve">
+    <value>{0} вложений</value>
+  </data>
+  <data name="GroupsListPage_Unsure.Header" xml:space="preserve">
+    <value>Возможные</value>
+  </data>
+  <data name="GroupsListPage_Friends.Header" xml:space="preserve">
+    <value>Друзья</value>
+  </data>
+  <data name="Management_Subscribers" xml:space="preserve">
+    <value>Подписчики</value>
+  </data>
+  <data name="NoSubscribersYet" xml:space="preserve">
+    <value>Нет ни одного подписчика</value>
+  </data>
+  <data name="NoParticipantsYet" xml:space="preserve">
+    <value>Нет ни одного участника</value>
+  </data>
+  <data name="OnePersonFrm" xml:space="preserve">
+    <value>{0} человек</value>
+  </data>
+  <data name="TwoFourPersonsFrm" xml:space="preserve">
+    <value>{0} человека</value>
+  </data>
+  <data name="FivePersonsFrm" xml:space="preserve">
+    <value>{0} человек</value>
+  </data>
+  <data name="NoPersons" xml:space="preserve">
+    <value>Нет ни одного человека</value>
+  </data>
+  <data name="Conversation_Retry.Content" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="Conversation_MessageWasNotSent.Text" xml:space="preserve">
+    <value>Не удалось отправить</value>
+  </data>
+  <data name="PostCommentPage_OneCommentFrm" xml:space="preserve">
+    <value>{0} комментарий</value>
+  </data>
+  <data name="PostCommentPage_TwoFourCommentsFrm" xml:space="preserve">
+    <value>{0} комментария</value>
+  </data>
+  <data name="PostCommentPage_FiveCommentsFrm" xml:space="preserve">
+    <value>{0} комментариев</value>
+  </data>
+  <data name="PostCommentsPage_NoComments" xml:space="preserve">
+    <value>Нет ни одного комментария</value>
+  </data>
+  <data name="NoPages" xml:space="preserve">
+    <value>Нет ни одной страницы</value>
+  </data>
+  <data name="OneEventFrm" xml:space="preserve">
+    <value>{0} событие</value>
+  </data>
+  <data name="TwoFourEventsFrm" xml:space="preserve">
+    <value>{0} события</value>
+  </data>
+  <data name="FiveEventsFrm" xml:space="preserve">
+    <value>{0} событий</value>
+  </data>
+  <data name="FriendsPage_Pivot_All.Content" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="LikesPage_Shared.Header" xml:space="preserve">
+    <value>Поделились</value>
+  </data>
+  <data name="LikesPage_Friends.Header" xml:space="preserve">
+    <value>Друзья</value>
+  </data>
+  <data name="Error_AccessDenied" xml:space="preserve">
+    <value>Нет доступа.</value>
+  </data>
+  <data name="Error_Generic" xml:space="preserve">
+    <value>Произошла ошибка ({0}).\r\nПопробуйте повторить позднее.</value>
+  </data>
+  <data name="LikesPage_OneLikedFrm" xml:space="preserve">
+    <value>Понравилось {0} человеку</value>
+  </data>
+  <data name="LikesPage_TwoFourLikedFrm" xml:space="preserve">
+    <value>Понравилось {0} людям</value>
+  </data>
+  <data name="LikesPage_FiveLikedFrm" xml:space="preserve">
+    <value>Понравилось {0} людям</value>
+  </data>
+  <data name="NoAlbums" xml:space="preserve">
+    <value>Нет ни одного альбома</value>
+  </data>
+  <data name="NoTopics" xml:space="preserve">
+    <value>Нет ни одного обсуждения</value>
+  </data>
+  <data name="NoDocuments" xml:space="preserve">
+    <value>Нет ни одного документа</value>
+  </data>
+  <data name="NewPost_NewPost" xml:space="preserve">
+    <value>Новая запись</value>
+  </data>
+  <data name="EditPost" xml:space="preserve">
+    <value>Редактирование записи</value>
+  </data>
+  <data name="SuggestedNews_SuggestAPost" xml:space="preserve">
+    <value>Предложить новость</value>
+  </data>
+  <data name="EditComment" xml:space="preserve">
+    <value>Редактирование комментария</value>
+  </data>
+  <data name="NewTopic" xml:space="preserve">
+    <value>Новая тема</value>
+  </data>
+  <data name="DeleteWallPost" xml:space="preserve">
+    <value>Удаление записи</value>
+  </data>
+  <data name="Conversation_ConfirmDeletion" xml:space="preserve">
+    <value>Это действие нельзя будет отменить. Продолжить?</value>
+  </data>
+  <data name="GroupPage_Info" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="ProfilePage_Info_Hometown" xml:space="preserve">
+    <value>Родной город</value>
+  </data>
+  <data name="ProfilePage_Info_Languages" xml:space="preserve">
+    <value>Языки</value>
+  </data>
+  <data name="ProfilePage_Info_RelStatus" xml:space="preserve">
+    <value>Семейное положение</value>
+  </data>
+  <data name="SubscriptionsPage_OwnSubscriptionsTitle" xml:space="preserve">
+    <value>Подписки</value>
+  </data>
+  <data name="Pivot_Pages.Header" xml:space="preserve">
+    <value>Страницы</value>
+  </data>
+  <data name="Pivot_Groups.Header" xml:space="preserve">
+    <value>Группы</value>
+  </data>
+  <data name="DiagnosticsDescription.Text" xml:space="preserve">
+    <value>При появлении ошибок в работе приложения Вы можете отправить диагностическую информацию разработчику приложения.</value>
+  </data>
+  <data name="InvitedToChatBy_M" xml:space="preserve">
+    <value>Пригласил {0}</value>
+  </data>
+  <data name="InvitedToChatBy_F" xml:space="preserve">
+    <value>Пригласила {0}</value>
+  </data>
+  <data name="ChatCreator" xml:space="preserve">
+    <value>Создатель беседы</value>
+  </data>
+  <data name="FriendsPage_Pivot_Online.Content" xml:space="preserve">
+    <value>В сети</value>
+  </data>
+  <data name="FriendsPage_Pivot_Suggestions.Content" xml:space="preserve">
+    <value>Возможные</value>
+  </data>
+  <data name="FriendsPage_Pivot_Requests.Content" xml:space="preserve">
+    <value>Заявки входящие</value>
+  </data>
+  <data name="FriendsPage_Pivot_RequestsOut.Content" xml:space="preserve">
+    <value>Заявки исходящие</value>
+  </data>
+  <data name="UsersSearch_OnePersonFoundFrm" xml:space="preserve">
+    <value>Найден {0} человек</value>
+  </data>
+  <data name="UsersSearch_TwoFourPersonsFoundFrm" xml:space="preserve">
+    <value>Найдено {0} человека</value>
+  </data>
+  <data name="UsersSearch_FivePersonsFoundFrm" xml:space="preserve">
+    <value>Найдено {0} человек</value>
+  </data>
+  <data name="Sex_Any" xml:space="preserve">
+    <value>Любой</value>
+  </data>
+  <data name="Sex_Female" xml:space="preserve">
+    <value>Женский</value>
+  </data>
+  <data name="Sex_Male" xml:space="preserve">
+    <value>Мужской</value>
+  </data>
+  <data name="OneFromAgeFrm" xml:space="preserve">
+    <value>от {0}</value>
+  </data>
+  <data name="OneToAgeFrm" xml:space="preserve">
+    <value>до {0}</value>
+  </data>
+  <data name="UsersSearch_WithPhoto.Content" xml:space="preserve">
+    <value>С фотографией</value>
+  </data>
+  <data name="UsersSearch_OnlineNow.Content" xml:space="preserve">
+    <value>В сети</value>
+  </data>
+  <data name="Parameters.Text" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="RelationshipStatusPicker_Title.Header" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Conversation_Forward" xml:space="preserve">
+    <value>Переслать</value>
+  </data>
+  <data name="Conversation_Quote" xml:space="preserve">
+    <value>Ответить</value>
+  </data>
+  <data name="Management_Links.Title" xml:space="preserve">
+    <value>Ссылки</value>
+  </data>
+  <data name="OneLinkFrm" xml:space="preserve">
+    <value>{0} ссылка</value>
+  </data>
+  <data name="TwoFourLinksFrm" xml:space="preserve">
+    <value>{0} ссылки</value>
+  </data>
+  <data name="FiveLinksFrm" xml:space="preserve">
+    <value>{0} ссылкок</value>
+  </data>
+  <data name="PostponedNews_TwoFourPostponedPostsFrm" xml:space="preserve">
+    <value>{0} отложенные записи</value>
+  </data>
+  <data name="PostponedNews_OnePostponedPostFrm" xml:space="preserve">
+    <value>{0} отложенная запись</value>
+  </data>
+  <data name="PostponedNews_FivePostponedPostsFrm" xml:space="preserve">
+    <value>{0} отложенных записей</value>
+  </data>
+  <data name="SuggestedNews_TwoFourSuggestedPostsFrm" xml:space="preserve">
+    <value>{0} предлагаемые новости</value>
+  </data>
+  <data name="SuggestedNews_OneSuggestedPostFrm" xml:space="preserve">
+    <value>{0} предлагаемая новость</value>
+  </data>
+  <data name="SuggestedNews_FiveSuggestedPostsFrm" xml:space="preserve">
+    <value>{0} предлагаемых новостей</value>
+  </data>
+  <data name="PostponedNews_Title" xml:space="preserve">
+    <value>Отложенные записи</value>
+  </data>
+  <data name="SuggestedNews_Title" xml:space="preserve">
+    <value>Предлагаемые новости</value>
+  </data>
+  <data name="SuggestedNews_Reject" xml:space="preserve">
+    <value>отклонить</value>
+  </data>
+  <data name="SuggestedPosts_NoPosts" xml:space="preserve">
+    <value>Нет ни одной предлагаемой новости</value>
+  </data>
+  <data name="PostponedNews_NoPosts" xml:space="preserve">
+    <value>Нет ни одной отложенной записи</value>
+  </data>
+  <data name="PublicGroup" xml:space="preserve">
+    <value>Открытая группа</value>
+  </data>
+  <data name="ClosedGroup" xml:space="preserve">
+    <value>Закрытая группа</value>
+  </data>
+  <data name="PrivateGroup" xml:space="preserve">
+    <value>Частная группа</value>
+  </data>
+  <data name="PublicPage" xml:space="preserve">
+    <value>Публичная страница</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>Событие</value>
+  </data>
+  <data name="LastOfOneCommentFrm" xml:space="preserve">
+    <value>Последний из {0} комментария</value>
+  </data>
+  <data name="LastOfTwoFourCommentsFrm" xml:space="preserve">
+    <value>Последний из {0} комментариев</value>
+  </data>
+  <data name="LastOfFiveCommentsFrm" xml:space="preserve">
+    <value>Последний из {0} комментариев</value>
+  </data>
+  <data name="Feedback_pivotItem.Header" xml:space="preserve">
+    <value>Ответы</value>
+  </data>
+  <data name="Comments_pivotItem" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="ExpandText" xml:space="preserve">
+    <value>Показать полностью...</value>
+  </data>
+  <data name="MainPage_News_AddNews" xml:space="preserve">
+    <value>Добавить новость</value>
+  </data>
+  <data name="Conversations_OneDialogFrm" xml:space="preserve">
+    <value>{0} диалог</value>
+  </data>
+  <data name="Conversations_TwoFourDialogsFrm" xml:space="preserve">
+    <value>{0} диалога</value>
+  </data>
+  <data name="Conversations_FiveDialogsFrm" xml:space="preserve">
+    <value>{0} диалогов</value>
+  </data>
+  <data name="Settings_EditProfile_Title" xml:space="preserve">
+    <value>Редактирование</value>
+  </data>
+  <data name="Settings_EditProfile_NewNameIsBeingReviewed.Text" xml:space="preserve">
+    <value>Новое имя (проверяется модераторами)</value>
+  </data>
+  <data name="Settings_EditProfile_CancelRequest.Content" xml:space="preserve">
+    <value>отменить заявку</value>
+  </data>
+  <data name="Settings_EditProfile_ChoosePhoto" xml:space="preserve">
+    <value>Выбрать фотографию</value>
+  </data>
+  <data name="Settings_EditProfile_Male" xml:space="preserve">
+    <value>Мужской</value>
+  </data>
+  <data name="Settings_EditProfile_Female" xml:space="preserve">
+    <value>Женский</value>
+  </data>
+  <data name="Settings_EditProfile_BirthDate.Text" xml:space="preserve">
+    <value>дата рождения</value>
+  </data>
+  <data name="Settings_EditProfile_OnYourPage.Header" xml:space="preserve">
+    <value>Показывать дату рождения</value>
+  </data>
+  <data name="CountryPicker_Title.PlaceholderText" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="CityPicker_Title.PlaceholderText" xml:space="preserve">
+    <value>Город</value>
+  </data>
+  <data name="Settings_EditProfile_DoNotShow.Content" xml:space="preserve">
+    <value>ничего</value>
+  </data>
+  <data name="Settings_EditProfile_ShowDayMonthAndYear.Content" xml:space="preserve">
+    <value>полностью</value>
+  </data>
+  <data name="Settings_EditProfile_ShowDayAndMonth.Content" xml:space="preserve">
+    <value>только день и месяц</value>
+  </data>
+  <data name="Settings_EditProfile_ChooseAPartner.Text" xml:space="preserve">
+    <value>выбрать партнёра...</value>
+  </data>
+  <data name="Settings_EditProfile_ChangeNameRequestDesc" xml:space="preserve">
+    <value>Ваша заявка принята. Обратите внимание,что ВКонтакте принято использовать настоящие имена в полной форме. Например: Ян Иванов, Анна Петрова.</value>
+  </data>
+  <data name="Settings_EditProfile_ChangeNameRequest" xml:space="preserve">
+    <value>Изменение имени</value>
+  </data>
+  <data name="DeleteOnePhoto" xml:space="preserve">
+    <value>Удаление фотографии</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Это действие нельзя будет отменить. Продолжить?</value>
+  </data>
+  <data name="NoContent_Messages.Text" xml:space="preserve">
+    <value>Здесь будет выводиться список Ваших сообщений.</value>
+  </data>
+  <data name="VideoNew_Uploaded.Text" xml:space="preserve">
+    <value>Загруженные</value>
+  </data>
+  <data name="VideoNew_Added.Text" xml:space="preserve">
+    <value>Добавленные</value>
+  </data>
+  <data name="CountryPicker_Title_Text.Text" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="CityPicker_Title_Text" xml:space="preserve">
+    <value>Город</value>
+  </data>
+  <data name="NoContent_Videos.Text" xml:space="preserve">
+    <value>Вы можете хранить неограниченное количество видеозаписей.</value>
+  </data>
+  <data name="NoPhotos" xml:space="preserve">
+    <value>Нет ни одной фотографии</value>
+  </data>
+  <data name="OnePhotoFrm" xml:space="preserve">
+    <value>{0} фотография</value>
+  </data>
+  <data name="FivePhotosFrm" xml:space="preserve">
+    <value>{0} фотографий</value>
+  </data>
+  <data name="WallPostIsNotAvailable" xml:space="preserve">
+    <value>Запись недоступна. Возможно, она была удалена.</value>
+  </data>
+  <data name="NoWallPosts" xml:space="preserve">
+    <value>Нет ни одной записи</value>
+  </data>
+  <data name="PinToStart" xml:space="preserve">
+    <value>На рабочий стол</value>
+  </data>
+  <data name="HiddenSources" xml:space="preserve">
+    <value>Скрытые источники</value>
+  </data>
+  <data name="Settings_Nofications_Sources.Text" xml:space="preserve">
+    <value>Источники</value>
+  </data>
+  <data name="Settings_Notifications_NewsSubscriptions.Text" xml:space="preserve">
+    <value>Новые записи</value>
+  </data>
+  <data name="Settings_Notifications_SourcesHelpDesc.Text" xml:space="preserve">
+    <value>Подписаться на уведомления о новых записях можно на странице пользователя или сообщества</value>
+  </data>
+  <data name="SettingsAccount_NewsFilter.Text" xml:space="preserve">
+    <value>фильтр новостей</value>
+  </data>
+  <data name="Menu_Likes.Content" xml:space="preserve">
+    <value>Понравилось</value>
+  </data>
+  <data name="NoProducts" xml:space="preserve">
+    <value>Нет ни одного товара</value>
+  </data>
+  <data name="OneProductItemFrm" xml:space="preserve">
+    <value>{0} товар</value>
+  </data>
+  <data name="TwoFourProductItemsFrm" xml:space="preserve">
+    <value>{0} товара</value>
+  </data>
+  <data name="FiveProductItemsFrm" xml:space="preserve">
+    <value>{0} товаров</value>
+  </data>
+  <data name="ViewProduct" xml:space="preserve">
+    <value>Посмотреть товар</value>
+  </data>
+  <data name="WikiPage" xml:space="preserve">
+    <value>Страница</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Товар</value>
+  </data>
+  <data name="NoVideos" xml:space="preserve">
+    <value>Нет ни одной видеозаписи</value>
+  </data>
+  <data name="Privacy_None.Content" xml:space="preserve">
+    <value>Никакие</value>
+  </data>
+  <data name="Privacy_AllUsersExceptSearchEngines.Content" xml:space="preserve">
+    <value>Все пользователи, кроме поисковых сайтов</value>
+  </data>
+  <data name="ShareWallPost_Share.Text" xml:space="preserve">
+    <value>Поделиться</value>
+  </data>
+  <data name="Privacy_Excluding" xml:space="preserve">
+    <value>кроме</value>
+  </data>
+  <data name="CreateAlbumUC_Access.Header" xml:space="preserve">
+    <value>Кто может просматривать альбом?</value>
+  </data>
+  <data name="CreateAlbumUC_Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="CreateAlbumUC_CreateAlbum" xml:space="preserve">
+    <value>Создать альбом</value>
+  </data>
+  <data name="CreateAlbumUC_Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="CreateAlbumUC_EditAlbum" xml:space="preserve">
+    <value>Редактировать альбом</value>
+  </data>
+  <data name="CreateAlbumUC_Comments.Header" xml:space="preserve">
+    <value>Кто может комментировать фотографии?</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="DeleteAlbum" xml:space="preserve">
+    <value>Удаление альбома</value>
+  </data>
+  <data name="Privacy_DeniedTo" xml:space="preserve">
+    <value>Запрещено</value>
+  </data>
+  <data name="Privacy_AllowedTo" xml:space="preserve">
+    <value>Разрешено</value>
+  </data>
+  <data name="BannedUsers_UserIsBanned" xml:space="preserve">
+    <value>Пользователь заблокирован</value>
+  </data>
+  <data name="BannedUsers_UserIsUnbanned" xml:space="preserve">
+    <value>Пользователь разблокирован</value>
+  </data>
+  <data name="LogSent" xml:space="preserve">
+    <value>Данные отправлены</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Сохранено</value>
+  </data>
+  <data name="SendData.Content" xml:space="preserve">
+    <value>Отправить данные</value>
+  </data>
+  <data name="Settings_LogOutMessage" xml:space="preserve">
+    <value>При выходе из учётной записи будут удалены все связанные с ней данные. Продолжить?</value>
+  </data>
+  <data name="Settings_Delete" xml:space="preserve">
+    <value>Удалить настройки и выйти?</value>
+  </data>
+  <data name="FiveGamesFrm" xml:space="preserve">
+    <value>{0} игр</value>
+  </data>
+  <data name="OneGameFrm" xml:space="preserve">
+    <value>{0} игра</value>
+  </data>
+  <data name="TwoFourGamesFrm" xml:space="preserve">
+    <value>{0} игры</value>
+  </data>
+  <data name="SubscribeToNews" xml:space="preserve">
+    <value>Уведомлять о новых записях</value>
+  </data>
+  <data name="UnsubscribeFromNews" xml:space="preserve">
+    <value>Не уведомлять о новых записях</value>
+  </data>
+  <data name="FiveTracksFrm" xml:space="preserve">
+    <value>{0} аудиозаписей</value>
+  </data>
+  <data name="OneTrackFrm" xml:space="preserve">
+    <value>{0} аудиозапись</value>
+  </data>
+  <data name="TwoFourTracksFrm" xml:space="preserve">
+    <value>{0} аудиозаписи</value>
+  </data>
+  <data name="NoTracks" xml:space="preserve">
+    <value>Нет аудиозаписей</value>
+  </data>
+  <data name="Management_Blacklist.Title" xml:space="preserve">
+    <value>Чёрный список</value>
+  </data>
+  <data name="Management_Followers" xml:space="preserve">
+    <value>Подписчики</value>
+  </data>
+  <data name="Management_Information.Title" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="Management_Invitations.Title" xml:space="preserve">
+    <value>Приглашения</value>
+  </data>
+  <data name="Management_Services.Title" xml:space="preserve">
+    <value>Сервисы</value>
+  </data>
+  <data name="FriendsPage_Pivot_Mutual.Content" xml:space="preserve">
+    <value>Общие</value>
+  </data>
+  <data name="ScheduledForExistingTime" xml:space="preserve">
+    <value>В указанное время уже запланирована публикация.</value>
+  </data>
+  <data name="PostsLimitReached" xml:space="preserve">
+    <value>Превышен лимит на число публикаций в сутки.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="RecommendedGroups_Catalog.Text" xml:space="preserve">
+    <value>Каталог страниц</value>
+  </data>
+  <data name="Language.Header" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Settings_Contacts.Text" xml:space="preserve">
+    <value>Интеграция с устройством</value>
+  </data>
+  <data name="Settings_General_AutoplayGif.Header" xml:space="preserve">
+    <value>Автопроигрывание GIF-изображений</value>
+  </data>
+  <data name="StickersHints.Title" xml:space="preserve">
+    <value>Подсказки стикеров</value>
+  </data>
+  <data name="StickersHints.Description" xml:space="preserve">
+    <value>При вводе смайлов и некоторых слов будут показываться подсказки стикеров.</value>
+  </data>
+  <data name="Privacy_General_SyncNewsFeedAndContacts.Title" xml:space="preserve">
+    <value>Синхронизировать контакты и ленту новостей</value>
+  </data>
+  <data name="Privacy_General_SyncNewsFeedAndContacts.Description" xml:space="preserve">
+    <value>Добавить ВК-друзей в записную книжку данного устройства</value>
+  </data>
+  <data name="Privacy_General_PhoneBookImport.Title" xml:space="preserve">
+    <value>Импорт телефонной книги</value>
+  </data>
+  <data name="Privacy_General_PhoneBookImport.Description" xml:space="preserve">
+    <value>ВКонтакте будет периодически получать данные Вашей записной книги, чтобы рекомендовать новых друзей.</value>
+  </data>
+  <data name="Settings_General_AutoplayGifWiFiOnly.Text" xml:space="preserve">
+    <value>только через WI-FI</value>
+  </data>
+  <data name="Settings_General_AutoplayGifAlways.Text" xml:space="preserve">
+    <value>всегда</value>
+  </data>
+  <data name="Settings_General_AutoplayGifNever.Text" xml:space="preserve">
+    <value>никогда</value>
+  </data>
+  <data name="SignUp_ConfirmationCode" xml:space="preserve">
+    <value>Код подтверждения</value>
+  </data>
+  <data name="NewsFeedNews.Content" xml:space="preserve">
+    <value>Новости</value>
+  </data>
+  <data name="NotDefined" xml:space="preserve">
+    <value>Не указан</value>
+  </data>
+  <data name="MoreInformationAboutLimits.Text" xml:space="preserve">
+    <value>Подробнее об ограничениях</value>
+  </data>
+  <data name="AgeLimits.Text" xml:space="preserve">
+    <value>Возрастные ограничения</value>
+  </data>
+  <data name="SetAgeLimits.Text" xml:space="preserve">
+    <value>Указать возрастные ограничения</value>
+  </data>
+  <data name="GroupType_Opened" xml:space="preserve">
+    <value>Открытая</value>
+  </data>
+  <data name="GroupType_Closed" xml:space="preserve">
+    <value>Закрытая</value>
+  </data>
+  <data name="EventType_Opened" xml:space="preserve">
+    <value>Открытое</value>
+  </data>
+  <data name="EventType_Closed" xml:space="preserve">
+    <value>Закрытое</value>
+  </data>
+  <data name="GroupType_Opened_Description" xml:space="preserve">
+    <value>В группу могут вступить все желающие пользователи</value>
+  </data>
+  <data name="GroupType_Closed_Description" xml:space="preserve">
+    <value>В группу можно вступить по приглашению или подав заявку</value>
+  </data>
+  <data name="EventType_Opened_Description" xml:space="preserve">
+    <value>В мероприятии могут участвовать все желающие пользователи</value>
+  </data>
+  <data name="EventType_Closed_Description" xml:space="preserve">
+    <value>На мероприятие может пригласить только администратор</value>
+  </data>
+  <data name="GroupType" xml:space="preserve">
+    <value>Тип группы</value>
+  </data>
+  <data name="EventType" xml:space="preserve">
+    <value>Тип мероприятия</value>
+  </data>
+  <data name="Disabled_Form1" xml:space="preserve">
+    <value>Выключена</value>
+  </data>
+  <data name="Disabled_Form2" xml:space="preserve">
+    <value>Выключены</value>
+  </data>
+  <data name="Limited_Form1" xml:space="preserve">
+    <value>Ограниченная</value>
+  </data>
+  <data name="Limited_Form2" xml:space="preserve">
+    <value>Ограниченные</value>
+  </data>
+  <data name="Opened_Form1" xml:space="preserve">
+    <value>Открытая</value>
+  </data>
+  <data name="Closed.Text" xml:space="preserve">
+    <value>Закрытая</value>
+  </data>
+  <data name="Opened_Form2" xml:space="preserve">
+    <value>Открытые</value>
+  </data>
+  <data name="ServiceCommentsForPosts.Content" xml:space="preserve">
+    <value>Комментарии к записям</value>
+  </data>
+  <data name="ServiceAudios.Content" xml:space="preserve">
+    <value>Аудиозаписи</value>
+  </data>
+  <data name="ServiceContacts.Content" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="ServiceDiscussions.Content" xml:space="preserve">
+    <value>Обсуждения</value>
+  </data>
+  <data name="ServiceEvents.Content" xml:space="preserve">
+    <value>Мероприятия</value>
+  </data>
+  <data name="ServiceLinks.Content" xml:space="preserve">
+    <value>Ссылки</value>
+  </data>
+  <data name="ServicePhotos.Content" xml:space="preserve">
+    <value>Фотографии</value>
+  </data>
+  <data name="ServiceVideos.Content" xml:space="preserve">
+    <value>Видеозаписи</value>
+  </data>
+  <data name="CommentsFilter.Text" xml:space="preserve">
+    <value>Фильтр комментариев</value>
+  </data>
+  <data name="FilterStrongLanguage.Header" xml:space="preserve">
+    <value>Фильтровать нецензурные выражения</value>
+  </data>
+  <data name="FilterStrongLanguage_Description.Text" xml:space="preserve">
+    <value>Комментарии, содержащие неприличные слова и выражения, будут удаляться.</value>
+  </data>
+  <data name="FilterByKeyWords.Header" xml:space="preserve">
+    <value>Фильтровать по ключевым словам</value>
+  </data>
+  <data name="FilterByKeyWordsHint.Header" xml:space="preserve">
+    <value>Ключевые слова (через запятую)</value>
+  </data>
+  <data name="SectionWall.Title" xml:space="preserve">
+    <value>Стена</value>
+  </data>
+  <data name="SectionDiscussions.Title" xml:space="preserve">
+    <value>Обсуждения</value>
+  </data>
+  <data name="SectionDocuments.Title" xml:space="preserve">
+    <value>Документы</value>
+  </data>
+  <data name="SectionAudios.Title" xml:space="preserve">
+    <value>Аудиозаписи</value>
+  </data>
+  <data name="SectionVideos.Title" xml:space="preserve">
+    <value>Видеозаписи</value>
+  </data>
+  <data name="SectionPhotos.Title" xml:space="preserve">
+    <value>Фотографии</value>
+  </data>
+  <data name="OpenedWallDescription" xml:space="preserve">
+    <value>На стене могут писать сообщения и оставлять комментарии все участники сообщества</value>
+  </data>
+  <data name="OpenedPhotosDescription" xml:space="preserve">
+    <value>Создавать новые альбомы могут все участники сообщества</value>
+  </data>
+  <data name="OpenedVideosDescription" xml:space="preserve">
+    <value>Добавлять новые видеозаписи могут все участники сообщества</value>
+  </data>
+  <data name="OpenedAudiosDescription" xml:space="preserve">
+    <value>Добавлять новые аудиозаписи могут все участники сообщества</value>
+  </data>
+  <data name="OpenedDocumentsDescription" xml:space="preserve">
+    <value>Добавлять новые документы могут все участники сообщества</value>
+  </data>
+  <data name="OpenedDiscussionsDescription" xml:space="preserve">
+    <value>Создавать новые темы могут все участники сообщества</value>
+  </data>
+  <data name="LimitedPhotosDescription" xml:space="preserve">
+    <value>Создавать новые альбомы могут только редакторы и администраторы сообщества</value>
+  </data>
+  <data name="LimitedDiscussionsDescription" xml:space="preserve">
+    <value>Создавать новые темы могут только редакторы и администраторы сообщества</value>
+  </data>
+  <data name="LimitedWallDescription" xml:space="preserve">
+    <value>На стене можно писать только от имени сообщества, комментировать записи могут все участники</value>
+  </data>
+  <data name="LimitedDocumentsDescription" xml:space="preserve">
+    <value>Добавлять новые документы могут только редакторы и администраторы сообщества</value>
+  </data>
+  <data name="LimitedAudiosDescription" xml:space="preserve">
+    <value>Добавлять новые аудиозаписи могут только редакторы и администраторы сообщества</value>
+  </data>
+  <data name="LimitedVideosDescription" xml:space="preserve">
+    <value>Добавлять новые видеозаписи могут только редакторы и администраторы сообщества</value>
+  </data>
+  <data name="ClosedWallDescription.Text" xml:space="preserve">
+    <value>На стене можно писать только от имени сообщества, комментарии отключены</value>
+  </data>
+  <data name="GroupType_Private_Description.Text" xml:space="preserve">
+    <value>В группу можно вступить только по приглашению руководителей</value>
+  </data>
+  <data name="GroupType_Private.Text" xml:space="preserve">
+    <value>Частная</value>
+  </data>
+  <data name="CommunitySubject" xml:space="preserve">
+    <value>Тематика сообщества</value>
+  </data>
+  <data name="SelectSubject" xml:space="preserve">
+    <value>выберите тематику</value>
+  </data>
+  <data name="PublicPageCategory" xml:space="preserve">
+    <value>Категория сообщества</value>
+  </data>
+  <data name="SelectCategory" xml:space="preserve">
+    <value>выберите категорию</value>
+  </data>
+  <data name="ChoosePlacement" xml:space="preserve">
+    <value>Указать местоположение</value>
+  </data>
+  <data name="NoneSelected" xml:space="preserve">
+    <value>Не выбрано</value>
+  </data>
+  <data name="CommunityLocation.Text" xml:space="preserve">
+    <value>Местоположение</value>
+  </data>
+  <data name="Management_Description.Header" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Management_Title.Header" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="LinkAdding" xml:space="preserve">
+    <value>Добавление ссылки</value>
+  </data>
+  <data name="LinkEditing" xml:space="preserve">
+    <value>Редактирование ссылки</value>
+  </data>
+  <data name="LinkRemoving" xml:space="preserve">
+    <value>Удаление ссылки</value>
+  </data>
+  <data name="Address.Header" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="Process.Content" xml:space="preserve">
+    <value>Выполнить</value>
+  </data>
+  <data name="SettingsAccount_SetUp" xml:space="preserve">
+    <value>настроить</value>
+  </data>
+  <data name="Settings_EditProfile_NoneSelected" xml:space="preserve">
+    <value>Не выбрано</value>
+  </data>
+  <data name="NewSettings_Account.Title" xml:space="preserve">
+    <value>Учётная запись</value>
+  </data>
+  <data name="NewSettings_Diagnostics.Title" xml:space="preserve">
+    <value>Диагностика</value>
+  </data>
+  <data name="NewSettings_General.Title" xml:space="preserve">
+    <value>Основные</value>
+  </data>
+  <data name="NewSettings_Notifications.Title" xml:space="preserve">
+    <value>Уведомления</value>
+  </data>
+  <data name="NewSettings_Personalization.Title" xml:space="preserve">
+    <value>Персонализация</value>
+  </data>
+  <data name="NewSettings_Privacy.Title" xml:space="preserve">
+    <value>Приватность</value>
+  </data>
+  <data name="NewSettings_About.SubTitle" xml:space="preserve">
+    <value>Да кто ж это сделал?</value>
+  </data>
+  <data name="NewSettings_BlackList.SubTitle" xml:space="preserve">
+    <value>Заблокированные пользователи</value>
+  </data>
+  <data name="NewSettings_Privacy.SubTitle" xml:space="preserve">
+    <value>Видимость ваших данных в интернете</value>
+  </data>
+  <data name="NewSettings_Account.SubTitle" xml:space="preserve">
+    <value>Электронная почта, номер телефона</value>
+  </data>
+  <data name="NewSettings_Personalization.SubTitle" xml:space="preserve">
+    <value>Тема, цвет</value>
+  </data>
+  <data name="NewSettings_General.SubTitle" xml:space="preserve">
+    <value>Интеграция с устройством</value>
+  </data>
+  <data name="NewSettings_Notifications.SubTitle" xml:space="preserve">
+    <value>Push и уведомления внутри приложения</value>
+  </data>
+  <data name="Birthdays_Title" xml:space="preserve">
+    <value>Дни рождения</value>
+  </data>
+  <data name="OpenPost" xml:space="preserve">
+    <value>Открыть запись</value>
+  </data>
+  <data name="Privacy_Photos_CompressOnUpload.Content" xml:space="preserve">
+    <value>Сжимать фотографии при выгрузке</value>
+  </data>
+  <data name="Settings_General_PhotosSaveLocationInfo.Content" xml:space="preserve">
+    <value>Cохранять данные о местоположении при выгрузке</value>
+  </data>
+  <data name="Privacy_SaveFilteredPhotos.Content" xml:space="preserve">
+    <value>Сохранять обработанные фото</value>
+  </data>
+  <data name="Privacy_LoadBigPhotosOverMobileNetwork.Content" xml:space="preserve">
+    <value>Большие фото в новостной ленте через мобильную сеть</value>
+  </data>
+  <data name="Privacy_Photos.Text" xml:space="preserve">
+    <value>Фотографии</value>
+  </data>
+  <data name="PivotSearch_All.Content" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="PivotSearch_Groups.Content" xml:space="preserve">
+    <value>Сообщества</value>
+  </data>
+  <data name="PivotSearch_Photos.Content" xml:space="preserve">
+    <value>Фотографии</value>
+  </data>
+  <data name="PivotSearch_Users.Content" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
+  <data name="Menu_Downloads" xml:space="preserve">
+    <value>Загрузки</value>
+  </data>
+  <data name="FreshNews.Text" xml:space="preserve">
+    <value>Свежие записи</value>
+  </data>
+  <data name="Documents_DeleteOneFrm" xml:space="preserve">
+    <value>Удаление {0} документа</value>
+  </data>
+  <data name="Documents_DeleteTwoFourFrm" xml:space="preserve">
+    <value>Удаление {0} документов</value>
+  </data>
+  <data name="Documents_DeleteFiveFrm" xml:space="preserve">
+    <value>Удаление {0} документов</value>
+  </data>
+  <data name="DocumentEditing" xml:space="preserve">
+    <value>Редактирование документа</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Метки</value>
+  </data>
+  <data name="SearchQuery" xml:space="preserve">
+    <value>Поисковый запрос</value>
+  </data>
+  <data name="Download_Started" xml:space="preserve">
+    <value>Скачивание начато</value>
+  </data>
+  <data name="Download_Failed" xml:space="preserve">
+    <value>Ошибка скачивания</value>
+  </data>
+  <data name="Download_Completed" xml:space="preserve">
+    <value>Скачивание завершено</value>
+  </data>
+  <data name="Download_Empty" xml:space="preserve">
+    <value>Ничего не скачивается</value>
+  </data>
+  <data name="Download_HeaderCompleted" xml:space="preserve">
+    <value>Выполненные</value>
+  </data>
+  <data name="Download_HeaderCurrent" xml:space="preserve">
+    <value>Текущие</value>
+  </data>
+  <data name="Download_Acceptance_OpenFolder_Button" xml:space="preserve">
+    <value>Открыть папку</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
+  <data name="OneClip" xml:space="preserve">
+    <value>{0} клип</value>
+  </data>
+  <data name="TwoFourClipsFrm" xml:space="preserve">
+    <value>{0} клипа</value>
+  </data>
+  <data name="FiveMoreClipsFrm" xml:space="preserve">
+    <value>{0} клипов</value>
+  </data>
+  <data name="ShowAll" xml:space="preserve">
+    <value>Показать все</value>
+  </data>
+  <data name="VideoCatalog_Albums" xml:space="preserve">
+    <value>Альбомы</value>
+  </data>
+  <data name="TurnOffNotifications" xml:space="preserve">
+    <value>Отключить уведомления</value>
+  </data>
+  <data name="TurnOnNotifications" xml:space="preserve">
+    <value>Включить уведомления</value>
+  </data>
+  <data name="Messenger_ShowMaterials" xml:space="preserve">
+    <value>Показать вложения</value>
+  </data>
+  <data name="Registration_AcceptingPrivacy" xml:space="preserve">
+    <value>защиты информации</value>
+  </data>
+  <data name="Registration_AcceptTextAnd" xml:space="preserve">
+    <value>и</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Далее</value>
+  </data>
+  <data name="Registration_AcceptingTermsOfUse" xml:space="preserve">
+    <value>Правила использования</value>
+  </data>
+  <data name="Registration_AcceptText" xml:space="preserve">
+    <value>Регистрируясь ВКонтакте, Вы принимаете</value>
+  </data>
+  <data name="Registration_YourName" xml:space="preserve">
+    <value>Ваше имя</value>
+  </data>
+  <data name="Registration_YourLastName" xml:space="preserve">
+    <value>Ваша фамилия</value>
+  </data>
+  <data name="Registration_ConfirmationMessageWillBeSent" xml:space="preserve">
+    <value>На указанный номер телефона будет отправлено сообщение с кодом подтверждения.</value>
+  </data>
+  <data name="Registration_YourPhoneNumber" xml:space="preserve">
+    <value>Ваш номер телефона</value>
+  </data>
+  <data name="Registration_ConfirmationCode" xml:space="preserve">
+    <value>код подтверждения</value>
+  </data>
+  <data name="Registration_WeHaveSentConfirmationMessage" xml:space="preserve">
+    <value>Мы отправили Вам SMS с кодом подтверждения.</value>
+  </data>
+  <data name="Registration_WaitForCall" xml:space="preserve">
+    <value>Дождитесь звонка с кодом подтверждения.</value>
+  </data>
+  <data name="Registration_RequestCallback" xml:space="preserve">
+    <value>перезвоните и продиктуйте код</value>
+  </data>
+  <data name="Registration_WeHaveSentConfirmationMessageAgain" xml:space="preserve">
+    <value>Мы повторно отправили Вам SMS с кодом подтверждения.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Рекомендации</value>
+  </data>
+  <data name="VideoCatalog_MyVideos" xml:space="preserve">
+    <value>Мои видео</value>
+  </data>
+  <data name="UNREADMESSAGES" xml:space="preserve">
+    <value>Непрочитанные сообщения</value>
+  </data>
+  <data name="Audio_ShuffleOff" xml:space="preserve">
+    <value>Случайный порядок: ОТКЛ</value>
+  </data>
+  <data name="Audio_ShuffleOn" xml:space="preserve">
+    <value>Случайный порядок: ВКЛ</value>
+  </data>
+  <data name="Audio_RepeatAll" xml:space="preserve">
+    <value>Повторять: все</value>
+  </data>
+  <data name="Audio_RepeatNone" xml:space="preserve">
+    <value>Повтор: откл</value>
+  </data>
+  <data name="Audio_RepeatOne" xml:space="preserve">
+    <value>Повторить: один</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+</root>

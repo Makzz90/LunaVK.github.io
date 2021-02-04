@@ -1,0 +1,126 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.AttachmentPickers.PhotoVideoPickerUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:framework="using:LunaVK.Framework"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:controls="using:LunaVK.UC.Controls">
+
+    <UserControl.Resources>
+        <Style TargetType="GridViewItem" x:Key="GridViewItemPhoto">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridViewItem">
+                        <Grid Tapped="Photo_Tapped" Background="Transparent" Margin="1">
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" >
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="0.0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="0.0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ContentScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="_brd" Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" To="{StaticResource PhoneAccentColor}" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Image Source="{Binding BitmapImage}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0" Loaded="Image_Loaded"/>
+                            <Border Width="30" Height="30" BorderBrush="White" Background="Transparent" BorderThickness="2" VerticalAlignment="Top"
+                                            HorizontalAlignment="Right" Margin="10" CornerRadius="15" x:Name="_brd">
+                                <TextBlock Text="{Binding Number}" VerticalAlignment="Center" TextAlignment="Center" FontWeight="SemiBold" Foreground="White"
+                                           FontSize="15">
+                                    <TextBlock.RenderTransform>
+                                        <ScaleTransform x:Name="ContentScaleTransform" CenterX="10" CenterY="10" ScaleX="0" ScaleY="0"/>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </Border>
+
+                            <local:IconUC Glyph="&#xE979;" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15"
+                                          Foreground="{StaticResource PhoneAccentColorBrush}" Visibility="{Binding IsVideoVisibility}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+
+        <controls:ExtendedGridView2 ItemsSource="{Binding Photos}" UseHeaderOffset="False"
+                                SelectionChanged="_variableGridView_SelectionChanged" ItemWidth="130" ItemHeight="130"
+                                SelectionMode="Multiple" ItemContainerStyle="{StaticResource GridViewItemPhoto}" x:Name="_variableGridView"
+                                >
+            <controls:ExtendedGridView2.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VariableSizedWrapGrid SizeChanged="VariableSizedWrapGrid_SizeChanged" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </controls:ExtendedGridView2.ItemsPanel>
+
+            <controls:ExtendedGridView2.ItemContainerTransitions>
+                <TransitionCollection>
+                    <RepositionThemeTransition/>
+                    <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                </TransitionCollection>
+            </controls:ExtendedGridView2.ItemContainerTransitions>
+        </controls:ExtendedGridView2>
+
+        <Grid Grid.Row="1" Background="{ThemeResource ItemBackgroundBrush}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="48"/>
+            </Grid.ColumnDefinitions>
+            <Border Width="48" Background="Transparent" Tapped="Cancel_Tapped">
+                <local:IconUC Glyph="&#xE711;"/>
+            </Border>
+            <Grid Grid.Column="1" Background="Transparent" Tapped="Cancel_Tapped">
+                <TextBlock Text="Отмена" Foreground="{StaticResource PhoneAccentColorBrush}"
+                           FontSize="{StaticResource FontSizeContent}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0"/>
+            </Grid>
+            <Border Width="48" Grid.Column="2" Background="Transparent" Tapped="UploadPhoto_Tapped">
+                <local:IconUC Glyph="&#xE898;"/>
+            </Border>
+
+            <Grid Grid.Column="1" Grid.ColumnSpan="2" Background="{StaticResource PhoneAccentColorBrush}"
+                  Visibility="{Binding AttachButtonVisibility, FallbackValue=Collapsed}" Tapped="AttachAction_Tapped">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBlock Text="Прикрепить" Foreground="White" FontSize="{StaticResource FontSizeContent}"/>
+                    <Border Width="22" Height="22" CornerRadius="11" Background="White" Margin="10 0">
+                        <TextBlock Text="{Binding Attached}" TextAlignment="Center" Foreground="{StaticResource PhoneAccentColorBrush}"
+                                           VerticalAlignment="Center"
+                                   Padding="1 0 1 1"
+                                           FontSize="11" FontWeight="Medium"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

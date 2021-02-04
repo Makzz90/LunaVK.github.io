@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestEmoji"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC">
+
+    <Page.Resources>
+        <Storyboard x:Name="myStoryboard" RepeatBehavior="Forever" BeginTime="0:0:0.5">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_tr" Storyboard.TargetProperty="Y" x:Name="objAnim"/>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid>
+        <Border Width="80" Height="80" x:Name="_brd" Visibility="Collapsed">
+            <Border.Background>
+                <ImageBrush ImageSource="/Assets/SkypeEmoji/1f621_anim.png" Stretch="UniformToFill" AlignmentY="Top"
+                        ImageOpened="ImageBrush_ImageOpened">
+                    <ImageBrush.Transform>
+                        <TranslateTransform x:Name="_tr" Y="0"/>
+                    </ImageBrush.Transform>
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+
+        <uc:EmojiControlUC Margin="0 96 0 0" Visibility="Collapsed"/>
+        
+        <TextBox VerticalAlignment="Top" MinHeight="48" Background="Green" TextChanged="TextBox_TextChanged" Margin="0 48 0 0" TextWrapping="Wrap"
+                 MaxHeight="300" PlaceholderText="Parse vk icons"/>
+        <TextBox VerticalAlignment="Bottom" Background="Gray" Name="_outText" PlaceholderText="VK icons output" TextWrapping="Wrap" IsReadOnly="True" MaxHeight="300"/>
+
+        <StackPanel VerticalAlignment="Center">
+            <TextBox Name="_tb" Text="https://www.patreon.com/Test
+&#128073;&#127995; https://youtu.be/d7-lUDM-4Fs #geekersblog #AnthonyRapp &#128074; #ЭнтониРэпп #видео@geekers
+ fsdsdsdf@fsdsdsd.com [id4343434|Lol]&#128074;
+ группы vk.me/vkmaskss vk.cc/texpromo
+(https://vk.cc/test) [https://vk.com/plans|Планы] [id123|Планы] (id123|Планы) https://vk.com/plans @id123 [id66748|Олег] *id87896266
+ [id12345|Имя] [id12345|Имя Фамилия]
+ @id12345 @id12345 (Имя Фамилия)
+[id460389|@makzz]
+офиц.приложение vk.com/@adminsclub-nemesis-results
+москва.рф http://acomics.ru/~scurry/ vk.com/app6970437#day-top" TextWrapping="Wrap" MinHeight="100"/>
+            <uc:ScrollableTextBlock Text="{Binding Text,ElementName=_tb}" FullOnly="True"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,136 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.BirthdaysPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:LunaVK.UC.Controls">
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="BDSource" Source="{Binding GroupedItems.Items, Mode=OneWay}" IsSourceGrouped="True" />
+    </Page.Resources>
+    
+    <Grid>
+        <SemanticZoom x:Name="SemanticZoomAuthors" ScrollViewer.ZoomMode="Enabled">
+            <SemanticZoom.ZoomedOutView>
+                <GridView x:Name="ZoomedInGrid"
+                          SelectionMode="None"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          >
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Group.Key}" Margin="15"/>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+
+            <SemanticZoom.ZoomedInView>
+                
+                <controls:ExtendedListView3 ItemsSource="{Binding Source={StaticResource BDSource}}" UseHeaderOffset="False" Margin="0 80 0 0"
+                                             SelectionMode="Single" SelectionChanged="ExtendedListView3_SelectionChanged"
+                                            x:Name="ZoomedOutGrid"
+                                             >
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                           
+                            
+                            
+                            
+                            <Grid Height="80">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+
+                                <Grid Tapped="User_OnTap" Background="Transparent" Margin="10 0">
+                                    <Ellipse Fill="{ThemeResource ImagePlaceholderBackgroundBrush}"
+                             Width="64" Height="64"/>
+
+                                    <Ellipse Width="64" Height="64">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding UserPhoto}" />
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+
+
+
+
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding UserName}" />
+                                    <TextBlock Text="{Binding Description}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                                </StackPanel>
+
+                                <Border x:Name="borderGift"
+                Width="64" Height="64"
+                Grid.Column="2"
+                
+                Background="Transparent"
+                
+                Tapped="Gift_OnTap">
+                                    <Rectangle Width="32" Height="32" >
+                                        
+                                        
+                                        
+                                        
+                                    </Rectangle>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Border Height="24" Background="Transparent" Tapped="Border_Tapped">
+                                        <TextBlock Text="{Binding Key}" Margin="20 0"
+                                           FontWeight="Medium"
+                                           
+                                           VerticalAlignment="Center" FontSize="14"/>
+                                    </Border>
+                                </DataTemplate>
+
+                            </GroupStyle.HeaderTemplate>
+
+                            <GroupStyle.HeaderContainerStyle>
+                                <Style TargetType="ListViewHeaderItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewHeaderItem">
+                                                <ContentPresenter
+                                                    Margin="0" HorizontalContentAlignment="Stretch"
+                                                    Padding="0"
+                                                    Content="{TemplateBinding Content}"
+                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                    ContentTransitions="{TemplateBinding ContentTransitions}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </GroupStyle.HeaderContainerStyle>
+                        </GroupStyle>
+
+
+
+                    </controls:ExtendedListView3.GroupStyle>
+
+
+
+
+                </controls:ExtendedListView3>
+            </SemanticZoom.ZoomedInView>
+        </SemanticZoom>
+    </Grid>
+</local:PageBase>

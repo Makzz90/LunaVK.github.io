@@ -1,0 +1,385 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.ProfilePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:library="using:LunaVK.Library"
+    xmlns:converters="using:LunaVK.Network.Converters"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:popup="using:LunaVK.UC.PopUp"
+    >
+
+    <local:PageBase.Resources>
+        <DataTemplate x:Key="RichTextTemplate">
+            <uc:InfoListItemUC Text="{Binding Data}" PreviewUrls="{Binding Previews}" IconUrl="{Binding Icon}"
+                               Margin="10 0" Tapped="InfoItem_OnTap" Background="Transparent"/>
+        </DataTemplate>
+
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </local:PageBase.Resources>
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MenuState">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SecondContent.Visibility" Value="Visible" />
+                        <Setter Target="gridButtons.Visibility" Value="Collapsed" />
+                        <Setter Target="MainScroll.(Grid.ColumnSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup >
+            <VisualState>
+                <VisualState.StateTriggers>
+                    <StateTrigger IsActive="{Binding IsFavorite}" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <!--<Setter Target="_faveIcon.Foreground" Value="{StaticResource PhoneDialogGiftMessageBackgroundBrush}" />
+                    <Setter Target="_faveText.Foreground" Value="{StaticResource PhoneDialogGiftMessageBackgroundBrush}" />-->
+                    <Setter Target="_faveIcon2.Foreground" Value="{StaticResource PhoneDialogGiftMessageBackgroundBrush}" />
+                    <Setter Target="_faveText2.Foreground" Value="{StaticResource PhoneDialogGiftMessageBackgroundBrush}" />
+                </VisualState.Setters>
+            </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup >
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="imgUserCover.Visibility" Value="Collapsed" />
+                        <Setter Target="_userNameGrid.Background" Value="{ThemeResource ItemBackgroundBrush}" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="imgUserCover.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+
+
+
+            <VisualStateGroup x:Name="Common">
+                <VisualState x:Name="Loading"/>
+                <VisualState x:Name="LoadingFailed"/>
+                <VisualState x:Name="LoadedState"/>
+                
+                <VisualState x:Name="Reloading">
+                    <VisualState.Setters>
+                        <Setter Target="SecondContentPart.Visibility" Value="Collapsed" />
+                        <Setter Target="_header.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                
+                <VisualState x:Name="Blocked">
+                    <VisualState.Setters>
+                        <Setter Target="stackPanelNotLoaded.Visibility" Value="Visible" />
+                        <Setter Target="_fullInfo.Visibility" Value="Collapsed" />
+                        <Setter Target="_sep.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                
+                <VisualState x:Name="Banned">
+                    <VisualState.Setters>
+                        <Setter Target="stackPanelNotLoaded.Visibility" Value="Visible" />
+                        <Setter Target="_banImg.Visibility" Value="Visible" />
+                        <Setter Target="_fullInfo.Visibility" Value="Collapsed" />
+                        <Setter Target="_sep.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Service">
+                    <VisualState.Setters>
+                        <Setter Target="stackPanelNotLoaded.Visibility" Value="Visible" />
+                        <Setter Target="_fullInfo.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                
+                <VisualState x:Name="Private">
+                    <VisualState.Setters>
+                        <Setter Target="iconPrivate.Visibility" Value="Visible" />
+                        <Setter Target="stackPanelNotLoaded.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+        </VisualStateManager.VisualStateGroups>
+
+
+
+
+
+
+        <controls:ExtendedListView3 ItemsSource="{Binding Items}" x:Name="MainScroll" Grid.ColumnSpan="2">
+            <controls:ExtendedListView3.Header>
+                <StackPanel Name="_header" MaxWidth="600">
+                    <StackPanel Background="{ThemeResource ItemBackgroundBrush}">
+                        <Grid Margin="10 0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="70" Height="70" Margin="0 15 10 15" IsHitTestVisible="False" Fill="{ThemeResource ImagePlaceholderBackgroundBrush}"/>
+                            <!-- Аватарка -->
+                            <Ellipse Width="70" Height="70" Name="_avaEllipse" Margin="0 15 10 15" Tapped="UcProfileInfoHeader_OnTap"  Opacity="0">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Avatar, FallbackValue='https://sun9-18.userapi.com/c858232/v858232350/37fd5/4OA5pS1lULc.jpg?ava=1'}" ImageOpened="Image_ImageOpened"/>
+                                </Ellipse.Fill>
+
+
+                                <FlyoutBase.AttachedFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem Click="ChoosePhotoMenuClick" Text="{Binding Path=[Settings_EditProfile_ChoosePhoto], Source={StaticResource LocalizedStrings}}"/>
+                                        <MenuFlyoutItem Click="OpenPhotoMenuClick" Text="ContextMenu_Profile_OpenPhoto"/>
+                                        <MenuFlyoutItem Click="DeletePhotoMenuClick" Text="Delete"/>
+                                    </MenuFlyout>
+                                </FlyoutBase.AttachedFlyout>
+                            </Ellipse>
+
+                            <!-- Имя + Статус -->
+                            <StackPanel VerticalAlignment="Center" Margin="10 0 0 0" Grid.Column="1">
+                                <RichTextBlock TextWrapping="Wrap"
+                                    TextTrimming="CharacterEllipsis" MaxLines="2"
+                                 Foreground="{ThemeResource TextBrushMediumHigh}"
+                                 LineStackingStrategy="BlockLineHeight"
+                                 FontSize="{StaticResource FontSizeLarge}">
+                                    <Paragraph>
+                                        <Run Text="{Binding Name, FallbackValue='Test Testovich'}" FontFamily="ms-appx:///Assets/Fonts/Roboto-Medium.ttf#Roboto"/>
+                                        <InlineUIContainer>
+                                            <uc:IconUC Margin="2 0 0 0" Glyph="&#xE930;" VerticalAlignment="Bottom" Visibility="{Binding IsVerifiedVisibility, FallbackValue=Visible}" FontSize="14" Foreground="{StaticResource SystemControlHighlightAccentBrush}"/>
+                                        </InlineUIContainer>
+                                    </Paragraph>
+                                </RichTextBlock>
+
+                                <TextBlock Text="{Binding Status, FallbackValue='status'}" Visibility="{Binding Status, Converter={StaticResource StringToVisibilityConverter}}" TextTrimming="CharacterEllipsis" FontWeight="Thin" Tapped="Status_Tapped"/>
+
+                                <TextBlock Text="{Binding Activity, FallbackValue='в сети с компьютера'}"
+                                       Foreground="{ThemeResource TextBrushMediumHigh}" FontSize="{StaticResource FontSizeContent}"
+                                       Opacity="0.6" Visibility="{Binding Activity, Converter={StaticResource StringToVisibilityConverter}}"/>
+                            </StackPanel>
+
+                            
+                        </Grid>
+
+                        <!-- Кнопочки -->
+                        <Grid Grid.Row="1" Grid.ColumnSpan="2" Name="gridButtons">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Content="Сообщение" HorizontalAlignment="Stretch" 
+                                    Visibility="{Binding VisibilityButtonSendMessage}" Margin="15 15 5 15" Click="Button_Click"/>
+
+                            <Button Content="{Binding TextButtonSecondary, FallbackValue='Secondary button'}" Grid.Column="1"
+                                    Visibility="{Binding VisibilityButtonSecondary}" Margin="5 15 15 15"
+                                    HorizontalAlignment="Stretch" 
+                                        Style="{StaticResource VKButtonSecondaryStyle}" Click="SecondaryButton_Click">
+                                
+                            </Button>
+                        </Grid>
+
+                        <Rectangle Height="1" Fill="{ThemeResource TextBrushMedium}" Opacity="0.2" Margin="10 5" x:Name="_sep"/>
+
+                        <ListView DataContext="{Binding CompactinfoViewModel}" ItemsSource="{Binding InfoSections}" ItemTemplate="{StaticResource RichTextTemplate}" Margin="0 5 0 0"
+                              SelectionChanged="ListView_SelectionChanged" SelectionMode="Single"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Disabled">
+                            <!-- BugFix: элементы на всю ширину -->
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="Margin" Value="0" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+
+                        <!-- подробная информация -->
+                        <StackPanel Orientation="Horizontal" Margin="10 10 0 16" Background="Transparent" Tapped="BorderFullInformation_OnTap" 
+                                Name="_fullInfo" framework:MouseOver.Cursor="Hand">
+                            <uc:IconUC Glyph="&#xF167;" Margin="0 0 10 0" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontSize="19"/>
+                            <TextBlock x:Uid="Footer_FullInformation" Text="Подробная информация" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontWeight="Medium"/>
+                        </StackPanel>
+
+                        <uc:MediaItemsHorizontalUC x:Name="ucMedia" DataContext="{Binding MediaViewModel}"/>
+                    </StackPanel>
+
+                    <Rectangle Fill="{ThemeResource BaseBackgroundBrush}" Height="16" />
+
+
+
+
+
+
+
+
+
+                    <StackPanel x:Name="stackPanelNotLoaded" Visibility="Collapsed" MinHeight="200" MaxWidth="350" Margin="0 50 0 0">
+
+                        <uc:IconUC Glyph="&#xE72E;" FontSize="30" Opacity="0.5" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                               x:Name="iconPrivate" Visibility="Collapsed"/>
+
+                        <Image x:Name="_banImg" Source="/Assets/placeholder_ban_160.png" Height="200" Visibility="Collapsed"/>
+
+                        <TextBlock 
+                                               Margin="16"
+                                               TextWrapping="Wrap"
+                                               TextAlignment="Center"
+                                               Text="{Binding LoadingStatusText, FallbackValue='Loading...'}"
+                                               Foreground="{ThemeResource TextBrushMediumLow}"
+                                               />
+                    </StackPanel>
+
+
+
+
+
+
+
+                    <StackPanel Visibility="{Binding CanPostVisibility, FallbackValue=Collapsed}" Tapped="NewPost_Tapped">
+                        <Grid Height="48" Background="{ThemeResource ItemBackgroundBrush}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                                <!--<ColumnDefinition Width="50"/>-->
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Fill="{ThemeResource ImagePlaceholderBackgroundBrush}" Width="30" Height="30" Margin="15 0"/>
+                            <Ellipse Width="30" Height="30" Margin="15 0">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding UserPhoto}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <Border Grid.Column="1" VerticalAlignment="Center" Background="{ThemeResource ImagePlaceholderBackgroundBrush}" CornerRadius="12" MinHeight="30" Padding="10 0" Margin="0 0 15 0">
+                                <TextBlock Text="{Binding AddPostText, FallbackValue='Напишите что-нибудь'}" VerticalAlignment="Center" 
+                                           Foreground="{ThemeResource TextBrushMediumLow}"/>
+                            </Border>
+                        </Grid>
+
+                        <Rectangle Fill="{ThemeResource BaseBackgroundBrush}" Height="16" />
+                    </StackPanel>
+
+                    <uc:AllProfilePostsToggleUC DataContext="{Binding PostsToggleViewModel}" Visibility="{Binding PostsVisibility, FallbackValue=Collapsed}"/>
+                    
+                    
+                </StackPanel>
+            </controls:ExtendedListView3.Header>
+
+            <controls:ExtendedListView3.ItemTemplate>
+                <DataTemplate>
+                    <uc:ItemWallPostUC Margin="0 0 0 10" MaxWidth="600"/>
+                </DataTemplate>
+            </controls:ExtendedListView3.ItemTemplate>
+        </controls:ExtendedListView3>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" Name="SecondContent" Visibility="Collapsed"
+                    MaxWidth="250" Background="{ThemeResource ItemBackgroundBrush}"
+                    Margin="10 0 0 0">
+            <uc:HeaderOffsetUC/>
+
+            <StackPanel Name="SecondContentPart">
+                
+            
+            <Border Padding="10" Margin="10 0" Tapped="UcProfileInfoHeader_OnTap">
+                    <Image Stretch="Uniform" Source="{Binding ProfileImageUrl, FallbackValue='https://sun9-56.userapi.com/rmOzgZDCrXDJlV8a7Y-Q1JlIS59qxBZAnaiG7w/G7wmxC0RLR0.jpg'}"  VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                </Image>
+            </Border>
+
+                <ListView Background="{ThemeResource ItemBackgroundBrush}" SelectionChanged="ListView_SelectionChanged" framework:MouseOver.Cursor="Hand">
+                    <ListViewItem Visibility="{Binding VisibilityButtonSendMessage}" Tapped="Msg_Tapped">
+                        <StackPanel Background="Transparent" Orientation="Horizontal">
+                            <uc:IconUC Glyph="&#xE715;" Margin="0 0 10 0" Foreground="{StaticResource SystemControlHighlightAccentBrush}"/>
+                            <TextBlock Text="{Binding TextButtonPrimary, FallbackValue='Write message'}" TextTrimming="CharacterEllipsis" Foreground="{StaticResource SystemControlHighlightAccentBrush}"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Background="Transparent" Visibility="{Binding VisibilityButtonSecondary}">
+                        <StackPanel Orientation="Horizontal">
+                            <uc:IconUC Glyph="{Binding SubscribeGlyph, FallbackValue='&#xE710;'}" Foreground="{ThemeResource TextBrushMediumLow}" Margin="0 0 10 0"/>
+                            <TextBlock Text="{Binding TextButtonSecondary, FallbackValue='Подписаться'}" Foreground="{ThemeResource TextBrushMediumLow}"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    
+                    <ListViewItem Visibility="{Binding NotificationsVisibility}" Background="Transparent" Tapped="Notifications_Tapped">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Margin="0 0 10 0">
+                                <uc:IconUC Glyph="&#xEA8F;" Foreground="{ThemeResource TextBrushMediumLow}" />
+                                <Border Width="11" Height="11" VerticalAlignment="Top" HorizontalAlignment="Center" Background="{StaticResource SystemControlHighlightAccentBrush}"
+                                        CornerRadius="5" Visibility="{Binding IsSubscribed}">
+                                    <Border.RenderTransform>
+                                        <TranslateTransform X="6"/>
+                                    </Border.RenderTransform>
+                                    <uc:IconUC Glyph="&#xE8FB;" FontSize="6" Foreground="White" FontWeight="ExtraBlack"/>
+                                </Border>
+                            </Grid>
+                            <TextBlock Text="Уведомления" Foreground="{ThemeResource TextBrushMediumLow}"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tapped="Share_Tapped">
+                        <StackPanel Orientation="Horizontal">
+                            <uc:IconUC Glyph="&#xE8EB;" Margin="0 0 10 0" Foreground="{ThemeResource TextBrushMediumLow}" />
+                            <TextBlock x:Uid="ShareWallPost_Share" Text="Поделиться" Foreground="{ThemeResource TextBrushMediumLow}"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tapped="Favorite_Tapped">
+                        <StackPanel Orientation="Horizontal">
+                            <uc:IconUC Glyph="{Binding FavoriteGlyph, FallbackValue='&#xE734;'}" Margin="0 0 10 0" Foreground="{ThemeResource TextBrushMediumLow}" x:Name="_faveIcon2"/>
+                            <TextBlock Text="{Binding FavoriteText, FallbackValue='Избранное'}" Foreground="{ThemeResource TextBrushMediumLow}" x:Name="_faveText2"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Tapped="AppBarMenuItemBanUnban_OnClick" Visibility="{Binding CanBanUnban, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <uc:IconUC Glyph="&#xF140;" Margin="0 0 10 0" Foreground="{ThemeResource TextBrushMediumLow}" />
+                            <TextBlock Text="{Binding BlockText, FallbackValue='Заблокировать'}" Foreground="{ThemeResource TextBrushMediumLow}" />
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" Margin="0 16 0 0"
+                                  VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+                    <popup:FullInfoUC DataContext="{Binding FullInfoRight}"/>
+                </ScrollViewer>
+            </StackPanel>
+        </StackPanel>
+
+        <!--<CommandBar x:Name="CommandBarPanel" VerticalAlignment="Bottom" Visibility="Collapsed" Background="{ThemeResource BrushMenu}"/>-->
+    </Grid>
+</local:PageBase>

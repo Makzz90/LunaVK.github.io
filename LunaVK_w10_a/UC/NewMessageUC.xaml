@@ -1,0 +1,487 @@
+﻿<UserControl 
+    x:Class="LunaVK.UC.NewMessageUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="500"
+    d:DesignWidth="400"
+    xmlns:library="using:LunaVK.Library"
+    xmlns:converters="using:LunaVK.Network.Converters"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:framework="using:LunaVK.Framework"
+    >
+    
+    <UserControl.RenderTransform>
+        <TranslateTransform x:Name="trNewMessage" Y="250"/>
+    </UserControl.RenderTransform>
+    
+    <UserControl.Resources>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+
+        <Storyboard x:Name="MoveMiddleOnShowing">
+            <DoubleAnimationUsingKeyFrames Duration="0:0:0.733" Storyboard.TargetName="trNewMessage" Storyboard.TargetProperty="Y">
+                <SplineDoubleKeyFrame x:Name="ShowingMoveSpline" KeyTime="0:0:0.733" KeySpline="0.10,0.90, 0.20,1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="MoveMiddleOnHiding">
+            <DoubleAnimationUsingKeyFrames Duration="0:0:0.367" Storyboard.TargetName="trNewMessage" Storyboard.TargetProperty="Y">
+                <SplineDoubleKeyFrame x:Name="HidingMoveSpline" KeyTime="0:0:0.367" KeySpline="0.10,0.90, 0.20,1" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="SendStates">
+                <VisualState x:Name="Idle"/>
+                <VisualState x:Name="Active">
+                    <Storyboard>
+                        <!--<ColorAnimation Duration="0:0:0.15" Storyboard.TargetName="_cIcon" Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)" To="White" />
+                        <ColorAnimation Duration="0:0:0.1" Storyboard.TargetName="_borderSend" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" To="{StaticResource PhoneAccentColor}" />-->
+
+                        <ColorAnimation Duration="0:0:0.3" Storyboard.TargetName="_cIcon" Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)" To="{StaticResource SystemAccentColor}" />
+
+
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Ready"/>
+                <VisualState x:Name="Loading">
+                    <VisualState.Setters>
+                        <Setter Target="root.Opacity" Value="0.5" />
+                        <Setter Target="root.IsHitTestVisible" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Blocked">
+                    <VisualState.Setters>
+                        <Setter Target="gridCommon.Visibility" Value="Collapsed" />
+                        <Setter Target="spBlocked.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid Name="root" MinHeight="32" Background="{ThemeResource BrushMenu}" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <Rectangle Height="1"  VerticalAlignment="Top" Fill="{ThemeResource SystemControlHighlightAccentBrush}" Opacity="0.1"/>
+
+                <!--<local:MentionPickerUC Grid.Row="0" x:Name="mentionPicker"/>-->
+                <ListView Grid.Row="0" x:Name="mentionPicker">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0 10" Background="Transparent" Tapped="Mention_Tapped">
+                                <Ellipse Margin="10,0,0,0" Height="32" Width="32">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding photo_50}"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <TextBlock Margin="10,0,0,0" Text="{Binding Title}" Foreground="{ThemeResource TextBrushMediumHigh}" FontSize="{StaticResource FontSizeContent}" VerticalAlignment="Center"/>
+                                <TextBlock Margin="10,0,0,0" Text="@" FontSize="{StaticResource FontSizeContent}" Foreground="{ThemeResource TextBrushMedium}" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding domain}" Foreground="{ThemeResource TextBrushMedium}" FontSize="{StaticResource FontSizeContent}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition FromHorizontalOffset="-20" FromVerticalOffset="0" IsStaggeringEnabled="True"/>
+                            <AddDeleteThemeTransition/>
+                        </TransitionCollection>
+                    </ListView.ItemContainerTransitions>
+                </ListView>
+
+                <!-- Reply to user -->
+                <StackPanel x:Name="panelReply" Margin="10 0 0 0"
+                            MinHeight="50"
+                            Orientation="Horizontal">
+                    <CheckBox x:Name="checkBoxAsCommunity" Content="От сообщества" FontSize="{StaticResource FontSizeContent}"
+                          Checked="checkBoxAsCommunity_Checked" Unchecked="checkBoxAsCommunity_Checked"/>
+                    <TextBlock x:Name="textBlockReply"
+                               Text="Ответить"
+                           Foreground="{ThemeResource TextBrushMedium}"
+                               VerticalAlignment="Center"
+                           FontSize="{StaticResource FontSizeContent}"
+                               Margin="16 0 0 0"
+                                />
+                    <Grid Background="{ThemeResource SystemControlHighlightListAccentMediumBrush}" Tapped="ucReplyUser_Tapped"
+              Height="32" x:Name="ucReplyUser" Margin="16 0 0 0">
+                        <StackPanel Orientation="Horizontal" Margin="8 0">
+                            <TextBlock x:Name="textBlockTitle"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           FontSize="{StaticResource FontSizeContent}"
+                           Text=""
+                                   />
+                            <local:IconUC Glyph="&#xE8BB;" Margin="8 0 0 0" Foreground="White" FontSize="12"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+
+                <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollMode="Enabled"
+                        SelectionMode="None" Name="itemsControlAttachments"
+                   HorizontalAlignment="Left">
+
+                    <ListView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition/>
+                        </TransitionCollection>
+                    </ListView.ItemContainerTransitions>
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <library:OutboundAttachmentTemplateSelector Content="{Binding }">
+                                <library:OutboundAttachmentTemplateSelector.PhotoTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="120" Height="70" Margin="5 8 0 5" Loaded="Attachment_Loaded">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform />
+                                            </Grid.RenderTransform>
+                                            <Border CornerRadius="10">
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="{Binding ImageSrc}" Stretch="UniformToFill"/>
+                                                </Border.Background>
+                                            </Border>
+
+                                            <ProgressBar
+                                VerticalAlignment="Bottom"
+                                Foreground="{StaticResource PhoneAccentColorBrush}"
+                                Background="Transparent"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding UploadProgress}" Margin="5 3"
+                                Visibility="{Binding IsUploadingVisibility, FallbackValue=Visible}" />
+
+                                            <Border Background="Transparent" Tapped="Image_Tap" Visibility="{Binding IsFailedUploadVisibility, FallbackValue=Collapsed}">
+                                                <local:IconUC FontSize="24" FontWeight="ExtraBold" Glyph="&#xE783;" Foreground="Red"/>
+                                            </Border>
+
+                                            <Border Width="24" Height="24" Tapped="Delete_Tapped"
+                                BorderBrush="{ThemeResource BaseBackgroundBrush}"
+                                                    BorderThickness="3" Margin="0 -8 -8 0"
+                                                       
+                                                       VerticalAlignment="Top"
+                                                       HorizontalAlignment="Right" Background="{ThemeResource AccentBrushMedium}"
+                                                       CornerRadius="10">
+
+                                                <local:IconUC FontSize="10" FontWeight="ExtraBold" Glyph="&#xE711;" Foreground="White"/>
+                                            </Border>
+                                        </Grid>
+                                    </DataTemplate>
+                                </library:OutboundAttachmentTemplateSelector.PhotoTemplate>
+
+                                <library:OutboundAttachmentTemplateSelector.ForwardedMessageTemplate>
+                                    <DataTemplate>
+
+                                        <Grid Width="120" Height="70" Margin="5 8 0 5" Loaded="Attachment_Loaded">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform />
+                                            </Grid.RenderTransform>
+                                            <Border Background="{ThemeResource TextBrushLow}" CornerRadius="10"/>
+
+                                            <local:IconUC Glyph="&#xEA24;" VerticalAlignment="Top" Margin="15"
+                                       FontSize="18"
+                                   Foreground="White" />
+
+
+                                            <TextBlock
+                                                   Margin="0 40 0 0"
+                                                   HorizontalAlignment="Center"
+                                                   FontSize="14"
+                                                   VerticalAlignment="Top"
+                                                   Text="{Binding Title, FallbackValue='2 messages'}" Foreground="White"/>
+
+                                            <Border Width="24" Height="24" 
+                                BorderBrush="{ThemeResource BaseBackgroundBrush}" BorderThickness="3"
+                                Tapped="Delete_Tapped"
+                                Margin="0 -8 -8 0"
+                                                       
+                                                       VerticalAlignment="Top"
+                                                       HorizontalAlignment="Right" Background="{ThemeResource SystemControlHighlightListAccentMediumBrush}"
+                                                       CornerRadius="10">
+
+                                                <local:IconUC FontSize="10" FontWeight="ExtraBold" Glyph="&#xE711;" Foreground="White"/>
+                                            </Border>
+                                        </Grid>
+                                    </DataTemplate>
+
+                                </library:OutboundAttachmentTemplateSelector.ForwardedMessageTemplate>
+
+                                <library:OutboundAttachmentTemplateSelector.GenericIconTemplate>
+                                    <DataTemplate>
+
+                                        <Grid Width="120" Height="70" Margin="5 8 0 5" Loaded="Attachment_Loaded">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform />
+                                            </Grid.RenderTransform>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Background="{ThemeResource TextBrushLow}" CornerRadius="10" Grid.RowSpan="3"/>
+
+
+                                            <local:IconUC Glyph="{Binding IconSource}"
+                                         FontSize="18"
+                                       Foreground="White"
+                                                    Grid.Row="0"/>
+
+
+                                            <TextBlock FontSize="12"
+                                                       TextAlignment="Center"
+                                                       Foreground="White"
+                                                       Text="{Binding Title, FallbackValue=WallPost}"
+                                                       Grid.Row="1"
+                                                       Margin="5 0"
+                                                       TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"
+                                                        />
+
+
+                                            <TextBlock Grid.Row="2" FontSize="12" Foreground="White"
+                                                       TextAlignment="Center"
+                                                       TextWrapping="NoWrap"
+                                                       TextTrimming="CharacterEllipsis" Margin="5 0"
+                                                       Text="{Binding Subtitle, FallbackValue=Test}"
+                                                               Visibility="{Binding Subtitle, FallbackValue=Collapsed, Converter={StaticResource StringToVisibilityConverter}}"
+                                                       />
+
+
+
+
+
+                                            <Border Width="24" Height="24" Tapped="Delete_Tapped"
+                                BorderBrush="{ThemeResource BaseBackgroundBrush}" BorderThickness="3"
+                                
+                                Margin="0 -8 -8 0"
+                                                       
+                                                       VerticalAlignment="Top" HorizontalAlignment="Right"
+                                                    Background="{ThemeResource SystemControlHighlightListAccentMediumBrush}"
+                                                       CornerRadius="10">
+
+                                                <local:IconUC FontSize="10" FontWeight="ExtraBold" Glyph="&#xE711;" Foreground="White"/>
+                                            </Border>
+
+                                        </Grid>
+                                    </DataTemplate>
+
+                                </library:OutboundAttachmentTemplateSelector.GenericIconTemplate>
+
+                                <library:OutboundAttachmentTemplateSelector.VideoTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="120" Height="70" Margin="5 8 0 5" Loaded="Attachment_Loaded">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform />
+                                            </Grid.RenderTransform>
+                                            <Border CornerRadius="10">
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="{Binding ResourceUri}" Stretch="UniformToFill"/>
+                                                </Border.Background>
+                                            </Border>
+
+
+
+                                            <ProgressBar
+                                VerticalAlignment="Bottom"
+                                Foreground="{StaticResource PhoneAccentColorBrush}"
+                                Background="Transparent"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding UploadProgress}" Margin="5 3"
+                                Visibility="{Binding IsUploadingVisibility, FallbackValue=Visible}" />
+
+                                            <Border Width="24" Height="24" Tapped="Delete_Tapped"
+                                BorderBrush="{ThemeResource BaseBackgroundBrush}"
+                                                    BorderThickness="3" Margin="0 -8 -8 0"
+                                                       
+                                                       VerticalAlignment="Top"
+                                                       HorizontalAlignment="Right" Background="{ThemeResource SystemControlHighlightListAccentMediumBrush}"
+                                                       CornerRadius="10">
+
+                                                <local:IconUC FontSize="10" FontWeight="ExtraBold" Glyph="&#xE711;" Foreground="White"/>
+                                            </Border>
+                                        </Grid>
+                                    </DataTemplate>
+                                </library:OutboundAttachmentTemplateSelector.VideoTemplate>
+                            </library:OutboundAttachmentTemplateSelector>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+
+
+
+
+
+
+
+
+            <Grid Grid.Row="1" VerticalAlignment="Bottom" Name="gridCommon">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <AppBarButton Width="48" Height="48" Background="Transparent" VerticalAlignment="Bottom" Tapped="AddAttachTapped"
+                              framework:MouseOver.Cursor="Hand">
+                    <local:IconUC Foreground="{ThemeResource TextBrushLow}" FontSize="{StaticResource FontSizeLarge}" Glyph="&#xE723;" />
+                </AppBarButton>
+
+                <!--<Border Grid.Column="1" CornerRadius="18" BorderBrush="{ThemeResource TextBrushLow}"
+                        BorderThickness="1" Margin="0 5 48 5" Grid.ColumnSpan="2" Opacity="0.3"/>-->
+                <TextBox x:Name="textBoxPost" Grid.Column="1" Margin="0 4" MinHeight="36"
+                         Style="{StaticResource RoundedTextBox}"
+                         Background="Transparent"
+                         VerticalAlignment="Center"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         FontSize="{StaticResource FontSizeContent}"
+                         Foreground="{ThemeResource TextBrushMediumHigh}"
+                         PlaceholderText="{Binding TextWatermarkText}"
+                         KeyUp="textBoxPost_KeyUp"
+                         TextChanging="TextBoxPost_TextChanging"
+                         Padding="12 0 36 0"
+                         
+                         >
+                    
+                </TextBox>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Column="1" Height="48" HorizontalAlignment="Right">
+                    <Border Width="36" Height="36" Visibility="{Binding BotKeyboardVisibility, FallbackValue=Collapsed}" Background="Transparent" Tapped="BotKeyboard_Tapped">
+                        <local:IconUC  FontSize="{StaticResource FontSizeLarge}" Foreground="{ThemeResource TextBrushLow}"
+                                       Glyph="&#xE74C;"/>
+                    </Border>
+
+                    <Grid Width="36" Height="36" Tapped="Smiles_Tapped" Background="Transparent" Margin="0 0 2 0">
+                        <!--<local:IconUC Foreground="{ThemeResource TextBrushMediumHigh}" FontSize="{StaticResource FontSizeLarge}" Glyph="&#xED54;" />-->
+                        <local:CustomIconUC Foreground="{ThemeResource TextBrushLow}" x:Name="_stickerIcon" FontSize="{StaticResource FontSizeLarge}" Glyph="&#xED54;"/>
+
+                        <Ellipse x:Name="ellipseHasStickersUpdates"
+                            Width="12"
+                            Height="12"
+                            Margin="36,21,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Fill="Red"
+                            Stroke="White"
+                            StrokeThickness="2"
+                            Visibility="Collapsed" />
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Bottom">
+                    
+
+
+                    <Border Width="48" Height="48" x:Name="_borderSend" Background="Transparent">
+                        <Border Width="48" Height="48"
+                            ManipulationMode="TranslateX"
+                                PointerPressed="_borderVoice_PointerPressed"
+                                PointerReleased="_borderVoice_PointerReleased"
+                                ManipulationDelta="_borderVoice_ManipulationDelta"
+                                ManipulationCompleted="_borderVoice_ManipulationCompleted"
+                            Name="_borderVoice" Tag="CantTouchThis"
+                            >
+                            <local:CustomIconUC x:Name="_cIcon" FontSize="{StaticResource FontSizeLarge}" Glyph="&#xE725;"
+                                                Foreground="{ThemeResource TextBrushLow}"/>
+                        </Border>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <local:AudioRecorderUC Grid.Row="1" Visibility="Collapsed" x:Name="ucAudioRecorder"/>
+
+            <local:StickersAutoSuggestUC Grid.Row="1" x:Name="ucStickersAutoSuggest"
+                        Margin="12 -100 12 0"
+                        VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+            <!--<ItemsControl Grid.Row="2" ItemsSource="{Binding BotKeyboardButtons}" Name="_botKeyboard" VerticalAlignment="Bottom">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="{Binding Color}" CornerRadius="12" HorizontalAlignment="Stretch" Margin="10 5" Tapped="BotKeyboardButton_Tapped">
+                            <TextBlock Text="{Binding Label}" Padding="0 7" HorizontalAlignment="Center" Foreground="White"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>-->
+            <ItemsControl Grid.Row="2" ItemsSource="{Binding BotKeyboardButtons}" Name="_botKeyboard" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ItemsControl ItemsSource="{Binding }" HorizontalAlignment="Stretch" SizeChanged="ListView_SizeChanged" Margin="0 5">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Background="{Binding Color}" Content="{Binding Label}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5 0" Tapped="BotKeyboardButton_Tapped" 
+                                            Style="{StaticResource SimpleRoundedButtonStyle}" Foreground="White">
+                                        
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Stretch"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <controls:SwipeThroughControl x:Name="panelControl" Grid.Row="3" FooterBackground="{ThemeResource BaseBackgroundBrush}" Height="250">
+                <controls:SwipeThroughControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Source="{Binding StickerStockItemHeader.background}" Stretch="UniformToFill"/>
+                            <local:SpriteListControl DataContext="{Binding }"
+                                                     StickerClick="SpriteListControl_ItemClick"
+                                                     EmojiClick="SpriteListControl_EmojiClick"/>
+                        </Grid>
+                    </DataTemplate>
+                </controls:SwipeThroughControl.ItemTemplate>
+                <controls:SwipeThroughControl.FooterItemTemplate>
+                    <DataTemplate>
+                        <!--<Border DataContext="{Binding StickerStockItemHeader}" Width="60" Height="54" Opacity="{Binding TabImageOpacity}">
+                            <Image Source="{Binding photo_70}" Width="35" HorizontalAlignment="Center"/>
+                        </Border>-->
+                        <Grid Width="{Binding ImageDim}" Height="54">
+                            <Image Source="{Binding TabThumbSticker}" Width="35" HorizontalAlignment="Center" Opacity="{Binding TabImageOpacity}"/>
+                            <local:IconUC Glyph="{Binding TabThumb}"/>
+                        </Grid>
+
+                    </DataTemplate>
+                </controls:SwipeThroughControl.FooterItemTemplate>
+            </controls:SwipeThroughControl>
+
+            <ProgressBar Margin="30 50" IsIndeterminate="False" Name="progBar" Background="Transparent" MaxWidth="500" Grid.Row="3"/>
+
+            
+
+            <StackPanel Grid.Row="1" Height="48" Orientation="Horizontal" HorizontalAlignment="Center" Name="spBlocked" Visibility="Collapsed">
+                <local:IconUC Glyph="&#xE783;" Foreground="Red" Margin="0 0 15 0" FontSize="25"/>
+                <TextBlock Text="Отправка сообщения заблокирована" VerticalAlignment="Center"/>
+            </StackPanel>
+            <!--<Rectangle Name="btmOffset" Grid.Row="2"/>-->
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,616 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.VideoViewerElementUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    BorderBrush="Red"
+    BorderThickness="10"
+    xmlns:converters="using:LunaVK.Network.Converters"
+    >
+
+    <UserControl.RenderTransform>
+        <CompositeTransform/>
+    </UserControl.RenderTransform>
+
+    <UserControl.Resources>
+
+        <converters:ThumbSecondsConverter x:Key="ThumbSecondsConverter"/>
+
+        <Style TargetType="MediaTransportControls" x:Key="MyMediaTransportControls2">
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="IsTextScaleFactorEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="MediaTransportControls">
+                        <Grid x:Name='RootGrid' Background='Transparent'>
+                            <Grid.Resources>
+
+                                <!--New AppBar button style 48x48 pixels in size-->
+                                <Style x:Key='AppBarButtonStyle' TargetType='AppBarButton'>
+                                    <Setter Property='Width' Value='{ThemeResource MTCMediaButtonWidth}' />
+                                    <Setter Property='Height' Value='{ThemeResource MTCMediaButtonHeight}' />
+                                    <Setter Property='Foreground' Value="White" />
+                                </Style>
+
+                                <!--New CommandBar Style-->
+                                <!--<Style x:Key='CommandBarStyle' TargetType='CommandBar'>
+                                    <Setter Property='Height' Value='{ThemeResource MTCMediaButtonHeight}' />
+                                    <Setter Property='Background' Value='Transparent' />
+                                </Style>-->
+
+                                <!--Style for Error Message text-->
+                                <Style x:Key='MediaTextBlockStyle' TargetType='TextBlock'>
+                                    <Setter Property='VerticalAlignment' Value='Center' />
+                                    <Setter Property='Foreground' Value="White" />
+                                    <Setter Property='FontSize' Value="{ThemeResource MTCMediaFontSize}" />
+                                    <Setter Property='FontFamily' Value="{ThemeResource MTCMediaFontFamily}" />
+                                    <Setter Property="IsTextScaleFactorEnabled" Value="False"/>
+                                </Style>
+
+
+
+
+                                <!--Style for Volume Flyout used in Media Transport Controls-->
+                                <Style x:Key='FlyoutStyle' TargetType='FlyoutPresenter'>
+                                    <Setter Property='Background' Value='{ThemeResource SystemControlBackgroundChromeMediumBrush}' />
+                                    <Setter Property="Padding" Value="0"/>
+                                </Style>
+                            </Grid.Resources>
+
+                            <VisualStateManager.VisualStateGroups>
+
+                                <!-- ControlPanel Visibility states -->
+                                <VisualStateGroup x:Name='ControlPanelVisibilityStates' CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name='ControlPanelFadeIn'>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='ControlPanel_ControlPanelVisibilityStates_Border'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='0' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.3' Value='1' />
+                                            </DoubleAnimationUsingKeyFrames>
+
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='PlayPauseButton'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='0' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.3' Value='1' />
+                                            </DoubleAnimationUsingKeyFrames>
+
+                                            <!--<DoubleAnimation Storyboard.TargetProperty="Y" Storyboard.TargetName="TranslateVertical" From="50" To="0.5" Duration="0:0:0.3" />-->
+
+
+                                            <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='SkipBackwardButton'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='0' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.4' Value='1' />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='SkipForwardButton'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='0' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.4' Value='1' />
+                                            </DoubleAnimationUsingKeyFrames>-->
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name='ControlPanelFadeOut'>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='ControlPanel_ControlPanelVisibilityStates_Border'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='1' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.7' Value='0' />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty='IsHitTestVisible' Storyboard.TargetName='ControlPanel_ControlPanelVisibilityStates_Border'>
+                                                <DiscreteObjectKeyFrame KeyTime='0' Value='False'/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='PlayPauseButton'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='1' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.5' Value='0' />
+                                            </DoubleAnimationUsingKeyFrames>
+
+                                            <!--<DoubleAnimation Storyboard.TargetProperty="Y" Storyboard.TargetName="TranslateVertical" From="0.5" To="50" Duration="0:0:0.7" />-->
+
+
+                                            <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='SkipBackwardButton'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='1' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.4' Value='0' />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty='Opacity' Storyboard.TargetName='SkipForwardButton'>
+                                                <EasingDoubleKeyFrame KeyTime='0' Value='1' />
+                                                <EasingDoubleKeyFrame KeyTime='0:0:0.4' Value='0' />
+                                            </DoubleAnimationUsingKeyFrames>-->
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <!-- ControlPanel Visibility states -->
+
+                                <!-- Media state visual states -->
+                                <VisualStateGroup x:Name='MediaStates' CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name='Normal'/>
+                                    <VisualState x:Name='Buffering'>
+                                        <VisualState.Setters>
+                                            <Setter Target="BufferingProgressBar.Visibility" Value="Visible" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name='Loading'>
+                                        <VisualState.Setters>
+                                            <Setter Target="BufferingProgressBar.Visibility" Value="Visible" />
+                                            <Setter Target="MediaTransportControls_Command_Border.Visibility" Value="Collapsed" />
+                                            <Setter Target="PlayPauseButton.Visibility" Value="Collapsed" />
+                                            <Setter Target="TimeTextGrid.Visibility" Value="Collapsed" />
+                                            <Setter Target="VolumePanel.Visibility" Value="Collapsed" />
+                                            <Setter Target="RootGrid.IsHitTestVisible" Value="False" />
+                                            <Setter Target="SettingButton.Visibility" Value="Collapsed" />
+                                        </VisualState.Setters>
+
+                                        <Storyboard>
+
+                                            <DoubleAnimation Storyboard.TargetName='ProgressSlider' Storyboard.TargetProperty='Opacity' To='0' Duration='0' />
+                                            <!--<DoubleAnimation Storyboard.TargetName='MediaControlsCommandBar' Storyboard.TargetProperty='Opacity' To='0' Duration='0' />-->
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name='Error'>
+                                        <VisualState.Setters>
+                                            <Setter Target="ErrorBorder.Visibility" Value="Visible" />
+                                            <Setter Target="BufferingProgressBar.Visibility" Value="Collapsed" />
+                                            <Setter Target="MediaTransportControls_Command_Border.Visibility" Value="Collapsed" />
+                                            <Setter Target="PlayPauseButton.Visibility" Value="Collapsed" />
+                                            <Setter Target="TimeTextGrid.Visibility" Value="Collapsed" />
+                                            <Setter Target="VolumePanel.Visibility" Value="Collapsed" />
+                                            <Setter Target="ProgressSlider.Visibility" Value="Collapsed" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name='Disabled'>
+
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <!-- Media state visual states -->
+
+                                <!-- Audio Selection Button visibility states -->
+                                <VisualStateGroup x:Name='AudioSelectionAvailablityStates' CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name='AudioSelectionAvailable'>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty='Visibility' Storyboard.TargetName='AudioTracksSelectionButton'>
+                                                <DiscreteObjectKeyFrame KeyTime='0' Value='Visible'/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name='AudioSelectionUnavailable' />
+                                </VisualStateGroup>
+                                <!-- Video volume visibility states -->
+
+                                <!-- Closed Captioning Selection Button visibility states -->
+                                <VisualStateGroup x:Name='CCSelectionAvailablityStates' CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name='CCSelectionAvailable'>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty='Visibility' Storyboard.TargetName='CCSelectionButton'>
+                                                <DiscreteObjectKeyFrame KeyTime='0' Value='Visible'/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name='CCSelectionUnavailable' />
+                                </VisualStateGroup>
+                                <!-- Closed Captioning  visibility states -->
+
+                                <!-- Focus states -->
+                                <VisualStateGroup x:Name='FocusStates' CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name='Focused'>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName='FocusVisualWhite' Storyboard.TargetProperty='Opacity' To='1' Duration='0' />
+                                            <DoubleAnimation Storyboard.TargetName='FocusVisualBlack' Storyboard.TargetProperty='Opacity' To='1' Duration='0' />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name='Unfocused' />
+                                    <VisualState x:Name='PointerFocused' />
+                                </VisualStateGroup>
+                                <!-- Focus states -->
+                                <VisualStateGroup x:Name="MediaTransportControlMode" CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name="NormalMode" />
+                                    <VisualState x:Name="CompactMode">
+                                        <!--<Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LeftSidePlayBorder" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TimeTextGrid" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MediaTransportControls_Command_Border" Storyboard.TargetProperty="(Grid.Column)">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="2" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MediaTransportControls_Command_Border" Storyboard.TargetProperty="(Grid.Row)">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="1" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MediaControlsCommandBar" Storyboard.TargetProperty="Margin">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="0" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PlayPauseButton" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime='0'>
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>-->
+                                        <VisualState.Setters>
+                                            <Setter Target="ControlPanel_ControlPanelVisibilityStates_Border.Visibility" Value="Collapsed" />
+                                            <Setter Target="PlayPauseButton.Visibility" Value="Collapsed" />
+                                            
+                                            <!--<Setter Target="_gridBack.Visibility" Value="Visible" />-->
+                                            
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+
+                                <!-- PlayPause states -->
+                                <VisualStateGroup x:Name="PlayPauseStates" CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name="PlayState" />
+                                    <VisualState x:Name="PauseState">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PlayPauseSymbol" Storyboard.TargetProperty="Symbol" >
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Pause"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <!-- VolumeMute states -->
+                                <VisualStateGroup x:Name="VolumeMuteStates" CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name="VolumeState" />
+                                    <VisualState x:Name="MuteState">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AudioMuteSymbol" Storyboard.TargetProperty="Symbol">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Mute"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetName="VolumeMuteSymbol" Storyboard.TargetProperty="Symbol">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Mute"/>
+                                            </ObjectAnimationUsingKeyFrames>-->
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <!-- FullWindow states -->
+                                <VisualStateGroup x:Name="FullWindowStates" CurrentStateChanged="ControlPanelVisibilityStates_CurrentStateChanged">
+                                    <VisualState x:Name="NonFullWindowState" />
+                                    <VisualState x:Name="FullWindowState">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FullWindowSymbol" Storyboard.TargetProperty="Symbol">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="BackToWindow"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+
+                                <VisualStateGroup x:Name="VolumeStates">
+                                    <VisualState x:Name="VolumeStateOpen">
+                                        <Storyboard>
+                                            <!--<DoubleAnimation Storyboard.TargetProperty="X" Storyboard.TargetName="_trClip" To="0" Duration="0:0:0.3" />
+                                            <DoubleAnimation Storyboard.TargetProperty="X" Storyboard.TargetName="_trText" To="0" Duration="0:0:0.3" />-->
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_trClip" Storyboard.TargetProperty="X">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="0" KeySpline="0.1,0.9,0.2,1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_trText" Storyboard.TargetProperty="X">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="0" KeySpline="0.1,0.9,0.2,1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="VolumeStateClose">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="X" Storyboard.TargetName="_trClip" To="-100" Duration="0:0:0.3" />
+                                            <DoubleAnimation Storyboard.TargetProperty="X" Storyboard.TargetName="_trText" To="-110" Duration="0:0:0.3" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid x:Name='ControlPanel_ControlPanelVisibilityStates_Border'>
+
+                                <Border HorizontalAlignment="Left" Width="100" Background="Transparent"
+                                        DoubleTapped="SkipBackwardButton_DoubleTapped"/>
+
+                                <Border HorizontalAlignment="Right" Width="100" Background="Transparent" DoubleTapped="SkipForwardButton_DoubleTapped"/>
+
+                                <Grid x:Name='ControlPanelGrid' VerticalAlignment='Bottom' RenderTransformOrigin='0.5 0.5'>
+                                    <Grid.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0"/>
+                                            <GradientStop Color="#B2000000" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+
+                                    <!--<Grid.RenderTransform>
+                        <TranslateTransform x:Name="TranslateVertical"/>
+                    </Grid.RenderTransform>-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height='Auto' />
+                                        <RowDefinition />
+                                        <RowDefinition Height='Auto'/>
+                                    </Grid.RowDefinitions>
+
+
+                                    <Border x:Name='MediaTransportControls_Timeline_Border'
+                        Grid.Column='1' Grid.Row='1' Margin="0 40 0 0">
+                                        <Grid x:Name='MediaTransportControls_Timeline_Grid' Margin='12 0'>
+
+                                            <Slider x:Name='ProgressSlider'
+                                  Style='{StaticResource MediaSliderStyle}'
+                                  
+                                    ThumbToolTipValueConverter="{StaticResource ThumbSecondsConverter}"
+                                    
+                                    
+                                  Height='16'
+                                  VerticalAlignment='Center'
+                                   ValueChanged="ProgressSlider_ValueChanged"/>
+
+
+                                        </Grid>
+                                    </Border>
+
+                                    <Border x:Name='MediaTransportControls_Command_Border' Grid.Row='2' >
+                                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 0 48 0">
+
+
+
+
+
+                                            <AppBarButton x:Name='CCSelectionButton'
+                                              Style='{StaticResource AppBarButtonStyle}'
+                                              
+                                              Visibility='Collapsed'>
+                                                <AppBarButton.Icon>
+                                                    <FontIcon Glyph="&#xE7F0;"/>
+                                                </AppBarButton.Icon>
+                                            </AppBarButton>
+
+
+
+                                            <AppBarButton x:Name='RewindButton'
+                                              Style='{StaticResource AppBarButtonStyle}'
+                                              MediaTransportControlsHelper.DropoutOrder='2'
+                                              Visibility='Collapsed'>
+                                                <AppBarButton.Icon>
+                                                    <FontIcon Glyph="&#xEB9E;"/>
+                                                </AppBarButton.Icon>
+                                            </AppBarButton>
+
+
+
+
+
+
+
+
+                                            <AppBarButton x:Name='AudioTracksSelectionButton'
+                                                Icon='Character'
+                                                Style='{StaticResource AppBarButtonStyle}'
+                                                MediaTransportControlsHelper.DropoutOrder='5'
+                                                Visibility='Collapsed'/>
+
+
+
+
+
+
+
+
+
+                                            <AppBarButton x:Name='FastForwardButton'
+                                              Style='{StaticResource AppBarButtonStyle}'
+                                              MediaTransportControlsHelper.DropoutOrder='3'
+                                              Visibility='Collapsed'>
+                                                <AppBarButton.Icon>
+                                                    <FontIcon Glyph="&#xEB9D;"/>
+                                                </AppBarButton.Icon>
+                                            </AppBarButton>
+                                            <AppBarButton x:Name='PlaybackRateButton'
+                                                Style='{StaticResource AppBarButtonStyle}'
+                                                MediaTransportControlsHelper.DropoutOrder='4'
+                                                Visibility='Collapsed'>
+                                                <AppBarButton.Icon>
+                                                    <FontIcon Glyph="&#xEC57;"/>
+                                                </AppBarButton.Icon>
+                                            </AppBarButton>
+
+
+
+
+
+                                            <AppBarButton x:Name='FullWindowButton'
+                                                Style='{StaticResource AppBarButtonStyle}'
+                                                >
+                                                <AppBarButton.Icon>
+                                                    <SymbolIcon x:Name='FullWindowSymbol' Symbol='FullScreen' />
+                                                </AppBarButton.Icon>
+                                            </AppBarButton>
+                                        </StackPanel>
+                                    </Border>
+
+
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent"
+                    Grid.Row="2" x:Name="VolumePanel"
+                                                PointerEntered="StackPanel_PointerEntered" PointerExited="StackPanel_PointerExited">
+                                        <AppBarButton Style='{StaticResource AppBarButtonStyle}' Click="Volume_Click">
+                                            <AppBarButton.Icon>
+                                                <SymbolIcon x:Name='AudioMuteSymbol' Symbol='Volume' />
+                                            </AppBarButton.Icon>
+                                        </AppBarButton>
+                                        <Slider x:Name='VolumeSlider' VerticalAlignment="Center" Height="36"
+                                                          Background="White" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"
+                                                          IsThumbToolTipEnabled='False'
+                                                          Width='100'
+                                                          >
+                                            <Slider.Clip>
+                                                <RectangleGeometry Rect="0 0 100 48">
+                                                    <RectangleGeometry.Transform>
+                                                        <TranslateTransform X="-100" x:Name="_trClip"/>
+                                                    </RectangleGeometry.Transform>
+                                                </RectangleGeometry>
+                                            </Slider.Clip>
+                                        </Slider>
+
+                                        <StackPanel x:Name="TimeTextGrid" Orientation="Horizontal"
+                                  Grid.Row="2" HorizontalAlignment="Left"
+                                  VerticalAlignment="Bottom" Margin="10 0 0 16">
+                                            <StackPanel.RenderTransform>
+                                                <TranslateTransform X="-110" x:Name="_trText" />
+                                            </StackPanel.RenderTransform>
+                                            <TextBlock x:Name='TimeElapsedElement'
+                                          Style="{StaticResource MediaTextBlockStyle}"
+                                          Text="00:00"
+                                           />
+                                            <TextBlock Text="/" Style="{StaticResource MediaTextBlockStyle}" Margin="3 0"/>
+                                            <TextBlock x:Name='TimeRemainingElement'
+                                          Style="{StaticResource MediaTextBlockStyle}"
+                                          Text="00:00"
+                                          />
+                                        </StackPanel>
+                                    </StackPanel>
+
+
+                                </Grid>
+
+                                <Grid x:Name='ControlPanelGridTop' VerticalAlignment='Top' RenderTransformOrigin='0.5 0.5'>
+                                    <Grid.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0" Color="#B2000000"/>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" >
+
+                                        <!--<AppBarButton 
+                                                Style='{StaticResource AppBarButtonStyle}' Icon="DockBottom"
+                                               
+                                            Tapped="ButtonDock_Tapped" ToolTipService.ToolTip="Dock"
+                                                />-->
+
+                                        <AppBarButton x:Name='CastButton'
+                                                Style='{StaticResource AppBarButtonStyle}'
+                                                              
+                                                >
+                                            <AppBarButton.Icon>
+                                                <FontIcon Glyph="&#xEC15;"/>
+                                            </AppBarButton.Icon>
+                                        </AppBarButton>
+
+                                        <AppBarButton x:Name='ZoomButton'
+                                                Style='{StaticResource AppBarButtonStyle}'
+                                                MediaTransportControlsHelper.DropoutOrder='6'>
+                                            <AppBarButton.Icon>
+                                                <FontIcon Glyph="&#xE799;"/>
+                                            </AppBarButton.Icon>
+                                        </AppBarButton>
+
+                                        <AppBarButton Icon="DockBottom" Style='{StaticResource AppBarButtonStyle}' Visibility="Collapsed"/>
+
+                                        <AppBarButton Icon="Pictures" Style='{StaticResource AppBarButtonStyle}' Click="ButtonMini_Click" Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <AppBarButton x:Name="SettingButton" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                                              Style='{StaticResource AppBarButtonStyle}' Icon="Setting"
+                                                             ToolTipService.ToolTip="Settings"
+                                                              >
+                                    <AppBarButton.Flyout >
+                                        <Flyout x:Name="SettingFlyout" FlyoutPresenterStyle="{StaticResource FlyoutStyle}" Opened="SettingFlyout_Opened">
+                                            <ListView ItemsSource="{Binding Resolutions}" HorizontalAlignment="Center"
+                                                                      SelectedItem="{Binding Resolution, Mode=TwoWay}" SelectionMode="Single"
+                                                                      SelectionChanged="ListView_SelectionChanged">
+                                                <DataTemplate>
+                                                    <AppBarButton Content="{Binding }" Style='{StaticResource AppBarButtonStyle}'/>
+                                                </DataTemplate>
+                                            </ListView>
+                                        </Flyout>
+                                    </AppBarButton.Flyout>
+                                </AppBarButton>
+                            </Grid>
+
+
+
+                            <!--
+            <AppBarButton x:Name='SkipBackwardButton' VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                Style='{StaticResource AppBarButtonStyle}'
+                                          Loaded="SkipBackwardButton_Loaded"
+                                               
+                                          Margin="50 0"
+                                                >
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xED3C;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name='SkipForwardButton' VerticalAlignment="Center" HorizontalAlignment="Right"
+                                                Style='{StaticResource AppBarButtonStyle}'
+                                                Loaded="SkipForwardButton_Loaded"
+                                          Margin="50 0"
+                                                >
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xED3D;" />
+                </AppBarButton.Icon>
+            </AppBarButton>-->
+
+
+                            <Button x:Name='PlayPauseButton' VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                Style='{StaticResource MediaTransportControlFluentButtonStyle}' Background="#4C000000" 
+                                          Width="56" Height="56" 
+                                                >
+                                <Button.Content>
+                                    <SymbolIcon x:Name='PlayPauseSymbol' Symbol='Play' />
+                                </Button.Content>
+                            </Button>
+
+                            <!--<ProgressBar x:Name='BufferingProgressBar'
+                                                Height='6'
+                                                IsIndeterminate='True'
+                                                IsHitTestVisible='False'
+                                                VerticalAlignment='Center'
+                                                Background="Transparent" Foreground="White"
+                                                Visibility='Collapsed' Margin="40 0"/>-->
+                            <ProgressRing x:Name='BufferingProgressBar'
+                                                Width="48" Height="48"
+                                                IsActive='True'
+                                                VerticalAlignment='Center'
+                                                Background="Transparent" Foreground="White"
+                                                Visibility='Collapsed'/>
+
+                            <Border x:Name="ErrorBorder" Grid.ColumnSpan='3' MinWidth='150' MinHeight='18'
+                        VerticalAlignment="Center" CornerRadius="14"
+                        HorizontalAlignment="Center" Background='{ThemeResource SystemControlPageBackgroundAltMediumBrush}'
+                        Visibility='Collapsed'>
+                                <TextBlock x:Name='ErrorTextBlock'
+                            Style="{StaticResource MediaTextBlockStyle}"
+                            TextWrapping="WrapWholeWords"
+                            Margin='12'/>
+                            </Border>
+
+                            <!--<Grid Background="Transparent" Tapped="Back_Tapped" Visibility="Collapsed" x:Name="_gridBack"/>-->
+
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+
+    <Grid Tapped="UserControl_Tapped" Background="Transparent" Name="_border"
+          PointerEntered="_border_PointerEntered" PointerExited="_border_PointerExited" PointerCanceled="_border_PointerExited">
+
+        <MediaElement Name="_mediaElement" AreTransportControlsEnabled="True"
+                       CurrentStateChanged="_mediaElement_CurrentStateChanged">
+            <MediaElement.TransportControls>
+                <MediaTransportControls Style="{StaticResource MyMediaTransportControls2}"/>
+            </MediaElement.TransportControls>
+        </MediaElement>
+        
+        <Border x:Name="_brdClose" Height="70" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                    Visibility="Collapsed"
+                                    Tapped="_brdClose_Tapped" Background="#66FF0000">
+            <local:IconUC Glyph="&#xE711;" FontSize="35" Foreground="White"/>
+        </Border>
+        <MediaElement AutoPlay="False" Name="_soundStream" Visibility="Collapsed" Volume="{Binding Volume, ElementName=_mediaElement}"/>
+
+    </Grid>
+</UserControl>

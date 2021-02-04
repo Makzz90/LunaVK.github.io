@@ -1,0 +1,76 @@
+﻿<local:PageBase
+    x:Class="LunaVK.DocumentsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:attach="using:LunaVK.UC.Attachment"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:controls="using:LunaVK.UC.Controls">
+
+    <local:PageBase.Resources>
+        <DataTemplate x:Key="ItemTemplate">
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ContentControl Template="{StaticResource DocumentTemplate}"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Visibility="{Binding IsMenuEnabled}">
+                    <Button Style="{StaticResource MediaTransportControlFluentButtonStyle}" Click="item_OnEditButtonClicked">
+                        <SymbolIcon Symbol='Edit' Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                    </Button>
+                    <Button Style="{StaticResource MediaTransportControlFluentButtonStyle}" Click="item_OnDeleteButtonClicked">
+                        <SymbolIcon Symbol='Delete' Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </local:PageBase.Resources>
+    
+    <Grid Background="{ThemeResource BaseBackgroundBrush}" Name="_backGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <uc:HeaderOffsetUC/>
+        <Pivot Grid.Row="1" SelectionChanged="Pivot_SelectionChanged" ItemsSource="{Binding Items}" Name="pivot">
+            <Pivot.ItemTemplate>
+                <DataTemplate>
+                    <PivotItem>
+                        <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False"
+                                                    SelectionChanged="ExtendedListView3_SelectionChanged" SelectionMode="Single"
+                                                    ItemTemplate="{StaticResource ItemTemplate}">
+                            <!--<controls:ExtendedListView3.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0 10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ContentControl Template="{StaticResource DocumentTemplate}"/>
+                                        
+                                        <StackPanel Orientation="Horizontal" Grid.Column="1">
+                                            <Button Style="{StaticResource MediaTransportControlFluentButtonStyle}" Click="item_OnEditButtonClicked">
+                                                <SymbolIcon Symbol='Edit' Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                                            </Button>
+                                            <Button Style="{StaticResource MediaTransportControlFluentButtonStyle}" Click="item_OnDeleteButtonClicked">
+                                                <SymbolIcon Symbol='Delete' Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </controls:ExtendedListView3.ItemTemplate>-->
+                        </controls:ExtendedListView3>
+                    </PivotItem>
+                </DataTemplate>
+            </Pivot.ItemTemplate>
+        </Pivot>
+
+    </Grid>
+</local:PageBase>

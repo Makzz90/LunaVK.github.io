@@ -1,0 +1,39 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.PreviewImageUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid x:Name="LayoutRoot" IsHitTestVisible="False">
+
+        <Rectangle Fill="Black"
+                   Name="rect"
+                   Grid.RowSpan="2"
+                   Opacity="0"
+                   CacheMode="BitmapCache"/>
+
+
+        <Image
+            Width="256"
+            Height="256"
+            Name="_imagePreview" 
+            VerticalAlignment="Top"
+            CacheMode="BitmapCache"
+            
+            >
+
+            <Image.RenderTransform>
+                <ScaleTransform ScaleX="0.8"
+                                CenterX="128"
+                                CenterY="128"
+                                ScaleY="0.8"/>
+            </Image.RenderTransform>
+
+        </Image>
+    </Grid>
+</UserControl>

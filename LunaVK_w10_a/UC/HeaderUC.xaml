@@ -1,0 +1,182 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.HeaderUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="81"
+    d:DesignWidth="400"
+    xmlns:framework="using:LunaVK.Framework"
+    >
+
+    <Grid Name="root0">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MenuState">
+                <VisualState x:Name="Medium">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                    <!--<Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="gridSandwich" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame Value="Collapsed" KeyTime="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>-->
+                    <VisualState.Setters>
+                        <Setter Target="gridSandwich.Visibility" Value="Collapsed" />
+
+                        <Setter Target="searchPanel.Margin" Value="10,0,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <!--<Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="gridSandwich" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame Value="Visible" KeyTime="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>-->
+                    <VisualState.Setters>
+                        <Setter Target="gridSandwich.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid VerticalAlignment="Top" Name="root">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Для сдвига -->
+                <RowDefinition Height="48"/>
+            </Grid.RowDefinitions>
+            
+            <Rectangle Height="0" Name="Offset"/>
+
+            <Grid Grid.RowSpan="2" Background="{ThemeResource HeaderBrush}" Name="TopBarInterBackground"/>
+
+            
+            
+            
+            
+            <!-- Сама шапка -->
+            <Grid Grid.Row="1" Background="Transparent" Name="_headerGrid">
+                
+                
+                <!-- Область с кнопкой меню и текстом -->
+                <Grid Background="Transparent" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Кнопка меню -->
+                        <ColumnDefinition/>
+                        <!-- Текст в шапке -->
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Кнопка меню -->
+                    <Border VerticalAlignment="Top" HorizontalAlignment="Left" Name="borderSandwich" framework:MouseOver.Cursor="Hand">
+                        <Grid x:Name="gridSandwich" 
+                         Background="Transparent" Height="48" Width="48" framework:PointOver.PointColor="#33FFFFFF"
+                         Tapped="Sandwich_Tapped">
+
+                            <local:IconUC Foreground="White" Glyph="&#xE700;" FontSize="20" FontWeight="ExtraBold" IsHitTestVisible="False"/>
+                            <Border Background="OrangeRed" Visibility="{Binding HaveAnyNotificationsVisibility}" Margin="18 -10 0 0"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    MinWidth="18" CornerRadius="9" BorderBrush="White"
+                                    Opacity="{Binding Path=Opacity, ElementName=TopBarInterBackground}">
+                                <TextBlock Text="{Binding TotalCountString, FallbackValue=100}" FontSize="12" Padding="4 1"
+                                           VerticalAlignment="Center" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <!-- Текст в шапке -->
+                    <local:TitleWithSubtitleUC x:Name="_ucTitle" Grid.Column="1" Background="Red" Margin="10 0 0 0"
+                                               Opacity="{Binding Path=Opacity, ElementName=TopBarInterBackground}" HorizontalAlignment="Left"
+                                               VerticalAlignment="Stretch"
+                                               />
+
+
+                
+
+                <!-- Дополнительные кнопочки справа -->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Bottom"
+                            Name="_moreOptionsPanel" Grid.Column="2"
+                            framework:MouseOver.Cursor="Hand">
+                    <ItemsControl x:Name="itemsControlOptionsMenu" VerticalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <AppBarButton Height="48" Width="48" Tapped="OptionsBtn_Tapped">
+                                    <local:IconUC FontSize="18" Glyph="{Binding Icon}" Foreground="White"/>
+                                </AppBarButton>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+
+                    <AppBarButton Width="48" Height="48" VerticalAlignment="Center" Tapped="Refresh_Tpped" Name="_refreshBtn" Visibility="Collapsed"
+                            >
+                        <local:IconUC Glyph="&#xE72C;" Foreground="White" FontSize="18"/>
+                    </AppBarButton>
+                </StackPanel>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Visibility="Collapsed" Name="searchPanel" Height="48" Margin="48 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto" MaxWidth="48"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBox Grid.Column="1" Name="searchTextBox" Style="{StaticResource RoundedTextBox}"
+                         MaxHeight="30" InputScope="Search" Padding="12 0 32 0"
+                         VerticalAlignment="Center" PlaceholderText="{Binding Path=[SearchQuery], Source={StaticResource LocalizedStrings}}"
+                         
+                         KeyUp="SearchTextBox_KeyUp"
+                         >
+                    
+                </TextBox>
+
+                <Border Background="Transparent" Grid.Column="1" Tapped="MoreSearch_Tapped" Name="_moreSearchBrd" Visibility="Collapsed" HorizontalAlignment="Right"
+                              Width="32" Height="32" Margin="0 0 8 0">
+                    <local:IconUC Glyph="&#xE9E9;" FontSize="16" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+                </Border>
+
+
+                <AppBarButton Background="Transparent" Tapped="CloseSearch_Tapped" Grid.Column="3" Name="_searchCloseBtn">
+                    <local:IconUC Glyph="&#xE711;" FontSize="20" FontWeight="Medium" Foreground="White"/>
+                </AppBarButton>
+            </Grid>
+        </Grid>
+
+        <Grid Name="trikibarRoot" VerticalAlignment="Top"  Height="32" Visibility="Collapsed">
+            <Grid Name="trikibar" Background="{ThemeResource ItemBackgroundBrush}"/>
+
+            <Border Width="48" Height="32" VerticalAlignment="Top" Name="_fullScreenBtn" Tapped="_fullScreenBtn_Tapped" HorizontalAlignment="Right" Margin="0 0 150 0">
+                <!--<SymbolIcon Symbol="FullScreen" Foreground="White"/>-->
+                <local:IconUC Glyph="&#xE740;" FontSize="14" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+        </Grid>
+
+
+
+
+        <ProgressBar VerticalAlignment="Top" IsIndeterminate="True" Visibility="Collapsed" Name="_progressBar" IsHitTestVisible="False" Foreground="White"/>
+
+        <local:PullToRefreshUC x:Name="ucPullToRefresh" VerticalAlignment="Top"/>
+    </Grid>
+
+
+</UserControl>

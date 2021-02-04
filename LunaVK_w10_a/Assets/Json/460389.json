@@ -1,0 +1,127 @@
+{
+    "response": {
+        "owner": {
+            "id": 460389,
+            "first_name": "Макс",
+            "last_name": "Гутиков",
+            "sex": 2,
+            "bdate": "18.12.1990",
+            "city": {
+                "id": 2,
+                "title": "Санкт-Петербург"
+            },
+            "photo_100": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c99\/Er1xCsfDFUI.jpg?ava=1",
+            "friend_status": 3,
+            "online": 0,
+            "can_write_private_message": 1,
+            "status": "На пути достижения цели...",
+            "activity": "На пути достижения цели...",
+            "last_seen": {
+                "time": 1537957231,
+                "platform": 1
+            },
+            "crop_photo": {
+                "photo": {
+                    "id": 456239391,
+                    "album_id": -6,
+                    "owner_id": 460389,
+                    "sizes": [{
+                        "type": "m",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c8c\/Y9EmAdw627k.jpg",
+                        "width": 97,
+                        "height": 130
+                    }, {
+                        "type": "o",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c91\/739u0uiAh9k.jpg",
+                        "width": 130,
+                        "height": 173
+                    }, {
+                        "type": "p",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c92\/TNG4gElse4s.jpg",
+                        "width": 200,
+                        "height": 267
+                    }, {
+                        "type": "q",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c93\/0t4ScQ-wiog.jpg",
+                        "width": 320,
+                        "height": 427
+                    }, {
+                        "type": "r",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c94\/FaqfVtFVfeA.jpg",
+                        "width": 510,
+                        "height": 680
+                    }, {
+                        "type": "s",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c8b\/LogHUmWxCjk.jpg",
+                        "width": 56,
+                        "height": 75
+                    }, {
+                        "type": "w",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c90\/TFxvQwKwgHE.jpg",
+                        "width": 1620,
+                        "height": 2160
+                    }, {
+                        "type": "x",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c8d\/4jZ8EBjKHgs.jpg",
+                        "width": 453,
+                        "height": 604
+                    }, {
+                        "type": "y",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c8e\/GcPKlNMFYao.jpg",
+                        "width": 605,
+                        "height": 807
+                    }, {
+                        "type": "z",
+                        "url": "https:\/\/pp.userapi.com\/c824503\/v824503139\/f8c8f\/FpaFKcBBJy0.jpg",
+                        "width": 810,
+                        "height": 1080
+                    }],
+                    "text": "",
+                    "date": 1514231157,
+                    "post_id": 97
+                },
+                "crop": {
+                    "x": 9.440000,
+                    "y": 5.460000,
+                    "x2": 80.990000,
+                    "y2": 77.500000
+                },
+                "rect": {
+                    "x": 14.500000,
+                    "y": 13.050000,
+                    "x2": 93.530000,
+                    "y2": 71.920000
+                }
+            },
+            "verified": 0,
+            "blacklisted": 0,
+            "counters": {
+                "albums": 5,
+                "videos": 4,
+                "audios": 0,
+                "notes": 0,
+                "photos": 161,
+                "groups": 27,
+                "gifts": 6,
+                "friends": 62,
+                "online_friends": 13,
+                "mutual_friends": 0,
+                "user_photos": 1,
+                "followers": 53,
+                "subscriptions": 0,
+                "pages": 10
+            },
+            "occupation": {
+                "type": "work",
+                "name": "ТРИ ИЗМЕРЕНИЯ Принт, крутые изделия из пенопласта!"
+            },
+            "university": 57,
+            "university_name": "СПбГТИ (ТУ)",
+            "faculty": 799508,
+            "faculty_name": "Факультет экономики и менеджмента",
+            "graduation": 2015,
+            "education_form": "Заочное отделение",
+            "education_status": "Студент (бакалавр)"
+        }
+    }
+}

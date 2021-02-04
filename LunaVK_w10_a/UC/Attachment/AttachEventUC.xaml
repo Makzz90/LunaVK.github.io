@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.Attachment.AttachEventUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC.Attachment"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:converters="using:LunaVK.Network.Converters">
+
+    <UserControl.Resources>
+        <converters:RelativeTimeConverter x:Key="RelativeTimeConverter"/>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <StackPanel>
+        <Grid Background="Transparent" Tapped="Grid_Tapped">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Ellipse Width="72" Height="72">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding Owner.MinPhoto, FallbackValue='https://sun9-30.userapi.com/c858524/v858524486/13f15b/rQyKcjQFKi4.jpg?ava=1'}" />
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Border Width="26" Height="26" Background="{StaticResource VKColorBrushGreen}" Margin="0 0 -2 -2"
+                    CornerRadius="13" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    BorderThickness="2" BorderBrush="White">
+                <uc:IconUC Glyph="&#xE819;" Foreground="White" FontSize="14" FontWeight="ExtraBlack"/>
+            </Border>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10 0">
+                <TextBlock Text="{Binding Owner.Title, FallbackValue='Name'}"/>
+                <TextBlock Text="{Binding address, FallbackValue='Address'}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                           Visibility="{Binding address, Converter={StaticResource StringToVisibilityConverter}}"/>
+                <TextBlock Text="{Binding time, FallbackValue='Time', Converter={StaticResource RelativeTimeConverter}}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+            </StackPanel>
+        </Grid>
+
+        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseLowBrush}" Height="1" Margin="0 10"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding text, FallbackValue='Посетит 115 человек'}" VerticalAlignment="Center" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+            <Button Content="{Binding button_text, FallbackValue='Пойду'}" Grid.Column="1" Margin="20 0 0 0" Style="{StaticResource RoundedButtonStyle2}" Click="Button_Click"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

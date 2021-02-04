@@ -1,0 +1,152 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestControls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:common="using:LunaVK.Common"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    
+    
+    mc:Ignorable="d"
+    d:DesignHeight="2000">
+
+    <Page.Resources>
+        <Storyboard x:Key="wewe">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseOut" Exponent="6"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+
+
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <ScrollViewer>
+        <Grid>
+            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Visibility="Visible">
+                <uc:HeaderOffsetUC/>
+
+
+                <controls:RadialProgressBar Height="56" Width="56" Value="{Binding Value, ElementName=sl}" Outline="Transparent"/>
+
+                <uc:ProgressRingUC Progress="{Binding Value, ElementName=sl}" Size="{Binding Value, ElementName=s2}"
+                           UCForeground="{ThemeResource TextBrushMediumHigh}" UCBackground="{ThemeResource TextBrushMediumHigh}"/>
+                <uc:ProgressArrowUC Progress="{Binding Value, ElementName=sl}"  UCForeground="{ThemeResource TextBrushMediumHigh}" Size="{Binding Value, ElementName=s2}"/>
+
+                <Slider Minimum="0" x:Name="sl" Maximum="100" Margin="0 10"/>
+                <Slider Minimum="30" x:Name="s2" Maximum="150" Margin="0 10" Value="56"/>
+
+                <uc:AvatarUC x:Name="Avatar" Height="{Binding Value, ElementName=s2}" Width="{Binding Value, ElementName=s2}"/>
+                <Slider Minimum="1" Maximum="4" Margin="0 10" ValueChanged="Slider_ValueChanged"/>
+
+                <!--<uc:SlideView x:Name="SlideV">
+                <uc:SlideView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="Red" Height="30">
+                            <TextBlock Text="{Binding }"/>
+                        </Grid>
+                    </DataTemplate>
+                </uc:SlideView.ItemTemplate>
+            </uc:SlideView>-->
+
+                <controls:SwipeThroughControl x:Name="_sw" FooterBackground="{ThemeResource BaseBackgroundBrush}" Height="250" >
+                    <controls:SwipeThroughControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!--<Image Source="{Binding StickerStockItemHeader.background}" Stretch="UniformToFill"/>-->
+                                <uc:SpriteListControl DataContext="{Binding }"
+                                                     />
+                            </Grid>
+                        </DataTemplate>
+                    </controls:SwipeThroughControl.ItemTemplate>
+                    <controls:SwipeThroughControl.FooterItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="{Binding ImageDim}" Height="54">
+                                <Image Source="{Binding TabThumbSticker}" Width="35" HorizontalAlignment="Center" Opacity="{Binding TabImageOpacity}"/>
+                                <uc:IconUC Glyph="{Binding TabThumb}"/>
+                            </Grid>
+
+                        </DataTemplate>
+                    </controls:SwipeThroughControl.FooterItemTemplate>
+                </controls:SwipeThroughControl>
+
+                <!--<controls:SwipeThroughControl Height="200" x:Name="_sw" FooterBackground="White" Loaded="_sw_Loaded_1" Visibility="Visible">
+                    <controls:SwipeThroughControl.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid Background="AliceBlue" >
+                                <TextBlock Text="{Binding }" Foreground="Orange" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:SwipeThroughControl.ItemTemplate>
+                    <controls:SwipeThroughControl.FooterItemTemplate>
+                        <DataTemplate>
+                            <Border Width="64" Height="56" Background="Gray">
+                                <TextBlock Text="{Binding }" Foreground="Blue" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+
+                        </DataTemplate>
+                    </controls:SwipeThroughControl.FooterItemTemplate>
+                </controls:SwipeThroughControl>-->
+
+                <Button Content="Add Emoji" Click="Button_Click_2"/>
+                <Button Content="Load stickers" Click="Button_Click_3"/>
+                <Button Content="Add attach" Click="Button_Click"/>
+                <Button Content="Show sticker pach" Click="Button_Click_1"/>
+                
+
+                <FlipView  Height="64" x:Name="flip">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="https://pp.userapi.com/c830508/v830508353/1703df/8Dc-9EV8OtQ.jpg?ava=1"
+               common:PreviewBehavior.PreviewUri="https://pp.userapi.com/c830508/v830508353/1703df/8Dc-9EV8OtQ.jpg?ava=1"/>
+                        <Image Source="https://pp.userapi.com/c850232/v850232761/5ed2e/ItOBjJ7Ym5k.jpg?ava=1"
+               common:PreviewBehavior.PreviewUri="https://sun9-5.userapi.com/c830609/v830609394/157b9b/zDgdBWkXDjs.jpg?ava=1"/>
+                    </StackPanel>
+
+                    <Rectangle Height="64" Width="64" Fill="Red"/>
+                </FlipView>
+
+
+
+
+
+
+                <StackPanel Visibility="Collapsed">
+                    <!--<uc:AttachmentsPresenter x:Name="ap" IsMessage="True"/>-->
+                    <Border Height="100" Width="100" CornerRadius="40" BorderBrush="Red" BorderThickness="2" >
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Assets/PhotoEditor/add-asset.png" Stretch="UniformToFill"/>
+                        </Border.Background>
+                    </Border>
+
+                    <Grid Height="100" Width="100" CornerRadius="40" BorderBrush="Red" BorderThickness="2">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/Assets/PhotoEditor/add-asset.png" Stretch="UniformToFill"/>
+                        </Grid.Background>
+                    </Grid>
+
+                    <Border Height="100" Width="100" CornerRadius="40" BorderBrush="Blue" BorderThickness="2" >
+                        <Rectangle Height="100" Width="100" >
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="/Assets/PhotoEditor/add-asset.png"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Border>
+
+                </StackPanel>
+                
+                
+                
+                
+                
+            </StackPanel>
+
+            <uc:NewMessageUC x:Name="ucNewMessage" VerticalAlignment="Bottom"/>
+        </Grid>
+    </ScrollViewer>
+</Page>

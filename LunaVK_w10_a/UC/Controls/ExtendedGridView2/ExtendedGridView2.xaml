@@ -1,0 +1,62 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:LunaVK.UC.Controls"
+                    xmlns:uc="using:LunaVK.UC"
+                    >
+
+    <Style TargetType="controls:ExtendedGridView2">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ExtendedGridView2">
+                    <Grid>
+                        <GridView x:Name="gridView" SelectionMode="{TemplateBinding SelectionMode}" 
+                              IsZoomedInView="False" IsSwipeEnabled="False"
+                              ItemsSource="{TemplateBinding ItemsSource}" ItemTemplate="{TemplateBinding ItemTemplate}"
+                              
+                              VirtualizingStackPanel.VirtualizationMode="Recycling"
+                              Background="{TemplateBinding Background}"
+                              
+                              ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                              ShowsScrollingPlaceholders="False"
+                                  
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Disabled"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollMode="Enabled"
+                                  >
+
+                            <GridView.Header>
+                                <StackPanel>
+                                    <Rectangle Height="1" x:Name="rect" Margin="0 -1 0 0"/>
+                                    <Rectangle Height="80" x:Name="offsetForHeader"/>
+                                    <ContentPresenter Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}"/>
+                                </StackPanel>
+                            </GridView.Header>
+
+                            <GridView.ItemContainerStyle>
+                                <Style TargetType="GridViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="Margin" Value="0" />
+                                </Style>
+                            </GridView.ItemContainerStyle>
+                            
+                            <GridView.Footer>
+                                <StackPanel>
+                                    <uc:FooterUC x:Name="_footer"/>
+                                    <ContentPresenter Content="{TemplateBinding Footer}"/>
+                                </StackPanel>
+                            </GridView.Footer>
+                        </GridView>
+
+                        <uc:LoadingUC x:Name="_loading" MaxWidth="600"/>
+
+                        <ContentPresenter x:Name="NoContentPresenter" Visibility="Collapsed"
+                                  Content="{TemplateBinding NoContent}"
+                                  />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

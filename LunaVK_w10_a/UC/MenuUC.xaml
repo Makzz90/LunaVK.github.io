@@ -1,0 +1,168 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.MenuUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="900"
+    d:DesignWidth="300"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    >
+
+    <Grid Name="root" Background="{ThemeResource BrushMenu}">
+        <Grid Name="_menuGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <local:HeaderOffsetUC Tapped="borderSandwich_Tapped" Background="Transparent">
+                <Border Width="48" Height="48" HorizontalAlignment="Left" x:Name="borderSandwich" VerticalAlignment="Bottom">
+                    <local:IconUC Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}" Glyph="&#xE700;" FontSize="20" FontWeight="ExtraBold" IsHitTestVisible="False"/>
+                </Border>
+            </local:HeaderOffsetUC>
+
+
+            <controls:NavigationView SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" Grid.Row="1">
+                <controls:NavigationViewItem Icon="Find" Content="{Binding Path=[Menu_Search], Source={StaticResource LocalizedStrings}}" Tapped="Search_Tapped"/>
+
+                <controls:NavigationViewItem Content="{Binding Path=[Menu_News], Source={StaticResource LocalizedStrings}}" Tapped="News_Tapped">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8A1;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="{Binding Path=[Menu_Notifications], Source={StaticResource LocalizedStrings}}" Tapped="Notifications_Tapped" Count="{Binding NotificationsItem.CountString}">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEA8F;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="{Binding Path=[Menu_Messages], Source={StaticResource LocalizedStrings}}" Tapped="Messages_Tapped" Count="{Binding MessagesItem.CountString}">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE119;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Icon="Contact" Content="Friends" Tapped="Friends_Tapped" Count="{Binding FriendsItem.CountString}" x:Uid="Menu_Friends"/>
+
+                <controls:NavigationViewItem Content="Communities" Tapped="Groups_Tapped" Count="{Binding CommunitiesItem.CountString}" x:Uid="Menu_Communities">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE716;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="{Binding Path=[Menu_Photos], Source={StaticResource LocalizedStrings}}" Tapped="Photos_Tapped">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE114;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="{Binding Path=[Menu_Videos], Source={StaticResource LocalizedStrings}}" Tapped="Videos_Tapped">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE714;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="Audios" Tapped="Audios_Tapped" x:Uid="Menu_Audios">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8D6;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="Bookmarks" Tapped="Bookmarks_Tapped" Count="{Binding BookmarksItem.CountString}" x:Uid="Menu_Bookmarks">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE734;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="Likes" Tapped="Likes_Tapped" x:Uid="Menu_Likes">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEB51;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="Games" Tapped="Games_OnClicked" x:Uid="Menu_Games">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7FC;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <controls:NavigationViewItem Content="{Binding Path=[Menu_Documents], Source={StaticResource LocalizedStrings}}" Tapped="Documents_Tapped">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7C3;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>
+
+                <!--<controls:NavigationViewItem Content="{Binding Path=[Menu_Downloads], Source={StaticResource LocalizedStrings}}" Tapped="Downloads_Tapped">
+                    <controls:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE896;"/>
+                    </controls:NavigationViewItem.Icon>
+                </controls:NavigationViewItem>-->
+            </controls:NavigationView>
+
+
+
+
+
+            <StackPanel Grid.Row="2">
+                <local:BirthdaysUC DataContext="{Binding BirthdaysVM}" Margin="0 0 0 16" x:Name="Birthdays"/>
+
+                <Grid MinHeight="48" Margin="0 0 0 10" Tapped="MyProfile_Tapped">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Ellipse Width="25" Height="25">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding UserPhoto, FallbackValue='http://vk.com/images/camera_50.png'}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <StackPanel VerticalAlignment="Center" Grid.Column="1" Margin="1 0">
+                        <TextBlock Text="{Binding UserName, FallbackValue=Makzz}" FontSize="{StaticResource FontSizeContent}" Foreground="{ThemeResource TextBrushMedium}" FontWeight="SemiLight"/>
+                        <TextBlock Text="{Binding Status, FallbackValue=Test}" Visibility="{Binding StatusVisibility}" FontSize="{StaticResource FontSizeSmall}" Foreground="{ThemeResource TextBrushMedium}" Opacity="0.5" FontWeight="SemiLight"/>
+                    </StackPanel>
+                </Grid>
+
+
+
+                <Grid Height="48">
+                    <controls:NavigationViewItem Icon="Setting" Content="Settings" Tapped="Settings_Tapped" x:Uid="Menu_Settings" />
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Name="_WrapGrid">
+                        <Button Tapped="ThemeSwitch_Tapped" Style="{StaticResource MediaTransportControlFluentButtonStyle}">
+                            <local:CustomIconUC Glyph="&#xE793;" FontSize="{StaticResource FontSizeLarge}" x:Name="IconThemeSwitch"/>
+                        </Button>
+                        <Button Tapped="Mute_Tapped" Style="{StaticResource MediaTransportControlFluentButtonStyle}">
+                            <local:CustomIconUC Glyph="&#xE767;" FontSize="{StaticResource FontSizeLarge}" x:Name="IconMute"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+            </StackPanel>
+
+            <Rectangle HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="3" Grid.RowSpan="3" Name="_shadow" Opacity="0">
+                <Rectangle.RenderTransform>
+                    <TranslateTransform X="3"/>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="270"/>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="{StaticResource ShadowColor}" Offset="0"/>
+                        <GradientStop Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

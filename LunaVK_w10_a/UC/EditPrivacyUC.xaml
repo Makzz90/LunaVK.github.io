@@ -1,0 +1,149 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.EditPrivacyUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="500"
+    d:DesignWidth="400"
+    VerticalAlignment="Bottom"
+    MaxWidth="600">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="FriendOrListItemTemplate">
+            <Grid Height="48" Margin="0 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="48" />
+                </Grid.ColumnDefinitions>
+
+                <Ellipse Height="36" Width="36"
+                         Fill="{Binding PlaceholderFill}"/>
+
+                <Ellipse Width="36" Height="36" 
+                       Visibility="{Binding IsNotListVisibility}">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding ImageUrl, FallbackValue='https://sun9-24.userapi.com/c858232/v858232350/37fd4/aScODJhHun4.jpg?ava=1'}" />
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Border Height="45" Width="45" CornerRadius="3"
+                        Visibility="{Binding IsListVisibility}"
+                        Background="{Binding FriendListBackground}"
+                        VerticalAlignment="Center">
+                    <local:IconUC Glyph="&#xE716;"/>
+
+                </Border>
+
+                <TextBlock Margin="12,0"
+                           Grid.Column="1"
+                           Text="{Binding FullName, FallbackValue='Name'}"
+                           TextWrapping="NoWrap"
+                           VerticalAlignment="Center"/>
+
+                <AppBarButton Width="48" Grid.Column="2" Background="Transparent" Icon="Clear" Tapped="AppBarButton_Tapped"
+                              Visibility="{Binding DeleteVisibility}"/>
+            </Grid>
+
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <Border BorderBrush="{StaticResource PhoneAccentColorBrush}" BorderThickness="2" CornerRadius="10">
+        <StackPanel Background="{ThemeResource BaseBackgroundBrush}">
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+            <StackPanel Margin="10 0">
+                <ProgressBar Name="_progress" Background="Transparent" />
+                <TextBlock FontSize="20"
+                           Margin="0 10"
+                           TextWrapping="Wrap"
+                           Text="{Binding PrivacyQuestionLowerCase, FallbackValue='кто видит основную информацию моей страницы'}" />
+
+
+                <ListView ItemsSource="{Binding SupportedCategories}" SelectionChanged="ListView_SelectionChanged" x:Name="_lv" Loaded="_lv_Loaded"
+                                  Margin="-10 0" SelectedItem="{Binding Category, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <RadioButton Click="RadioButton_Click" Content="{Binding title}" Margin="10 0" IsHitTestVisible="False">
+
+                            </RadioButton>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <!-- BugFix: элементы на всю ширину -->
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+
+                <StackPanel Visibility="{Binding CertainUsersVisibility}" Margin="0 50 0 0">
+                    <Grid Height="32" Background="Transparent" Tapped="Search_Tapped">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding CustomTitle, FallbackValue='Запрещено'}" Foreground="{StaticResource AccentBrushMedium}" 
+                                   VerticalAlignment="Center" Name="_tbCustom"/>
+
+                            <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="добавить друзей или списки" x:Uid="Privacy_PickUsersOrLists"
+                                       VerticalAlignment="Center" TextLineBounds="TrimToCapHeight" Name="_tbPick"/>
+
+
+                        <AutoSuggestBox Grid.ColumnSpan="2" Visibility="Collapsed" Name="_searchBox" QueryIcon="Find"
+                                        SuggestionChosen="_searchBox_SuggestionChosen" TextChanged="_searchBox_TextChanged" ItemTemplate="{StaticResource FriendOrListItemTemplate}" LostFocus="_searchBox_LostFocus" QuerySubmitted="_searchBox_QuerySubmitted">
+                            <!-- BugFix: элементы на всю ширину -->
+                            <AutoSuggestBox.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="Margin" Value="0" />
+                                </Style>
+                            </AutoSuggestBox.ItemContainerStyle>
+                        </AutoSuggestBox>
+                    </Grid>
+                    
+
+                    
+
+                    <ListView SelectionMode="None"
+                                                ItemTemplate="{StaticResource FriendOrListItemTemplate}"
+                                                ItemsSource="{Binding AllowedDeniedCollection}">
+                        <!-- BugFix: элементы на всю ширину -->
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Margin" Value="0" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+
+
+
+        </StackPanel>
+    </Border>
+</UserControl>

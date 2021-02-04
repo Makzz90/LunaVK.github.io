@@ -1,0 +1,121 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.MediaListItemUCBase"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:library="using:LunaVK.Library">
+
+    <UserControl.Resources>
+        <library:ProfileMediaListItemTemplateSelector x:Key="templateSelector">
+            <library:ProfileMediaListItemTemplateSelector.GenericTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemGenericUC />-->
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.GenericTemplate>
+            <library:ProfileMediaListItemTemplateSelector.PhotoAlbumTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemPhotoAlbumUC />-->
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.PhotoAlbumTemplate>
+            <library:ProfileMediaListItemTemplateSelector.VideoAlbumTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemVideoAlbumUC />-->
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.VideoAlbumTemplate>
+            <library:ProfileMediaListItemTemplateSelector.SubscriptionsTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemSubscriptionsUC />-->
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.SubscriptionsTemplate>
+            <library:ProfileMediaListItemTemplateSelector.PhotoTemplate>
+                <DataTemplate>
+                    <!--<Image Source="{Binding ImageUri}"
+                       Width="{Binding ContainerWidth}"
+                       Height="{Binding ContainerHeight}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Stretch="UniformToFill" />-->
+                    <Border Height="120" Margin="2 10" Background="{ThemeResource ImagePlaceholderBackgroundBrush}">
+                        <Image Source="{Binding photo_130}" />
+                    </Border>
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.PhotoTemplate>
+            <library:ProfileMediaListItemTemplateSelector.VideoTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemVideoUC Title="{Binding Title}" />-->
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.VideoTemplate>
+            <library:ProfileMediaListItemTemplateSelector.ProductTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemProductUC Title="{Binding Title}" />-->
+                    <StackPanel Width="140" Margin="5 10">
+
+                                <Image Source="{Binding UriSource}" Height="130" Stretch="UniformToFill" VerticalAlignment="Center" />
+
+
+                        <TextBlock  Foreground="{ThemeResource TextBrushMediumLow}"
+                   Text="{Binding title, FallbackValue=Title}"
+                    MaxLines="1" TextTrimming="CharacterEllipsis"
+                   Margin="0 4 0 0" FontSize="14"
+                    />
+                        <TextBlock Text="{Binding PriceString, FallbackValue=Subtitle}" FontWeight="Medium" FontSize="12" />
+                    </StackPanel>
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.ProductTemplate>
+            <library:ProfileMediaListItemTemplateSelector.GiftsTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemGiftsUC />-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="122" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="62" />
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Width="118" Height="120"
+                   HorizontalAlignment="Left"
+                   Grid.RowSpan="2"
+                   Fill="{StaticResource PhoneGray000Brush}" />
+
+                        <Image Width="118" Height="118"
+               HorizontalAlignment="Left"
+               Grid.RowSpan="2"
+               Source="{Binding ImageUrl1}" />
+
+                        <Image Width="58" Height="58"
+               HorizontalAlignment="Left"
+               Grid.Column="1"
+               Source="{Binding ImageUrl2}" />
+
+                        <Image Width="58" Height="58"
+               HorizontalAlignment="Left" VerticalAlignment="Bottom"
+               Grid.Row="1"
+               Grid.Column="1"
+               Source="{Binding ImageUrl3}" />
+                    </Grid>
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.GiftsTemplate>
+            <library:ProfileMediaListItemTemplateSelector.EmptyDataTemplate>
+                <DataTemplate>
+                    <!--<views:MediaListItemEmptyDataUC />-->
+                </DataTemplate>
+            </library:ProfileMediaListItemTemplateSelector.EmptyDataTemplate>
+        </library:ProfileMediaListItemTemplateSelector>
+    </UserControl.Resources>
+
+    
+        <ContentControl Content="{Binding }"
+                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                    ContentTemplateSelector="{StaticResource templateSelector}">
+
+        </ContentControl>
+    
+</UserControl>

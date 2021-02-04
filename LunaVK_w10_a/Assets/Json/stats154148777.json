@@ -1,0 +1,1584 @@
+{
+  "response": [
+    {
+      "period_from": 1591357224,
+      "period_to": 1591443623,
+      "reach": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 1
+          },
+          {
+            "value": "18-21",
+            "count": 1
+          },
+          {
+            "value": "21-24",
+            "count": 4
+          },
+          {
+            "value": "24-27",
+            "count": 1
+          },
+          {
+            "value": "30-35",
+            "count": 1
+          }
+        ],
+        "cities": [
+          {
+            "count": 2,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 1,
+            "name": "Ижевск",
+            "value": 56
+          },
+          {
+            "count": 1,
+            "name": "Казань",
+            "value": 60
+          },
+          {
+            "count": 1,
+            "name": "Стерлитамак",
+            "value": 135
+          },
+          {
+            "count": 1,
+            "name": "Муром",
+            "value": 807
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 8,
+            "name": "Россия",
+            "value": 1
+          }
+        ],
+        "mobile_reach": 4,
+        "reach": 8,
+        "reach_subscribers": 2,
+        "sex": [
+          {
+            "value": "f",
+            "count": 1
+          },
+          {
+            "value": "m",
+            "count": 7
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 1
+          },
+          {
+            "value": "m;18-21",
+            "count": 1
+          },
+          {
+            "value": "m;21-24",
+            "count": 3
+          },
+          {
+            "value": "m;24-27",
+            "count": 1
+          },
+          {
+            "value": "m;30-35",
+            "count": 1
+          }
+        ]
+      },
+      "visitors": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 1
+          },
+          {
+            "value": "18-21",
+            "count": 4
+          },
+          {
+            "value": "21-24",
+            "count": 3
+          },
+          {
+            "value": "27-30",
+            "count": 1
+          },
+          {
+            "value": "30-35",
+            "count": 1
+          },
+          {
+            "value": "45-100",
+            "count": 1
+          }
+        ],
+        "cities": [
+          {
+            "count": 3,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 1,
+            "name": "Саратов",
+            "value": 125
+          },
+          {
+            "count": 1,
+            "name": "Ижевск",
+            "value": 56
+          },
+          {
+            "count": 1,
+            "name": "Казань",
+            "value": 60
+          },
+          {
+            "count": 1,
+            "name": "Стерлитамак",
+            "value": 135
+          },
+          {
+            "count": 1,
+            "name": "Муром",
+            "value": 807
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 13,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "BY",
+            "count": 1,
+            "name": "Беларусь",
+            "value": 3
+          },
+          {
+            "code": "GB",
+            "count": 1,
+            "name": "Великобритания",
+            "value": 49
+          }
+        ],
+        "mobile_views": 6,
+        "sex": [
+          {
+            "value": "f",
+            "count": 1
+          },
+          {
+            "value": "m",
+            "count": 10
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 1
+          },
+          {
+            "value": "m;18-21",
+            "count": 4
+          },
+          {
+            "value": "m;21-24",
+            "count": 2
+          },
+          {
+            "value": "m;27-30",
+            "count": 1
+          },
+          {
+            "value": "m;30-35",
+            "count": 1
+          },
+          {
+            "value": "m;45-100",
+            "count": 1
+          }
+        ],
+        "views": 21,
+        "visitors": 15
+      }
+    },
+    {
+      "activity": {
+        "subscribed": 2,
+        "unsubscribed": 1
+      },
+      "period_from": 1591270824,
+      "period_to": 1591357223,
+      "reach": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 4
+          },
+          {
+            "value": "18-21",
+            "count": 1
+          },
+          {
+            "value": "21-24",
+            "count": 2
+          },
+          {
+            "value": "24-27",
+            "count": 2
+          },
+          {
+            "value": "27-30",
+            "count": 1
+          },
+          {
+            "value": "30-35",
+            "count": 2
+          },
+          {
+            "value": "35-45",
+            "count": 1
+          },
+          {
+            "value": "45-100",
+            "count": 2
+          }
+        ],
+        "cities": [
+          {
+            "count": 2,
+            "name": "Псков",
+            "value": 114
+          },
+          {
+            "count": 2,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 1,
+            "name": "Тюмень",
+            "value": 147
+          },
+          {
+            "count": 1,
+            "name": "Могилёв",
+            "value": 467
+          },
+          {
+            "count": 1,
+            "name": "Саратов",
+            "value": 125
+          },
+          {
+            "count": 1,
+            "name": "Луганск",
+            "value": 552
+          },
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 12,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "BY",
+            "count": 1,
+            "name": "Беларусь",
+            "value": 3
+          },
+          {
+            "code": "UA",
+            "count": 1,
+            "name": "Украина",
+            "value": 2
+          },
+          {
+            "code": "KG",
+            "count": 1,
+            "name": "Кыргызстан",
+            "value": 11
+          }
+        ],
+        "mobile_reach": 8,
+        "reach": 15,
+        "reach_subscribers": 4,
+        "sex": [
+          {
+            "value": "f",
+            "count": 3
+          },
+          {
+            "value": "m",
+            "count": 12
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;12-18",
+            "count": 1
+          },
+          {
+            "value": "f;18-21",
+            "count": 1
+          },
+          {
+            "value": "f;27-30",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 3
+          },
+          {
+            "value": "m;21-24",
+            "count": 2
+          },
+          {
+            "value": "m;24-27",
+            "count": 2
+          },
+          {
+            "value": "m;30-35",
+            "count": 2
+          },
+          {
+            "value": "m;35-45",
+            "count": 1
+          },
+          {
+            "value": "m;45-100",
+            "count": 2
+          }
+        ]
+      },
+      "visitors": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 4
+          },
+          {
+            "value": "18-21",
+            "count": 3
+          },
+          {
+            "value": "21-24",
+            "count": 4
+          },
+          {
+            "value": "24-27",
+            "count": 2
+          },
+          {
+            "value": "27-30",
+            "count": 1
+          },
+          {
+            "value": "30-35",
+            "count": 4
+          },
+          {
+            "value": "35-45",
+            "count": 1
+          },
+          {
+            "value": "45-100",
+            "count": 2
+          }
+        ],
+        "cities": [
+          {
+            "count": 2,
+            "name": "Псков",
+            "value": 114
+          },
+          {
+            "count": 2,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 1,
+            "name": "Баку",
+            "value": 1957236
+          },
+          {
+            "count": 1,
+            "name": "Саратов",
+            "value": 125
+          },
+          {
+            "count": 1,
+            "name": "Тюмень",
+            "value": 147
+          },
+          {
+            "count": 1,
+            "name": "Могилёв",
+            "value": 467
+          },
+          {
+            "count": 1,
+            "name": "Балканабад",
+            "value": 2001650
+          },
+          {
+            "count": 1,
+            "name": "Краснодар",
+            "value": 72
+          },
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          },
+          {
+            "count": 1,
+            "name": "Новосибирск",
+            "value": 99
+          },
+          {
+            "count": 1,
+            "name": "Луганск",
+            "value": 552
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 21,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "AZ",
+            "count": 1,
+            "name": "Азербайджан",
+            "value": 5
+          },
+          {
+            "code": "BY",
+            "count": 1,
+            "name": "Беларусь",
+            "value": 3
+          },
+          {
+            "code": "KG",
+            "count": 1,
+            "name": "Кыргызстан",
+            "value": 11
+          },
+          {
+            "code": "UA",
+            "count": 1,
+            "name": "Украина",
+            "value": 2
+          }
+        ],
+        "mobile_views": 13,
+        "sex": [
+          {
+            "value": "f",
+            "count": 3
+          },
+          {
+            "value": "m",
+            "count": 18
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;12-18",
+            "count": 1
+          },
+          {
+            "value": "f;18-21",
+            "count": 1
+          },
+          {
+            "value": "f;27-30",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 3
+          },
+          {
+            "value": "m;18-21",
+            "count": 2
+          },
+          {
+            "value": "m;21-24",
+            "count": 4
+          },
+          {
+            "value": "m;24-27",
+            "count": 2
+          },
+          {
+            "value": "m;30-35",
+            "count": 4
+          },
+          {
+            "value": "m;35-45",
+            "count": 1
+          },
+          {
+            "value": "m;45-100",
+            "count": 2
+          }
+        ],
+        "views": 31,
+        "visitors": 25
+      }
+    },
+    {
+      "activity": {
+        "comments": 1,
+        "likes": 1,
+        "subscribed": 1,
+        "unsubscribed": 1
+      },
+      "period_from": 1591184424,
+      "period_to": 1591270823,
+      "reach": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 1
+          },
+          {
+            "value": "21-24",
+            "count": 1
+          },
+          {
+            "value": "24-27",
+            "count": 4
+          },
+          {
+            "value": "27-30",
+            "count": 2
+          },
+          {
+            "value": "30-35",
+            "count": 4
+          },
+          {
+            "value": "35-45",
+            "count": 3
+          },
+          {
+            "value": "45-100",
+            "count": 1
+          }
+        ],
+        "cities": [
+          {
+            "count": 3,
+            "name": "Москва",
+            "value": 1
+          },
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          },
+          {
+            "count": 1,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 1,
+            "name": "Кимры",
+            "value": 1769
+          },
+          {
+            "count": 1,
+            "name": "Дмитров",
+            "value": 625
+          },
+          {
+            "count": 1,
+            "name": "Иваново",
+            "value": 55
+          },
+          {
+            "count": 1,
+            "name": "Boston",
+            "value": 1515864
+          },
+          {
+            "count": 1,
+            "name": "Серов",
+            "value": 668
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 15,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "UA",
+            "count": 2,
+            "name": "Украина",
+            "value": 2
+          }
+        ],
+        "mobile_reach": 10,
+        "reach": 17,
+        "reach_subscribers": 9,
+        "sex": [
+          {
+            "value": "f",
+            "count": 1
+          },
+          {
+            "value": "m",
+            "count": 16
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;30-35",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 1
+          },
+          {
+            "value": "m;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;24-27",
+            "count": 4
+          },
+          {
+            "value": "m;27-30",
+            "count": 2
+          },
+          {
+            "value": "m;30-35",
+            "count": 3
+          },
+          {
+            "value": "m;35-45",
+            "count": 3
+          },
+          {
+            "value": "m;45-100",
+            "count": 1
+          }
+        ]
+      },
+      "visitors": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 2
+          },
+          {
+            "value": "18-21",
+            "count": 3
+          },
+          {
+            "value": "21-24",
+            "count": 1
+          },
+          {
+            "value": "24-27",
+            "count": 5
+          },
+          {
+            "value": "27-30",
+            "count": 2
+          },
+          {
+            "value": "30-35",
+            "count": 4
+          },
+          {
+            "value": "35-45",
+            "count": 2
+          },
+          {
+            "value": "45-100",
+            "count": 2
+          }
+        ],
+        "cities": [
+          {
+            "count": 4,
+            "name": "Москва",
+            "value": 1
+          },
+          {
+            "count": 1,
+            "name": "Екатеринбург",
+            "value": 49
+          },
+          {
+            "count": 1,
+            "name": "Серов",
+            "value": 668
+          },
+          {
+            "count": 1,
+            "name": "Краснодар",
+            "value": 72
+          },
+          {
+            "count": 1,
+            "name": "Иваново",
+            "value": 55
+          },
+          {
+            "count": 1,
+            "name": "Boston",
+            "value": 1515864
+          },
+          {
+            "count": 1,
+            "name": "Шелехов",
+            "value": 2877
+          },
+          {
+            "count": 1,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 1,
+            "name": "Кимры",
+            "value": 1769
+          },
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 19,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "UA",
+            "count": 2,
+            "name": "Украина",
+            "value": 2
+          },
+          {
+            "code": "US",
+            "count": 1,
+            "name": "США",
+            "value": 9
+          },
+          {
+            "code": "KZ",
+            "count": 1,
+            "name": "Казахстан",
+            "value": 4
+          },
+          {
+            "code": "CN",
+            "count": 1,
+            "name": "Китай",
+            "value": 97
+          },
+          {
+            "code": "EU",
+            "count": 1,
+            "name": "",
+            "value": 0
+          },
+          {
+            "code": "BY",
+            "count": 1,
+            "name": "Беларусь",
+            "value": 3
+          }
+        ],
+        "mobile_views": 17,
+        "sex": [
+          {
+            "value": "f",
+            "count": 2
+          },
+          {
+            "value": "m",
+            "count": 20
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;24-27",
+            "count": 1
+          },
+          {
+            "value": "f;30-35",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 2
+          },
+          {
+            "value": "m;18-21",
+            "count": 3
+          },
+          {
+            "value": "m;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;24-27",
+            "count": 4
+          },
+          {
+            "value": "m;27-30",
+            "count": 2
+          },
+          {
+            "value": "m;30-35",
+            "count": 3
+          },
+          {
+            "value": "m;35-45",
+            "count": 2
+          },
+          {
+            "value": "m;45-100",
+            "count": 2
+          }
+        ],
+        "views": 36,
+        "visitors": 26
+      }
+    },
+    {
+      "activity": {
+        "comments": 3,
+        "subscribed": 1
+      },
+      "period_from": 1591098024,
+      "period_to": 1591184423,
+      "reach": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 1
+          },
+          {
+            "value": "18-21",
+            "count": 4
+          },
+          {
+            "value": "21-24",
+            "count": 8
+          },
+          {
+            "value": "24-27",
+            "count": 3
+          },
+          {
+            "value": "30-35",
+            "count": 4
+          },
+          {
+            "value": "35-45",
+            "count": 1
+          }
+        ],
+        "cities": [
+          {
+            "count": 3,
+            "name": "Москва",
+            "value": 1
+          },
+          {
+            "count": 2,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 1,
+            "name": "Минск",
+            "value": 282
+          },
+          {
+            "count": 1,
+            "name": "Краснодар",
+            "value": 72
+          },
+          {
+            "count": 1,
+            "name": "Новосибирск",
+            "value": 99
+          },
+          {
+            "count": 1,
+            "name": "Тюмень",
+            "value": 147
+          },
+          {
+            "count": 1,
+            "name": "Миоры",
+            "value": 17790
+          },
+          {
+            "count": 1,
+            "name": "Старый Оскол",
+            "value": 274
+          },
+          {
+            "count": 1,
+            "name": "Иваново",
+            "value": 55
+          },
+          {
+            "count": 1,
+            "name": "Bremen",
+            "value": 20860
+          },
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          },
+          {
+            "count": 1,
+            "name": "Ростов-на-Дону",
+            "value": 119
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 19,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "BY",
+            "count": 2,
+            "name": "Беларусь",
+            "value": 3
+          },
+          {
+            "code": "NL",
+            "count": 1,
+            "name": "Нидерланды",
+            "value": 139
+          }
+        ],
+        "mobile_reach": 7,
+        "reach": 22,
+        "reach_subscribers": 12,
+        "sex": [
+          {
+            "value": "f",
+            "count": 4
+          },
+          {
+            "value": "m",
+            "count": 18
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;18-21",
+            "count": 3
+          },
+          {
+            "value": "f;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 1
+          },
+          {
+            "value": "m;18-21",
+            "count": 1
+          },
+          {
+            "value": "m;21-24",
+            "count": 7
+          },
+          {
+            "value": "m;24-27",
+            "count": 3
+          },
+          {
+            "value": "m;30-35",
+            "count": 4
+          },
+          {
+            "value": "m;35-45",
+            "count": 1
+          }
+        ]
+      },
+      "visitors": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 2
+          },
+          {
+            "value": "18-21",
+            "count": 9
+          },
+          {
+            "value": "21-24",
+            "count": 3
+          },
+          {
+            "value": "24-27",
+            "count": 3
+          },
+          {
+            "value": "27-30",
+            "count": 1
+          },
+          {
+            "value": "30-35",
+            "count": 4
+          },
+          {
+            "value": "45-100",
+            "count": 1
+          }
+        ],
+        "cities": [
+          {
+            "count": 2,
+            "name": "Санкт-Петербург",
+            "value": 2
+          },
+          {
+            "count": 2,
+            "name": "Москва",
+            "value": 1
+          },
+          {
+            "count": 1,
+            "name": "Минск",
+            "value": 282
+          },
+          {
+            "count": 1,
+            "name": "Старый Оскол",
+            "value": 274
+          },
+          {
+            "count": 1,
+            "name": "Тюмень",
+            "value": 147
+          },
+          {
+            "count": 1,
+            "name": "Краснодар",
+            "value": 72
+          },
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          },
+          {
+            "count": 1,
+            "name": "Иваново",
+            "value": 55
+          },
+          {
+            "count": 1,
+            "name": "Bremen",
+            "value": 20860
+          },
+          {
+            "count": 1,
+            "name": "Красноярск",
+            "value": 73
+          },
+          {
+            "count": 1,
+            "name": "Миоры",
+            "value": 17790
+          },
+          {
+            "count": 1,
+            "name": "Новосибирск",
+            "value": 99
+          },
+          {
+            "count": 1,
+            "name": "Los Angeles",
+            "value": 5331
+          },
+          {
+            "count": 1,
+            "name": "Саратов",
+            "value": 125
+          },
+          {
+            "count": 1,
+            "name": "Ростов-на-Дону",
+            "value": 119
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 21,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "BY",
+            "count": 2,
+            "name": "Беларусь",
+            "value": 3
+          },
+          {
+            "code": "NL",
+            "count": 1,
+            "name": "Нидерланды",
+            "value": 139
+          },
+          {
+            "code": "EU",
+            "count": 1,
+            "name": "",
+            "value": 0
+          },
+          {
+            "code": "GB",
+            "count": 1,
+            "name": "Великобритания",
+            "value": 49
+          }
+        ],
+        "mobile_views": 14,
+        "sex": [
+          {
+            "value": "f",
+            "count": 4
+          },
+          {
+            "value": "m",
+            "count": 20
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;18-21",
+            "count": 3
+          },
+          {
+            "value": "f;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;12-18",
+            "count": 2
+          },
+          {
+            "value": "m;18-21",
+            "count": 6
+          },
+          {
+            "value": "m;21-24",
+            "count": 2
+          },
+          {
+            "value": "m;24-27",
+            "count": 3
+          },
+          {
+            "value": "m;27-30",
+            "count": 1
+          },
+          {
+            "value": "m;30-35",
+            "count": 4
+          },
+          {
+            "value": "m;45-100",
+            "count": 1
+          }
+        ],
+        "views": 43,
+        "visitors": 26
+      }
+    },
+    {
+      "activity": {
+        "comments": 1,
+        "subscribed": 1,
+        "unsubscribed": 2
+      },
+      "period_from": 1591011624,
+      "period_to": 1591098023,
+      "reach": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 3
+          },
+          {
+            "value": "18-21",
+            "count": 6
+          },
+          {
+            "value": "21-24",
+            "count": 1
+          },
+          {
+            "value": "24-27",
+            "count": 1
+          },
+          {
+            "value": "30-35",
+            "count": 1
+          },
+          {
+            "value": "35-45",
+            "count": 1
+          },
+          {
+            "value": "45-100",
+            "count": 1
+          }
+        ],
+        "cities": [
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          },
+          {
+            "count": 1,
+            "name": "Каневская",
+            "value": 6303
+          },
+          {
+            "count": 1,
+            "name": "Нижний Новгород",
+            "value": 95
+          },
+          {
+            "count": 1,
+            "name": "Витебск",
+            "value": 244
+          },
+          {
+            "count": 1,
+            "name": "Великий Новгород",
+            "value": 35
+          },
+          {
+            "count": 1,
+            "name": "Дмитров",
+            "value": 625
+          },
+          {
+            "count": 1,
+            "name": "Миоры",
+            "value": 17790
+          },
+          {
+            "count": 1,
+            "name": "Курьи",
+            "value": 1155843
+          },
+          {
+            "count": 1,
+            "name": "Челябинск",
+            "value": 158
+          },
+          {
+            "count": 1,
+            "name": "Белово",
+            "value": 994
+          },
+          {
+            "count": 1,
+            "name": "Псков",
+            "value": 114
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 12,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "BY",
+            "count": 2,
+            "name": "Беларусь",
+            "value": 3
+          }
+        ],
+        "mobile_reach": 7,
+        "reach": 14,
+        "reach_subscribers": 7,
+        "sex": [
+          {
+            "value": "f",
+            "count": 2
+          },
+          {
+            "value": "m",
+            "count": 12
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;18-21",
+            "count": 2
+          },
+          {
+            "value": "m;12-18",
+            "count": 3
+          },
+          {
+            "value": "m;18-21",
+            "count": 4
+          },
+          {
+            "value": "m;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;24-27",
+            "count": 1
+          },
+          {
+            "value": "m;30-35",
+            "count": 1
+          },
+          {
+            "value": "m;35-45",
+            "count": 1
+          },
+          {
+            "value": "m;45-100",
+            "count": 1
+          }
+        ]
+      },
+      "visitors": {
+        "age": [
+          {
+            "value": "12-18",
+            "count": 5
+          },
+          {
+            "value": "18-21",
+            "count": 8
+          },
+          {
+            "value": "21-24",
+            "count": 1
+          },
+          {
+            "value": "24-27",
+            "count": 1
+          },
+          {
+            "value": "30-35",
+            "count": 1
+          },
+          {
+            "value": "45-100",
+            "count": 2
+          }
+        ],
+        "cities": [
+          {
+            "count": 1,
+            "name": "Саратов",
+            "value": 125
+          },
+          {
+            "count": 1,
+            "name": "Великий Новгород",
+            "value": 35
+          },
+          {
+            "count": 1,
+            "name": "Каневская",
+            "value": 6303
+          },
+          {
+            "count": 1,
+            "name": "Витебск",
+            "value": 244
+          },
+          {
+            "count": 1,
+            "name": "Советск",
+            "value": 5099
+          },
+          {
+            "count": 1,
+            "name": "Белово",
+            "value": 994
+          },
+          {
+            "count": 1,
+            "name": "Миоры",
+            "value": 17790
+          },
+          {
+            "count": 1,
+            "name": "Курьи",
+            "value": 1155843
+          },
+          {
+            "count": 1,
+            "name": "Челябинск",
+            "value": 158
+          },
+          {
+            "count": 1,
+            "name": "Нижний Новгород",
+            "value": 95
+          },
+          {
+            "count": 1,
+            "name": "Псков",
+            "value": 114
+          },
+          {
+            "count": 1,
+            "name": "Ярославль",
+            "value": 169
+          }
+        ],
+        "countries": [
+          {
+            "code": "RU",
+            "count": 22,
+            "name": "Россия",
+            "value": 1
+          },
+          {
+            "code": "BY",
+            "count": 2,
+            "name": "Беларусь",
+            "value": 3
+          },
+          {
+            "code": "CN",
+            "count": 1,
+            "name": "Китай",
+            "value": 97
+          },
+          {
+            "code": "US",
+            "count": 1,
+            "name": "США",
+            "value": 9
+          },
+          {
+            "code": "TR",
+            "count": 1,
+            "name": "Турция",
+            "value": 200
+          }
+        ],
+        "mobile_views": 10,
+        "sex": [
+          {
+            "value": "f",
+            "count": 3
+          },
+          {
+            "value": "m",
+            "count": 15
+          }
+        ],
+        "sex_age": [
+          {
+            "value": "f;12-18",
+            "count": 1
+          },
+          {
+            "value": "f;18-21",
+            "count": 2
+          },
+          {
+            "value": "m;12-18",
+            "count": 4
+          },
+          {
+            "value": "m;18-21",
+            "count": 6
+          },
+          {
+            "value": "m;21-24",
+            "count": 1
+          },
+          {
+            "value": "m;24-27",
+            "count": 1
+          },
+          {
+            "value": "m;30-35",
+            "count": 1
+          },
+          {
+            "value": "m;45-100",
+            "count": 2
+          }
+        ],
+        "views": 36,
+        "visitors": 27
+      }
+    }
+  ]
+}

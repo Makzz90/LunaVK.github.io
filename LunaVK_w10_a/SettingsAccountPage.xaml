@@ -1,0 +1,252 @@
+﻿<local:PageBase
+    x:Class="LunaVK.SettingsAccountPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    d:DesignHeight="3000"
+     xmlns:converters="using:LunaVK.Network.Converters">
+
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <ScrollViewer>
+            <StackPanel>
+                <uc:HeaderOffsetUC/>
+                <Grid Background="{ThemeResource ItemBackgroundBrush}">
+                    <StackPanel Margin="20 0">
+                        <TextBlock Margin="0 10 0 20" Text="Информация" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontWeight="Medium" />
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Border Width="100" Height="100" Grid.RowSpan="2" Margin="0 0 10 0"
+                              Visibility="{Binding HavePhoto, FallbackValue=Collapsed}"
+                              
+                              
+                              Tapped="ChoosePhotoTap"
+                              CornerRadius="50"
+                              Background="{ThemeResource ImagePlaceholderBackgroundBrush}">
+
+
+                                <TextBlock IsHitTestVisible="False"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       
+                                       Text="{Binding Path=[Settings_EditProfile_ChoosePhoto], Source={StaticResource LocalizedStrings}}" />
+                            </Border>
+
+                            <Ellipse Width="100" Height="100" Tapped="Ellipse_Tapped"
+                                   Grid.RowSpan="2" Margin="0 0 10 0">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding AvatarUri}" />
+                                </Ellipse.Fill>
+
+                                <FlyoutBase.AttachedFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem Click="ChosePhotoMenuClick" Text="{Binding Path=[Settings_EditProfile_ChoosePhoto], Source={StaticResource LocalizedStrings}}"/>
+                                        <MenuFlyoutItem Click="DeletePhotoMenuClick" Text="Delete"/>
+                                    </MenuFlyout>
+                                </FlyoutBase.AttachedFlyout>
+                            </Ellipse>
+
+                            <TextBox VerticalAlignment="Center"
+                                Text="{Binding FirstName}"
+                                MaxLength="32"
+                                Grid.Column="1"
+                                />
+
+                            <TextBox VerticalAlignment="Center"
+                                Text="{Binding LastName}"
+                                MaxLength="32"
+                                     Grid.Column="1"
+                                     Grid.Row="1"
+                                  />
+                        </Grid>
+
+                        <Grid Margin="0 20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <RadioButton IsChecked="{Binding IsMale}"
+                                     Content="Мужской"
+                                     GroupName="MaleFemale"
+                                     />
+                            <RadioButton Grid.Column="1"
+                                     Content="Женский"
+                                     
+                                     GroupName="MaleFemale"
+                                     />
+                        </Grid>
+
+                        <TextBlock Text="День рождения" />
+                        <TextBlock Text="{Binding BirthDateStr, FallbackValue='18.12.1990'}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
+
+                        <ComboBox SelectedIndex="{Binding BirthdayShowType}" Header="Показывать дату рождения" Margin="0 20 0 0">
+                            <ComboBoxItem Content="нет"/>
+                            <ComboBoxItem Content="полностью"/>
+                            <ComboBoxItem Content="только месяц"/>
+                        </ComboBox>
+
+                        <ComboBox SelectedIndex="{Binding RelationshipType}" Header="Семейное положение" Margin="0 20 0 0">
+                            <ComboBoxItem Content="не выбрано"/>
+                            <ComboBoxItem Content="не женат"/>
+                            <ComboBoxItem Content="есть подруга"/>
+                            <ComboBoxItem Content="помолвлен"/>
+                            <ComboBoxItem Content="женат"/>
+                            <ComboBoxItem Content="в гражданском браке"/>
+                            <ComboBoxItem Content="влюблён"/>
+                            <ComboBoxItem Content="всё сложно"/>
+                            <ComboBoxItem Content="в активном поиске"/>
+                        </ComboBox>
+
+                        <!-- Relationship Partner -->
+                        
+                            <StackPanel Visibility="{Binding IsPartnerApplicable, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}">
+                                <Grid
+                                  Tapped="ChoosePartnerTap"
+                                  Visibility="{Binding HavePartner, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=True}">
+                                    <TextBlock Margin="0 8 0 0"
+                                           FontSize="25.33"
+                                           Text="Settings_EditProfile_ChooseAPartner" />
+                                </Grid>
+
+
+                                <Grid Height="62"
+                                  Visibility="{Binding HavePartner, Converter={StaticResource BoolToVisibilityConverter}}"
+                                  Background="Transparent"
+                                  Tapped="PartnerTap"
+                                  
+                                  Margin="0,16,0,6">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="62" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Ellipse Fill="{ThemeResource ImagePlaceholderBackgroundBrush}"
+                                         Height="62"
+                                         Grid.Column="1"
+                                         Width="62"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center" />
+                                    <Image HorizontalAlignment="Left"
+                                       Grid.Column="1"
+                                       Height="62"
+                                       Width="62"
+                                       DataContext="{Binding Partner}"
+                                       Source="{Binding photo_max}"
+                                       VerticalAlignment="Center">
+                                        <!--<Image.Clip>
+                                            <EllipseGeometry Center="31 31"
+                                                         RadiusX="31"
+                                                         RadiusY="31" />
+                                        </Image.Clip>-->
+                                    </Image>
+
+
+
+                                    <TextBlock Margin="12,0,12,6"
+                                           Grid.Column="2"
+                                           Text="{Binding Name}"
+                                           DataContext="{Binding Partner}"
+                                           TextWrapping="NoWrap"
+                                           
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left" />
+                                    <Grid  Grid.Column="3"
+                                       Background="Transparent"
+                                       Tapped="RemovePartnerTap">
+                                        <Border Width="38"
+                                            Height="38"
+                                            >
+                                            <!--<Border.OpacityMask>
+                                                <ImageBrush ImageSource="/Resources/appbar.cancel.rest.png" />
+                                            </Border.OpacityMask>-->
+                                        </Border>
+                                    </Grid>
+                                </Grid>
+
+                                <uc:ScrollableTextBlock Margin="-12 0 0 0"
+                                         
+                                         Text="{Binding PendingPartnerText}"
+                                         Visibility="{Binding HavePendingPartner, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+
+                            </StackPanel>
+
+                            <StackPanel Tapped="PhoneNumberTap">
+                            <TextBlock Text="Номер телефона" Margin="0 20 0 0"/>
+                            <TextBlock Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" Text="{Binding PhoneNumberStr, FallbackValue='+79...'}"/>
+                        </StackPanel>
+
+                        <StackPanel Tapped="EmailTap" Margin="0 20 0 0">
+                            <TextBlock FontSize="{StaticResource FontSizeContent}" Text="Электронная почта" />
+                            <TextBlock Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" Text="{Binding EmailStr, FallbackValue='ma...'}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Tapped="ShortNameTap">
+                            <TextBlock FontSize="{StaticResource FontSizeContent}" Text="Короткое имя" />
+                            <TextBlock Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" Text="{Binding ShortNameStr, FallbackValue='@ma...'}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Tapped="CountryPicker_OnTap">
+                            <TextBlock Text="Страна" />
+                            <TextBlock Text="{Binding Country, FallbackValue='Russia'}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0 20 0 0" Tapped="CityPicker_OnTap">
+                            <TextBlock Text="Город" />
+                            <TextBlock Text="{Binding City, FallbackValue='Saint Petersburg'}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                        </StackPanel>
+
+                        <Button Content="Изменить пароль" Margin="0 20" Click="ChangePasswordTap"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Background="{ThemeResource ItemBackgroundBrush}" Margin="0 20 0 0">
+                    <StackPanel Margin="20 0">
+                        <TextBlock Margin="0 20 0 0" Text="Записи на странице" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontWeight="Medium" />
+                        <ComboBox Header="При открытиее вашей страницы показывать:" SelectedIndex="{Binding ShowByDefaultType}">
+                            <ComboBoxItem Content="Все записи"/>
+                            <ComboBoxItem Content="Ваши записи"/>
+                        </ComboBox>
+
+                        <uc:ToggleSwitch Margin="0 20" Title="Комментирование записей" IsChecked="{Binding PostComments}"/>
+
+                    </StackPanel>
+                </Grid>
+
+                <Grid Background="{ThemeResource ItemBackgroundBrush}" Margin="0 20 0 0">
+                    <StackPanel Margin="20 0 0 20">
+                        <TextBlock Margin="0 20 0 0" Text="Разное" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontWeight="Medium" />
+
+                        <StackPanel Background="Transparent" Tapped="NewsFilterTap">
+                            <TextBlock x:Uid="SettingsAccount_NewsFilter" Text="фильтр новостей"/>
+
+                            <TextBlock Text="{Binding NewsFilterDescStr, FallbackValue='@ale...'}" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</local:PageBase>

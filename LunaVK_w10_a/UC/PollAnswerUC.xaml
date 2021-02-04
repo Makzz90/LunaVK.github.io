@@ -1,0 +1,86 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.PollAnswerUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="100"
+    d:DesignWidth="400"
+    Tapped="MultiSelectSquare_Tapped">
+
+    <UserControl.Resources>
+        <Storyboard x:Name="StoryboardAnimationUpdateValue" TargetName="transformRectangleFill" TargetProperty="X">
+            <DoubleAnimation x:Name="AnimationUpdateValue" Duration="0:0:0.4">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <!--<DoubleAnimation Duration="0:0:0.3" BeginTime="0:0:1"
+                                Storyboard.TargetName="VotesText"             
+                                Storyboard.TargetProperty="Opacity"            
+                                From="0" To="0.4" />-->
+            <!--<ColorAnimation Duration="0:0:0.3" BeginTime="0:0:1"
+                                Storyboard.TargetName="VotesText"             
+                                Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"            
+                                To="#55ffffff" />-->
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Border Background="White" CornerRadius="3" Grid.ColumnSpan="2" Opacity="0.1"/>
+        <Border Background="White" CornerRadius="3" Grid.ColumnSpan="2" Opacity="0.3">
+            <Border.Clip>
+                <RectangleGeometry x:Name="clipRectangleFill">
+                    <RectangleGeometry.Transform>
+                        <TranslateTransform x:Name="transformRectangleFill" />
+                    </RectangleGeometry.Transform>
+                </RectangleGeometry>
+            </Border.Clip>
+        </Border>
+
+        <Grid Margin="10 7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock TextWrapping="Wrap">
+                <Run FontSize="{StaticResource FontSizeContent}" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}" Text="{Binding text}"/>
+                <Run Foreground="#55ffffff" x:Name="VotesText"
+                       FontSize="{StaticResource FontSizeContent}" Text="{Binding VotesStr}"/>
+            </TextBlock>
+        </Grid>
+
+
+
+        <Border VerticalAlignment="Center" HorizontalAlignment="Right" Name="PanelPercentage" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <local:IconUC Glyph="&#xE73E;" Visibility="{Binding VotedCheckVisibility}"
+                              FontSize="{StaticResource FontSizeContent}" Foreground="White"/>
+                <TextBlock Margin="10 0" Text="{Binding PercentageStr}"
+                           FontSize="{StaticResource FontSizeContent}" Foreground="White"/>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="MultiSelectSquare" Grid.Column="1" 
+                            Background="Transparent"
+                            Width="48" Height="36"
+                            VerticalAlignment="Center" Visibility="{Binding MultiVisibility, FallbackValue=Collapsed}"
+                            >
+            <FontIcon x:Name="MultiSelectCheck"
+                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                Glyph="&#xE739;"
+                                FontSize="18"
+                                Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                                 />
+        </Border>
+    </Grid>
+</UserControl>

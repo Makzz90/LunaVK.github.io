@@ -1,0 +1,50 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.PopUp.VideosSearchParamsUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC.PopUp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="400"
+    VerticalAlignment="Bottom"
+    MaxWidth="600">
+
+    <Grid Background="{ThemeResource ItemBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Margin="15 10">
+                <Grid>
+                    <TextBlock Text="Параметры поиска" FontWeight="Medium"/>
+                    <TextBlock Text="Очистить" HorizontalAlignment="Right" Foreground="{StaticResource AccentBrushHigh}"
+                           Visibility="{Binding AnySetVisibility, FallbackValue=Collapsed}" Tapped="Clear_OnTap"/>
+                </Grid>
+
+                <ComboBox Margin="0 20 0 10" Header="Сортировка" HorizontalAlignment="Stretch"
+                                          SelectedIndex="{Binding SortType, Mode=TwoWay, FallbackValue=0}">
+                    <ComboBoxItem Content="По дате добавления"/>
+                    <ComboBoxItem Content="По длительности"/>
+                    <ComboBoxItem Content="По релевантности"/>
+                </ComboBox>
+
+                <CheckBox Content="Только высокого качества" IsChecked="{Binding IsHD, Mode=TwoWay}" Margin="0 5"/>
+                <CheckBox Content="Небезопасный поиск" IsChecked="{Binding IsAdult, Mode=TwoWay}" Margin="0 5"/>
+                <CheckBox Content="Это MP4-видео" IsChecked="{Binding IsMP4, Mode=TwoWay}" Margin="0 5"/>
+                <CheckBox Content="С YouTuBe" IsChecked="{Binding IsYouTuBe, Mode=TwoWay}" Margin="0 5"/>
+                <CheckBox Content="С Vimeo" IsChecked="{Binding IsVimeo, Mode=TwoWay}" Margin="0 5"/>
+                <CheckBox Content="Короткие" IsChecked="{Binding IsShort, Mode=TwoWay}" Margin="0 5"/>
+                <CheckBox Content="Длинные" IsChecked="{Binding IsLong, Mode=TwoWay}" Margin="0 5"/>
+                <CheckBox Content="Только мои видео" IsChecked="{Binding IsOnlyOwn, Mode=TwoWay}" Margin="0 5"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Grid.Row="1" Background="{ThemeResource SystemControlHighlightAccentBrush}" Height="48" Tapped="Apply_Tapped">
+            <TextBlock Text="Применить" Foreground="White" FontSize="{StaticResource FontSizeContent}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</UserControl>

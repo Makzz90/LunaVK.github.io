@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.BottomMenuUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="48"
+    d:DesignWidth="400"
+    VerticalAlignment="Bottom">
+
+    <Grid Height="48" Background="{ThemeResource BrushMenu}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border>
+            <local:IconUC Glyph="&#xE88D;"/>
+        </Border>
+        <Border Grid.Column="1">
+            <local:IconUC Glyph="&#xE721;"/>
+        </Border>
+        <Border Grid.Column="2">
+            <local:IconUC Glyph="&#xE8BD;"/>
+        </Border>
+        <Border Grid.Column="3">
+            <local:IconUC Glyph="&#xEA8F;"/>
+        </Border>
+        <Border Grid.Column="4">
+            <local:IconUC Glyph="&#xE700;"/>
+        </Border>
+    </Grid>
+</UserControl>

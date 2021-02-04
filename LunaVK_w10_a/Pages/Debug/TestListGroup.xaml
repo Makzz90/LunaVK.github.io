@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestListGroup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <uc:DetailedConversation x:Name="detailed"/>
+        
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Add 1 item" Click="Button_Click"/>
+                <CheckBox Content="Out" Name="_cbOut"/>
+                <CheckBox Content="Readed" Name="_cbReaded"/>
+                <TextBox Name="_tbDay" PlaceholderText="+day" InputScope="Number"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Add unread" Click="Button_Click_1"/>
+                <Button Content="Remove unread" Click="Button_Click_2"/>
+                <Button Content="Ensure Unread" Click="Button_Click_3"/>
+            </StackPanel>
+            
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBox InputScope="Number" PlaceholderText="Position" Name="_tbPosition"/>
+                <Button Content="Insert item" Click="Button_Click_5"/>
+            </StackPanel>
+
+            <Button Content="Clear" Click="Button_Click_4"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Move" Click="Button_Click_6"/>
+                <TextBox InputScope="Number" PlaceholderText="old" Name="_tbOld"/>
+                <TextBox InputScope="Number" PlaceholderText="new" Name="_tbNew"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

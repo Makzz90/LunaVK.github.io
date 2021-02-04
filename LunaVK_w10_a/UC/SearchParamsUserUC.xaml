@@ -1,0 +1,79 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.SearchParamsUserUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="400"
+    MaxWidth="600"
+    VerticalAlignment="Bottom">
+
+    <Grid Background="{ThemeResource ItemBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Margin="15 0 15 20">
+            <TextBlock Text="Параметры поиска" FontWeight="SemiBold" Margin="0 10"/>
+
+            <TextBlock Text="Страна и город" Foreground="{ThemeResource TextBrushMediumLow}"/>
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox PlaceholderText="Страна" HorizontalAlignment="Stretch" Name="_countryComboBox" SelectionChanged="_countryComboBox_SelectionChanged"/>
+
+                <ComboBox Grid.Column="2" PlaceholderText="Город" HorizontalAlignment="Stretch" Name="_cityComboBox"/>
+            </Grid>
+
+            <TextBlock Text="Пол" Foreground="{ThemeResource TextBrushMediumLow}" Margin="0 15 0 0"/>
+
+            <RadioButton Content="Любой"/>
+            <RadioButton Content="Мужской"/>
+            <RadioButton Content="Женский"/>
+
+            <TextBlock Text="Возраст" Foreground="{ThemeResource TextBrushMediumLow}" Margin="0 15 0 0"/>
+
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox PlaceholderText="От" HorizontalAlignment="Stretch" Name="_ageFromComboBox" />
+
+                <ComboBox Grid.Column="2" PlaceholderText="До" HorizontalAlignment="Stretch" Name="_ageToComboBox"/>
+            </Grid>
+
+            <TextBlock Text="Семейное положение" Foreground="{ThemeResource TextBrushMediumLow}" Margin="0 10"/>
+
+            <ComboBox PlaceholderText="Не выбрано" HorizontalAlignment="Stretch">
+                <ComboBoxItem Content="Не женат"/>
+                <ComboBoxItem Content="Есть подруга"/>
+                <ComboBoxItem Content="Помолвлен"/>
+                <ComboBoxItem Content="Женат"/>
+                <ComboBoxItem Content="В гражданском браке"/>
+                <ComboBoxItem Content="Всё сложно"/>
+                <ComboBoxItem Content="В активном поиске"/>
+                <ComboBoxItem Content="Влюблён"/>
+            </ComboBox>
+
+            <CheckBox Content="С фотографией" Margin="0 10 0 0"/>
+
+            <CheckBox Content="Сейчас в сети" Margin="0 10 0 0"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="{ThemeResource AccentBrushHigh}">
+            <TextBlock Text="ПОКАЗАТЬ РЕЗУЛЬТАТЫ" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" Foreground="White" FontWeight="SemiBold"/>
+        </Border>
+    </Grid>
+</UserControl>

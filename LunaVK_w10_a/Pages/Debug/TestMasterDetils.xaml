@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestMasterDetils"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:uc="using:LunaVK.UC">
+
+    <Grid Background="{ThemeResource ItemBackgroundBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MenuState">
+                <VisualState x:Name="Medium">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Burger" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Burger" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Visible" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <toolkit:MasterDetailsView2 x:Name="_detailsView"
+                                    MasterPaneWidth="320" CompactModeThresholdWidth="{StaticResource WideMinWindowWidth}"
+                                   BorderBrush="{ThemeResource AccentBrushMediumLow}"
+                                     >
+            <toolkit:MasterDetailsView2.Master>
+                
+                <controls:ExtendedListView3 ItemsSource="{Binding Dialogs}" UseHeaderOffset="False">
+                    <controls:ExtendedListView3.Header>
+                        <uc:HeaderOffsetUC Background="{ThemeResource HeaderBrush}">
+                            <StackPanel Height="48" VerticalAlignment="Bottom" Orientation="Horizontal">
+                                <Grid Background="Transparent" Width="48" Height="48" x:Name="Burger" Tapped="Burger_Tapped">
+                                    <uc:IconUC Glyph="&#xE700;" Foreground="White"/>
+                                </Grid>
+
+                                <TextBlock Text="Сообщения" VerticalAlignment="Center" Margin="10 0" Foreground="White" x:Name="Title"/>
+                            </StackPanel>
+
+                            <uc:PullToRefreshUC x:Name="ucPullToRefresh" VerticalAlignment="Top"/>
+                        </uc:HeaderOffsetUC>
+                    </controls:ExtendedListView3.Header>
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:ItemDialogUC Holding="ItemDialogUC_Holding" RightTapped="ItemDialogUC_RightTapped"
+                                             BackTap="ItemDialogUC_BackTap" AvatrTap="ItemDialogUC_AvatrTap"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                    
+                        
+
+                </controls:ExtendedListView3>
+            </toolkit:MasterDetailsView2.Master>
+
+            <toolkit:MasterDetailsView2.Details>
+                <uc:DetailedConversation x:Name="detailed"/>
+            </toolkit:MasterDetailsView2.Details>
+
+            <toolkit:MasterDetailsView2.NoSelectionContent>
+                <Grid>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <SymbolIcon Symbol="Mail" RenderTransformOrigin=".5,.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="2" ScaleY="2" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Выберите диалог."
+                               FontSize="18"
+                               Margin="20,12" />
+                    </StackPanel>
+                </Grid>
+            </toolkit:MasterDetailsView2.NoSelectionContent>
+
+        </toolkit:MasterDetailsView2>
+    </Grid>
+</Page>

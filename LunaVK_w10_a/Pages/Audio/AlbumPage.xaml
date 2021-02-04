@@ -1,0 +1,57 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.Audio.AlbumPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:controls="using:LunaVK.UC.Controls">
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <controls:ExtendedListView3 ItemsSource="{Binding Items}" x:Name="mainScroll"
+                                UseHeaderOffset="True" SelectionMode="Single" SelectionChanged="MainScroll_SelectionChanged">
+            <controls:ExtendedListView3.Header>
+                <StackPanel Margin="10 10 10 0">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="100" Height="100" CornerRadius="5" Background="{ThemeResource AccentBrushMedium}">
+                        <uc:IconUC Glyph="&#xE93C;" FontSize="45" Foreground="White"/>
+                    </Border>
+                    <Border Width="100" Height="100" CornerRadius="5">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding Cover}"/>
+                        </Border.Background>
+                    </Border>
+                    <Border Width="100" Height="100" CornerRadius="5">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding Cover}"/>
+                        </Border.Background>
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="10 0">
+                        <TextBlock Text="{Binding Title}" FontSize="{StaticResource FontSizeLarge}" FontWeight="Medium"/>
+                        <TextBlock Text="{Binding SubTitle}" FontSize="{StaticResource FontSizeSmall}" Foreground="{StaticResource PhoneAccentColorBrush}"/>
+                    </StackPanel>
+
+                    
+                </Grid>
+                    <Rectangle Grid.ColumnSpan="2" Height="1" Fill="{ThemeResource SystemControlForegroundBaseHighBrush}" Opacity="0.2" VerticalAlignment="Bottom" Margin="0 10"/>
+                </StackPanel>
+            </controls:ExtendedListView3.Header>
+            <controls:ExtendedListView3.ItemTemplate>
+                <DataTemplate>
+                    <uc:AudioTrackUC PrimaryClick="AudioTrackUC_CoverClick" SecondaryClick="AudioTrackUC_BackClick"
+                                     RightTapped="AudioTrackUC_RightTapped" Holding="AudioTrackUC_Holding"
+                                     Margin="5 10"/>
+                </DataTemplate>
+            </controls:ExtendedListView3.ItemTemplate>
+        </controls:ExtendedListView3>
+
+    </Grid>
+</local:PageBase>

@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestMsgitem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid Margin="0 55 0 0">
+        <uc:ItemMessageUC VerticalAlignment="Top" x:Name="_msg"/>
+
+        <StackPanel Margin="20 0" VerticalAlignment="Bottom" Background="ForestGreen">
+            <CheckBox Content="Text" Margin="0 5" Name="_text"/>
+            <Slider Header="Fwdmsgs" Maximum="10" Name="_fwdmsgs"/>
+            <Slider Header="Img" Maximum="10" Margin="0 5" Name="_img"/>
+            <Slider Header="Doc" Maximum="10" Margin="0 5" Name="_doc"/>
+            <Slider Header="Link" Maximum="10" Margin="0 5" Name="_link"/>
+            <Slider Header="Audio" Maximum="10" Margin="0 5" Name="_audio"/>
+            <Button Content="Do it" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

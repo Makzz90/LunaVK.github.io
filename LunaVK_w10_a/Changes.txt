@@ -1,0 +1,303 @@
+﻿38:
+Обновлена страница видеокаталога
+добавлена страница просмотра списка видеозаписей группы
+
+40:
+обновлены вложения: опросы, голосовых сообщений, ссылки
+
+41:
+Убран пуллтурефреш в диалоге
+
+1.31
+АПИ 5.120
+Поддержка вложений-событий в сообщениях
+
+1.44
+добавлен случайный порядок и повтор в аудиоплеере
+обновлена страница "О приложении"
+проигрыватель видео реагирует на ориентацию телефона
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Высота шапки 48
+высота шрифта у пунктов меню 16 FontSizeContent   Иконка 18
+
+<Ellipse Width="45" Height="45">
+	<Ellipse.Fill>
+		<ImageBrush ImageSource="{Binding UserPhoto}" />
+	</Ellipse.Fill>
+</Ellipse>
+
+Windows.ApplicationModel.DesignMode.DesignModeEnabled
+
+var vm = (sender as FrameworkElement).DataContext as VKAudio;
+
+https://pp.userapi.com/c845520/v845520850/d6911/aTBAhpzF3eo.jpg?ava=1
+https://pp.userapi.com/c845419/v845419002/d2150/KJAr2MajxWY.jpg?ava=1
+https://pp.userapi.com/c830508/v830508353/1703df/8Dc-9EV8OtQ.jpg?ava=1
+https://sun9-5.userapi.com/c830609/v830609394/157b9b/zDgdBWkXDjs.jpg?ava=1
+
+var folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets\\Mp3");
+                Windows.Storage.StorageFile file = await folder.GetFileAsync("bb2.mp3");
+
+{Binding Path=[DocumentEditing], Source={StaticResource LocalizedStrings}}
+
+
+Иконки:
+Больше действий горизонт E9B9
+Больше действий вертикаль E10C
+подарок E88C
+расшарить E87C
+сообщение заполненные vk EA24
+сообщение заполненные EA21
+
+public BitmapImage ImageSrc
+{
+    get
+    {
+        if (this.photo == null)
+            return null;
+
+        string temp = this.photo.photo_130;
+        if (string.IsNullOrEmpty(temp))
+            temp = this.photo.photo_75;
+
+        if (string.IsNullOrEmpty(temp))
+            return null;
+
+        return new BitmapImage(new Uri(temp));
+    }
+}
+
+https://m.vk.com/wall94582290_6625
+
+
+
+public async Task<bool> isFilePresent(string fileName)
+{
+    var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(fileName);
+    return item != null;
+}
+
+: GenericCollectionViewModel<VKUserEx>
+public override void GetData(int offset, int count, Action<VKErrors, IReadOnlyList<VKUser>> callback)
+
+public override string GetFooterTextForCount
+{
+    get
+    {
+        if (base._totalCount <= 0)
+            return LocalizedStrings.GetString("NoFriends");
+        return UIStringFormatterHelper.FormatNumberOfSomething((int)base._totalCount, "OneFriendFrm", "TwoFourFriendsFrm", "FiveFriendsFrm");
+    }
+}
+
+base._totalCount = result.response.count;
+callback(result.error.error_code, result.response.items);
+
+ParametersRepository.SetParameterForId параметр назад
+
+Execute.ExecuteOnUIThread(() =>
+                {
+
+Сработали кастомные методы:
+newsfeed.getRecommendedLiveVideos
+video.getGroupsForStreaming
+fave.getTags
+apps.getFromMenu
+messages.getRecentGraffities
+messages.getRecentStickers
+messages.hideRecentGraffiti
+messages.allocateCall - почти
+messages.notifyGroupCallAttempt - почти
+messages.getCallToken
+messages.getAnonymCallToken
+messages.conversationBarHide
+messages.markAsUnreadConversation
+messages.searchConversations
+messages.recogniseAudioMessage
+messages.markAsListened
+money.getCards
+notifications.action
+notifications.getGrouped
+stats.benchmark
+pages.get
+polls.getBackgrounds
+fave.getPages
+newsfeed.markDiscoverBadgeViewed
+store.getFriendsList
+store.hasNewItems
+store.markAsViewed
+utils.getProxiesPreferences
+podcasts.getEpisodes
+podcasts.getEpisode
+articles.getOwnerPublished
+video.getActionButtonsStats
+video.getGroupsForStreaming
+video.getLiveStatus
+video.getLongPollServer
+video.getRecommendedLiveVideos
+video.getStreamOptions
+video.getStreamSearchOptions
+video.getUpcomingLives
+account.getCommentGroups
+
+
+Не сработали:
+newsfeed.getPromotionLists
+masks.getCatalog
+account.getMenu
+apps.getVkApps
+store.addStickersToFavorite
+store.getFavoriteStickers
+store.removeStickersFromFavorite
+store.getReplenishBalanceLink
+
+video.liveGetGiftCatalog
+video.getVideoDiscover
+video.getLongPollServer
+video.getDiscoverLive
+video.getActionButtonsOnboarding
+video.viewSegments - только офф
+
+messages.forceCallFinish
+
+stories.getArchive
+
+account.getEmail
+account.getHelpHints
+account.getToggles
+account.showHelpHint
+
+
+account.getAdAwayToken - нет доступа
+account.getBalance - только офф
+account.getPingUrl - нет доступа
+messages.getCallPreview - только офф
+messages.rejectMessageRequest - нет доступа
+
+
+/*
+this.groupedItemsViewSource = new CollectionViewSource() { IsSourceGrouped = true, ItemsPath = new PropertyPath("_List") };
+            
+Binding bindingSource = new Binding() { Source = this.VM.EventsVM.Items, Mode = BindingMode.OneTime };
+BindingOperations.SetBinding(this.groupedItemsViewSource, CollectionViewSource.SourceProperty, bindingSource);
+Binding binding2 = new Binding() { Source = this.groupedItemsViewSource };
+
+            
+this.eventsListBox.SetBinding(ExtendedListView3.ItemsSourceProperty, binding2);*/
+
+
+
+
+xmlns:IsAcrylicBrushPresent="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsTypePresent(Windows.UI.Xaml.Media.AcrylicBrush)"
+xmlns:IsAcrylicBrushNotPresent="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsTypeNotPresent(Windows.UI.Xaml.Media.AcrylicBrush)"
+
+<Grid Name="MainPivot" IsAcrylicBrushPresent:Background="{ThemeResource SystemControlAltHighAcrylicWindowBrush}"  IsAcrylicBrushNotPresent:Background="Red">
+
+https://docs.microsoft.com/en-us/windows/uwp/debug-test-perf/conditional-xaml
+
+
+
+https://docs.microsoft.com/en-us/uwp/extension-sdks/windows-universal-sdk
+UniversalApiContract	1 - 10.0.10240.0
+						2 - 10.0.10586.0 Threshold 2
+						3 - 10.0.14393.0 Redstone 1 Anniversary Update
+						4 - 10.0.15063.0 Redstone 2 — Creators Update (1703)
+						5 - 10.0.16299.0 Redstone 3 — Fall Creators Update				RevealBackgroundBrush RevealBorderBrush
+						6 - 10.0.17134.1 Redstone 4 — April 2018 Update (1803)
+						7 - 10.0.17763.0 Redstone 5 — Windows 10 October 2018 Update (1809)
+						8 - 10.0.18362.0
+
+Redstone 1 — Anniversary Update (1607)
+Redstone 2 — Creators Update (1703)
+Redstone 3 — Fall Creators Update (1709) 16170-16299
+Redstone 4 — April 2018 Update (1803)
+Redstone 5 — Windows 10 October 2018 Update (1809)
+
+
+“#FFB900”, “Yellow Gold”
+“#FF8C00”, “Gold”
+“#F7630C”, “Orange Bright”
+“#CA5010”, “Orange Dark”
+“#DA3B01”, “Rust”
+“#EF6950”, “Pale Rust”
+“#D13438”, “Brick Red”
+“#FF4343”, “Mod Red”
+
+“#E74856”, “Pale Red”
+“#E81123”, “Red”
+“#EA005E”, “Rose Bright”
+“#C30052”, “Rose”
+“#E3008C”, “Plum Light”
+“#BF0077”, “Plum”
+“#C239B3”, “Orchid Light”
+“#9A0089”, “Orchid”
+
+“#0078D7”, “Default Blue”
+“#0063B1”, “Navy Blue”
+“#8E8CD8”, “Purple Shadow”
+“#6B69D6”, “Purple Shadow Dark”
+“#8764B8”, “Iris Pastel”
+“#744DA9”, “Iris Spring”
+“#B146C2”, “Violet Red Light”
+“#881798”, “Violet Red”
+
+“#0099BC”, “Cool Blue Bright”
+“#2D7D9A”, “Cool Blue”
+“#00B7C3”, “Seafoam”
+“#038387”, “Seafoam Team”
+“#00B294”, “Mint Light”
+“#018574”, “Mint Dark”
+“#00CC6A”, “Turf Green”
+“#10893E”, “Sport Green”
+
+“#7A7574”, “Gray”
+“#5D5A58”, “Gray Brown”
+“#68768A”, “Steel Blue”
+“#515C6B”, “Metal Blue”
+“#567C73”, “Pale Moss”
+“#486860”, “Moss”
+“#498205”, “Meadow Green”
+“#107C10”, “Green”
+
+“#767676”, “Overcast”
+“#4C4A48”, “Storm”
+“#69797E”, “Blue Gray”
+“#4A5459”, “Gray Dark”
+“#647C64”, “Liddy Green”
+“#525E54”, “Sage”
+“#847545”, “Camouflage Desert”
+“#7E735F”, “Camouflage”
+
+//https://docs.microsoft.com/ru-ru/cpp/cpp/data-type-ranges?view=vs-2019
+int От -2 147 483 648 до 2 147 483 647
+unsigned int От 0 до 4 294 967 295
+
+short От -32 768 до 32 767
+unsigned short От 0 до 65 535
+
+long От -2 147 483 648 до 2 147 483 647
+unsigned long От 0 до 4 294 967 295
+
+char От -128 до 127
+unsigned char От 0 до 255

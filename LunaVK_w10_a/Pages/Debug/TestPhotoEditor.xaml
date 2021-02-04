@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestPhotoEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:photo="using:LunaVK.Photo.UC"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml">
+
+    <Grid Margin="0 80 0 0">
+        
+        <canvas:CanvasControl x:Name="_canvasControl" />
+        <Grid Name="_grid" Background="Transparent" />
+        <photo:CollageCreationUC x:Name="_collageCreationUC" Margin="0 90 0 0" />
+    </Grid>
+</Page>

@@ -1,0 +1,123 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.MediaItemsHorizontalUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:controls="using:LunaVK.UC.Controls">
+
+    <StackPanel>
+        <StackPanel Visibility="{Binding MediaHorizontalItemsVisibility}">
+
+            <!--<uc:GroupHeaderUC DataContext="{Binding MediaHorizontalItemsViewModel}"
+                              Title="{Binding Title}"
+                              Counter="{Binding Count}"
+                              IsShowAllVisible="{Binding IsAllItemsVisible}"
+                              IsTopSeparatorVisible="False"
+                              HeaderTap="MediaHorizontalAllItemsHeader_OnTap" />-->
+
+            <Border Height="16" Background="{ThemeResource BaseBackgroundBrush}"/>
+            
+            <StackPanel Orientation="Horizontal" DataContext="{Binding MediaHorizontalItemsViewModel}" Tapped="MediaHorizontalAllItemsHeader_OnTap" Margin="0 8 0 0">
+                <TextBlock Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}" Text="{Binding Title, FallbackValue='Title'}" Margin="16 0 6 0" FontWeight="Medium"/>
+                <TextBlock Foreground="{ThemeResource TextBrushLow}" Text="{Binding Count}" />
+            </StackPanel>
+
+            
+            
+            <controls:ExtendedListView3 IsHorizontal="True" DataContext="{Binding MediaHorizontalItemsViewModel}" ItemsSource="{Binding Items}" UseHeaderOffset="False">
+                <controls:ExtendedListView3.ItemTemplate>
+                    <DataTemplate>
+                        <local:MediaListItemUCBase Tapped="MediaHorizontalListItem_OnTap"/>
+                    </DataTemplate>
+                </controls:ExtendedListView3.ItemTemplate>
+            </controls:ExtendedListView3>
+        </StackPanel>
+
+        <StackPanel Visibility="{Binding MediaVerticalItemsVisibility}">
+            <!--<uc:GroupHeaderUC DataContext="{Binding MediaVerticalItemsViewModel}"
+                              Title="{Binding Title}"
+                              Counter="{Binding Count}"
+                              IsShowAllVisible="{Binding IsAllItemsVisible}"
+                              IsTopSeparatorVisible="False"
+                              HeaderTap="MediaVerticalItemsHeader_OnTap" />-->
+
+            <ItemsControl DataContext="{Binding MediaVerticalItemsViewModel}"
+                          ItemsSource="{Binding Items}">
+                <!--<ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <viewModels:ProfileMediaListItemTemplateSelector Content="{Binding}"
+                                                                         Tap="MediaVerticalListItem_OnTap">
+                            <viewModels:ProfileMediaListItemTemplateSelector.AudioTemplate>
+                                <DataTemplate>
+                                    <Border Height="72">
+                                        <views1:AudioAttachmentUC DataContext="{Binding AudioViewModel}"
+                                                                  Margin="16 0"
+                                                                  VerticalAlignment="Center"
+                                                                  StartedPlayingCallback="{Binding OnPlayerStartedPlaying}" />
+                                    </Border>
+                                </DataTemplate>
+                            </viewModels:ProfileMediaListItemTemplateSelector.AudioTemplate>
+                            <viewModels:ProfileMediaListItemTemplateSelector.DiscussionsTemplate>
+                                <DataTemplate>
+                                    <views:MediaListItemDiscussionUC Title="{Binding Title}" />
+                                </DataTemplate>
+                            </viewModels:ProfileMediaListItemTemplateSelector.DiscussionsTemplate>
+                        </viewModels:ProfileMediaListItemTemplateSelector>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>-->
+            </ItemsControl>
+
+            <Rectangle Margin="0 16 0 0"
+                       Fill="Red"
+                       Height="2" />
+
+        </StackPanel>
+
+        <Border Visibility="{Binding MediaSectionsVisibility}">
+            <StackPanel>
+
+                <Rectangle Height="16" Fill="{ThemeResource BaseBackgroundBrush}" />
+                
+                <ListView
+                          ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                          ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                          ScrollViewer.IsHorizontalRailEnabled="False"
+                         ItemsSource="{Binding MediaSectionsViewModel}" HorizontalAlignment="Center"
+                                 SelectionChanged="ListView_SelectionChanged"
+                            SelectionMode="Single">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0 10" Background="Transparent" Tapped="Grid_Tapped">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="{Binding TitleCounter}" HorizontalAlignment="Center" FontSize="{StaticResource FontSizeExtraLarge}"
+                                                   Foreground="{StaticResource SystemControlHighlightAccentBrush}"/>
+                                <TextBlock Grid.Row="1" Margin="10 0" Text="{Binding Title}"
+                                                   HorizontalAlignment="Center" FontSize="{StaticResource FontSizeContent}"
+                                                   Foreground="{ThemeResource TextBrushMediumHigh}" Opacity="0.5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Border>
+
+        <!--<Rectangle Height="16"
+                   Fill="Blue" />-->
+
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,80 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.CatalogItemUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="135"
+    d:DesignWidth="450"
+    Background="Transparent">
+
+    <Grid Height="110">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Border Background="{ThemeResource ImagePlaceholderBackgroundBrush}"/>
+
+            <local:IconUC Glyph="&#xE714;" VerticalAlignment="Center" HorizontalAlignment="Center"
+                          Foreground="{ThemeResource TextBrushMediumLow}" FontSize="30"/>
+
+            <Image Stretch="UniformToFill" Name="_img"
+                       Source="{Binding ImageUri, FallbackValue='https://sun9-46.userapi.com/c854016/v854016229/16faf4/vh7Xtiauhxc.jpg'}" VerticalAlignment="Center"
+                        />
+        </Grid>
+
+        <Border VerticalAlignment="Top" HorizontalAlignment="Left" CornerRadius="3"
+                  Background="#990D0D0D"
+                  Margin="8"
+                Padding="8 5"
+                   Visibility="{Binding AlreadyViewedVisibility, FallbackValue=Collapsed}">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontSize="18"
+                       TextLineBounds="TrimToCapHeight"
+                           Foreground="White"
+                           x:Uid="VideoCatalog_AlreadyViewed" Text="просмотрено"/>
+        </Border>
+
+        <Border Background="#66000000" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="6" CornerRadius="5" Visibility="{Binding IsVideoVisibility}">
+            <TextBlock Text="{Binding UIDuration, FallbackValue=0:00}" Margin="8 5" Foreground="White" FontSize="{StaticResource FontSizeSmall}" TextLineBounds="TrimToCapHeight"/>
+        </Border>
+
+        <local:IconUC Visibility="{Binding PrivacyVisibility, FallbackValue=Collapsed}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Glyph="&#xE72E;" Foreground="White"
+                Margin="10"/>
+
+
+
+
+
+        <!--<local:VideoDurationUC VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Margin=" 0 0 8 8"
+                                   Height="28"
+                                   Visibility="{Binding IsVideoVisibility}" />-->
+
+
+
+        <StackPanel VerticalAlignment="Center" Grid.Column="1" Margin="11 0 0 0">
+            <TextBlock Text="{Binding Title, FallbackValue='Как японцы печатают иероглифы'}"
+                           MaxLines="2"
+                           TextWrapping="Wrap"
+                           LineStackingStrategy="BlockLineHeight"
+                           FontSize="{StaticResource FontSizeLarge}"
+                           />
+
+            <TextBlock Text="{Binding Subtitle1, FallbackValue='Павел Дуров'}" Foreground="{ThemeResource TextBrushMediumLow}"
+                       FontWeight="Thin" Margin="0 3"/>
+
+            <TextBlock Text="{Binding Subtitle2, FallbackValue='89 000 просмотров'}" Foreground="{ThemeResource TextBrushLow}"
+                           FontSize="{StaticResource FontSizeSmall}"/>
+        </StackPanel>
+
+
+    </Grid>
+
+</UserControl>

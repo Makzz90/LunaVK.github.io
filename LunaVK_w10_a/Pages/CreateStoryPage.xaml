@@ -1,0 +1,368 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.CreateStoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
+    xmlns:photo="using:LunaVK.Photo.UC"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml">
+
+    <local:PageBase.Resources>
+        <Style x:Key="textStyle" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5 0 5 0"/>
+        </Style>
+    </local:PageBase.Resources>
+    
+    <Grid Background="Gray" Tag="CantTouchThis" Name="_root">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CurrentStates">
+                <!--<VisualStateGroup.Transitions>
+                    <VisualTransition From="NoSelectionWide" To="HasSelection">
+                        <Storyboard>
+                            <DrillInThemeAnimation EntranceTargetName="SelectionDetailsPanel" ExitTargetName="NoSelectionPresenter" />
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>-->
+                <VisualState x:Name="Initializing">
+                    <VisualState.Setters>
+                        <Setter Target="brdAction.IsHitTestVisible" Value="False" />
+                        <Setter Target="brdAction.Opacity" Value="0.5" />
+                        <Setter Target="progressRing.Visibility" Value="Visible" />
+                        <Setter Target="progressRing.IsActive" Value="True" />
+                        <Setter Target="bottomPanelTransform.Y" Value="50" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Ready">
+                    <VisualState.Setters>
+                        <Setter Target="brdPicture.Visibility" Value="Visible" />
+                        <Setter Target="bottomPanelTransform.Y" Value="0" />
+                        <Setter Target="_collageCreationUC.Visibility" Value="Collapsed" />
+                        <Setter Target="_grid.IsHitTestVisible" Value="False" />
+                        <Setter Target="brdAction.IsHitTestVisible" Value="True" />
+                        <Setter Target="brdAction.Opacity" Value="1" />
+                        <Setter Target="brdAction.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NoCamera">
+                    <VisualState.Setters>
+                        <Setter Target="brdAction.Visibility" Value="Collapsed" />
+                        <!--<Setter Target="bottomPanel.IsEnabled" Value="True" />-->
+                        <Setter Target="bottomPanelTransform.Y" Value="0" />
+                        <Setter Target="brdPicture.Visibility" Value="Visible" />
+                        <Setter Target="textNoCamera.Visibility" Value="Visible" />
+                        <Setter Target="brdCancel.Visibility" Value="Collapsed" />
+                        <Setter Target="_collageCreationUC.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CapturingPhoto">
+                    <VisualState.Setters>
+                        <Setter Target="brdAction.Visibility" Value="Collapsed" />
+                        <Setter Target="brdSwitch.Visibility" Value="Collapsed" />
+                        <Setter Target="progressRing.Visibility" Value="Visible" />
+                        <Setter Target="progressRing.IsActive" Value="True" />
+                        <Setter Target="_collageCreationUC.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="CapturingVideo">
+                    <VisualState.Setters>
+                        <Setter Target="brdSwitch.Visibility" Value="Collapsed" />
+                        <Setter Target="_collageCreationUC.Visibility" Value="Collapsed" />
+                        <!--<Setter Target="bottomPanel.IsHitTestVisible" Value="False" />
+                        <Setter Target="bottomPanel.Opacity" Value="0" />-->
+                        <Setter Target="bottomPanel.IsEnabled" Value="False" />
+                        <Setter Target="brdPicture.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="ReadySendPhoto">
+                    <VisualState.Setters>
+                        <Setter Target="brdAction.Visibility" Value="Collapsed" />
+                        <Setter Target="brdSave.Visibility" Value="Visible" />
+                        <Setter Target="brdSend.Visibility" Value="Visible" />
+                        <Setter Target="brdSwitch.Visibility" Value="Collapsed" />
+                        <Setter Target="brdSelectUser.Visibility" Value="Visible" />
+                        <Setter Target="brdCancel.Visibility" Value="Visible" />
+                        <Setter Target="_collageCreationUC.Visibility" Value="Visible" />
+                        <Setter Target="_grid.IsHitTestVisible" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="ReadySendVideo">
+                    <VisualState.Setters>
+                        <Setter Target="brdAction.Visibility" Value="Collapsed" />
+                        <Setter Target="brdSave.Visibility" Value="Collapsed" />
+                        <Setter Target="brdSend.Visibility" Value="Visible" />
+                        <Setter Target="brdSwitch.Visibility" Value="Collapsed" />
+                        <Setter Target="brdSelectUser.Visibility" Value="Visible" />
+                        <Setter Target="brdCancel.Visibility" Value="Visible" />
+                        <Setter Target="_collageCreationUC.Visibility" Value="Collapsed" />
+                        <Setter Target="_grid.IsHitTestVisible" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+                
+                
+                <VisualState x:Name="InPhotoEdit">
+                    <VisualState.Setters>
+                        <Setter Target="brdAction.Visibility" Value="Collapsed" />
+                        <Setter Target="_collageCreationUC.Visibility" Value="Visible" />
+                        <Setter Target="_grid.IsHitTestVisible" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" Text="Select a game to display" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <uwp:UrhoSurface Grid.Column="1" x:Name="UrhoSurface" Margin="10"/>
+
+        <ListBox Grid.Column="0" ItemsSource="{Binding GameTypes}" SelectedItem="{Binding SelectedGameType, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
+
+        <canvas:CanvasControl x:Name="_canvasControl" />
+        
+        <Image Name="imageControl" Stretch="Uniform"/>
+
+        <CaptureElement Name="PreviewControl" Stretch="UniformToFill" Tapped="PreviewControl_Tapped"/>
+
+        <Grid Name="_grid" Background="Transparent" IsHitTestVisible="False"/>
+
+        <photo:CollageCreationUC x:Name="_collageCreationUC" Margin="0 90 0 0" Visibility="Collapsed"/>
+
+        <TextBlock Text="No camera" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="OrangeRed"
+                   Name="textNoCamera" Visibility="Collapsed" FontSize="25"/>
+
+        <Border Width="48" Height="48" Background="Transparent" Name="brdCancel" Visibility="Collapsed" Tapped="Cancel_Tapped"
+                VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 40 0 0">
+            <uc:IconUC Glyph="&#xE711;" Foreground="White"/>
+        </Border>
+        
+        <StackPanel VerticalAlignment="Bottom" Name="_controlPanel">
+            <Grid Height="92" MaxWidth="400">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Background="Transparent" Name="brdPicture" Visibility="Collapsed" Tapped="Picture_Tapped" Margin="5 0"
+                            Grid.RowSpan="2" Grid.Row="1">
+                    <uc:IconUC Glyph="&#xEB9F;" Foreground="White" Height="24"/>
+                    <TextBlock Text="Выбрать&#x0a;файл" Style="{StaticResource textStyle}"/>
+                </StackPanel>
+
+                <StackPanel Background="Transparent" Name="brdSave" Visibility="Collapsed"
+                            Grid.RowSpan="2" Grid.Row="1" Tapped="BrdSave_Tapped">
+                    <uc:IconUC Glyph="&#xE896;" Foreground="White"/>
+                    <TextBlock Text="Сохранить&#x0a;картинку" Style="{StaticResource textStyle}"/>
+                </StackPanel>
+               
+
+                <Grid Grid.Column="1" Grid.RowSpan="2">
+                    <Border Width="44" Height="44" Background="#7FFFFFFF" Name="brdAction" 
+                        CornerRadius="22" BorderThickness="4" BorderBrush="White" Tapped="Action_Tapped">
+                        <TextBlock Name="_timerTextBlock" Foreground="OrangeRed" IsHitTestVisible="False" HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    </Border>
+                    <ProgressRing Width="44" Height="44" IsActive="False" Name="progressRing" Visibility="Collapsed"/>
+
+                    
+                </Grid>
+
+                <StackPanel Background="Transparent" Visibility="Collapsed" Grid.Column="1" Margin="5 0"
+                            Grid.RowSpan="2" Grid.Row="1" Name="brdSelectUser" Tapped="BrdSelectUser_Tapped">
+                    
+                    <uc:IconUC Glyph="&#xEBE7;" Foreground="White"/>
+                    
+                    <TextBlock Text="Выбрать&#x0a;получателя" Style="{StaticResource textStyle}"/>
+                </StackPanel>
+
+                <StackPanel Background="Transparent" Visibility="Collapsed" Grid.Column="2" Margin="5 0"
+                            Grid.RowSpan="2" Grid.Row="1" Name="brdSend" Tapped="BrdSend_Tapped">
+                    <uc:IconUC Glyph="&#xE724;" Foreground="{StaticResource AccentBrushHigh}"/>
+                    <TextBlock Text="Опубликовать&#x0a;сейчас" Style="{StaticResource textStyle}"/>
+                </StackPanel>
+
+                <Border Width="48" Background="Transparent" Grid.Column="2" Grid.Row="1"
+                    Tapped="Switch_Tapped" Name="brdSwitch" Visibility="Collapsed">
+                    <uc:IconUC Glyph="&#xE89E;" Foreground="White"/>
+                </Border>
+
+                <!--<Border Width="48" Background="Transparent" Grid.Column="4" Visibility="Collapsed" Tapped="Flash_Tapped" Name="brdFlash">
+                    <uc:IconUC Glyph="&#xE945;" Foreground="White"/>
+                </Border>-->
+
+            </Grid>
+
+
+            <ListBox Background="Transparent" HorizontalAlignment="Center"
+                     ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollMode="Enabled"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                     SelectionMode="Single" SelectedIndex="0"
+                     Margin="0 10" Name="bottomPanel">
+                <ListBox.RenderTransform>
+                    <TranslateTransform Y="50" x:Name="bottomPanelTransform"/>
+                </ListBox.RenderTransform>
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="20 10" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Grid>
+
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal" />
+
+
+                                                <!--<VisualState x:Name="PointerOver">
+
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListLowBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+
+                                                <VisualState x:Name="Pressed">
+
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListMediumBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>-->
+
+                                                <VisualState x:Name="Selected">
+
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentBrushHigh}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+
+                                                <VisualState x:Name="SelectedUnfocused">
+
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AccentBrushHigh}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <!--<VisualState x:Name="SelectedPointerOver">
+
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListAccentMediumBrush}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>-->
+                                                <!--<VisualState x:Name="SelectedPressed">
+
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="BorderBrush">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Green" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="Background">
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>-->
+                                            </VisualStateGroup>
+
+                                        </VisualStateManager.VisualStateGroups>
+
+                                        <Border x:Name="PressedBackground" CornerRadius="20" BorderThickness="2" BorderBrush="Transparent"
+                                                Opacity="0.6"/>
+
+                                        <ContentPresenter x:Name="ContentPresenter"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Content="{TemplateBinding Content}"
+                            ContentTransitions="{TemplateBinding ContentTransitions}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+
+                <ListBoxItem>
+                    <TextBlock Text="История" Foreground="White"/>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <TextBlock Text="Видео-история" Foreground="White"/>
+                </ListBoxItem>
+            </ListBox>
+
+        </StackPanel>
+
+        <Grid Background="#AF000000" Name="_progressGrid" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Выгрузка..." HorizontalAlignment="Center" Margin="0 20"/>
+                <Grid>
+                <ProgressBar Margin="30 0" MaxWidth="600" Maximum="100" IsIndeterminate="True"/>
+                <ProgressBar Margin="30 0" MaxWidth="600" Name="_progressbar" Maximum="100" IsIndeterminate="False" Background="Transparent"/>
+                </Grid>
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+</local:PageBase>

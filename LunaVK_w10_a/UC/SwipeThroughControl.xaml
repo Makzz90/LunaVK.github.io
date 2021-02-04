@@ -1,0 +1,97 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.SwipeThroughControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:converters="using:LunaVK.Network.Converters"
+    xmlns:framework="using:LunaVK.Framework">
+
+    <Grid Background="#33000000">
+        <FlipView ItemsSource="{Binding Items}" Name="flip" SelectionChanged="FlipView_SelectionChanged">
+            <FlipView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <!--<Grid.Background>
+                            <ImageBrush Stretch="UniformToFill" framework:ImageExtensions.CacheUriImageBrush="{Binding background, Mode=OneWay}"/>
+                        </Grid.Background>-->
+                        <Grid.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding background}"/>
+                        </Grid.Background>
+                        <ScrollViewer HorizontalScrollMode="Disabled" ViewChanging="ScrollViewer_ViewChanging">
+                            <GridView SizeChanged="GridView_SizeChanged" ItemsSource="{Binding product.stickers}"
+                                      SelectionMode="None" Margin="0 0 0 48">
+                                <GridView.Header>
+                                    <TextBlock Margin="10 5" Text="{Binding product.title}" MaxLines="1"
+                                               FontWeight="Medium" Foreground="Black"/>
+                                </GridView.Header>
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Margin="10" Tapped="Image_Tapped"
+                                               Source="{Binding photo_128}"
+                                               Stretch="Uniform"
+                                               MinWidth="40"
+                                               Opacity="{Binding ImageOpacity}"/>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+
+                                <GridView.ItemContainerTransitions>
+                                    <TransitionCollection>
+                                        <RepositionThemeTransition/>
+                                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                                    </TransitionCollection>
+                                </GridView.ItemContainerTransitions>
+
+                            </GridView>
+                        </ScrollViewer>
+                    </Grid>
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>
+
+
+
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden"
+                      VerticalAlignment="Bottom"
+                      Height="48"
+                      Name="filtersScrollViewer"
+                      VerticalScrollBarVisibility="Disabled" Background="{ThemeResource BaseBackgroundBrush}"
+                      >
+            <ScrollViewer.RenderTransform>
+                <TranslateTransform x:Name="tr" Y="0"/>
+            </ScrollViewer.RenderTransform>
+            <StackPanel Orientation="Horizontal">
+                <Grid Width="48" Background="Transparent" Tapped="Grid_Tapped">
+                    <local:IconUC Glyph="&#xE7BF;" FontSize="20" Foreground="{StaticResource PhoneAccentColor}"/>
+                </Grid>
+
+                <ItemsControl ItemsSource="{Binding Items}" Name="_items_control">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <!-- миниатюрная кнопка внизу -->
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="56" Background="{Binding TabBackground}"
+                                    Opacity="{Binding TabImageOpacity}"
+                                    Height="48" Tapped="Tab_Tapped">
+                                
+                                    <Image Source="{Binding photo_70}" Width="32"/>
+                                
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </StackPanel>
+
+        </ScrollViewer>
+    </Grid>
+</UserControl>

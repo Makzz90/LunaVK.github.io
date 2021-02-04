@@ -1,0 +1,241 @@
+﻿<local:PageBase
+    x:Class="LunaVK.FavoritesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:attach="using:LunaVK.UC.Attachment"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:framework="using:LunaVK.Framework"
+    
+    >
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <uc:HeaderOffsetUC/>
+        
+        <controls:NavigationView Orientation="Horizontal" Grid.Row="1" framework:MouseOver.Cursor="Hand" 
+                                 SelectedIndex="{Binding ElementName=_pivot, Path=SelectedIndex, Mode=TwoWay}">
+            <controls:NavigationViewItem Content="Люди" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Сообщества" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Записи" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Статьи" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Ссылки" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Подкасты" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Видео" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Сюжеты" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Товары" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+        </controls:NavigationView>
+
+        <Pivot x:Name="_pivot" Grid.Row="2" Style="{StaticResource PivotStyleNoHeader}">
+            <PivotItem DataContext="{Binding UsersVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False" SelectionMode="Single"
+                                             
+                                             UseHeaderOffset="False" x:Name="_listPeople" SelectionChanged="ListView_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:BaseProfileItem Margin="0 10"
+                                                Title="{Binding Title}"
+                                                SubTitle="{Binding Description}"
+                                                Preview1Url="{Binding photo_100}"
+                                                
+                                                
+                                                Holding="ItemGroupUC_Holding" RightTapped="ItemGroupUC_RightTapped"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Friends.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding GroupsVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False" SelectionMode="Single"
+                                             
+                                             UseHeaderOffset="False" x:Name="_listGroup" SelectionChanged="ListView_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:ItemGroupUC 
+                                            
+                                            Holding="ItemGroupUC_Holding" RightTapped="ItemGroupUC_RightTapped"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Communities.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding PostsVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False"
+                                             
+                                             UseHeaderOffset="False" x:Name="_listPost">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:ItemWallPostUC Margin="0 0 0 10" MaxWidth="600"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding ArticlesVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False" UseHeaderOffset="False"
+                                              x:Name="_listArticle" SelectionMode="Single" SelectionChanged="_list_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:ItemArticleMediumUC />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Favorites.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding LinksVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False"
+                                             
+                                             UseHeaderOffset="False" SelectionMode="Single"
+                                            x:Name="_listLinks"
+                                            SelectionChanged="_list_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <Grid VerticalAlignment="Top" Tapped="Link_Tapped" Background="{ThemeResource ItemBackgroundBrush}" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Background="{ThemeResource ImagePlaceholderBackgroundBrush}" Width="128" Height="86" CornerRadius="5" Margin="15 10">
+                                    <Image Source="{Binding ImageSrc}" Stretch="UniformToFill"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <StackPanel Grid.Column="1" Margin="0 10">
+                                    <TextBlock Text="{Binding title}" Foreground="{StaticResource AccentBrushHigh}" TextWrapping="Wrap" MaxLines="2" FontSize="{StaticResource FontSizeContent}" FontWeight="Normal"/>
+                                    <TextBlock Text="{Binding caption}" Foreground="{ThemeResource TextBrushLow}"/>
+                                    <!-- Tags -->
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/News.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding PodcastsVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False"
+                                             UseHeaderOffset="False" x:Name="_listPodcasts"
+                                              SelectionMode="Single" SelectionChanged="_list_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <attach:AttachPodcastUC Margin="0 10"
+                                                />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Audios.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+            
+            <PivotItem DataContext="{Binding VideosVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False" UseHeaderOffset="False"
+                                              x:Name="_listVideo" SelectionMode="Single" SelectionChanged="_list_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:CatalogItemUC Margin="10 15" Tapped="Video_Tapped"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Favorites.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding NarrativeVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False"
+                                             UseHeaderOffset="False" x:Name="_listNarative"
+                                             >
+                    <!--<controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:BaseProfileItem Margin="0 10"
+                                                Title="{Binding Title}"
+                                                Preview1Url="{Binding photo_50}"
+                                                />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>-->
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Favorites.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding ProductsVM}">
+                <controls:ExtendedGridView2 ItemsSource="{Binding Items}" 
+                                             UseHeaderOffset="False" x:Name="_listProducts"
+                                            ItemWidth="200" ItemHeight="200"
+                                             >
+                    <controls:ExtendedGridView2.ItemTemplate>
+                        <DataTemplate>
+                            <uc:ItemProductUC Margin="1"/>
+                        </DataTemplate>
+                    </controls:ExtendedGridView2.ItemTemplate>
+
+                    <controls:ExtendedGridView2.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Favorites.png" Height="224"/>
+                            <TextBlock TextWrapping="Wrap" Margin="0 10"
+                               TextAlignment="Center" Text="Здесь пока нет ни одной закладки. Добавляйте интересное, чтобы вернуться к ним позже."/>
+                        </StackPanel>
+                    </controls:ExtendedGridView2.NoContent>
+                </controls:ExtendedGridView2>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</local:PageBase>

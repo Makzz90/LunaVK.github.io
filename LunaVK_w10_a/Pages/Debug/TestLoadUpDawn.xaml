@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestLoadUpDawn"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0 10"/>
+        </Style>
+    </Page.Resources>
+    
+    <Grid Margin="0 80 0 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="group_id"/>
+            <TextBox Name="_group_id" Text="155775051" InputScope="Number"/>
+
+            <TextBlock Text="topic_id"/>
+            <TextBox Name="_topic_id" Text="38965377" InputScope="Number"/>
+
+            <TextBlock Text="offset"/>
+            <TextBox Name="_offset" Text="0" InputScope="Number"/>
+
+            <TextBlock Text="start_comment_id"/>
+            <TextBox Name="_start_comment_id" Text="9" InputScope="Number"/>
+
+            <TextBlock Text="count"/>
+            <TextBox Name="_count" Text="3" InputScope="Number"/>
+
+            <ComboBox SelectedIndex="1" Name="_sort">
+                <ComboBoxItem Content="asc"/>
+                <ComboBoxItem Content="desc"/>
+            </ComboBox>
+            
+            <Button Content="Load UP" Click="Button_Click_UP"/>
+
+
+            <Button Content="Load DOWN" Click="Button_Click_DOWN"/>
+
+            <Button Content="Clear" Click="Button_Click"/>
+            <!--<TextBlock Name="_real_offs"/>
+            <TextBlock Name="_last_action"/>-->
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Name="_stack" Margin="20 0">
+            
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Name="_stackOut">
+
+        </StackPanel>
+
+        <TextBlock Grid.ColumnSpan="3" VerticalAlignment="Bottom" Name="_info"/>
+    </Grid>
+</Page>

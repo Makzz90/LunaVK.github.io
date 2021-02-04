@@ -1,0 +1,112 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.StoryViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    FontSize="{StaticResource FontSizeContent}"
+    Foreground="White">
+    
+    <Grid Background="Black">
+        <!-- Content -->
+        <Grid Name="content" PointerPressed="Content_PointerPressed" PointerReleased="Content_PointerReleased"/>
+        
+        <Grid Height="150" VerticalAlignment="Top">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#99000000" Offset="0"/>
+                    <GradientStop Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+        <Grid Height="60" VerticalAlignment="Bottom">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#99000000" Offset="1"/>
+                    <GradientStop/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+        <!-- Top info -->
+        <StackPanel Margin="10 25 10 0" VerticalAlignment="Top">
+            <Grid Margin="0 10" Name="panelSlider" Height="10"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="55"/>
+                </Grid.ColumnDefinitions>
+                
+
+
+                <!-- Photo -->
+                <Ellipse Width="50" Height="50" VerticalAlignment="Top" Margin="0 0 10 0" Visibility="{Binding UserThumbVisibility}"
+                            Grid.RowSpan="2" Tapped="Profile_Tapped">
+                    <Ellipse.Fill>
+                        <ImageBrush x:Name="ownerPhoto"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <!-- Текст -->
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1" Background="Transparent" Tapped="Profile_Tapped">
+                    <TextBlock TextTrimming="CharacterEllipsis"   Name="title"/>
+                    <local:IconUC Glyph="&#xE930;" Margin="10 0 0 0" x:Name="UserVerified"
+                              />
+                </StackPanel>
+
+                <TextBlock Name="date" Grid.Column="1" Grid.Row="1"/>
+
+                <!-- Close -->
+                <Border Grid.RowSpan="2" Grid.Column="2" Tapped="Close_Tapped" Background="Transparent">
+                    <local:IconUC Glyph="&#xE8BB;"/>
+                </Border>
+
+            </Grid>
+        </StackPanel>
+
+
+        <!-- Bottom buttons -->
+        <Grid VerticalAlignment="Bottom" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+
+            <Border Width="36" Height="36" CornerRadius="18" BorderBrush="White" BorderThickness="1">
+                <local:IconUC Glyph="&#xE97A;"/>
+            </Border>
+
+            <Border Height="36" CornerRadius="18" BorderBrush="White" BorderThickness="1" Grid.Column="1" Margin="10 0">
+                <Grid>
+                    <TextBlock Text="Сообщение..." VerticalAlignment="Center" Margin="20 0 0 0" Name="msmPanel"/>
+                    <Border Background="White" CornerRadius="18" Opacity="0.8" Name="button" Tapped="Button_Tapped">
+                        <TextBlock Text="подробнее" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Name="buttonText"/>
+                    </Border>
+                </Grid>
+                
+            </Border>
+
+            <Border Width="36" Height="36" CornerRadius="18" BorderBrush="White" BorderThickness="1" Grid.Column="2">
+                <local:IconUC Glyph="&#xE8EB;"/>
+            </Border>
+
+            <Border Width="36" Height="36" CornerRadius="18" BorderBrush="White" BorderThickness="1" Grid.Column="3" Margin="10 0 0 0">
+                <local:IconUC Glyph="&#xE712;"/>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

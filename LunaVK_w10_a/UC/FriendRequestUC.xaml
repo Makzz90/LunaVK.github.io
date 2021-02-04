@@ -1,0 +1,81 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.FriendRequestUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Ellipse Width="64" Height="64" HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="16,10,15,16"
+                 Tapped="Background_Tapped">
+            <Ellipse.Fill>
+                <ImageBrush x:Name="RequestPhoto" ImageSource="https://pp.userapi.com/c830508/v830508353/1703df/8Dc-9EV8OtQ.jpg?ava=1"/>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <StackPanel Margin="0,5,16,16" Grid.Column="1">
+            <TextBlock Name="RequestName"
+                       FontSize="{StaticResource FontSizeContent}"
+                       FontWeight="Medium"
+                       Text="Test testovich"
+                       Foreground="{StaticResource PhoneAccentColorBrush}"/>
+            <TextBlock Name="RequestOccupation"
+                       />
+            <TextBlock Name="RequestMessage"
+                       Foreground="{ThemeResource TextBrushMedium}"
+                       Visibility="Visible"
+                       Text="Hello"
+                       TextWrapping="Wrap"
+                       />
+
+            <!--<Grid Name="RecommenderPanel"
+                  HorizontalAlignment="Left"
+                  Visibility="Collapsed"
+                  Margin="0,0,0,-1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Friends_RecommendationBy"
+                           Margin="0,0,6,0"
+                           Grid.Column="0"/>
+                <TextBlock Name="RecommenderName" 
+                           Grid.Column="1"/>
+            </Grid>-->
+
+            <Grid Name="MutualFriendsPanel" Visibility="Collapsed">
+                <TextBlock Name="MutualFriendsCountBlock"/>
+                <StackPanel Name="MutualFriendsPhotosPanel" 
+                            Orientation="Horizontal"
+                            Margin="0,39,0,4"/>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" 
+                        VerticalAlignment="Top" 
+                        Margin="0,10,0,12">
+                <Button Name="AddButton"
+                        Content="Добавить"
+                        
+                        x:Uid="Friends_Add"
+                        />
+                <Button Name="HideButton" Margin="10 0 0 0"
+                        Content="Скрыть"
+                        
+                        Style="{StaticResource VKButtonSecondaryStyle}"
+                        x:Uid="Communities_Hide"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

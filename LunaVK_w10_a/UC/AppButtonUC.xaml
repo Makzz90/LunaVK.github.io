@@ -1,0 +1,27 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.AppButtonUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="64"
+    d:DesignWidth="400">
+
+    <StackPanel Background="{ThemeResource ItemBackgroundBrush}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="48">
+            <Image Width="40" Height="40" Source="{Binding Image}" Visibility="{Binding ImageVisibility}"/>
+            <TextBlock FontSize="18" Text="{Binding Title, FallbackValue='App button'}"
+                       VerticalAlignment="Center" Margin="10 0" FontWeight="Medium"/>
+            <!--<Rectangle Width="32" Height="32"
+                               VerticalAlignment="Top"
+                               Margin="0 16 0 0"
+                               Fill="Green">
+                    </Rectangle>-->
+            <local:IconUC Glyph="&#xE76C;" FontWeight="ExtraBold" FontSize="{StaticResource FontSizeContent}"/>
+        </StackPanel>
+
+        <Rectangle Height="10" Fill="{ThemeResource BaseBackgroundBrush}" />
+    </StackPanel>
+</UserControl>

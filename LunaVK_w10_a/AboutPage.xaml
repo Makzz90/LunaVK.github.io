@@ -1,0 +1,117 @@
+﻿<local:PageBase
+    x:Class="LunaVK.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:framework="using:LunaVK.Framework"
+    FontSize="{StaticResource FontSizeContent}"
+    
+    d:DesignHeight="1000">
+
+    <local:PageBase.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="20 10" />
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </local:PageBase.Resources>
+
+    <Grid Background="{ThemeResource ItemBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MenuState">
+                <VisualState x:Name="Medium">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SecondContent.(Grid.Column)" Value="1" />
+                        <Setter Target="SecondContent.(Grid.Row)" Value="0" />
+                        <Setter Target="MainContent.(Grid.ColumnSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <uc:HeaderOffsetUC/>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+
+                <StackPanel Grid.ColumnSpan="2" x:Name="MainContent">
+                    <uc:CustomIconUC Glyph="&#xEDB1;" FontSize="80" Margin="0 20" DoubleTapped="CustomIconUC_DoubleTapped" x:Name="logoIcon"
+                                     />
+                    <TextBlock FontSize="26" FontWeight="Light" Margin="20 30 0 0" Text="LunaVK"/>
+                    <!--<TextBlock Text="это альтернативный клиент ВКонтакте для устройств семейства Windows 10" TextWrapping="Wrap"/>-->
+                    <uc:ScrollableTextBlock x:Name="description" Text="данный альтернативный клиент ВКонтакте для устройств семейства Windows 10 является плодом больной фантазии [id460389|Максима Гутикова] и сделано с ♥ " Margin="20 10"/>
+                    <TextBlock Text="Version" Name="ver"/>
+                    <TextBlock Text="Api" Name="api"/>
+                    <TextBlock Text="Users count" Name="users" Visibility="Collapsed"/>
+                    <StackPanel Name="info" Visibility="Collapsed">
+                        <TextBlock Text="490x872" Name="resolution"/>
+                        <TextBlock Text="Win10m" Name="os"/>
+                        <TextBlock Text="Win10m" Name="manufacturer"/>
+                        <TextBlock Text="Win10m" Name="product"/>
+                        <TextBlock Text="Win10m" Name="scale"/>
+                        <TextBlock Text="Win10m" Name="family"/>
+                        <TextBlock Text="Win10m" Name="apicontract"/>
+                    </StackPanel>
+
+                    
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2" x:Name="SecondContent">
+
+                    <TextBlock Text="Обратная связь" FontSize="26" FontWeight="Light" Margin="20 30 0 0"/>
+                    <TextBlock Text="Группа ВК" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" Tapped="Border_Tapped" framework:MouseOver.Cursor="Hand"/>
+
+
+                    <TextBlock Text="Оценить приложение" Tapped="TextBlock_Tapped" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"
+                           framework:MouseOver.Cursor="Hand"/>
+
+                    <TextBlock Text="Политика конфиденциальности" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" Tapped="Border_Tapped_1" framework:MouseOver.Cursor="Hand"/>
+
+
+                    <TextBlock Text="Правила пользования" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" Tapped="Border_Tapped_2" framework:MouseOver.Cursor="Hand"/>
+
+
+
+
+
+
+
+
+                    <TextBlock Text="Стороннее ПО" FontSize="26" FontWeight="Light" Margin="20 30 0 0"/>
+
+                    <!--<TextBlock Text="FFmpeg codec v3.4 - декодирование видео"/>-->
+
+                    <TextBlock Text="Opus codec v0.9 - декодирование аудио"/>
+
+                    <TextBlock Text="Lottie v2.8.0 - отрисовка анимаций Adobe After Effects"/>
+
+                    <TextBlock Text="Newtonsoft.Json v12.0.3 - десериализация JSON"/>
+
+                    <TextBlock Text="XamlAnimatedGif v1.2.2 - отображение старых типов GIF-анимаций"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</local:PageBase>

@@ -1,0 +1,59 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.NewsfeedHeaderUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="40"
+    d:DesignWidth="200"
+    >
+
+    <UserControl.RenderTransform>
+        <TranslateTransform x:Name="translateFreshNews"/>
+    </UserControl.RenderTransform>
+    
+    <Button x:Name="borderFreshNews" Style="{StaticResource RoundedButtonStyle2}"
+                Background="{ThemeResource SystemControlHighlightAccentBrush}"
+                Visibility="Visible"
+            Click="BorderFreshNews_OnTap"
+                >
+        
+
+        <Grid>
+            <StackPanel Orientation="Horizontal"
+                            
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                <Grid Width="20" Height="20"
+                          Margin="0 0 2 0"
+                          VerticalAlignment="Center">
+                    
+                    <local:IconUC x:Name="imageArrowFreshNews"
+                               Width="16" Height="16"
+                               FontSize="12"
+                               Visibility="Visible" Glyph="&#xF0AD;"
+                                   Foreground="White"/>
+
+                    <ProgressRing x:Name="progressRingFreshNews"
+                                          Width="16"
+                                          Height="16"
+                                          
+                                          Foreground="White"
+                                          IsActive="True"
+                                          Visibility="Visible">
+                    </ProgressRing>
+                </Grid>
+
+                <TextBlock 
+                               VerticalAlignment="Center"
+                               Text="Свежие записи"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               Margin="0 0 2 0"
+                               x:Uid="FreshNews"/>
+            </StackPanel>
+        </Grid>
+    </Button>
+</UserControl>

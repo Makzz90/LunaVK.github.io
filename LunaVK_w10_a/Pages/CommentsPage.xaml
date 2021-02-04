@@ -1,0 +1,122 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.CommentsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:converters="using:LunaVK.Network.Converters">
+
+    <local:PageBase.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <converters:CountForUIConverter x:Key="CountForUIConverter"/>
+        <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
+    </local:PageBase.Resources>
+    
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{Binding IsLiked}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_likeIcon.Foreground" Value="{StaticResource VKColorBrushRed}" />
+                        <Setter Target="_likeText.Foreground" Value="{StaticResource VKColorBrushRed}" />
+                        <Setter Target="_likeIcon.Glyph" Value="&#xEB52;" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        
+        <controls:ExtendedListView3 ItemsSource="{Binding Items}" x:Name="MainScroll" UseHeaderOffset="True"
+                                     >
+            <controls:ExtendedListView3.Header>
+                <StackPanel MaxWidth="600" Visibility="{Binding ContentVisibility, FallbackValue=Collapsed}">
+                    <Border Visibility="{Binding PostVisibility}">
+                        <uc:ItemWallPostUC DataContext="{Binding WallPostData}"  HideFooter="True"/>
+                    </Border>
+
+                    <StackPanel Visibility="{Binding PhotoVisibility, FallbackValue=Collapsed}">
+                        <Image
+                         Width="480" Height="360" 
+                        Stretch="Uniform"
+                        Source="{Binding Photo.MaxPhoto}"
+                            />
+
+                        <StackPanel Orientation="Horizontal" Margin="10 0 10 10" Background="Transparent" Tapped="Owner_Tapped">
+                            <Ellipse Width="30" Height="30">
+                                <Ellipse.Fill>
+                                    <ImageBrush  ImageSource="{Binding Owner.MinPhoto}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <TextBlock Margin="10 0" Text="{Binding Owner.Title}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    
+                    <Grid Height="50" Background="{ThemeResource ItemBackgroundBrush}" Margin="0 -5 0 0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" x:Name="_stack" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Background="Transparent" Visibility="{Binding WallPostData.likes.can_like, Converter={StaticResource BoolToVisibilityConverter}}"
+                                        Tapped="Like_Tapped"
+                            >
+                                <uc:IconUC Glyph="&#xE006;" x:Name="_likeIcon" FontSize="20" VerticalAlignment="Center" Margin="15 4 10 0" Foreground="{ThemeResource TextBrushLow}"/>
+                                <TextBlock Text="{Binding LikesCount, Converter={StaticResource CountForUIConverter}, FallbackValue=1}" Margin="0 0 10 0" VerticalAlignment="Center" FontSize="20" Foreground="{ThemeResource TextBrushLow}"
+                               Visibility="{Binding LikesCount, Converter={StaticResource CountToVisibilityConverter}}"
+                               Name="_likeText"/>
+                            </StackPanel>
+
+                            <uc:LikesItem Width="140" AutoSlideInterval="3" Tapped="_likes_Tapped" ItemsSource="{Binding Likes}">
+                                <uc:LikesItem.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="30" Height="30" CornerRadius="15"
+                                                BorderThickness="2" BorderBrush="{ThemeResource BaseBackgroundBrush}">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding photo_50}"/>
+                                            </Border.Background>
+                                        </Border>
+                                    </DataTemplate>
+                                </uc:LikesItem.ItemTemplate>
+                            </uc:LikesItem>
+
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding WallPostData.likes.can_publish, Converter={StaticResource BoolToVisibilityConverter}}" Background="Transparent" 
+                            framework:PointOverScale.OverScale="1.3" Tapped="Publish_Tapped">
+                                <uc:IconUC Glyph="&#xE87C;" FontSize="20" VerticalAlignment="Center" Margin="0 4 10 0" Foreground="{ThemeResource TextBrushLow}"/>
+                                <TextBlock Text="{Binding RepostsCount, FallbackValue=3}" Margin="0 0 10 0" VerticalAlignment="Center" FontSize="20" Foreground="{ThemeResource TextBrushLow}"
+                               Visibility="{Binding RepostsCount, Converter={StaticResource CountToVisibilityConverter}}"/>
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource TextBrushMedium}" Opacity="0.2"/>
+
+                    <Border Background="Transparent" Tapped="Border_Tapped" x:Name="prevCommentBorder" Visibility="Collapsed">
+                        <TextBlock Text="Загрузить ещё комментариев" FontSize="{StaticResource FontSizeContent}"
+                                   Padding="0 10" HorizontalAlignment="Center" Foreground="{ThemeResource TextBrushMediumHigh}"
+                                   x:Name="prevCommentText"/>
+                    </Border>
+                </StackPanel>
+            </controls:ExtendedListView3.Header>
+            
+            <controls:ExtendedListView3.ItemTemplate>
+                <DataTemplate>
+                    <uc:ItemComment MaxWidth="600"/>
+                </DataTemplate>
+            </controls:ExtendedListView3.ItemTemplate>
+
+            <controls:ExtendedListView3.Footer>
+                <Border Height="48"/>
+            </controls:ExtendedListView3.Footer>
+        </controls:ExtendedListView3>
+
+        <uc:NewMessageUC VerticalAlignment="Bottom" x:Name="ucNewMessage"/>
+    </Grid>
+</local:PageBase>

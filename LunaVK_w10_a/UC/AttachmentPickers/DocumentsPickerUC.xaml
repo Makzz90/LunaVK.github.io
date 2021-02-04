@@ -1,0 +1,48 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.AttachmentPickers.DocumentsPickerUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:attach="using:LunaVK.UC.Attachment"
+    xmlns:controls="using:LunaVK.UC.Controls">
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        <controls:ExtendedListView3 UseHeaderOffset="False" ItemsSource="{Binding Documents}">
+            <controls:ExtendedListView3.ItemTemplate>
+                <DataTemplate>
+                    <attach:AttachDocumentUC Data="{Binding }" IsCompact="True" Margin="0 5" OnTap="Document_Tapped" />
+                </DataTemplate>
+            </controls:ExtendedListView3.ItemTemplate>
+        </controls:ExtendedListView3>
+
+        <Grid Grid.Row="1" Background="{ThemeResource ItemBackgroundBrush}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="48"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Width="48" Background="Transparent" Tapped="Cancel_Tapped">
+                <local:IconUC Glyph="&#xE711;"/>
+            </Border>
+            <Grid Grid.Column="1" Background="Transparent" Tapped="Cancel_Tapped">
+                <TextBlock Text="Отмена" Foreground="{StaticResource PhoneAccentColorBrush}"
+                           FontSize="{StaticResource FontSizeContent}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0"/>
+            </Grid>
+
+            <Border Width="48" Grid.Column="2" Background="Transparent" Tapped="UploadFile_Tapped">
+                <local:IconUC Glyph="&#xE898;"/>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

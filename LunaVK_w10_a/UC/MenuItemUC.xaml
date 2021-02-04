@@ -1,0 +1,123 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.MenuItemUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="48"
+    d:DesignWidth="300"
+    xmlns:framework="using:LunaVK.Framework"
+    
+    >
+
+    <Grid Background="{ThemeResource ItemBackgroundBrush}" Name="root">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MenuStates">
+                <VisualState x:Name="Closed">
+                    <Storyboard>
+                        <!--<DoubleAnimation Storyboard.TargetName="text" Storyboard.TargetProperty="FontSize"
+                                         EnableDependentAnimation="True" To="10" Duration="0:0:0.2" />
+                        <DoubleAnimation To="10" Duration="0:0:0.1" Storyboard.TargetName="Tr" Storyboard.TargetProperty="Y" />
+                        <DoubleAnimation To="10" Duration="0:0:0.1" Storyboard.TargetName="Tr" Storyboard.TargetProperty="X" />
+                        <DoubleAnimation Storyboard.TargetName="brd" Storyboard.TargetProperty="MinWidth"
+                                         EnableDependentAnimation="True" To="18" Duration="0:0:0.1" />-->
+                        
+                        
+                        
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="text" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Tr" Storyboard.TargetProperty="Y">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="10" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Tr" Storyboard.TargetProperty="X">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="10" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="brd" Storyboard.TargetProperty="MinWidth">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="18" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridCounterRight" Storyboard.TargetProperty="HorizontalAlignment">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Left" />
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Opened">
+                    <Storyboard>
+                        <!--<DoubleAnimation Storyboard.TargetName="text" Storyboard.TargetProperty="FontSize"
+                                         EnableDependentAnimation="True" Duration="0:0:0.2" />
+                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="Tr" Storyboard.TargetProperty="Y" />
+                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="Tr" Storyboard.TargetProperty="X" />
+                        <DoubleAnimation Storyboard.TargetName="brd" Storyboard.TargetProperty="MinWidth"
+                                         EnableDependentAnimation="True" Duration="0:0:0.1" />-->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="text" Storyboard.TargetProperty="FontSize">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="14" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Tr" Storyboard.TargetProperty="Y">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="0" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Tr" Storyboard.TargetProperty="X">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="0" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="brd" Storyboard.TargetProperty="MinWidth">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="23" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridCounterRight" Storyboard.TargetProperty="HorizontalAlignment">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Right" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="SelectionStates">
+                <VisualState x:Name="SelectedState">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="rect">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAccentBrush}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="fIcon">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAccentBrush}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="NormalState"/>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid Name="SubGrid" Background="Transparent"  >
+            <Rectangle Margin="0 6" Width="5" HorizontalAlignment="Left" Fill="Transparent" x:Name="rect" DataContextChanged="rect_DataContextChanged" DataContext="{Binding IsCurrent}"/>
+            <local:IconUC x:Name="fIcon" Height="48" Width="48"
+                
+                HorizontalAlignment="Left" Glyph="&#xE8A1;"
+                VerticalAlignment="Center"
+                FontSize="18" Foreground="{ThemeResource TextBrushMediumHigh}"/>
+
+            <TextBlock x:Name="tTitle" Text="Title"
+                Margin="49 0 0 0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                       TextLineBounds="Tight"
+                FontSize="{StaticResource FontSizeContent}" Foreground="{ThemeResource TextBrushMediumHigh}"/>
+
+        </Grid>
+
+        <Grid HorizontalAlignment="Right" Visibility="{Binding CountVisibility, FallbackValue=Collapsed}" IsHitTestVisible="False" Name="GridCounterRight" Width="48">
+            <Border Background="{ThemeResource SystemControlHighlightAccentBrush}" VerticalAlignment="Center" MinWidth="23"
+                            CornerRadius="11" HorizontalAlignment="Center" Name="brd">
+                <Border.RenderTransform>
+                    <TranslateTransform x:Name="Tr" />
+                </Border.RenderTransform>
+                <TextBlock x:Name="text"
+                                   Foreground="White"
+                                   Text="{Binding CountString, FallbackValue=1}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" FontWeight="Medium"
+                                   FontSize="14" Padding="5 2"/>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

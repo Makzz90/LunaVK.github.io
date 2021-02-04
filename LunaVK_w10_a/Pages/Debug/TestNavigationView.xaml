@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestNavigationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="500"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    >
+
+    <Page.Resources>
+        <Storyboard x:Name="Storyboard1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_trBottom" Storyboard.TargetProperty="Y" x:Name="_bottomFrames" >
+                <SplineDoubleKeyFrame KeyTime="0:0:0" KeySpline="0.1,0.9 0.2,1.0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.6" KeySpline="0.1,0.9 0.2,1.0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_trTop" Storyboard.TargetProperty="Y" x:Name="_topFrames">
+                <SplineDoubleKeyFrame KeyTime="0:0:0.8" KeySpline="0.1,0.9 0.2,1.0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:1" KeySpline="0.1,0.9 0.2,1.0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        
+    </Page.Resources>
+
+    <Grid>
+        <Grid Margin="0 80 0 0" Visibility="Visible">
+            <!--<StackPanel Name="_stp" Orientation="Vertical" VerticalAlignment="Top">
+                <controls:NavigationViewItem Icon="People" Content="People" />
+                <controls:NavigationViewItem Icon="Contact" Content="Contact"  />
+                <controls:NavigationViewItem Icon="People" Content="People"  />
+                <controls:NavigationViewItem Icon="Contact" Content="Contact"  />
+            </StackPanel>
+            
+            <Border IsHitTestVisible="False" Name="_brd" HorizontalAlignment="Left">
+                <Border.Clip>
+                    <RectangleGeometry Rect="0 0 1000 1000" x:Name="_rectGeometry">
+                        <RectangleGeometry.Transform>
+                            <TranslateTransform Y="-1000" x:Name="_trBottom"/>
+                        </RectangleGeometry.Transform>
+                    </RectangleGeometry>
+                </Border.Clip>
+                <Rectangle Fill="{ThemeResource SystemControlHighlightAccentBrush}" Width="3" Name="_rect">
+                    <Rectangle.Clip>
+                        <RectangleGeometry Rect="0 0 1000 1000">
+                            <RectangleGeometry.Transform>
+                                <TranslateTransform Y="0" x:Name="_trTop" />
+                            </RectangleGeometry.Transform>
+                        </RectangleGeometry>
+                    </Rectangle.Clip>
+                </Rectangle>
+            </Border>-->
+
+
+            <controls:NavigationView Orientation="Horizontal" x:Name="_navView" SelectedIndex="1">
+                <controls:NavigationViewItem Content="People" />
+                <controls:NavigationViewItem  Content="Contact" />
+                <controls:NavigationViewItem Icon="People" Content="People" />
+                <controls:NavigationViewItem Icon="Contact" Content="Contact" />
+                <controls:NavigationViewItem Icon="People" Content="People" />
+                <controls:NavigationViewItem Icon="Contact" Content="Contact" />
+                <controls:NavigationViewItem Icon="People" Content="People" />
+                <controls:NavigationViewItem Icon="Contact" Content="Contact" />
+                <controls:NavigationViewItem Icon="People" Content="People"/>
+                <controls:NavigationViewItem Icon="Contact" Content="Contact" />
+                <controls:NavigationViewItem Icon="People" Content="People" />
+                <controls:NavigationViewItem Icon="Contact" Content="Contact" />
+            </controls:NavigationView>
+
+        </Grid>
+
+
+        <TextBlock Name="_tbOunt" VerticalAlignment="Bottom" Margin="0 0 0 50"/>
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
+            <Button Content="Remove" Click="Button_Click_Remove"/>
+            <Button Content="Add" Click="Button_Click_Add"/>
+
+            <TextBox InputScope="Number" Name="_number1" Text="-975"/>
+            <TextBox InputScope="Number" Name="_number2" Text="-950"/>
+            <TextBox InputScope="Number" Name="_number3" Text="25"/>
+            <TextBox InputScope="Number" Name="_number4" Text="0"/>
+            <TextBox InputScope="Text" Name="_type" Text="Y"/>
+            <Button Content="Run" Click="Run_Click"/>
+            <Button Content="Reset" Click="Reset_Click" Margin="20 0"/>
+            <Button Content="Set" Click="Set_Click"/>
+
+            <TextBox Name="_Index" Text="1"/>
+            <Button Content="Set index" Click="Button_Click"/>
+        </StackPanel>
+
+
+
+
+
+    </Grid>
+</Page>

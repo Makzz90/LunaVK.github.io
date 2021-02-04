@@ -1,0 +1,592 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.NewPostPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:library="using:LunaVK.Library"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:popup="using:LunaVK.UC.PopUp"
+    xmlns:framework="using:LunaVK.Framework">
+
+    <local:PageBase.Resources>
+        <Style TargetType="TextBlock" x:Key="StyleText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="MaxLines" Value="2"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{ThemeResource TextBrushMediumHigh}"/>
+            <Setter Property="Margin" Value="0 10"/>
+        </Style>
+
+        <Storyboard x:Name="ShowAutors">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="_authorsPanel">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="Visible"/>
+            </ObjectAnimationUsingKeyFrames>
+            
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_authorsTransform" Storyboard.TargetProperty="Y">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="-200" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.467" KeySpline="0.1,0.9 0.2,1.0" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_chevronRotateTransform" BeginTime="0" Storyboard.TargetProperty="Angle">
+                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="180" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Name="HideAutors">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_authorsTransform" Storyboard.TargetProperty="Y">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.467" KeySpline="0.1,0.9 0.2,1.0" Value="-200" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="_authorsPanel">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="Collapsed"/>
+            </ObjectAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="_chevronRotateTransform" BeginTime="0" Storyboard.TargetProperty="Angle">
+                <SplineDoubleKeyFrame KeyTime="0" Value="180"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style x:Key="FlyoutStyle2" TargetType="FlyoutPresenter">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrushHigh}"/>
+        </Style>
+    </local:PageBase.Resources>
+    
+    <Grid Background="{ThemeResource ItemBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="48" />
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="SendState">
+                <VisualState x:Name="ActivateSend">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{Binding CanPublish}"/>
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" Storyboard.TargetName="_btnSend">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="True"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="_btnSend">
+                            <SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        
+        
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                <StackPanel>
+
+
+                    <TextBox x:Name="textBoxTopicTitle"
+                                InputScope="Text"
+                                Visibility="{Binding IsInNewTopicModeVisibility, FallbackValue=Collapsed}"
+                                 
+                                BorderThickness="0"
+                                FontSize="22.667"
+                                Background="Transparent"
+                                PlaceholderText="Заголовок"
+                                x:Uid="NewTopicTitleLbl"
+                             />
+
+
+                    <!--<Rectangle Height="2"
+                               Margin="12 0 12 12"
+                               
+                               Visibility="{Binding IsInNewTopicModeVisibility, FallbackValue=Collapsed}"
+                               Fill="Gray" />-->
+
+
+
+
+
+                    <Grid x:Name="ucNewPost">
+                        <StackPanel>
+
+                            <TextBox x:Name="textBoxPost"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         FontSize="23"
+                                         PlaceholderText="{Binding TextWatermarkText, FallbackValue='Что у Вас нового?'}"
+                                     TextChanged="TextBoxPost_TextChanged"/>
+
+
+
+                            <ItemsControl ItemsSource="{Binding Attachments}"
+                          
+                          x:Name="itemsControlAttachments"
+                          >
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <library:OutboundAttachmentTemplateSelector Content="{Binding}">
+                                            <library:OutboundAttachmentTemplateSelector.PhotoTemplate>
+
+                                                <DataTemplate>
+                                                    <Grid Width="120" Height="70" Margin="5 8 0 5" Loaded="Attachment_Loaded">
+                                                        <Grid.RenderTransform>
+                                                            <CompositeTransform />
+                                                        </Grid.RenderTransform>
+                                                        <Border CornerRadius="10">
+                                                            <Border.Background>
+                                                                <ImageBrush ImageSource="{Binding ImageSrc}" Stretch="UniformToFill"/>
+                                                            </Border.Background>
+                                                        </Border>
+
+
+                                                        <ProgressBar
+                                VerticalAlignment="Bottom"
+                                Foreground="{StaticResource PhoneAccentColorBrush}"
+                                Background="Transparent"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding UploadProgress}" Margin="5 3"
+                                Visibility="{Binding IsUploadingVisibility, FallbackValue=Visible}" />
+
+                                                        <Border Background="Transparent" Tapped="Image_Tap" Visibility="{Binding IsFailedUploadVisibility, FallbackValue=Collapsed}">
+                                                            <uc:IconUC FontSize="24" FontWeight="ExtraBold" Glyph="&#xE783;" Foreground="Red"/>
+                                                        </Border>
+
+                                                        <Border Width="24" Height="24" Tapped="Delete_Tapped"
+                                BorderBrush="{ThemeResource BaseBackgroundBrush}"
+                                                    BorderThickness="3" Margin="0 -8 -8 0"
+                                                       
+                                                       VerticalAlignment="Top"
+                                                       HorizontalAlignment="Right" Background="{ThemeResource AccentBrushMedium}"
+                                                       CornerRadius="10">
+
+                                                            <uc:IconUC FontSize="10" FontWeight="ExtraBold" Glyph="&#xE711;" Foreground="White"/>
+                                                        </Border>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </library:OutboundAttachmentTemplateSelector.PhotoTemplate>
+
+
+
+                                            <library:OutboundAttachmentTemplateSelector.GenericIconTemplate>
+                                                <DataTemplate>
+
+                                                    <Grid Width="{Binding Width}"
+                                          Height="{Binding Height}"
+                                          Margin="6"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center">
+                                                        <Grid>
+                                                            <Border VerticalAlignment="Top"
+                                                    Width="50"
+                                                    Height="50"
+                                                    Margin="0 3 0 0">
+                                                                <!--<Border.OpacityMask>
+                                                                    <ImageBrush framework:ImageLoader.ImageBrushMultiResSource="{Binding IconSource}" />
+
+                                                                </Border.OpacityMask>-->
+                                                            </Border>
+
+                                                            <Image Source="/Resources/AttachError.png"
+                                                   IsHitTestVisible="False"
+                                                   Visibility="{Binding IsFailedUploadVisibility}"
+                                                   Margin="0 3 0 0"
+                                                   Width="38"
+                                                   Height="38" />
+
+
+                                                            <Rectangle Width="30"
+                                                       Height="30"
+                                                       Fill="Black"
+                                                       VerticalAlignment="Top"
+                                                       HorizontalAlignment="Right"
+                                                       Opacity="0"
+                                                        />
+
+
+                                                            <TextBlock FontSize="14.67"
+                                                       TextAlignment="Center"
+                                                       Text="{Binding Title}"
+                                                       Margin="5 49 5 0"
+                                                       VerticalAlignment="Top" />
+
+
+                                                            <TextBlock 
+                                                       Margin="12 69 12 0"
+                                                       FontSize="14.67"
+                                                       VerticalAlignment="Top"
+                                                       TextAlignment="Center"
+                                                       Text="{Binding Subtitle}" />
+
+                                                            <Border Width="10"
+                                                    Margin="10"
+                                                    IsHitTestVisible="False"
+                                                    Height="10"
+                                                    VerticalAlignment="Top"
+                                                    HorizontalAlignment="Right"
+                                                    >
+                                                                <!--<Border.OpacityMask>
+                                                                    <ImageBrush ImageSource="/Resources/NewPost/Deattach-WXGA.png" />
+                                                                </Border.OpacityMask>-->
+                                                            </Border>
+
+
+                                                            <Image Source="/Resources/AttachError.png"
+                                                   IsHitTestVisible="False"
+                                                   Visibility="{Binding IsFailedUploadVisibility}"
+                                                   Width="38"
+                                                   Height="38" />
+
+                                                            <ProgressBar Margin="-12 0 -12 0"
+                                                         VerticalAlignment="Bottom"
+                                                         HorizontalAlignment="Stretch"
+                                                         Value="{Binding UploadProgress}"
+                                                         Visibility="{Binding IsUploadingVisibility}" />
+                                                        </Grid>
+
+
+
+                                                    </Grid>
+                                                </DataTemplate>
+
+                                            </library:OutboundAttachmentTemplateSelector.GenericIconTemplate>
+
+
+
+
+                                            <library:OutboundAttachmentTemplateSelector.VideoTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="{Binding Width}"
+                                          Height="{Binding Height}"
+                                          Margin="6"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center">
+                                                        <Image Source="{Binding ResourceUri}"
+                                               Width="{Binding Width}"
+                                               Height="{Binding Height}"
+                                               Stretch="UniformToFill"
+                                                />
+
+
+                                                        <Image Source="/Resources/AttachError.png"
+                                               IsHitTestVisible="False"
+                                               Visibility="{Binding IsFailedUploadVisibility}"
+                                               Width="38"
+                                               Height="38" />
+
+                                                        <Rectangle Width="30"
+                                                   Height="30"
+                                                   Fill="Black"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalAlignment="Right"
+                                                   Opacity="0.2"
+                                                   />
+
+                                                        <Border Width="10"
+                                                Margin="10"
+                                                IsHitTestVisible="False"
+                                                Height="10"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Right"
+                                                Background="White">
+                                                            <!--<Border.OpacityMask>
+                                                                <ImageBrush ImageSource="/Resources/NewPost/Deattach-WXGA.png" />
+                                                            </Border.OpacityMask>-->
+                                                        </Border>
+
+
+                                                        <ProgressBar Margin="-12 0 -12 0"
+                                                     VerticalAlignment="Bottom"
+                                                     HorizontalAlignment="Stretch"
+                                                     Value="{Binding UploadProgress}"
+                                                     Visibility="{Binding IsUploadingVisibility}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </library:OutboundAttachmentTemplateSelector.VideoTemplate>
+                                            <library:OutboundAttachmentTemplateSelector.GenericThumbTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="{Binding Width}"
+                                          Height="{Binding Height}"
+                                          Margin="6"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center">
+                                                        <Image Source="{Binding Thumb}"
+                                               Width="{Binding Width}"
+                                               Height="{Binding Height}"
+                                               Stretch="UniformToFill"
+                                                />
+
+                                                        <Rectangle Fill="Black"
+                                                   Opacity="0.4" />
+
+                                                        <Rectangle Width="30"
+                                                   Height="30"
+                                                   Fill="Black"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalAlignment="Right"
+                                                   Opacity="0.2"
+                                                   Visibility="{Binding RemoveVisibility}"
+                                                   />
+
+                                                        <Border Width="10"
+                                                Margin="10"
+                                                IsHitTestVisible="False"
+                                                Height="10"
+                                                Visibility="{Binding RemoveVisibility}"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Right"
+                                                Background="White">
+                                                            <!--<Border.OpacityMask>
+                                                                <ImageBrush ImageSource="/Resources/NewPost/Deattach-WXGA.png" />
+                                                            </Border.OpacityMask>-->
+                                                        </Border>
+
+                                                        <StackPanel VerticalAlignment="Center"
+                                                    Margin="4 0">
+                                                            <TextBlock FontSize="18"
+                                                       Foreground="White"
+                                                       TextAlignment="Center"
+                                                       
+                                                       Text="{Binding Title}" />
+                                                            <TextBlock FontSize="18"
+                                                       Foreground="White"
+                                                       TextAlignment="Center"
+                                                       Text="{Binding Subtitle}" />
+                                                        </StackPanel>
+
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </library:OutboundAttachmentTemplateSelector.GenericThumbTemplate>
+                                        </library:OutboundAttachmentTemplateSelector>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                        </StackPanel>
+                    </Grid>
+
+                    <!--<Border x:Name="wallRepostContainer" />-->
+
+                    <!--<Rectangle Height="2"
+                               Margin="12 10 12 0"
+                               Fill="AliceBlue" />-->
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </StackPanel>
+
+
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="{ThemeResource BaseBackgroundBrush}" VerticalAlignment="Top" Height="200" Name="_authorsPanel" Visibility="Collapsed">
+            <Grid.RenderTransform>
+                <TranslateTransform Y="-200" x:Name="_authorsTransform"/>
+            </Grid.RenderTransform>
+            <StackPanel Margin="15">
+                <TextBlock Text="Автор публикации" Margin="0 0 0 10"/>
+                <ListView SelectionMode="Single" ItemsSource="{Binding Authors}" SelectedItem="{Binding Author, Mode=TwoWay}"
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollMode="Enabled"
+                          Loaded="ListView_Loaded">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="72" Height="120" Margin="0 10">
+                                <Border CornerRadius="32" Background="{ThemeResource ImagePlaceholderBackgroundBrush}" Width="64" Height="64">
+                                    <Ellipse Width="64" Height="64">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding MinPhoto}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Border>
+                                <TextBlock Text="{Binding Title}" Style="{StaticResource StyleText}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </StackPanel>
+        </Grid>
+
+        <uc:HeaderOffsetUC Background="{ThemeResource ItemBackgroundBrush}">
+            <Grid Height="48" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+
+                <AppBarButton Icon="Cancel" Width="48" Click="AppBarButton_Click"/>
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="10 0 0 0" Background="Transparent" Tapped="Header_Tapped"
+                            framework:MouseOver.Cursor="Hand" HorizontalAlignment="Left" Visibility="{Binding IsExtendedAuthorsVisibility, FallbackValue=Collapsed}">
+                    <Border CornerRadius="15" Background="{ThemeResource ImagePlaceholderBackgroundBrush}" Width="30" Height="30">
+                        <Ellipse Width="30" Height="30">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding Author.MinPhoto}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+                    
+                    <TextBlock Text="{Binding Author.Title, FallbackValue=Title}" VerticalAlignment="Center" Margin="10 0" FontWeight="Medium"
+                               TextTrimming="CharacterEllipsis"/>
+                    <uc:IconUC Glyph="&#xE96E;" FontWeight="ExtraBlack" FontSize="12" VerticalAlignment="Center" Foreground="{ThemeResource TextBrushMedium}"
+                               Width="14" Height="14" Visibility="{Binding IsAuthorsArrowVisibility, FallbackValue=Collapsed}">
+                        <uc:IconUC.RenderTransform>
+                            <RotateTransform x:Name="_chevronRotateTransform" CenterX="7" CenterY="7"/>
+                        </uc:IconUC.RenderTransform>
+                    </uc:IconUC>
+                </StackPanel>
+
+
+
+                <TextBlock Grid.Column="1" Visibility="{Binding FromGroupVisibility}" Text="{Binding Title, FallbackValue='Title'}" VerticalAlignment="Center"
+                           Margin="10 0"/>
+
+
+                <AppBarButton Grid.Column="2" Icon="Accept" Width="48" Opacity="0.2" Name="_btnSend" IsHitTestVisible="False"
+                              Click="_appBarButtonSend_Click"/>
+
+            </Grid>
+            <Rectangle Height="1" VerticalAlignment="Bottom" Fill="{StaticResource AccentBrushHigh}" Opacity="0.2"/>
+        </uc:HeaderOffsetUC>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10 5">
+            <CheckBox IsChecked="{Binding FriendsOnly, Mode=TwoWay}"
+                              Visibility="{Binding OwnPostVisibility}"
+                              
+                              x:Name="checkBoxFriendsOnly"
+                              x:Uid="NewPost_FriendsOnly"
+                              Content="Только для друзей"
+                      Margin="0 0 10 0"/>
+            
+            <CheckBox IsChecked="{Binding Signature, Mode=TwoWay}"
+                              
+                              Visibility="{Binding SignatureVisibility, FallbackValue=Visible}"
+                              x:Uid="NewPost_Signature" Content="Подпись" 
+                      Margin="0 0 10 0" MinWidth="0"/>
+
+
+
+            <Button VerticalContentAlignment="Bottom" Height="32" framework:MouseOver.Cursor="Hand">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <uc:IconUC Glyph="&#xED5A;" FontSize="14"/>
+                        <TextBlock Text="{Binding TimeScheduleStr, FallbackValue=Сейчас}" VerticalAlignment="Center" FontWeight="Medium" Margin="5 0"/>
+                        <uc:IconUC Glyph="&#xE936;" FontSize="6" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button.Content>
+                <Button.Flyout>
+                    <Flyout Placement="Bottom" FlyoutPresenterStyle="{StaticResource FlyoutStyle2}" x:Name="_flyTime">
+                        <popup:PostScheduleUC Data="{Binding Time}" CancelClick="PostScheduleUC_CancelClick" SaveClick="PostScheduleUC_SaveClick"
+                                              x:Name="_ucSchedule"/>
+                    </Flyout>
+                </Button.Flyout>
+                    
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="3" Background="{ThemeResource BaseBackgroundBrush}">
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Enabled"
+                                  VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled">
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton Height="48" Width="48" Background="Transparent" Tapped="Photo_Tapped">
+                        <uc:IconUC Glyph="&#xEB9F;"/>
+                    </AppBarButton>
+
+
+                    <!--<AppBarButton Height="48" Width="48" Background="Transparent">
+                                <uc:IconUC Glyph="&#xE714;"/>
+                            </AppBarButton>-->
+
+
+                    <!--<Border Height="48" Width="48" Background="Transparent">
+                                <uc:IconUC Glyph="&#xEC4F;"/>
+                            </Border>-->
+
+
+
+                    <!--<AppBarButton Height="48" Width="48" Background="Transparent" Tapped="Document_Tapped">
+                                <uc:IconUC Glyph="&#xE8A5;"/>
+                            </AppBarButton>-->
+
+
+
+                    <!--<Border Height="48" Width="48" Background="Transparent">
+                                <uc:IconUC Glyph="&#xE70B;"/>
+                            </Border>-->
+                    <!--<Border Height="48" Width="48" Background="Transparent">
+                                <uc:IconUC Glyph="&#xE819;"/>
+                            </Border>
+                            <Border Height="48" Width="48" Background="Transparent">
+                                <uc:IconUC Glyph="&#xEDFB;"/>
+                            </Border>-->
+
+                    <!--<Border Height="48" Width="48" Background="Transparent">
+                            <uc:IconUC Glyph="&#xE7BF;"/>
+                        </Border>-->
+                    <!--<Border Height="48" Width="48" Background="Transparent" Tapped="Poll_Tapped">
+                                <uc:IconUC Glyph="&#xE9D9;"/>
+                            </Border>-->
+                </StackPanel>
+            </ScrollViewer>
+
+            <AppBarButton Icon="Setting" HorizontalAlignment="Right" Width="48">
+                <AppBarButton.Flyout>
+                    <Flyout Placement="Bottom" FlyoutPresenterStyle="{StaticResource FlyoutStyle2}">
+                        <StackPanel Margin="15 10">
+                            <CheckBox Content="Выключить комментирование" IsChecked="{Binding CloseComments, Mode=TwoWay}"/>
+                            <CheckBox Content="Не отправлять уведомления" IsChecked="{Binding MuteNotifications, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+        </Grid>
+    </Grid>
+
+
+</local:PageBase>

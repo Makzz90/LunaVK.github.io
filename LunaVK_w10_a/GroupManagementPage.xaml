@@ -1,0 +1,744 @@
+﻿<local:PageBase
+    x:Class="LunaVK.GroupManagementPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    d:DesignHeight="2500">
+
+    <local:PageBase.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="0 5"/>
+        </Style>
+    </local:PageBase.Resources>
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <uc:HeaderOffsetUC/>
+
+        <controls:NavigationView Orientation="Horizontal" Grid.Row="1" x:Name="_nav"
+                                 SelectedIndex="{Binding ElementName=_pivot, Path=SelectedIndex, Mode=TwoWay, FallbackValue=0}">
+            <controls:NavigationViewItem Content="Информация" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}" x:Name="_navInformation"/>
+            <controls:NavigationViewItem Content="Разделы" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}" x:Name="_navServices"/>
+            <controls:NavigationViewItem Content="Статистика" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Руководители" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}" x:Name="_navManagers"/>
+            <controls:NavigationViewItem Content="Заявки" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}" x:Name="_navItemRequests"/>
+            <controls:NavigationViewItem Content="Приглашения" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="{Binding MembersTitle, FallbackValue='Участники'}" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Чёрный список" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Ссылки" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}" x:Name="_navLinks"/>
+            <!--<controls:NavigationViewItem Content="Callback API" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>-->
+        </controls:NavigationView>
+
+        <Pivot x:Name="_pivot" Grid.Row="2" Style="{StaticResource PivotStyleNoHeader}" SelectionChanged="Pivot_SelectionChanged" >
+
+            <PivotItem Name="_pivotItemInformation">
+                <ScrollViewer>
+                    <StackPanel>
+
+                        <!-- CommonFieldsUC -->
+                        <Grid Background="{ThemeResource ItemBackgroundBrush}">
+                            <StackPanel Margin="20 0 20 20" DataContext="{Binding CommonFieldsVM}">
+
+
+                                <TextBox InputScope="Text" Text="{Binding Name, Mode=TwoWay}" Header="Название" Margin="0 10 0 0"
+                                         x:Uid="Management_Title"/>
+
+                                <TextBox InputScope="Text" Text="{Binding Description, Mode=TwoWay}" MinHeight="56" Header="Описание" Margin="0 10 0 0" x:Uid="Management_Description"/>
+
+
+                                <TextBlock Text="Адрес страницы" Margin="0 10 0 10"/>
+                                <Border BorderThickness="2" BorderBrush="{ThemeResource SystemControlForegroundChromeDisabledLowBrush}">
+                                    <Grid Padding="10 0" MinHeight="{ThemeResource TextControlThemeMinHeight}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="vk.com/" VerticalAlignment="Center" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+                                        <TextBox InputScope="Text" Text="{Binding Domain, Mode=TwoWay, FallbackValue='LunaVK'}" BorderThickness="0" Padding="0"
+                                             VerticalAlignment="Center" MinHeight="16" Grid.Column="1" Background="Transparent"/>
+                                    </Grid>
+                                </Border>
+
+                                <ToggleSwitch  Header="Кнопка действия" Margin="0 10 0 0"/>
+
+                                <ToggleSwitch  Header="Обложка" Margin="0 10 0 0"/>
+
+
+                                <ComboBox ItemsSource="{Binding AvailableCategories}" SelectedItem="{Binding Category, Mode=TwoWay}" SelectionChanged="Category_SelectionChanged"
+                                          Header="{Binding CategoryTitle, FallbackValue='Категория сообщества'}" Margin="0 10 0 0">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding name}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+
+                                <ComboBox ItemsSource="{Binding AvailableSubcategories}" SelectedItem="{Binding Subcategory, Mode=TwoWay}"
+                                          Header="Подкатегория сообщества" Visibility="{Binding SubcategoryVisibility}" Margin="0 10 0 0">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding name}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <TextBox InputScope="Url" Text="{Binding Site, Mode=TwoWay}" Header="Веб-сайт" Margin="0 10 0 0"/>
+
+                                <TextBox InputScope="TelephoneNumber" Text="{Binding Phone, Mode=TwoWay}" Header="Телефон" Margin="0 10 0 0"/>
+                            </StackPanel>
+                        </Grid>
+
+
+                        <Grid Background="{ThemeResource ItemBackgroundBrush}" Margin="0 20 0 0">
+                            <StackPanel Margin="20 0 20 20">
+
+                                <!-- FoundationDateUC -->
+                                <Border DataContext="{Binding FoundationDateVM}">
+                                    <StackPanel Visibility="{Binding Visibility}">
+                                        <TextBlock Text="{Binding Title, FallbackValue='Дата создания'}" Margin="0 10 0 10"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                            <ComboBox ItemsSource="{Binding AvailableDays}" SelectedItem="{Binding Day, Mode=TwoWay}"/>
+                                            <ComboBox Margin="10 0" ItemsSource="{Binding AvailableMonths}" SelectedIndex="{Binding Month, Mode=TwoWay}"/>
+                                            <ComboBox ItemsSource="{Binding AvailableYears}" SelectedItem="{Binding Year, Mode=TwoWay}"/>
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                </Border>
+
+
+
+                                <!-- AgeLimitsUC -->
+                                <StackPanel DataContext="{Binding AgeLimitsVM}" Margin="0 10 0 0">
+                                    <TextBlock x:Uid="SetAgeLimits" Text="Указать возрастные ограничения" Tapped="SetAgeLimitsButton_OnClicked"
+                   Visibility="{Binding SetAgeLimitsButtonVisibility}" FontWeight="Medium" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"
+                   />
+                                    <StackPanel Visibility="{Binding FullFormVisibility, FallbackValue=Collapsed}">
+                                        <TextBlock Text="Возрастные ограничения" x:Uid="AgeLimits"/>
+                                        <RadioButton GroupName="Age" Content="Без ограничений" IsChecked="{Binding IsNoLimits, Mode=TwoWay}"/>
+                                        <RadioButton GroupName="Age" Content="16 лет и старше" IsChecked="{Binding From16Only, Mode=TwoWay}"/>
+                                        <RadioButton GroupName="Age" Content="18 лет и старше" IsChecked="{Binding From18Only, Mode=TwoWay}"/>
+
+                                        <TextBlock x:Uid="MoreInformationAboutLimits"
+                       Text="Подробнее об ограничениях"
+                       Tapped="MoreInformation_OnClicked"
+                       Margin="0,6,0,0"
+                       FontWeight="Medium" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+
+                                <!-- CommunityTypeSelectionUC -->
+                                <Border DataContext="{Binding CommunityTypeSelectionVM}">
+                                    <StackPanel Visibility="{Binding Visibility}">
+
+                                        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                   Margin="0,20,0,0" Height="1"/>
+
+                                        <TextBlock Text="{Binding Title, FallbackValue='Group type'}" Margin="0,17,0,0"/>
+
+                                        <RadioButton Margin="0,15,0,0" IsChecked="{Binding IsOpenedSelected, Mode=TwoWay}" Padding="10 0">
+                                            <RadioButton.Content>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding OpenedTitle, FallbackValue='Opened'}" FontSize="20"/>
+                                                    <TextBlock Text="{Binding OpenedDescription, FallbackValue='Opened description'}"
+                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" TextWrapping="Wrap"/>
+                                                </StackPanel>
+                                            </RadioButton.Content>
+                                        </RadioButton>
+
+                                        <RadioButton Margin="0,15,0,0" Padding="10 0"
+                     IsChecked="{Binding IsClosedSelected, Mode=TwoWay}"
+                     >
+                                            <RadioButton.Content>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding ClosedTitle, FallbackValue='Closed'}"
+                               
+                               FontSize="20"/>
+                                                    <TextBlock Text="{Binding ClosedDescription, FallbackValue='Closed description'}"
+                               
+                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" TextWrapping="Wrap"/>
+                                                </StackPanel>
+                                            </RadioButton.Content>
+                                        </RadioButton>
+
+                                        <RadioButton IsChecked="{Binding IsPrivateSelected, Mode=TwoWay}" Visibility="{Binding PrivateVisibility}" Margin="0 15 0 0" Padding="10 0">
+                                            <RadioButton.Content>
+                                                <StackPanel >
+                                                    <TextBlock x:Uid="GroupType_Private" Text="Private" FontSize="20"/>
+                                                    <TextBlock x:Uid="GroupType_Private_Description" Text="Description" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" TextWrapping="Wrap"
+                               />
+                                                </StackPanel>
+                                            </RadioButton.Content>
+                                        </RadioButton>
+                                    </StackPanel>
+                                </Border>
+
+
+
+
+
+                                <!--<informationUC:EventOrganizerUC DataContext="{Binding EventOrganizerViewModel}"/>-->
+                                <Border DataContext="{Binding EventOrganizerVM}">
+                                    <StackPanel Visibility="{Binding Visibility, FallbackValue=Collapsed}">
+
+                                        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                   Margin="0,21,0,0"
+                   Height="1"/>
+
+                                        <TextBlock Text="Organizer"
+                   
+                   FontFamily="Segoe WP SemiBold"
+                   Margin="0,17,0,0"/>
+
+                                        <ComboBox Header="Organizer"
+                             ItemsSource="{Binding AvailableOrganizers}"
+                             SelectedItem="{Binding Organizer, Mode=TwoWay}"
+                             
+                             Margin="0,3,0,12"/>
+
+                                        <TextBlock Text="SetContacts"
+                   Visibility="{Binding SetContactsButtonVisibility}"
+                   
+                   Margin="0,17,0,11"
+                   FontSize="25.333"/>
+
+                                        <TextBlock Text="EventContacts_Phone"
+                   Visibility="{Binding ContactsFieldsVisibility}"
+                   Margin="0,12,0,0"/>
+                                        <TextBox Height="76"
+                 InputScope="NameOrPhoneNumber"
+                 
+                 
+                 Text="{Binding Phone, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                 Visibility="{Binding ContactsFieldsVisibility}"
+                
+                 
+                 />
+
+                                        <TextBlock Text="EventContacts_Email"
+                   Visibility="{Binding ContactsFieldsVisibility}"
+                   Margin="0,13,0,0"/>
+                                        <TextBox Height="76"
+                 InputScope="EmailNameOrAddress"
+                 
+                 
+                 Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                 Visibility="{Binding ContactsFieldsVisibility}"
+                 
+                
+                 />
+
+
+
+
+
+
+
+
+
+
+                                        <!-- <informationUC:EventDatesUC DataContext="{Binding EventDatesViewModel}"/> -->
+
+                                        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                   Margin="0,21,0,0"
+                   Height="1"/>
+
+                                        <TextBlock Text="PostponedNews_Time"
+                  
+                   FontFamily="Segoe WP SemiBold"
+                   Margin="0,17,0,0"/>
+
+                                        <Grid Margin="0,27,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <ComboBox Header="Event_StartDate"
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 />
+                                            <!--<datePicker:PostScheduleDatePicker Visibility="Collapsed"
+                                               Name="StartDatePicker"
+                                               Value="{Binding StartDate, Mode=TwoWay}"/>-->
+
+                                            <ComboBox Header="Event_StartTime" Grid.Column="1"
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 />
+                                            <!--<datePicker:PostScheduleTimePicker Visibility="Collapsed"
+                                               Name="StartTimePicker"
+                                               Value="{Binding StartTime, Mode=TwoWay}"/>-->
+                                        </Grid>
+
+                                        <TextBlock Text="Event_SetFinishTime"
+                   Visibility="{Binding SetFinishTimeButtonVisibility}"
+                   
+                   
+                   Margin="0,30,0,20"
+                   FontSize="25.333"/>
+
+                                        <Grid Visibility="{Binding FinishFieldsVisibility}"
+              Margin="0,25,0,12">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <ComboBox Header="Event_FinishDate"
+                                 
+                                 
+                                 
+                                 />
+                                            <!--<datePicker:PostScheduleDatePicker Visibility="Collapsed"
+                                               Name="FinishDatePicker"
+                                               Value="{Binding FinishDate, Mode=TwoWay}"/>-->
+
+                                            <ComboBox Header="Event_FinishTime" Grid.Column="1"
+                                 
+                                 
+                                 
+                                 />
+                                            <!--<datePicker:PostScheduleTimePicker Visibility="Collapsed"
+                                               Name="FinishTimePicker"
+                                               Value="{Binding FinishTime, Mode=TwoWay}"/>-->
+                                        </Grid>
+
+                                    </StackPanel>
+                                </Border>
+
+
+
+
+
+
+
+
+                                <!--<informationUC:CommunityPlacementUC DataContext="{Binding CommunityPlacementViewModel}"/>-->
+                                <Border DataContext="{Binding CommunityPlacementVM}">
+
+                                    <StackPanel Visibility="{Binding Visibility}">
+
+                                        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" Margin="0,21,0,0" Height="1"/>
+
+                                        <TextBlock x:Uid="CommunityLocation" Text="Location" FontWeight="Medium" Margin="0,17,0,0"/>
+
+                                        <Grid Background="Transparent" MinHeight="48">
+                                            <StackPanel Orientation="Horizontal">
+                                                <SymbolIcon Symbol="World" HorizontalAlignment="Left" Width="48" />
+
+                                                <TextBlock Text="{Binding DescriptionText, FallbackValue='Choose placement'}" TextWrapping="Wrap" VerticalAlignment="Center"
+                                                       FontWeight="Medium"/>
+                                            </StackPanel>
+
+                                            <Border Background="Transparent"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Top"
+                  Tapped="EditButton_OnClicked"
+                  Visibility="{Binding EditButtonVisibility, FallbackValue=Collapsed}"
+                  Height="48" Width="48">
+
+                                                <SymbolIcon Symbol="Edit"/>
+                                            </Border>
+                                        </Grid>
+
+                                    </StackPanel>
+                                </Border>
+
+
+
+
+                            </StackPanel>
+                        </Grid>
+
+
+                        <Button Height="48" HorizontalAlignment="Stretch" Click="Save_Click" Content="Save"/>
+                    </StackPanel>
+                </ScrollViewer>
+
+
+
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding ServicesVM}" Name="_pivotItemServices">
+                <ScrollViewer Background="{ThemeResource ItemBackgroundBrush}">
+                    <StackPanel Margin="15 0">
+
+                        <ListView Visibility="{Binding DetailedFormVisibility, FallbackValue=Collapsed}" SelectionMode="Single" SelectionChanged="ListView_SelectionChanged"
+                            Margin="-15,0,-15,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Disabled" IsEnabled="{Binding IsFormEnabled}">
+
+                            <uc:SettingsSectionUC Title="Wall" x:Uid="SectionWall" SubTitle="{Binding WallStateString, FallbackValue='Open'}" Icon="&#xEDE5;"
+                                                  Tapped="WallOption_OnClicked" />
+
+                            <uc:SettingsSectionUC Title="Photos" x:Uid="SectionPhotos" SubTitle="{Binding PhotosStateString, FallbackValue='Open'}" Icon="&#xEB9F;"
+                                                  Tapped="PhotosOption_OnClicked" />
+
+                            <uc:SettingsSectionUC Title="Videos" x:Uid="SectionVideos" SubTitle="{Binding VideosStateString, FallbackValue='Open'}" Icon="&#xE714;"
+                                                  Tapped="VideosOption_OnClicked" />
+
+                            <uc:SettingsSectionUC Title="Audios" x:Uid="SectionAudios" SubTitle="{Binding AudiosStateString, FallbackValue='Open'}" Icon="&#xE8D6;"
+                                                  Tapped="AudiosOption_OnClicked" />
+
+                            <uc:SettingsSectionUC Title="Documents" x:Uid="SectionDocuments" SubTitle="{Binding DocumentsStateString, FallbackValue='Open'}" Icon="&#xE7C3;"
+                                                  Tapped="DocumentsOption_OnClicked" />
+
+                            <uc:SettingsSectionUC Title="Discussions" x:Uid="SectionDiscussions" SubTitle="{Binding DiscussionsStateString, FallbackValue='Open'}" Icon="&#xE8F2;"
+                                                  Tapped="DiscussionsOption_OnClicked" />
+
+
+                            
+                            
+                            
+
+                           
+
+
+
+                            <!-- BugFix: элементы на всю ширину -->
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                    <Setter Property="Padding" Value="0" />
+                                    <Setter Property="Margin" Value="0" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
+                        </ListView>
+
+                        <StackPanel Visibility="{Binding SimpleFormVisibility}">
+
+                            <CheckBox IsChecked="{Binding IsCommentsChecked, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServiceCommentsForPosts"/>
+
+                            <CheckBox IsChecked="{Binding Links, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServiceLinks"/>
+
+                            <CheckBox IsChecked="{Binding IsPhotosChecked, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServicePhotos"/>
+
+                            <CheckBox IsChecked="{Binding IsVideosChecked, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServiceVideos"/>
+
+                            <CheckBox IsChecked="{Binding IsAudiosChecked, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServiceAudios"/>
+
+                            <CheckBox IsChecked="{Binding IsDiscussionsChecked, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServiceDiscussions"/>
+
+                            
+
+                            <CheckBox IsChecked="{Binding Contacts, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServiceContacts"/>
+
+                        </StackPanel>
+
+                        <CheckBox IsChecked="{Binding Events, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" x:Uid="ServiceEvents" Content="Меолприятия"/>
+
+                        <CheckBox IsChecked="{Binding Articles, Mode=TwoWay}" IsEnabled="{Binding IsFormEnabled}" Content="Статьи"/>
+
+                        <!--<uc:SettingsSectionUC Title="Articles" x:Uid="SectionArticles" SubTitle="{Binding DiscussionsStateString, FallbackValue='Open'}" Icon="&#xE70B;"
+                                                  Tapped="ArticlesOption_OnClicked" />-->
+
+                        <!-- Todo: есть расширенные! -->
+                        <CheckBox Content="Market"  x:Uid="SectionMarket" IsChecked="{Binding Market, Mode=TwoWay}" />
+
+                        
+
+                        <ToggleSwitch Header="Сообщения сообщества"  IsOn="{Binding Messages, Mode=TwoWay}"/>
+
+                        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" Margin="0 15" Height="1"/>
+
+                        <TextBlock Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontWeight="Medium"
+                           Text="Расположение блоков"/>
+
+                        <ComboBox ItemsSource="{Binding AvailableMainSections}" SelectedItem="{Binding MainSection, Mode=TwoWay}" Header="Основной блок" Margin="0 10 0 0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding name}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <ComboBox ItemsSource="{Binding AvailableSecondarySections}" SelectedItem="{Binding SecondarySection, Mode=TwoWay}" Header="Вторичный блок" Margin="0 10 0 0"
+                                  Visibility="{Binding SecondarySectionVisibility, FallbackValue=Collapsed}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding name}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+
+
+                        <Rectangle Fill="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" Margin="0 15" Height="1"/>
+
+                        <TextBlock x:Uid="CommentsFilter" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontWeight="Medium"
+                           Text="Фильтр комментариев"/>
+
+
+                        <ToggleSwitch Margin="0 10 0 0" Header="Фильтровать нецензурные выражения"
+                                  x:Uid="FilterStrongLanguage"
+                                  IsOn="{Binding IsStrongLanguageFilterEnabled, Mode=TwoWay}"
+                                  IsEnabled="{Binding IsFormEnabled}"/>
+                        <!--<TextBlock Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                           
+                           TextWrapping="Wrap"
+                           Text="Комментарии с матом будут удаляться"
+                           x:Uid="FilterStrongLanguage_Description" />-->
+
+                        <ToggleSwitch Margin="0 10" Header="Фильтр по ключевым словам"
+                                  x:Uid="FilterByKeyWords"
+                                  IsOn="{Binding IsKeyWordsFilterEnabled, Mode=TwoWay}"
+                                      
+                                  IsEnabled="{Binding IsFormEnabled}"/>
+
+
+
+                        <TextBox MinHeight="100"
+                         InputScope="Text"
+                         x:Uid="FilterByKeyWordsHint"
+                         TextWrapping="Wrap"
+                         Margin="0 0 0 20"
+                         Text="{Binding KeyWords, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                         Visibility="{Binding KeyWordsFieldVisibility, FallbackValue=Collapsed}"
+                         IsEnabled="{Binding IsFormEnabled}"
+                         
+                         />
+
+
+                        <Button Height="48" HorizontalAlignment="Stretch" Click="SaveServices_Click" Content="Save" Margin="-15 0"/>
+                    </StackPanel>
+                </ScrollViewer>
+
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding StatsVM}" Background="{ThemeResource ItemBackgroundBrush}" Header="0x3">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Показывать данные за" VerticalAlignment="Center"/>
+                        <ComboBox BorderThickness="0" SelectedIndex="0" Loaded="PeriodComboBox_Loaded">
+                            <ComboBoxItem Content="1 день"/>
+                            <ComboBoxItem Content="7 дней"/>
+                            <ComboBoxItem Content="30 дней"/>
+                            <ComboBoxItem Content="год"/>
+                            <!--<ComboBoxItem Content="Указать период"/>-->
+                        </ComboBox>
+                    </StackPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Margin="10 0 5 0">
+                            <TextBlock Text="Посетители"/>
+                            <TextBlock Text="{Binding TotalVisitors, FallbackValue=10}" FontSize="30" FontWeight="Medium"/>
+                            <controls:Chart DataSource="{Binding Visitors}" Stroke="{ThemeResource SystemControlHighlightAccentBrush}"
+                                            StrokeThickness="5" Margin="0 20" Height="200"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="5 0">
+                            <TextBlock Text="Новые подписчики"/>
+                            <TextBlock Text="{Binding TotalSubscribers, FallbackValue=5}" FontSize="30" FontWeight="Medium"/>
+                            <controls:Chart DataSource="{Binding Subscribers}" Stroke="{ThemeResource SystemControlHighlightAccentBrush}"
+                                            StrokeThickness="5" Margin="0 20" Height="200"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Margin="5 0 10 0">
+                            <TextBlock Text="Просмотры"/>
+                            <TextBlock Text="{Binding TotalViews, FallbackValue=500}" FontSize="30" FontWeight="Medium"/>
+                            <controls:Chart DataSource="{Binding Views}" Stroke="{ThemeResource SystemControlHighlightAccentBrush}"
+                                            StrokeThickness="5" Margin="0 20" Height="200"/>
+                        </StackPanel>
+
+
+
+
+                    </Grid>
+                </StackPanel>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding ManagersVM}" Name="_pivotItemManagers" Header="0x4">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:BaseProfileItem Title="{Binding Title}"
+                                        SubTitle="{Binding Description}"
+                                        Preview1Url="{Binding photo_50}"
+                                        BackTap="BaseProfileItem_Tapped"
+                                        ThirdContent="&#xE713;"
+                                        ThirdClick="BaseProfileItem_ThirdClick"
+                                        HideThirdCommand="{Binding is_hidden_from_feed}"
+                                        Margin="0 10"
+                                        />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding RequestsVM}" x:Name="_pivotItemRequests">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:BaseProfileItem Title="{Binding Title}"
+                                        SubTitle="{Binding Description}"
+                                        Preview1Url="{Binding photo_100}"
+                                        PrimaryContent="Добавить"
+                                        SecondaryContent="Отклонить"
+                                        PrimaryClick="BaseProfileItem_PrimaryClick"
+                                        SecondaryClick="BaseProfileItem_SecondaryClick"
+                                        BackTap="BaseProfileItem_Tapped"
+                                        Margin="0 10"
+                                        />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding InvitationsVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:BaseProfileItem Title="{Binding Title}"
+                                        SubTitle="{Binding Description}"
+                                        Preview1Url="{Binding photo_50}"
+                                        BackTap="BaseProfileItem_Tapped"
+                                        
+                                        Margin="0 10"
+                                       
+                                        />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding CommunitySubscribersVM.All}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:BaseProfileItem Title="{Binding Title}"
+                                        SubTitle="{Binding Description}"
+                                        Preview1Url="{Binding photo_50}"
+                                        BackTap="BaseProfileItem_Tapped"
+                                        
+                                        Margin="0 10"
+                                       
+                                        />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding BlacklistVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:BaseProfileItem Title="{Binding Title}"
+                                        SubTitle="{Binding Description}"
+                                        Preview1Url="{Binding photo_50}"
+                                        BackTap="BaseProfileItem_Tapped"
+                                        PrimaryContent="Edit"
+                                        SecondaryContent="Unblock"
+                                        Margin="0 10"
+                                        PrimaryClick="OnEditClicked"
+                                        SecondaryClick="OnUnblockClicked"
+                                        />
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem DataContext="{Binding LinksVM}" Name="_pivotItemLinks">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False" ReorderMode="Enabled" CanReorderItems="True"
+                                            CanDrag="True" AllowDrop="True" Background="{ThemeResource ItemBackgroundBrush}"
+                                            SelectionMode="Single" SelectionChanged="ListView_SelectionChanged">
+                    <controls:ExtendedListView3.Header>
+                        <Button Style="{StaticResource RoundedButtonStyle2}" Content="+ Добавить ссылку"
+                                Foreground="White" Background="{ThemeResource SystemControlHighlightAccentBrush}"
+                                Click="AddLink_Click" HorizontalAlignment="Center" Margin="0 15"/>
+                    </controls:ExtendedListView3.Header>
+                    
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="80">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="48"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Width="48">
+                                    <uc:IconUC Glyph="&#xE700;"/>
+                                </Border>
+
+                                <Border VerticalAlignment="Center" Height="56" Width="56" CornerRadius="28" Grid.Column="1"
+                                 Background="{ThemeResource ImagePlaceholderBackgroundBrush}" Tapped="Link_Tapped">
+                                    <uc:IconUC Glyph="&#xE71B;"/>
+                                </Border>
+
+                                <Ellipse Height="56" Width="56" VerticalAlignment="Center" IsHitTestVisible="False" Grid.Column="1">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding photo_100}" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="10 0">
+                                    <TextBlock Text="{Binding name}" MaxLines="1" TextTrimming="CharacterEllipsis"/>
+                                    <TextBlock Margin="0 5 0 0" Text="{Binding desc}" Foreground="{ThemeResource TextBrushMedium}"
+                                       Opacity="0.6"/>
+                                </StackPanel>
+
+                                <AppBarButton VerticalAlignment="Center" Grid.Column="3" Icon="Edit"
+                                              Click="ContextMenu_OnEditClicked">
+                                    
+                                </AppBarButton>
+
+                                <AppBarButton VerticalAlignment="Center" Grid.Column="4" Icon="Delete" Foreground="OrangeRed"
+                                              Click="ContextMenu_OnDeleteClicked">
+
+                                </AppBarButton>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <!--<PivotItem DataContext="{Binding CallbackServerViewModel}">
+                <StackPanel Margin="10 0">
+                    <TextBlock Text="Настройка сервера"/>
+                    <ComboBox ItemsSource="{Binding CallbackServers}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding title}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </PivotItem>-->
+        </Pivot>
+        
+
+        <uc:LoadingUC x:Name="_loading" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+    </Grid>
+</local:PageBase>

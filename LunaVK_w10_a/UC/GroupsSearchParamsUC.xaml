@@ -1,0 +1,96 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.GroupsSearchParamsUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="400"
+    d:DesignWidth="400"
+    VerticalAlignment="Bottom"
+    MaxWidth="600">
+
+    <Grid Background="{ThemeResource ItemBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Margin="15 10">
+                <Grid>
+                    <TextBlock Text="Параметры поиска" FontWeight="Medium"/>
+                    <TextBlock Text="Очистить" HorizontalAlignment="Right" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"
+                           Visibility="{Binding AnySetVisibility, FallbackValue=Collapsed}" Tapped="Clear_OnTap"/>
+                </Grid>
+
+
+
+
+                <ComboBox Margin="0 20 0 0" Header="Сортировка" HorizontalAlignment="Stretch"
+                                          SelectedIndex="{Binding SortType, Mode=TwoWay, FallbackValue=0}">
+                    <ComboBoxItem Content="По умолчанию"/>
+                    <ComboBoxItem Content="По скорости роста"/>
+                    <ComboBoxItem Content="По отношению дневной посещаемости к количеству пользователей"/>
+
+                    <ComboBoxItem Content="По отношению количества лайков к количеству пользователей"/>
+                    <ComboBoxItem Content="По отношению количества комментариев к количеству пользователей"/>
+                    <ComboBoxItem Content="По отношению количества записей в обсуждениях к количеству пользователей"/>
+                </ComboBox>
+
+                <ComboBox Margin="0 20 0 0" Header="Тип сообщества" HorizontalAlignment="Stretch"
+                                          SelectedIndex="{Binding GroupType, Mode=TwoWay, FallbackValue=1}">
+                    <ComboBoxItem Content="Группа"/>
+                    <ComboBoxItem Content="Страница"/>
+                    <ComboBoxItem Content="Встреча"/>
+                </ComboBox>
+
+
+
+
+
+
+
+                <TextBlock Margin="0 18" Text="Страна и город" x:Uid="UsersSearch_Region_Title" />
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox HorizontalAlignment="Stretch" x:Uid="CountryPicker_Title" PlaceholderText="Страна"
+                              IsEnabled="{Binding CountrySelectorVisibility}"
+                              ItemsSource="{Binding Countrys}" SelectedValue="{Binding Country, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding title}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <ComboBox Grid.Column="2" HorizontalAlignment="Stretch" x:Uid="CityPicker_Title" PlaceholderText="Город"
+                              IsEnabled="{Binding CitySelectorVisibility}"
+                              ItemsSource="{Binding Citys}" SelectedValue="{Binding City, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding title}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+
+                <Border Height="48">
+                    <CheckBox Content="Предстоящие события" IsChecked="{Binding IsFuture, Mode=TwoWay}" Visibility="{Binding FutureVisibility}"/>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+
+        <Grid Grid.Row="1" Background="{ThemeResource SystemControlHighlightAccentBrush}" Height="48" Tapped="Apply_Tapped">
+            <TextBlock Text="Применить" Foreground="White" FontSize="{StaticResource FontSizeContent}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</UserControl>

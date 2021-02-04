@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.PopUp.ServiceSwitchUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="400"
+    d:DesignWidth="400"
+    VerticalAlignment="Bottom"
+    MaxWidth="600">
+
+    <StackPanel Background="{ThemeResource BrushMenu}">
+        <TextBlock Text="{Binding PageTitle, FallbackValue='Wall'}" Margin="15" FontSize="32"/>
+
+        <ListView SelectedIndex="{Binding SelectedIndex}" Loaded="ListView_Loaded">
+            <ListViewItem MinHeight="48" >
+                <TextBlock Text="{Binding DisabledTitle, FallbackValue='Disabled'}"
+                               
+                               
+                               FontSize="20" Margin="15 0"/>
+            </ListViewItem>
+
+            <ListViewItem MinHeight="48"  >
+                <StackPanel Margin="15 10">
+                    <TextBlock Text="{Binding OpenedTitle, FallbackValue='Opened'}"
+                              
+                               FontSize="20"/>
+                    <TextBlock Text="{Binding OpenedDescription, FallbackValue='Opened description'}"
+                               TextWrapping="Wrap"
+                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                               />
+                    
+                </StackPanel>
+            </ListViewItem>
+
+            <ListViewItem>
+                <StackPanel Margin="15 10">
+                    <TextBlock Text="{Binding LimitedTitle, FallbackValue='Limited'}"
+                               
+                               
+                               FontSize="20"/>
+                    <TextBlock Text="{Binding LimitedDescription, FallbackValue='Limited description'}"
+                               TextWrapping="Wrap"
+                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                               />
+                   
+                </StackPanel>
+            </ListViewItem>
+
+            <ListViewItem Visibility="{Binding ClosedVisibility}">
+                <StackPanel Margin="15 10" >
+                    <TextBlock x:Uid="Closed" Text="Closed" Margin="0"
+                               
+                               
+                               FontSize="20"/>
+                    <TextBlock x:Uid="ClosedWallDescription" Text="На стене можно писать только от имени сообщества, комментарии отключены"
+                               
+                               TextWrapping="Wrap"
+                               Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                               />
+                    
+                </StackPanel>
+            </ListViewItem>
+
+            <!-- BugFix: элементы на всю ширину -->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,77 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.ManageSourcesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    >
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <uc:HeaderOffsetUC/>
+
+        <Pivot Grid.Row="1" Name="_pivot">
+            <PivotItem Header="Users">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False" UseHeaderOffset="False"
+                                             DataContext="{Binding UsersVM}" SelectionMode="Single" SelectionChanged="ExtendedListView3_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <!--<uc:BaseProfileItem Margin="0 10"
+                                                Title="{Binding Title}"
+                                                SubTitle="{Binding Description}"
+                                                Preview1Url="{Binding photo_100}"
+                                                />-->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="56"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox VerticalAlignment="Center" Margin="15 0"
+                                  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"
+                                  />
+
+                                    <uc:BaseProfileItem Title="{Binding Title}" Grid.Column="1"
+                                        Preview1Url="{Binding photo_100}"
+                                        Margin="0 10"
+                                        BackTap="BaseProfileItem_BackTap"
+                                        />
+                                </Grid>
+                            </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem Header="Groups">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" IsPullEnabled="False" UseHeaderOffset="False"
+                                             DataContext="{Binding GroupsVM}" SelectionMode="Single" SelectionChanged="ExtendedListView3_SelectionChanged">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <!--<uc:ItemGroupUC />-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="56"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox VerticalAlignment="Center" Margin="15 0"
+                                  Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"
+                                  />
+
+                                <uc:ItemGroupUC Grid.Column="1" Tapped="ItemGroupUC_Tapped"/>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</local:PageBase>

@@ -1,0 +1,71 @@
+﻿<local:PageBase
+    x:Class="LunaVK.NotificationsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:library="using:LunaVK.Library"
+    xmlns:framework="using:LunaVK.Framework"
+    xmlns:controls="using:LunaVK.UC.Controls">
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <uc:HeaderOffsetUC/>
+
+        <controls:NavigationView Orientation="Horizontal" Grid.Row="1" framework:MouseOver.Cursor="Hand" 
+                                 SelectedIndex="{Binding ElementName=_pivot, Path=SelectedIndex, Mode=TwoWay}">
+            <controls:NavigationViewItem Content="Feedback" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+            <controls:NavigationViewItem Content="Comments" Style="{StaticResource NavigationViewItemPresenterStyleWhenOnTopPane}"/>
+        </controls:NavigationView>
+
+        <Pivot Grid.Row="2" Name="_pivot" Style="{StaticResource PivotStyleNoHeader}">
+            <PivotItem Name="pivotItemFeedback" DataContext="{Binding FeedbackVM}" >
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False" x:Name="_listFeedBack">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <uc:ItemNotificationUC Data="{Binding }" Margin="0 0 0 10" MaxWidth="800"/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+
+                    <controls:ExtendedListView3.NoContent>
+                        <StackPanel VerticalAlignment="Center" Margin="20 0" MaxWidth="300">
+                            <Image Source="/Assets/NoContentImages/Feedback.png" Height="224"/>
+                            <TextBlock Text="Здесь Вы будете видеть упоминания, новые комментарии и отметки «Мне нравится»." TextWrapping="Wrap"
+                               TextAlignment="Center" Margin="0 15"/>
+                        </StackPanel>
+                    </controls:ExtendedListView3.NoContent>
+                </controls:ExtendedListView3>
+            </PivotItem>
+
+            <PivotItem Name="pivotItemComments" DataContext="{Binding CommentsVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False" x:Name="_listComments">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0 0 0 10" Tapped="_view_Tap" Background="Transparent" MaxWidth="800">
+                                <uc:ItemNewsFeedUC/>
+                                <Border Background="{ThemeResource ItemBackgroundBrush}" Height="32" BorderThickness="0 0 0 1" BorderBrush="{ThemeResource TextBrushLow}">
+                                    <TextBlock Text="{Binding GetCommentsHeaderText}" Margin="10 0" FontWeight="Medium" Foreground="{ThemeResource TextBrushLow}"/>
+                                </Border>
+                                <ItemsControl ItemsSource="{Binding comments.list}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <uc:ItemComment/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</local:PageBase>

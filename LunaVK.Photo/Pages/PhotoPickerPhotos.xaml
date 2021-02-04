@@ -1,0 +1,291 @@
+﻿<Page
+    x:Class="LunaVK.Photo.Pages.PhotoPickerPhotos"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Photo.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Page.Resources>
+        <DataTemplate x:Key="PhotosRowTemplate">
+
+            <StackPanel Orientation="Horizontal">
+                <Grid Width="117" 
+                      Height="117"
+                        VerticalAlignment="Center"
+                      Margin="0 2 2 2"
+                      Visibility="{Binding Photo1IsSet}"
+                        >
+
+                    <Rectangle Width="117"
+                                   HorizontalAlignment="Left"
+                                   Height="117"
+                                   
+                                   
+                                   Visibility="{Binding Photo1IsSet}" />
+
+
+                    <Image Width="117"
+                           Height="117"
+                           HorizontalAlignment="Left"
+                           Tag="1"
+                           
+                           Source="{Binding Photo1.ThumbnailStream}"
+                           Stretch="UniformToFill"
+                           Tapped="Image_Tap_1">
+                    </Image>
+
+
+
+                    <Ellipse 
+                             Width="29"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                             Height="29"
+                             Opacity="{Binding SelectionOpacity}"
+                             Margin="0 8.5 8.5 0"
+                             Visibility="{Binding Photo1.IsSelectedVisibility}" />
+
+
+                    <Image Width="30"
+                           Height="30"
+                           Tag="1"
+                           HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                           Margin="0 8 8 0"
+                           Opacity="{Binding SelectionOpacity}"
+                           Source="{Binding Photo1.SelectUnselectImageUri}">
+
+                        <Image.RenderTransform>
+                            <ScaleTransform />
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Rectangle Width="45"
+                               Height="45"
+                                HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                               Tag="1"
+                               Fill="Transparent"
+                              Tapped="SelectUnselectTap"
+                               />
+
+                </Grid>
+
+
+
+                <Grid    Margin="2 2 2 2"
+                         Width="117"
+                         Height="117"
+                         Visibility="{Binding Photo2IsSet}">
+
+                    <Rectangle Width="117"
+                               HorizontalAlignment="Left"
+                               Height="117"
+                                />
+
+                    <Image Width="117"
+                           Height="117"
+                           HorizontalAlignment="Left"
+                           Tag="2"
+                          
+                           Source="{Binding Photo2.ThumbnailStream}"
+                           Stretch="UniformToFill"
+                           Tapped="Image_Tap_1">
+
+
+
+                    </Image>
+
+                    <Ellipse 
+                             Width="29"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                             Height="29"
+                             Opacity="{Binding SelectionOpacity}"
+                             Margin="0 8.5 8.5 0"
+                             Visibility="{Binding Photo2.IsSelectedVisibility}" />
+
+
+                    <Image Width="30"
+                           Height="30"
+                           Tag="2"
+                           HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                           Margin="0 8 8 0"
+                           Opacity="{Binding SelectionOpacity}"
+                           Source="{Binding Photo2.SelectUnselectImageUri}">
+
+                        <Image.RenderTransform>
+                            <ScaleTransform />
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Rectangle Width="45"
+                               Height="45"
+                                HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                               Tag="2"
+                               Fill="Transparent"
+                               Tapped="SelectUnselectTap"
+                               />
+
+
+                </Grid>
+
+
+
+
+                <Grid   Margin="2 2 2 2"
+                        Width="117"
+                        Height="117"
+                        Visibility="{Binding Photo3IsSet}">
+
+                    <Rectangle Width="117"
+                               Height="117"
+                               HorizontalAlignment="Left"
+                                />
+
+                    <Image Width="117"
+                           Height="117"
+                           
+                           Source="{Binding Photo3.ThumbnailStream}"
+                           HorizontalAlignment="Left"
+                           Tag="3"
+                           Stretch="UniformToFill"
+                           Tapped="Image_Tap_1">
+
+                    </Image>
+
+                    <Ellipse 
+                             Width="29"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                             Height="29"
+                             Opacity="{Binding SelectionOpacity}"
+                             Margin="0 8.5 8.5 0"
+                             Visibility="{Binding Photo3.IsSelectedVisibility}" />
+
+
+                    <Image Width="30"
+                           Height="30"
+                           Tag="3"
+                           HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                           Margin="0 8 8 0"
+                           Opacity="{Binding SelectionOpacity}"
+                           Source="{Binding Photo3.SelectUnselectImageUri}">
+
+                        <Image.RenderTransform>
+                            <ScaleTransform />
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Rectangle Width="45"
+                               Height="45"
+                                HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                               Tag="3"
+                               Fill="Transparent"
+                               Tapped="SelectUnselectTap"
+                               />
+
+
+                </Grid>
+
+
+                <Grid     Margin="2 2 2 2"
+                          Width="117"
+                          Height="117"
+                          Visibility="{Binding Photo4IsSet}">
+
+                    <Rectangle Width="117"
+                               Height="117"
+                               
+                               HorizontalAlignment="Left" />
+
+
+                    <Image Width="117"
+                           Height="117"
+                           
+                           HorizontalAlignment="Left"
+                           Tag="4"
+                           Source="{Binding Photo4.ThumbnailStream}"
+                           Tapped="Image_Tap_1"
+                           Stretch="UniformToFill">
+
+
+                    </Image>
+
+                    <Ellipse Fill="Red"
+                             Width="29"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                             Height="29"
+                             Opacity="{Binding SelectionOpacity}"
+                             Margin="0 8.5 8.5 0"
+                             Visibility="{Binding Photo4.IsSelectedVisibility}" />
+
+
+                    <Image Width="30"
+                           Height="30"
+                           Tag="4"
+                           HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                           Margin="0 8 8 0"
+                           Opacity="{Binding SelectionOpacity}"
+                           Source="{Binding Photo4.SelectUnselectImageUri}">
+
+                        <Image.RenderTransform>
+                            <ScaleTransform />
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Rectangle Width="45"
+                               Height="45"
+                                HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                               Tag="4"
+                               Fill="Transparent"
+                               Tapped="SelectUnselectTap"
+                               />
+
+                </Grid>
+
+            </StackPanel>
+
+
+        </DataTemplate>
+    </Page.Resources>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot"          
+          Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1">
+            <ListView Name="itemsControlPhotos"                                               
+                                                
+                                                
+                                                
+                                                ItemsSource="{Binding Photos}"
+                                                ItemTemplate="{StaticResource PhotosRowTemplate}">
+
+            </ListView>
+        </Grid>
+
+
+        <!--<photoUC:PickAlbumUC x:Name="ucPickAlbum" Visibility="Collapsed" DataContext="{x:Null}" Grid.Row="1"/>
+        <uc:GenericHeaderUC x:Name="ucHeader" HideSandwitchButton="True" />-->
+        <!--<imageEditor:ImageEditorDecorator2UC x:Name="imageEditor" 
+                                           Grid.RowSpan="2"  
+                                            />-->
+    </Grid>
+</Page>

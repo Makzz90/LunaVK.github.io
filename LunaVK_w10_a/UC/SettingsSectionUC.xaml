@@ -1,0 +1,41 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.SettingsSectionUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="70"
+    d:DesignWidth="400"
+    Background="Transparent">
+
+    <Grid Margin="15 15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <local:IconUC x:Name="fIcon" Margin="0 0 10 0"
+                
+                      Glyph="&#xE181;"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="30" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"/>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock 
+            Name="titleBlock"
+            FontSize="{StaticResource FontSizeContent}"
+            Text="Title"
+             Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+
+            <TextBlock Visibility="Collapsed"
+            Name="tSubTitle"
+            FontSize="{StaticResource FontSizeContent}"
+            Text="SubTitle"
+             Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

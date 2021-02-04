@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.Attachment.AttachArticleUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC.Attachment"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:framework="using:LunaVK.Framework" MaxHeight="320">
+
+    <Grid CornerRadius="15" SizeChanged="Grid_SizeChanged">
+        <Image Source="{Binding ImageSrc}" Stretch="UniformToFill" framework:PointOverScale.OverScale="1.1"
+               VerticalAlignment="Center"/>
+        <!--<Border framework:PointOverScale.OverScale="1.1" CornerRadius="15">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding ImageSrc}" AlignmentY="Center"/>
+            </Border.Background>
+        </Border>-->
+        
+        <Border Background="Black" Opacity="0.4" IsHitTestVisible="False"/>
+        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="400" Margin="30 0">
+            <TextBlock Text="{Binding title, FallbackValue=Title}" TextAlignment="Center"
+                       FontWeight="SemiBold" Foreground="White" FontSize="20" IsTextSelectionEnabled="True"
+                       TextWrapping="Wrap" MaxLines="3"/>
+
+            <Button Margin="0 15" Foreground="Black" Background="White" HorizontalAlignment="Center" Click="Button_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <uc:IconUC Glyph="&#xE945;" Margin="0 0 10 0" FontSize="12" FontWeight="ExtraBlack"/>
+                        <TextBlock Text="{Binding button.title, FallbackValue=Читать}" FontWeight="SemiBold"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <AppBarButton VerticalAlignment="Top" HorizontalAlignment="Right" Height="32" Width="32" Tapped="AppBarButton_Tapped">
+            <uc:IconUC Glyph="&#xE734;" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
+        </AppBarButton>
+    </Grid>
+</UserControl>

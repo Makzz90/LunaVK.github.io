@@ -1,0 +1,159 @@
+﻿<UserControl
+    x:Class="App1uwp.UC.GraffitiDrawUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1uwp.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    xmlns:viewModels="using:App1uwp.ViewModels"
+    xmlns:framework="using:App1uwp.Framework">
+
+    <UserControl.DataContext>
+        <viewModels:GraffitiDrawViewModel />
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Canvas Name="drawCanvas" ManipulationDelta="drawCanvas_ManipulationDelta"
+                ManipulationStarted="drawCanvas_ManipulationStarted" ManipulationCompleted="drawCanvas_ManipulationCompleted"
+                Background="Transparent" Tapped="drawCanvas_Tapped"/>
+
+        <StackPanel x:Name="panelControls"
+                    Grid.Row="1"
+                    Height="160"
+                    CacheMode="BitmapCache"
+                    >
+            <Grid x:Name="gridPallete">                
+                <ScrollViewer VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled"
+                              HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Enabled">
+                    <ItemsControl Margin="8 0"
+                      ItemsSource="{Binding Colors}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="44" Height="64" Background="Transparent" PointerReleased="Color_PointerReleased">
+                                    <Ellipse Width="24" Height="24"
+                                 Fill="{Binding ColorHex}" Stroke="{ThemeResource TextBrushHigh}"
+                                 StrokeThickness="1"/>
+
+                                    <Ellipse Width="36"
+                                 Height="36"
+                                 Visibility="{Binding SelectedVisibility}"
+                                 Stroke="{ThemeResource AccentBrushHigh}"
+                                 StrokeThickness="3" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+
+            <Grid Height="88">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Height="1" Margin="20 0" VerticalAlignment="Top"
+                           Fill="{ThemeResource TextBrushHigh}" Opacity="0.1" Grid.ColumnSpan="5"/>
+
+                <Grid Tapped="Clear_Tapped"
+                        Width="64"
+                        Height="64"
+                        Background="Transparent"
+                      
+                        >
+                    <local:IconUC Glyph="&#xE74D;"/>
+                </Grid>
+
+                <Grid Grid.Column="1"
+                        Width="64"
+                        Height="64"
+                        Background="Transparent"
+                        Tapped="borderThickness_Tapped">
+                    <local:IconUC Glyph="&#xEDA8;"/>
+                </Grid>
+                
+                <Grid x:Name="gridAttach"
+                      Width="64"
+                      Height="64"
+                      Background="Transparent"
+                      Opacity="0.4"
+                      Grid.Column="2"
+                      Tapped="Action_Tapped"
+                      >
+                    <Ellipse Width="64" Height="64" Fill="{StaticResource PhoneAccentColorBrush}"/>
+
+                    <local:IconUC Glyph="&#xE73E;" FontSize="30" Foreground="White"/>
+                </Grid>
+
+                <Grid Grid.Column="3"
+                        Width="64"
+                        Height="64"
+                        Background="Transparent"
+                        Tapped="ApplyBack_Tapped">
+                    <local:IconUC Glyph="&#xEB9F;"/>
+                </Grid>
+                
+                <Grid x:Name="borderUndo" Grid.Column="4"
+                        Width="64"
+                        Height="64"
+                        Background="Transparent"
+                        Opacity="0.4"
+                        Tapped="Undo_Tapped">
+                    <local:IconUC Glyph="&#xE7A7;"/>
+                </Grid>
+            </Grid>
+        </StackPanel>
+
+        <Border x:Name="borderThicknessPopupOverlay"
+                Grid.RowSpan="2"
+                Background="Transparent"
+                Visibility="Collapsed"
+                ManipulationStarted="borderThicknessPopupOverlay_ManipulationStarted"
+                ManipulationMode="All"
+                 />
+        <Grid Width="96"
+          Background="Gray" x:Name="ucBrushThickness" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+              Visibility="Collapsed" Opacity="0">
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+            <ItemsControl Margin="0 8"
+                      ItemsSource="{Binding ThicknessItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="Transparent" Tapped="Thickness_Tapped"
+                          >
+                            <Ellipse Width="{Binding ViewThickness}"
+                                 Height="{Binding ViewThickness}"
+                                 Margin="0 16"
+                                 Fill="{Binding FillBrush}"
+                                 StrokeThickness="1"
+                                 Stroke="GhostWhite" />
+
+                            <Ellipse Width="{Binding StrokeThickness}"
+                                 Height="{Binding StrokeThickness}"
+                                 Visibility="{Binding SelectedVisibility}"
+                                 Stroke="{ThemeResource TextBrushHigh}"
+                                 StrokeThickness="4" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Grid>
+</UserControl>

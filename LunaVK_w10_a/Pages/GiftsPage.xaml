@@ -1,0 +1,41 @@
+﻿<local:PageBase
+    x:Class="LunaVK.Pages.GiftsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:uc="using:LunaVK.UC"
+    >
+
+    <Grid>
+        <controls:ExtendedGridView2 ItemsSource="{Binding Items}" ItemWidth="300" ItemHeight="350">
+            <controls:ExtendedGridView2.ItemTemplate>
+                <DataTemplate>
+                    <uc:GiftListItemUC Margin="2"/>
+                </DataTemplate>
+            </controls:ExtendedGridView2.ItemTemplate>
+        </controls:ExtendedGridView2>
+
+        <!--<StackPanel VerticalAlignment="Center"
+                        Margin="16 0 16 72" Visibility="{Binding AccessDeniedVisibility, FallbackValue='Collapsed2'}">
+            <TextBlock FontSize="25.33"
+                           LineStackingStrategy="BlockLineHeight"
+                           LineHeight="32"
+                           
+                           Text="NoAccessToGifts"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+
+            <TextBlock Margin="0 10 0 0"
+                           LineStackingStrategy="BlockLineHeight"
+                           LineHeight="24"
+                           
+                           Text="UserHasHiddenGifts"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+        </StackPanel>-->
+    </Grid>
+</local:PageBase>

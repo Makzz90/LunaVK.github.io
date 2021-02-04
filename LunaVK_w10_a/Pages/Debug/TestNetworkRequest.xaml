@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestNetworkRequest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC">
+
+    <Page.Resources>
+        <DataTemplate x:Key="PollOptionTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Text="{Binding Name}" IsSpellCheckEnabled="False" TextChanged="Name_TextChanged"/>
+                <TextBox Text="{Binding Value}" Grid.Column="1"  IsSpellCheckEnabled="False" TextChanged="Value_TextChanged"
+                          AcceptsReturn="True"/>
+
+                <AppBarButton Grid.Column="2" Tapped="Delete_Tapped">
+                    <uc:IconUC Glyph="&#xE711;"/>
+                </AppBarButton>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <uc:HeaderOffsetUC/>
+
+        <ProgressBar VerticalAlignment="Bottom" Margin="0 0 0 -2" Name="_prog"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" 
+                      VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled"
+                      Grid.Row="1"
+                      >
+            <StackPanel>
+                <TextBox Text="https://vk.com"/>
+
+                <ComboBox SelectedIndex="1">
+                    <ComboBoxItem Content="GET"/>
+                    <ComboBoxItem Content="POST"/>
+                </ComboBox>
+
+
+
+
+                <ListView ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollMode="Enabled"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Disabled"
+                      Margin="0 0 0 20" SelectionMode="None" ReorderMode="Enabled" CanReorderItems="True" 
+                              ItemsSource="{Binding PollOptions}" ItemTemplate="{StaticResource PollOptionTemplate}"
+                              CanDrag="True" AllowDrop="True">
+
+                    <ListView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <AddDeleteThemeTransition/>
+                        </TransitionCollection>
+                    </ListView.ItemContainerTransitions>
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.Footer>
+                        <Button Content="Add parameter" Click="AddAnswer_Click" Margin="0 10"/>
+                    </ListView.Footer>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

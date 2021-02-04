@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" IgnorableNamespaces="uap mp uap3 uap2">
+  <Identity Name="132728F202473.LunaVK" Publisher="CN=1BA38505-6371-40A7-93F7-979CEDF22649" Version="0.1.34.0" />
+  <mp:PhoneIdentity PhoneProductId="cead2502-d791-4386-8e6d-e3133dfc5cfb" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>LunaVK</DisplayName>
+    <PublisherDisplayName>Максим Гутиков</PublisherDisplayName>
+    <Logo>Assets\Img\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="LunaVK.App">
+      <uap:VisualElements DisplayName="Luna - клиент ВКонтакте" Square150x150Logo="Assets\Img\Square150x150Logo.png" Square44x44Logo="Assets\Img\Square44x44Logo.png" Description="Luna – alternative client for VK social network" BackgroundColor="transparent">
+        <uap:DefaultTile Square310x310Logo="Assets\Img\LargeTile.png" Wide310x150Logo="Assets\Img\Wide310x150Logo.png" Square71x71Logo="Assets\Img\SmallTile.png" ShortName="LunaVK">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\Img\BadgeLogo.png" />
+        <uap:SplashScreen Image="Assets\Img\SplashScreen.png" BackgroundColor="transparent" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="vk.com" />
+          </uap3:AppUriHandler>
+        </uap3:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="ToastNotificationComponent.NotificationBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="general" />
+            <Task Type="systemEvent" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="RawNotificationBackgroundComponent.RawNotificationBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="pushNotification" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="ScheduledUpdater.ScheduledAgentTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="ms-contact-profile">
+            <uap:DisplayName>TestProfilePage</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+        <uap:Extension Category="windows.shareTarget">
+          <uap:ShareTarget>
+            <uap:SupportedFileTypes>
+              <uap:SupportsAnyFileType />
+            </uap:SupportedFileTypes>
+          </uap:ShareTarget>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <uap:Capability Name="videosLibrary" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="musicLibrary" />
+    <uap3:Capability Name="backgroundMediaPlayback" />
+    <uap:Capability Name="contacts" />
+    <uap:Capability Name="removableStorage" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="location" />
+    <DeviceCapability Name="webcam" />
+  </Capabilities>
+</Package>

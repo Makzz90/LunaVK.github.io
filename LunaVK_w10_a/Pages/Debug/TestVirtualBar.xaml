@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestVirtualBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid Background="Green">
+        <TextBlock VerticalAlignment="Top" Text="Top" HorizontalAlignment="Center" Foreground="White" Margin="50" Name="_tbTop"/>
+        <TextBlock VerticalAlignment="Center" Text="Left" HorizontalAlignment="Left" Foreground="White" Margin="50" Name="_tbLeft"/>
+        <TextBlock VerticalAlignment="Center" Text="Right" HorizontalAlignment="Right" Foreground="White" Margin="50" Name="_tbRight"/>
+        <TextBlock VerticalAlignment="Bottom" Text="Bottom" HorizontalAlignment="Center" Foreground="White" Margin="50" Name="_tbBottom"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Click="Button_Click" Content="Hook" />
+        <Button Click="Button_Click2" Content="UnHook"/>
+            <TextBlock Name="_tbInfo" TextWrapping="Wrap" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Page>

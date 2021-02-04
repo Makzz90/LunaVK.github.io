@@ -1,0 +1,214 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.VideoViewerUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800"
+    d:DesignWidth="400"
+    xmlns:controls="using:LunaVK.UC.Controls"
+    xmlns:converters="using:LunaVK.Network.Converters"
+    xmlns:framework="using:LunaVK.Framework">
+
+    <UserControl.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <converters:CountForUIConverter x:Key="CountForUIConverter"/>
+        <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <Grid MaxWidth="800" Name="_rootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition x:Name="_columnRight" Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MenuState">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_pivot.(Grid.Column)" Value="1" />
+                        <Setter Target="_pivot.(Grid.Row)" Value="0" />
+                        <Setter Target="_pivot.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="_columnRight.Width" Value="400" />
+                        <Setter Target="_rootGrid.MaxWidth" Value="1600" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="LikeState">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{Binding IsLiked}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_likeIcon.Foreground" Value="{StaticResource VKColorBrushRed}" />
+                        <Setter Target="_likeText.Foreground" Value="{StaticResource VKColorBrushRed}" />
+                        <Setter Target="_likeIcon.Glyph" Value="&#xEB52;" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <Image Source="{Binding ImageSrc}" Stretch="UniformToFill" Name="_fakeViewerElement" MinHeight="100"/>
+
+        <Pivot Name="_pivot" Grid.Row="1" Background="{ThemeResource BaseBackgroundBrush}">
+            <PivotItem Header="{Binding Path=[Description], Source={StaticResource LocalizedStrings}}">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled"
+                              VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
+                
+                <StackPanel Margin="10 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock FontSize="25.33"
+                                               LineStackingStrategy="BlockLineHeight"
+                                               LineHeight="30"
+                                               
+                                               TextWrapping="Wrap"
+                                               Text="{Binding VideoTitle, FallbackValue=Title}" Foreground="{ThemeResource TextBrushMediumLow}"
+                                       IsTextSelectionEnabled="True"/>
+                            <TextBlock x:Name="textBlockMetaData"
+                                               LineStackingStrategy="BlockLineHeight"
+                                               LineHeight="26"
+                                               Foreground="{ThemeResource TextBrushLow}"
+                                               TextWrapping="Wrap"
+                                               Text="{Binding MetaDataStr, FallbackValue='8 просмотров · 17 авг 2015 в 21:15'}"
+                                               />
+
+
+
+
+
+                                
+                            </StackPanel>
+
+                            <AppBarButton Icon="More" Grid.Column="1" Width="48" Tapped="Options_Tapped"/>
+                        </Grid>
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        <StackPanel Orientation="Horizontal" Margin="0 10" >
+                            <StackPanel Orientation="Horizontal" Background="Transparent" Visibility="{Binding Video.can_like, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}"
+                                        Tapped="Like_Tapped" framework:MouseOver.Cursor="Hand"
+                            >
+                                <local:IconUC Glyph="&#xE006;" x:Name="_likeIcon" FontSize="20" VerticalAlignment="Center" Margin="0 4 10 0" Foreground="{ThemeResource TextBrushLow}"/>
+                                <TextBlock Text="{Binding Video.likes.count, Converter={StaticResource CountForUIConverter}}" Margin="0 0 10 0" VerticalAlignment="Center" FontSize="20" Foreground="{ThemeResource TextBrushLow}"
+                               Visibility="{Binding Video.likes.count, Converter={StaticResource CountToVisibilityConverter}}"
+                               Name="_likeText"/>
+                            </StackPanel>
+
+                            <local:LikesItem Width="140" Height="48" AutoSlideInterval="3" Tapped="_likes_Tapped" ItemsSource="{Binding Likes}">
+                                <local:LikesItem.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="30" Height="30" CornerRadius="15"
+                                                BorderThickness="2" BorderBrush="{ThemeResource BaseBackgroundBrush}">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding photo_50}"/>
+                                            </Border.Background>
+                                        </Border>
+                                    </DataTemplate>
+                                </local:LikesItem.ItemTemplate>
+                            </local:LikesItem>
+
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding Video.can_repost, Converter={StaticResource BoolToVisibilityConverter} ,FallbackValue=Collapsed}" Background="Transparent" 
+                             Tapped="Publish_Tapped">
+                                <local:IconUC Glyph="&#xE87C;" FontSize="20" VerticalAlignment="Center" Margin="0 4 10 0" Foreground="{ThemeResource TextBrushLow}"/>
+                                <TextBlock Text="{Binding Video.reposts.count, FallbackValue=3}" Margin="0 0 10 0" VerticalAlignment="Center" FontSize="20" Foreground="{ThemeResource TextBrushLow}"
+                               Visibility="{Binding Video.reposts.count, Converter={StaticResource CountToVisibilityConverter}}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
+
+                        <Grid HorizontalAlignment="Left" Margin="0 10" Background="Transparent" Tapped="Owner_Tapped">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Ellipse Width="45" Height="45">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding Owner.MinPhoto}" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <StackPanel VerticalAlignment="Center" Grid.Column="1" Margin="10 0">
+                            <TextBlock  
+                           Text="{Binding Owner.Title, FallbackValue='Beacon'}" />
+
+                            <TextBlock FontSize="14"
+                           Visibility="{Binding SubscribersCountVisibility}"
+                           Foreground="{ThemeResource TextBrushMediumLow}"
+                           Text="{Binding SubscribersCountStr, FallbackValue='7 237 subscribers'}" />
+
+                        </StackPanel>
+                    </Grid>
+
+                    <local:ScrollableTextBlock FullOnly="True"
+                                                               SelectionEnabled="True"
+                                                               
+                                                               Text="{Binding VideoDescription, FallbackValue=Description}" />
+                </StackPanel>
+
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="{Binding Path=[comments_pivotItem], Source={StaticResource LocalizedStrings}}" DataContext="{Binding CommentsVM}">
+                <Grid>
+
+                    <controls:ExtendedListView3 ItemsSource="{Binding Items}" UseHeaderOffset="False">
+                        <controls:ExtendedListView3.ItemTemplate>
+                            <DataTemplate>
+                                <local:ItemComment/>
+                            </DataTemplate>
+                        </controls:ExtendedListView3.ItemTemplate>
+
+                        <controls:ExtendedListView3.Footer>
+                            <Border Height="48"/>
+                        </controls:ExtendedListView3.Footer>
+                    </controls:ExtendedListView3>
+                    <local:NewMessageUC VerticalAlignment="Bottom"/>
+                </Grid>
+            </PivotItem>
+            <!--<PivotItem Header="Похожее" DataContext="{Binding RecomendationsVM}">
+                <controls:ExtendedListView3 ItemsSource="{Binding Items}">
+                    <controls:ExtendedListView3.ItemTemplate>
+                        <DataTemplate>
+                            <local:ItemVideoCatalog/>
+                        </DataTemplate>
+                    </controls:ExtendedListView3.ItemTemplate>
+                </controls:ExtendedListView3>
+            </PivotItem>-->
+        </Pivot>
+
+
+    </Grid>
+</UserControl>

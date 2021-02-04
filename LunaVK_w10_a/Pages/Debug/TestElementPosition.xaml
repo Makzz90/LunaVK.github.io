@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestElementPosition"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC">
+
+    <Page.Resources>
+        <!--<Storyboard x:Name="myStory">
+            <PointAnimation Storyboard.TargetProperty="Center"
+                            Storyboard.TargetName="EllipseFigure"
+                            Duration="0:0:0.5"
+                            EnableDependentAnimation="True">
+                
+            </PointAnimation>
+        </Storyboard>-->
+    </Page.Resources>
+    
+    <Grid Background="Transparent" Tapped="Grid_Tapped" Margin="0 60 0 0">
+        <Canvas IsHitTestVisible="False">
+            <!--<Path Fill="OrangeRed" x:Name="Ball">
+                <Path.Data>
+                    <EllipseGeometry x:Name="EllipseFigure"
+                                     Center="15 15" RadiusX="15" RadiusY="15"
+                                     />
+                </Path.Data>
+            </Path>-->
+            <Rectangle Fill="Blue" Width="50" Height="50" Name="rectOriginal"/>
+            <Rectangle Fill="Red" Width="50" Height="50" Name="retFit"/>
+        </Canvas>
+
+        <!--<Button Content="Write" Click="Button_Click"/>
+        <Button Content="Read" HorizontalAlignment="Center" Click="Button_Click_1"/>-->
+
+        <Border Height="200" Width="200" Tapped="Border_Tapped" Name="_brd" VerticalAlignment="Bottom" Background="Red" HorizontalAlignment="Right">
+            <Image Source="/Assets/gdpr-tos-bg.png" Stretch="UniformToFill" HorizontalAlignment="Center" Name="_originalImg" Opacity="0.5"/>
+        </Border>
+
+        <Canvas Name="_overlay" IsHitTestVisible="False"/>
+
+        <Button Content="Clear" Click="Button_Click_2"/>
+
+        <uc:LikesItem x:Name="_likes"/>
+    </Grid>
+</Page>

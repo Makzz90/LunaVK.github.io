@@ -1,0 +1,51 @@
+﻿<UserControl
+    x:Class="LunaVK.Photo.UC.AdornerElementBaseUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Photo.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    >
+
+    <!--<Border BorderBrush="Green" BorderThickness="1">-->
+
+
+    <Grid Name="_parent" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" ManipulationDelta="_parent_ManipulationDelta"
+              ManipulationMode="TranslateX,TranslateY" Tag="CantTouchThis">
+        <Grid.RenderTransform>
+            <CompositeTransform x:Name="_transform" />
+        </Grid.RenderTransform>
+
+
+        <Grid Width="50" Height="25" Background="Transparent" Name="_gridContent" SizeChanged="_gridContent_SizeChanged"
+              Tapped="_gridContent_Tapped"/>
+        
+        <Rectangle Stroke="Red" StrokeDashCap="Round" StrokeDashArray="4" StrokeThickness="3" Name="_brd" />
+
+        <Image Height="32" Width="32" Source="ms-appx:///Assets/PhotoEditor/overlay.expand.png"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Name="AdornerRotateButton" RenderTransformOrigin="0.5 0.5">
+            <Image.RenderTransform>
+                <CompositeTransform TranslateX="16" TranslateY="16" x:Name="_btnTransform"/>
+            </Image.RenderTransform>
+        </Image>
+
+
+        <Image Height="32" Width="32" Source="ms-appx:///Assets/PhotoEditor/overlay.garbage.closed.png"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Name="AdornerDeleteButton" RenderTransformOrigin="0.5 0.5"
+                   Tapped="Delete_Tapped">
+            <Image.RenderTransform>
+                <CompositeTransform TranslateX="-16" TranslateY="-16" x:Name="_btnTransform2"/>
+            </Image.RenderTransform>
+        </Image>
+
+        <StackPanel IsHitTestVisible="False">
+            <TextBlock Name="_text" Foreground="Blue"/>
+            <TextBlock Name="_text2" Foreground="Blue"/>
+            <TextBlock Name="_text3" Foreground="Blue"/>
+        </StackPanel>
+    </Grid>
+    <!--</Border>-->
+</UserControl>

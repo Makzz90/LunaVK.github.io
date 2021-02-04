@@ -1,0 +1,79 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.Attachment.AttachLinkUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC.Attachment"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UC="using:LunaVK.UC"
+    mc:Ignorable="d"
+    d:DesignHeight="100"
+    d:DesignWidth="400">
+
+    <Border BorderThickness="{Binding BorderThickness}" BorderBrush="{ThemeResource TextBrushMediumHigh}" Margin="15" Tapped="Border_Tapped">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.RowSpan="{Binding ImgRowSpan}" Grid.ColumnSpan="{Binding ImgColumnSpan}">
+                <Ellipse Width="45" Height="45" Fill="{ThemeResource SystemControlForegroundBaseHighBrush}" Opacity="0.3"/>
+                <Image Source="{Binding ImageSrc}" Stretch="UniformToFill"/>
+
+                <UC:IconUC FontSize="16" HorizontalAlignment="Center" Glyph="&#xE71A;" Foreground="{ThemeResource ItemBackgroundBrush}"
+                           Visibility="{Binding IconLinkVisibility}"/>
+            </Grid>
+            
+
+            <Grid Grid.RowSpan="{Binding TextRowSpan}" VerticalAlignment="Center"
+                  Grid.Row="{Binding TextRow}" Grid.Column="{Binding ContentColumn}" Grid.ColumnSpan="{Binding ContentColumnSpan}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{Binding title, FallbackValue=Title}" FontSize="{StaticResource FontSizeContent}" TextTrimming="CharacterEllipsis"
+                           Foreground="{StaticResource SystemControlHighlightAccentBrush}" HorizontalAlignment="{Binding HorizontalAlignment}"
+                           Grid.ColumnSpan="{Binding TextColumnSpan}" Padding="20 0"/>
+                <TextBlock Text="{Binding CaptionUI, FallbackValue=www.test.ru}" Grid.Row="1" HorizontalAlignment="{Binding HorizontalAlignment}"
+                           FontSize="{StaticResource FontSizeContent}" Foreground="{ThemeResource TextBrushMediumHigh}"
+                           Grid.ColumnSpan="{Binding TextColumnSpan}"  Padding="20 0"/>
+
+                <Button Grid.Row="{Binding BtnRow}" Grid.Column="{Binding BtnColumn}" Grid.RowSpan="{Binding BtnRowSpan}" Grid.ColumnSpan="{Binding TextColumnSpan}"
+                        HorizontalAlignment="{Binding HorizontalAlignment}" Visibility="{Binding BtnVisibility}"
+                        Click="Button_Click" VerticalAlignment="Center" Margin="10 0" Name="btnAction">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <UC:IconUC Glyph="&#xE945;" Margin="0 0 10 0" Visibility="{Binding AMPVisibility}"/>
+                            <TextBlock Text="{Binding button.title}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </Grid>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </Border>
+</UserControl>

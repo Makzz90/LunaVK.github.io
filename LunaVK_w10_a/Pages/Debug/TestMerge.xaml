@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="LunaVK.Pages.Debug.TestMerge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages.Debug"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:framework="using:LunaVK.Framework">
+
+    <Page.Resources>
+
+        <DataTemplate x:Key="DialogItemTemplate">
+            <Grid Height="56">
+                <TextBlock Text="{Binding }" Foreground="Blue" FontSize="30"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DetailsTemplate">
+            <Grid Background="Green">
+                <TextBlock Text="{Binding }" VerticalAlignment="Center" FontSize="50"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid Background="Yellow">
+        <controls:MasterDetailsView2 ItemsSource="{Binding Dialogs}" ItemTemplate="{StaticResource DialogItemTemplate}" x:Name="DetailsView"
+                                    DetailsTemplate="{StaticResource DetailsTemplate}" MasterPaneWidth="320" CompactModeThresholdWidth="600"
+                                    BorderBrush="{ThemeResource AccentBrushMediumLow}">
+            <!--<controls:MasterDetailsView2.MasterHeader>
+                <Grid Background="{ThemeResource HeaderBrush}" Margin="-12 0">
+                    <Grid Height="48" VerticalAlignment="Bottom">
+                        <TextBlock Text="Сообщения" VerticalAlignment="Center" Margin="10 0" Foreground="White" x:Name="Title"/>
+                    </Grid>
+                </Grid>
+            </controls:MasterDetailsView2.MasterHeader>-->
+
+
+
+            <!--<controls:MasterDetailsView2.NoSelectionContentTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <SymbolIcon Symbol="Mail" RenderTransformOrigin=".5,.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="2" ScaleY="2" />
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="Выберите диалог."
+                               FontSize="18"
+                               Margin="20,12" />
+                    </StackPanel>
+                </DataTemplate>
+            </controls:MasterDetailsView2.NoSelectionContentTemplate>-->
+
+
+        </controls:MasterDetailsView2>
+
+        <StackPanel VerticalAlignment="Bottom" Height="48" Background="Red" Orientation="Horizontal">
+            <Button Content="Replace" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

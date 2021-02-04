@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.AvatarUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="45"
+    d:DesignWidth="45">
+
+    <Grid>
+        <Ellipse Width="40" Height="40" Name="Ellipse1">
+            <Ellipse.Fill>
+                <ImageBrush x:Name="ImageBrush1">
+                    <ImageBrush.Transform>
+                        <TranslateTransform X="0" Y="0"/>
+                    </ImageBrush.Transform>
+                </ImageBrush>
+            </Ellipse.Fill>
+            <Ellipse.Clip>
+                <RectangleGeometry Rect="0 0 40 40"/>
+            </Ellipse.Clip>
+        </Ellipse>
+        <Grid Name="MoreAvas">
+            
+        </Grid>
+        
+        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Grid.RenderTransform>
+                <TranslateTransform X="5" Y="1"/>
+            </Grid.RenderTransform>
+            <local:IconUC FontSize="20" Foreground="{ThemeResource ItemBackgroundBrush}" x:Name="_icon1"/>
+            <local:IconUC FontSize="16" Foreground="#FF00D300" x:Name="_icon2"/>
+        </Grid>
+    </Grid>
+</UserControl>

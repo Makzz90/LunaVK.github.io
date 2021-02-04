@@ -1,0 +1,67 @@
+﻿<UserControl
+    x:Class="LunaVK.UC.ItemGroupInvitationUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.UC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="200"
+    d:DesignWidth="400"
+    xmlns:converters="using:LunaVK.Network.Converters">
+
+    <UserControl.Resources>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <Grid Background="{ThemeResource ItemBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid Grid.RowSpan="2" Margin="15"
+              HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Ellipse Width="{StaticResource Double72}" Height="{StaticResource Double72}">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="{Binding photo_100}" />
+            </Ellipse.Fill>
+        </Ellipse>
+
+            <Border VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FF65BF63"
+                    Height="24" Width="24" CornerRadius="12" BorderThickness="2" BorderBrush="White"
+                    Visibility="{Binding City, Converter={StaticResource StringToVisibilityConverter}, FallbackValue=Collapsed}">
+                <local:IconUC FontSize="10" Foreground="White" Glyph="&#xEB49;"/>
+            </Border>
+            
+        </Grid>
+
+        <StackPanel Grid.Column="1" Margin="0,15">
+            <TextBlock TextWrapping="Wrap" FontSize="{StaticResource FontSizeLarge}"
+            Text="{Binding name, FallbackValue='Luna VKClient for Windows Phone'}"
+             Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+
+            <TextBlock TextWrapping="NoWrap"
+            FontSize="{StaticResource FontSizeContent}"
+            Text="{Binding UIMembersCount, FallbackValue=33}"
+            Foreground="{ThemeResource TextBrushMedium}"/>
+
+            <StackPanel Orientation="Horizontal" Visibility="{Binding Inviter, Converter={StaticResource StringToVisibilityConverter}}">
+                <TextBlock FontSize="{StaticResource FontSizeContent}" Text="пригашает" Foreground="{ThemeResource TextBrushMedium}" Margin="0 0 5 0"/>
+                <TextBlock FontSize="{StaticResource FontSizeContent}" Text="{Binding Inviter, FallbackValue=User}" Foreground="{ThemeResource AccentBrushHigh}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Content="Вступить" Margin="5 0" Name="JoinBtn" />
+            <Button Content="Скрыть" Name="HideBtn" Style="{StaticResource VKButtonSecondaryStyle}" Margin="5 0"/>
+            <!--<Button Content="Не пойду" Style="{StaticResource VKButtonSecondaryStyle}" Margin="5 0"/>-->
+        </StackPanel>
+
+    </Grid>
+</UserControl>

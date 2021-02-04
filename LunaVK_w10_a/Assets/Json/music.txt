@@ -1,0 +1,643 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0022)https://m.vk.com/audio -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="vk vk_js_no vk_1x vk_flex_no r d h vk_withVolumeLine vk_appAuth_no n  vk_old "><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+               
+<META charset="utf-8">         
+<META name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no"> 
+        
+<META name="format-detection" content="telephone=no">         
+<META http-equiv="X-UA-Compatible" content="IE=edge">         
+<META name="MobileOptimized" content="176">         
+<META name="HandheldFriendly" content="True">         
+<META name="robots" content="noindex,nofollow">       
+<META name="msApplication-ID" content="C6965DD5.VK">       
+<META name="msApplication-PackageFamilyName" 
+content="C6965DD5.VK_v422avzh127ra">             <LINK href="/images/icons/favicons/fav_logo.ico?8" 
+rel="shortcut icon">             
+<META name="theme-color" content="#ffffff">     <LINK href="/images/icons/pwa/favicon_32.png?8" 
+rel="icon" type="image/png" sizes="32x32">     <LINK href="/images/icons/pwa/apple/default.png?8" 
+rel="apple-touch-icon">     <LINK href="/images/icons/pwa/safari_pinned_tab.svg" 
+rel="mask-icon" color="#5181b8">     
+<META name="msapplication-config" content="/images/icons/pwa/windows/browserconfig.xml"> 
+    
+<META name="apple-mobile-web-app-title" content="ВКонтакте">     
+<META name="application-name" content="ВКонтакте">     
+<META name="mobile-web-app-capable" content="yes">     
+<META name="apple-mobile-web-app-status-bar-style" content="black">         
+<TITLE>Музыка</TITLE>         
+<META http-equiv="origin-trial" content="Av8ECqeAAIiC9bF3N7aq2M/TaxNzzpPcFXnw0rRb9KRUQlbyHKYmPj6KeVUFVDk+S7W9RfJH2GsEOS8G99uJvgcAAABaeyJvcmlnaW4iOiJodHRwczovL3ZrLmNvbTo0NDMiLCJmZWF0dXJlIjoiQmFkZ2luZyIsImV4cGlyeSI6MTU2MTY2MTkxNCwiaXNTdWJkb21haW4iOnRydWV9"> 
+        
+<SCRIPT>
+          (function() {
+            window.isMVK = true;
+            window.isCustomScroll = false;
+            window.isNewMail = false;
+            window.isNewLongpoll = false;
+            window.audioSubscribe = false;
+            window.isArticleWebView = false;
+            window.isPVRedesign = false;
+
+            var vkElem = document.querySelector('.vk');
+            var vkClass = vkElem.getAttribute('class');
+
+            var supports = {
+              js: true,
+              flex: window.CSS && CSS.supports && (
+                CSS.supports('display', 'flex') ||
+                CSS.supports('display', '-webkit-flex') ||
+                CSS.supports('display', '-ms-flexbox')
+              )
+            };
+
+            supports.js && (vkClass = vkClass.replace('vk_js_no', 'vk_js_yes'));
+            supports.flex && (vkClass = vkClass.replace('vk_flex_no', 'vk_flex_yes'));
+            vkElem.setAttribute('class', vkClass);
+          })();
+        </SCRIPT>
+                 
+<SCRIPT type="text/javascript">
+<!--
+;(function(){"use strict";function e(e){t(e),e.hash_redirect&&o(e),e.al_ver&&(window.al={ver:e.al_ver})}function t(e){var t=e.iospwa_cookie,o=e.device_cookie,i=e.cookie_secure,n=e.cookie_samesite,a=e.cookie_path,r=e.cookie_domain,c=e.need_reload,s=new Date((new Date).getTime()+7776e6).toUTCString();!0===navigator.standalone&&-1===document.cookie.indexOf(t+"=1")&&(document.cookie=t+"=1; expires="+s+";"+i+n+" path="+a+"; domain="+r);var u=document,l=window,p="undefined",d="!",f="-",m=l.screen,h=m.width||0,v=m.height||0,y=l.devicePixelRatio||1,g=new RegExp("(^|;\\s+)"+o+"=([^;]+)"),w=(u.cookie.match(g)||[])[2]||"",k=w.split("/");if(w&&h==k[0]&&v==k[1]&&y==k[2]&&7===k[3].length);else{var T=[h,v,y,M()].join("/");u.cookie=o+"=; expires="+new Date(0).toUTCString()+";"+i+n+" path="+a,u.cookie=o+"="+T+"; expires="+s+";"+i+n+" path="+a+"; domain="+r,""!==u.cookie&&c&&location.reload()}function M(){var e=(function(){var e;try{e=new XMLHttpRequest}catch(t){try{e=new ActiveXObject("Msxml2.XMLHTTP")}catch(t){try{e=new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}}}return e?d:f})(),t=((o=u.createElement("div")).innerHTML='<input type="file" />',"file"!==(o=o.getElementsByTagName("input")[0]).type||o.disabled?f:d),o,i="ontouchstart"in l?d:f,n=f,a,r,c;try{typeof navigator.geolocation!==p?n=d:typeof l.google!==p&&typeof google.gears!==p?n=d:typeof device!==p&&typeof device.getServiceObject!==p?n=d:typeof Mojo!==p&&"Mojo.Service.Request"!=typeof Mojo.Service.Request&&(n=d)}catch(e){}return[e,t,i,n,(function(e){try{var t=l.Audio?new Audio:u.createElement("audio");if(t.canPlayType&&t.canPlayType(e)&&"no"!==t.canPlayType(e))return d}catch(e){}return f})("audio/mpeg"),(function(e){try{for(var t=u.createElement("div"),o=["","webkit","Moz","ms","O"],i=0,n=o.length;i<n;i++){var a=o[i],r=a?a+e:e.toLowerCase();if(typeof t.style[r]!==p)return d}return f}catch(e){return f}})("Transform"),(l.XMLHttpRequest||l.XDomainRequest)&&(l.FormData||l.FileReader&&(l.XMLHttpRequest&&XMLHttpRequest.sendAsBinary||l.ArrayBuffer&&l.Uint8Array&&(l.MozBlobBuilder||l.WebKitBlobBuilder||l.BlobBuilder)))?d:f].join("")}}function o(e){var t=e.cookie_secure,o=e.cookie_samesite,i=location,n=i.hash||"",a=n.substr(2);if("#/"===n.substr(0,2)){var r=window.locDomain,c=new Date;c.setTime(c.getTime()+864e5);var s="; expires="+c.toGMTString();document.cookie=["remixtmp_hash_nav","=",escape(i.href),s,"; path=/",""+t,""+o,r?"; domain=."+r:""].join(""),a.match(/^\/*(away|login)(\.php)?([^a-z0-9\.]|$)/)&&(a=""),i.replace(i.protocol+"//"+i.host+"/"+a)}}return e})()({"hash_redirect":true,"device_cookie":"remixmdevice","iospwa_cookie":"remixmiospwa","cookie_path":"\/","cookie_domain":".vk.com","cookie_samesite":"","cookie_secure":" Secure;","need_reload":true,"al_ver":"78225f55e1a43d34f8760a49b3c8ff4943aec9f2ff6bdd2a170e4e387991ad87"});
+//-->
+</SCRIPT>
+         <LINK href="Музыка%20Теста%20Тестовича_files/common.css" rel="stylesheet"> 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/runtime.27500d7cd9f9be73be58.js"></SCRIPT>
+ 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/vendors.fd595451a83a42b04ab2.js"></SCRIPT>
+ 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/polyfills.56c3bfcc591508ccb655.js"></SCRIPT>
+ 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/b-90e3308f10e8b0130de467d08f44484f.19d47dfbb768d87ec320.js"></SCRIPT>
+ 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/b-7838b057c2226da38efb8152f7a6b628.6389f76247a5ee0fc584.js"></SCRIPT>
+ 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/common.0c92ffcd753e1c72053e.js"></SCRIPT>
+ 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/grip.fc8ecbfc2f4c135657da.js"></SCRIPT>
+ 
+<SCRIPT src="Музыка%20Теста%20Тестовича_files/app_use_time.d42e624501a182716a35.js"></SCRIPT>
+         <LINK href="https://vk.com/audio?=" rel="canonical">     <LINK href="android-app://com.vkontakte.android/vkontakte/m.vk.com/audio?=" 
+rel="alternate">       
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD>       
+<BODY class="vk__page _hover vk_ios_no _hfixed vk_stickers_hints_support_yes _lm opera_mini_no vk_safari_no vk_tabbar_top vk_hide_header  vk_al_yes " 
+onresize="onBodyResize(true);">
+<DIV class="layout">
+<DIV class="layout__header mhead" id="vk_head">
+<DIV class="hb_wrap">
+<DIV class="hb_btn">&nbsp;</DIV></DIV></DIV>
+<DIV class="layout__body qs_enabled" id="vk_wrap">
+<DIV class="layout__leftMenu" id="l">
+<DIV class="leftMenu">
+<DIV class="leftMenu__header mhead">
+<DIV class="head_search">
+<FORM class="qsearch qsearch--ajax" onsubmit="return lm_qsearch.go(event);" 
+action="/search"><INPUT name="act" type="hidden" value="global">   
+<TABLE class="row_table">
+  <TBODY>
+  <TR>
+    <TD class="row_table_main_column">
+      <DIV class="qs_field_wrap">
+      <DIV class="clear_btn" id="lm_search_clear" onclick="return lm_qsearch.clear(event, true);"></DIV><I 
+      class="i_search" onclick="elfocus('lm_search_field');"></I>         
+      <DIV class="iwrap"><INPUT name="q" class="textfield qs_textfield" id="lm_search_field" type="text" placeholder="Поиск" value="" data-scrollviewposition="top" autocomplete="off"> 
+                          </DIV></DIV></TD></TR></TBODY></TABLE></FORM></DIV><A class="hb_wrap mhb_logo al_menu" 
+onclick="return menu.headerAction(this, event);" href="https://m.vk.com/feed" 
+data-header="Новости"><SPAN class="bottom"></SPAN>           
+<DIV class="lmh_logo_wrap">
+<DIV class="hb_btn mhi_logo mhi_index_logo">&nbsp;</DIV></DIV></A>       </DIV>
+<DIV class="leftMenu__searchItems m_search_items" id="lm_search_items"></DIV>
+<DIV class="leftMenu__content m_search_cont" id="lm_cont">
+<DIV class="pcont fit_box">
+<DIV id="lm_top_notify"></DIV>
+<DIV id="lm_prof_panel">
+<DIV class="owner_panel index_panel al_u375988312" onclick="nav.onMenuItemClick('/profile'); nav.go(this, event);" 
+ontouchstart="thover.start.call(this, event);" data-photo="/images/camera_50.png?ava=1" 
+data-name="Тест Тестович" data-href="/id375988312">
+<DIV class="ip_user_link"><A class="al_u375988312" href="https://m.vk.com/id375988312" 
+rel="noopener" data-photo="/images/camera_50.png?ava=1" data-name="Тест Тестович"><IMG 
+class="op_fimg _u375988312" 
+src="Музыка%20Теста%20Тестовича_files/camera_50.png"></A>     
+<DIV class="op_fcont">
+<H2 class="op_header"><A class="op_owner alal_u375988312 al_u375988312" href="https://m.vk.com/id375988312" 
+rel="noopener" data-photo="/images/camera_50.png?ava=1" data-name="Тест Тестович">Тест 
+Тестович</A></H2></DIV></DIV></DIV></DIV>
+<UL class="main_menu">
+  <LI class="mmi_feed"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/feed'); " 
+  href="https://m.vk.com/feed" data-header="Новости" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV class="svgIcon svgIcon-menu svgIcon-menu__feed"></DIV></I><SPAN class="mmi_wrap"><SPAN 
+  class="mm_label">Новости</SPAN></SPAN></A></LI>
+  <LI class="mmi_recommended"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/feed?section=recommended'); " 
+  href="https://m.vk.com/feed?section=recommended" data-header="" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__safari_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Рекомендации</SPAN></SPAN></A></LI>
+  <LI class="mmi_answers"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/feed?section=notifications'); " 
+  href="https://m.vk.com/feed?section=notifications" data-header="Уведомления" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV class="svgIcon svgIcon-menu svgIcon-menu__notify"></DIV></I><SPAN class="mmi_wrap"><SPAN 
+  class="mm_label">Уведомления</SPAN><EM 
+  class="mm_counter">2</EM></SPAN></A></LI>
+  <LI class="mmi_mail"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/mail'); " 
+  href="https://m.vk.com/mail" data-header="Сообщения" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__message_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Сообщения</SPAN></SPAN></A></LI>
+  <LI class="mmi_friends"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/friends'); " 
+  href="https://m.vk.com/friends" data-header="Друзья" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__user_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Друзья</SPAN></SPAN></A></LI>
+  <LI class="mmi_groups"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/groups'); " 
+  href="https://m.vk.com/groups" data-header="Сообщества" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__users_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Сообщества</SPAN></SPAN></A></LI>
+  <LI class="mmi_photos"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/albums'); " 
+  href="https://m.vk.com/albums" data-header="Фотографии" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__camera_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Фотографии</SPAN></SPAN></A></LI>
+  <LI class="mmi_video"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/video'); " 
+  href="https://m.vk.com/video" data-header="Видеозаписи" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__video_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Видео</SPAN></SPAN></A></LI>
+  <LI class="mmi_audio"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/audio'); " 
+  href="https://m.vk.com/audio" data-header="Музыка" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__music_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Музыка</SPAN></SPAN></A></LI>
+  <LI class="mmi_services"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/services'); " 
+  href="https://m.vk.com/services" data-header="Сервисы" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__services_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Сервисы</SPAN></SPAN></A></LI>
+  <LI class="mmi_fave"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/bookmarks'); Bookmarks.openSavedTab(event, this);" 
+  href="https://m.vk.com/bookmarks" data-header="Закладки" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__favorite_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Закладки</SPAN></SPAN></A></LI>
+  <LI class="mmi_docs"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/docs'); " 
+  href="https://m.vk.com/docs" data-header="Документы" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__document_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Документы</SPAN></SPAN></A></LI>
+  <LI class="mmi_likes"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/feed?section=likes'); Bookmarks.openLikesFeed(this);" 
+  href="https://m.vk.com/feed?section=likes" data-header="Понравилось" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__like_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Понравилось</SPAN></SPAN></A></LI>
+  <LI class="mmi_search"><A class="mm_item al_menu" onclick="nav.onMenuItemClick('/search'); " 
+  href="https://m.vk.com/search" data-header="Поиск" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV 
+  class="svgIcon svgIcon-menu svgIcon-menu__search_outline_28"></DIV></I><SPAN 
+  class="mmi_wrap"><SPAN class="mm_label">Поиск</SPAN></SPAN></A></LI></UL>
+<DIV class="lm_player" id="lm_player">
+<DIV class="audio_item al_player" id="lm_audio" onclick="return audioplayer.openPlayer(this);" 
+data-href="#player">
+<DIV class="ai_play" onclick="audioplayer.playPause(event);"><I 
+class="i_play"></I></DIV>
+<DIV class="ai_body"><I class="i_arr"></I>     
+<DIV class="ai_label">
+<DIV class="ai_title"></DIV>
+<DIV class="ai_artist"></DIV></DIV></DIV></DIV></DIV>
+<DIV id="lm_bottom_notify"></DIV></DIV>
+<DIV class="mfoot">
+<UL class="left_footer_menu">
+  <LI class="mmi_settings"><A class="lfm_item al_menu" onclick="nav.onMenuItemClick('/settings?act=menu');" 
+  href="https://m.vk.com/settings?act=menu" data-header="Настройки" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV class="svgIcon svgIcon-menu svgIcon-menu__"></DIV></I><SPAN class="mmi_wrap"><SPAN 
+  class="mm_label">Настройки</SPAN></SPAN></A></LI>
+  <LI class="mmi_help"><A class="lfm_item al_menu" onclick="nav.onMenuItemClick('/support');" 
+  href="https://m.vk.com/support" data-header="Помощь" data-skiponclick="1"><I 
+  class="i_icon">
+  <DIV class="svgIcon svgIcon-menu svgIcon-menu__"></DIV></I><SPAN class="mmi_wrap"><SPAN 
+  class="mm_label">Помощь</SPAN></SPAN></A></LI>
+  <LI class="mmi_fv"><A class="lfm_item" onclick="nav.onMenuItemClick('/full_version');" 
+  href="https://m.vk.com/fv?to=%2Faudio%3F%3D%26_fm%3D1%26_fm2%3D1" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV class="svgIcon svgIcon-menu svgIcon-menu__"></DIV></I><SPAN class="mmi_wrap"><SPAN 
+  class="mm_label">Версия для компьютера</SPAN></SPAN></A></LI>
+  <LI class="mmi_logout"><A class="lfm_item" onclick="nav.onMenuItemClick('/logout');" 
+  href="https://login.vk.com/?act=logout_mobile&amp;hash=ce27c521a40e4538f3&amp;_origin=https%3A%2F%2Fm.vk.com" 
+  data-skiponclick="1"><I class="i_icon">
+  <DIV class="svgIcon svgIcon-menu svgIcon-menu__"></DIV></I><SPAN class="mmi_wrap"><SPAN 
+  class="mm_label">Выход</SPAN></SPAN></A></LI></UL></DIV></DIV></DIV></DIV>
+<DIV class="layout__basis" id="m">
+<DIV class="basis">
+<DIV class="basis__header mhead  basis__header_noshadow basis__header_noshadowAnim" 
+id="mhead">
+<DIV class="header__center hb_wrap mhb_back header__title-wrapper  is_unfold"><A 
+title="Назад" class="header__back  al_back mh mh_noleftmenu" aria-label="" 
+onclick="return !nav.backToTabHistory(this);" href="https://m.vk.com/menu" rel="noopener">
+<DIV class="svgIcon svgIcon-base svgIcon-base__back_outline_28"></DIV></A>       
+<SPAN class="header__title-inner"><SPAN 
+class="header__title hb_btn mh_header"><SPAN class="header__text" id="header__title">
+<DIV class="header__unfold">
+<DIV class="Unfold"><A class="Unfold__trigger" onmousedown="Unfold._onTriggerMouseDown(this)" 
+onclick="Unfold._onTriggerClick(event)" href="https://m.vk.com/audio?open_menu=1">
+<H1 class="Unfold__triggerText">
+<DIV class="Unfold__triggerContent">Моя музыка</DIV></H1>
+<DIV class="Unfold__triggerIcon">
+<DIV class="svgIcon svgIcon-base svgIcon-base__dropdown_16"></DIV></DIV></A>
+<DIV class="Unfold__popup ScrollView">    <A class="al_empty _touched replaceState Unfold__item Unfold__item_active Unfold__item_name_all" 
+href="https://m.vk.com/audio">
+<DIV class="Unfold__itemText">      Моя музыка     </DIV></A>    <A class="al_empty _touched replaceState Unfold__item Unfold__item_name_recoms" 
+href="https://m.vk.com/audio?act=recoms">
+<DIV class="Unfold__itemText">      Рекомендации     
+</DIV></A></DIV></DIV></DIV></SPAN></SPAN></SPAN>     </DIV></DIV>
+<DIV class="basis__menu">
+<DIV class="BottomMenu">
+<DIV class="BottomMenu__fixed">
+<DIV class="BottomMenu__table">
+<DIV class="BottomMenu__row">
+<DIV class="BottomMenu__cell"><A class="BottomMenu__link _BottomMenu__link_js al_tabbar" 
+role="button" aria-label="Новости " onclick='nav.onMenuItemClick("\/feed")' 
+href="https://m.vk.com/feed" data-header="Новости" data-skiponclick="1" 
+data-tabbar="feed" data-default="/feed">
+<DIV 
+class="_BottomMenu__icon_js BottomMenu__icon_feed BottomMenu__icon"></DIV></A></DIV>
+<DIV class="BottomMenu__cell"><A class="BottomMenu__link _BottomMenu__link_js al_tabbar" 
+role="button" aria-label="Рекомендации " onclick='nav.onMenuItemClick("\/feed?section=recommended")' 
+href="https://m.vk.com/feed?section=recommended" data-header="Рекомендации" 
+data-skiponclick="1" data-tabbar="recommend" data-default="/feed?section=recommended">
+<DIV 
+class="_BottomMenu__icon_js BottomMenu__icon_recommend BottomMenu__icon"></DIV></A></DIV>
+<DIV class="BottomMenu__cell"><A class="BottomMenu__link _BottomMenu__link_js al_tabbar" 
+role="button" aria-label="Сообщения 0" onclick='nav.onMenuItemClick("\/mail")' 
+href="https://m.vk.com/mail" data-header="Сообщения" data-skiponclick="1" 
+data-tabbar="messages" data-default="/mail" data-counter="0">
+<DIV 
+class="_BottomMenu__icon_js BottomMenu__icon_messages BottomMenu__icon"></DIV></A></DIV>
+<DIV class="BottomMenu__cell"><A class="BottomMenu__link _BottomMenu__link_js al_tabbar" 
+role="button" aria-label="Уведомления 2" onclick='nav.onMenuItemClick("\/feed?section=notifications")' 
+href="https://m.vk.com/feed?section=notifications" data-header="Уведомления" 
+data-skiponclick="1" data-tabbar="notification" data-default="/feed?section=notifications" 
+data-counter="2">
+<DIV 
+class="_BottomMenu__icon_js BottomMenu__icon_notification BottomMenu__icon"><SPAN 
+class="BottomMenu__counter">2</SPAN></DIV></A></DIV>
+<DIV class="BottomMenu__cell"><A class="BottomMenu__link _BottomMenu__link_js al_tabbar" 
+role="button" aria-label="Ещё " onclick='nav.onMenuItemClick("\/menu")' href="https://m.vk.com/menu" 
+data-header="Ещё" data-skiponclick="1" data-tabbar="menu" data-default="/menu">
+<DIV class="_BottomMenu__icon_js BottomMenu__icon_menu BottomMenu__icon BottomMenu__icon_active"></DIV></A></DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="basis__content mcont " id="mcont" data-canonical="https://vk.com/audio?=">
+<DIV class="AudioSerp AudioSerp_view_owned">
+<DIV class="AudioSerp__search"><LABEL class="SearchPanel SearchPanel--ajax Row" 
+data-id="uAudioSerp">
+<DIV class="SearchPanel__inputWrap"><INPUT class="SearchPanel__input" oninput='SearchPanel._onInput(this, "uAudioSerp._onQueryChange")' placeholder="Поиск" value="" data-scrollviewposition="top"></DIV>
+<DIV class="SearchPanel__clear" onclick="SearchPanel._onClearClick(this)">
+<DIV class="SearchPanel__clearIcon Icon Icon_close20"></DIV></DIV><BUTTON class="SearchPanel__submit SearchPanel__submit--ajax Btn Btn_theme_regular" 
+aria-label="">
+<DIV class="Btn__text">
+<DIV 
+class="SearchPanel__clearIcon Icon Icon_inputSearchBlue"></DIV></DIV></BUTTON></LABEL></DIV>
+<DIV class="AudioSerp__content">
+<DIV class="AudioSerp__spinner">
+<DIV class=" Spinner Icon Icon_spinner"></DIV></DIV>
+<DIV class="AudioSerp__owned">
+<DIV class="pcont audioPage">
+<DIV class="audioPage__header">
+<DIV class="audioPage__search">
+<DIV class="hp_block">
+<FORM class="qsearch qsearch--ajax" onsubmit="return cur.au_search.go(event);" 
+action="/audio"><INPUT type="hidden">   
+<TABLE class="row_table">
+  <TBODY>
+  <TR>
+    <TD class="row_table_main_column">
+      <DIV class="qs_field_wrap">
+      <DIV class="clear_btn" id="au_search_clear" onclick="return cur.au_search.clear(event, true);"></DIV>
+      <DIV class="iwrap"><INPUT name="q" class="textfield qs_textfield" id="au_search_field" oninput="AudioPlaylist.copyValue(this, 'au_search_playlist');" type="text" placeholder="Поиск" value="" data-scrollviewposition="top" autocomplete="off" data-newsearch="true"> 
+                  <BUTTON class="al_tab qs_submit Btn Btn_theme_regular" 
+      aria-label="Искать" type="submit">
+      <DIV class="Btn__text"><I class="qs_submit-icon"></I></DIV></BUTTON>       
+        </DIV></DIV></TD></TR></TBODY></TABLE></FORM></DIV></DIV></DIV>
+<DIV class="upanel">
+<DIV id="au_followed_artists_items"></DIV>
+<DIV id="au_search_playlist_items">
+<DIV class="audioPlaylists">
+<DIV class="audioPlaylists__header">
+<DIV class="audioPlaylists__cell">
+<DIV class="audioPlaylists__title">Плейлисты</DIV></DIV>
+<DIV class="audioPlaylists__cell"><A class="audioPlaylists__link al_playlists" 
+href="https://m.vk.com/audio?act=audio_playlists375988312">Показать 
+все</A></DIV></DIV>
+<DIV class="audioPlaylists__body _preventMenuOpen">
+<DIV class="audioPlaylists__items">
+<DIV class="audioPlaylists__item"><A class="audioPlaylists__itemLink al_playlist" 
+href="https://m.vk.com/audio?act=audio_playlist375988312_2&amp;from=audios375988312">Lol</A><SPAN 
+class="audioPlaylists__itemCover"><SPAN class="audioPlaylist__grid audioPlaylist__grid_count_4">
+<DIV class="audioPlaylist__grid_cover audioPlaylist__grid_cover_0" style='background-image: url("https://sun9-14.userapi.com/c852036/v852036083/cef5b/2fMFt13zypM.jpg");'></DIV>
+<DIV class="audioPlaylist__grid_cover audioPlaylist__grid_cover_1" style='background-image: url("https://sun9-53.userapi.com/c849028/v849028929/173022/CNId4wEb-tY.jpg");'></DIV>
+<DIV class="audioPlaylist__grid_cover audioPlaylist__grid_cover_2" style='background-image: url("https://sun9-37.userapi.com/c857724/v857724455/86cea/gLRcUVxNF8U.jpg");'></DIV>
+<DIV class="audioPlaylist__grid_cover audioPlaylist__grid_cover_3" style='background-image: url("https://sun9-62.userapi.com/c853424/v853424754/bb20b/TQJcP2v7aSA.jpg");'></DIV></SPAN></SPAN><SPAN 
+class="audioPlaylists__itemTitle">Lol</SPAN><SPAN class="audioPlaylists__itemAuthor">Тест 
+Тестович</SPAN></DIV>
+<DIV class="audioPlaylists__item"><A class="audioPlaylists__itemLink al_playlist" 
+href="https://m.vk.com/audio?act=audio_playlist375988312_1&amp;from=audios375988312">Test	</A><SPAN 
+class="audioPlaylists__itemCover"></SPAN><SPAN 
+class="audioPlaylists__itemTitle">Test	</SPAN><SPAN class="audioPlaylists__itemAuthor">Тест 
+Тестович</SPAN></DIV></DIV></DIV></DIV></DIV>
+<DIV class="AudioPlaylistRoot" data-playlist-id="audios375988312">
+<DIV class="bl_cont" id="au_search_items">
+<DIV class="audioPage__count">5 аудиозаписей</DIV>
+<DIV class="audios_block audios_list _si_container">
+<DIV class="audio_item audio_item audio_item_375988312_456239021 ai_has_btn " 
+onclick="audioplayer.playPause(event, '375988312_456239021')" data-id="375988312_456239021" 
+data-audio='[456239021,375988312,"","Улети","T-Fest",209,0,0,"",0,66,"","[]","d298464c044efedac7\/\/c27b7c48e37d487266\/6f9dfb43f82518b6e0\/\/a4de0ca0eba78dff34\/1d9918f2b1a8c96bb7","https:\/\/sun9-55.userapi.com\/c853424\/v853424754\/bb211\/wVfw-TwMNnY.jpg,https:\/\/sun9-63.userapi.com\/c853424\/v853424754\/bb20e\/K4w_fGFirYQ.jpg",{"duration":209,"content_id":"375988312_456239021","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"1605419359760420133","name":"T-Fest"}],"",[-2000428260,1428260,"63df635caffb0f0e65"],"bccdde6dfD8cp8zXEQwGyx6Ig89ZKu69WWKISaWjKoiDfTI",0,0,true,""]'>
+<DIV class="ai_info">
+<DIV class="ai_play" style='background-image: url("https://sun9-55.userapi.com/c853424/v853424754/bb211/wVfw-TwMNnY.jpg");'><I 
+class="i_play"></I></DIV>
+<DIV class="ai_menu_wrap"><I class="i_pointer"></I>         <A class="ai_menu_toggle_button" 
+aria-label="Ещё" onclick="ActionMenu.toggleMenu(event, this);" href="https://m.vk.com/audio#"></A> 
+        
+<DIV class="ai_menu wi_actions" id="ai_menu_375988312_456239021"><A tabindex="0" 
+class="ai_del wia_item" onclick="audioplayer.del('375988312_456239021', false, event);">Удалить 
+аудиозапись</A></DIV></DIV>
+<DIV class="ai_body">
+<DIV class="ai_dur" onclick="audioplayer.switchTimeFormat(this, event);" 
+data-dur="209">3:29</DIV>
+<DIV class="ai_label"><SPAN class="ai_title">Улети</SPAN><SPAN class="divider">– 
+</SPAN>             <SPAN class="ai_artist">T-Fest</SPAN></DIV><INPUT type="hidden"> 
+        </DIV></DIV>
+<DIV class="ai_controls">
+<TABLE class="row_table">
+  <TBODY>
+  <TR>
+    <TD class="aic_progress_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setPosition(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_load_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD>
+    <TD class="aic_volume_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setVolume(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="audio_item audio_item audio_item_375988312_456239020 ai_has_btn " 
+onclick="audioplayer.playPause(event, '375988312_456239020')" data-id="375988312_456239020" 
+data-audio='[456239020,375988312,"","Like A Riddle","Felix Jaehn feat. Hearts &amp;amp; Colors, Adam Trigger",179,0,0,"",0,98,"","[]","2d4354e28002e6edc5\/\/5810fa98aff807ae15\/971709c7309d3dcb40\/\/fc560498a38b0e15e9\/56ff70a639a4a6a363","https:\/\/sun9-65.userapi.com\/c857724\/v857724455\/86cf0\/kAA3bWOglkQ.jpg,https:\/\/sun9-67.userapi.com\/c857724\/v857724455\/86ced\/gToAqBTjcAs.jpg",{"duration":179,"content_id":"375988312_456239020","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"7540873822801617824","name":"Felix Jaehn"}],[{"id":"8402763481935720825","name":"Hearts &amp; Colors"},{"id":"9175912286082501509","name":"Adam Trigger"}],[-2000867219,1867219,"71f11c50db54b1166f"],"95aa6fc9pFCzS74m2SXEy0DLNuPvEebkCONFX-umlzunen8",0,0,true,""]'>
+<DIV class="ai_info">
+<DIV class="ai_play" style='background-image: url("https://sun9-65.userapi.com/c857724/v857724455/86cf0/kAA3bWOglkQ.jpg");'><I 
+class="i_play"></I></DIV>
+<DIV class="ai_menu_wrap"><I class="i_pointer"></I>         <A class="ai_menu_toggle_button" 
+aria-label="Ещё" onclick="ActionMenu.toggleMenu(event, this);" href="https://m.vk.com/audio#"></A> 
+        
+<DIV class="ai_menu wi_actions" id="ai_menu_375988312_456239020"><A tabindex="0" 
+class="ai_del wia_item" onclick="audioplayer.del('375988312_456239020', false, event);">Удалить 
+аудиозапись</A></DIV></DIV>
+<DIV class="ai_body">
+<DIV class="ai_dur" onclick="audioplayer.switchTimeFormat(this, event);" 
+data-dur="179">2:59</DIV>
+<DIV class="ai_label"><SPAN class="ai_title">Like A Riddle</SPAN><SPAN class="divider">– 
+</SPAN>             <SPAN class="ai_artist">Felix Jaehn feat. Hearts &amp; 
+Colors, Adam Trigger</SPAN></DIV><INPUT type="hidden">         </DIV></DIV>
+<DIV class="ai_controls">
+<TABLE class="row_table">
+  <TBODY>
+  <TR>
+    <TD class="aic_progress_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setPosition(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_load_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD>
+    <TD class="aic_volume_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setVolume(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="audio_item audio_item audio_item_375988312_456239019 ai_has_btn  audio_item_explicit" 
+onclick="audioplayer.playPause(event, '375988312_456239019')" data-id="375988312_456239019" 
+data-audio='[456239019,375988312,"","Pray","Sam Smith",221,0,0,"",0,1122,"","[]","4a5d3bd9da13967838\/\/6c732e42598d4ee378\/d978952a5e0ef33d5a\/\/7f9a7af578505fe891\/918dfd37fbc7b122ca","https:\/\/sun9-26.userapi.com\/c849028\/v849028929\/173028\/wNtDEmMdgrk.jpg,https:\/\/sun9-49.userapi.com\/c849028\/v849028929\/173025\/LSmONXWOhe4.jpg",{"duration":221,"content_id":"375988312_456239019","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"6185900423019311748","name":"Sam Smith"}],"",[-2000217391,2217391,"25a52db981b21901d3"],"2abcda420rl8oKTgr4XdwV-IiFcezdmsgr-o3LyZPUfzjMM",0,0,true,""]'>
+<DIV class="ai_info">
+<DIV class="ai_play" style='background-image: url("https://sun9-26.userapi.com/c849028/v849028929/173028/wNtDEmMdgrk.jpg");'><I 
+class="i_play"></I></DIV>
+<DIV class="ai_menu_wrap"><I class="i_pointer"></I>         <A class="ai_menu_toggle_button" 
+aria-label="Ещё" onclick="ActionMenu.toggleMenu(event, this);" href="https://m.vk.com/audio#"></A> 
+        
+<DIV class="ai_menu wi_actions" id="ai_menu_375988312_456239019"><A tabindex="0" 
+class="ai_del wia_item" onclick="audioplayer.del('375988312_456239019', false, event);">Удалить 
+аудиозапись</A></DIV></DIV>
+<DIV class="ai_body">
+<DIV class="ai_dur" onclick="audioplayer.switchTimeFormat(this, event);" 
+data-dur="221">3:41</DIV>
+<DIV class="ai_label"><SPAN class="ai_title">Pray</SPAN>             <SPAN 
+class="divider">– </SPAN>             <SPAN class="ai_artist">Sam 
+Smith</SPAN></DIV><INPUT type="hidden">         </DIV></DIV>
+<DIV class="ai_controls">
+<TABLE class="row_table">
+  <TBODY>
+  <TR>
+    <TD class="aic_progress_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setPosition(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_load_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD>
+    <TD class="aic_volume_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setVolume(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="audio_item audio_item audio_item_375988312_456239018 ai_has_btn " 
+onclick="audioplayer.playPause(event, '375988312_456239018')" data-id="375988312_456239018" 
+data-audio='[456239018,375988312,"","Не боюсь","Nyusha",237,0,0,"",0,66,"","[]","76252b8484242b9950\/\/c0953961942f418f27\/c571be7c1eb66c9965\/\/15d13694174b86adeb\/2e89218057735065f3","https:\/\/sun9-42.userapi.com\/c852036\/v852036083\/cef61\/w8QIIzFzNdI.jpg,https:\/\/sun9-64.userapi.com\/c852036\/v852036083\/cef5e\/l7-pFGBQyVs.jpg",{"duration":237,"content_id":"375988312_456239018","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"3601166358488087100","name":"Nyusha"}],"",[-2000846812,1846812,"f8c564dedcf4d35884"],"2280798fNC-Gye5Hm5kXhtWUDpalJgHoWh7L3P3IrMes7cg",0,0,true,""]'>
+<DIV class="ai_info">
+<DIV class="ai_play" style='background-image: url("https://sun9-42.userapi.com/c852036/v852036083/cef61/w8QIIzFzNdI.jpg");'><I 
+class="i_play"></I></DIV>
+<DIV class="ai_menu_wrap"><I class="i_pointer"></I>         <A class="ai_menu_toggle_button" 
+aria-label="Ещё" onclick="ActionMenu.toggleMenu(event, this);" href="https://m.vk.com/audio#"></A> 
+        
+<DIV class="ai_menu wi_actions" id="ai_menu_375988312_456239018"><A tabindex="0" 
+class="ai_del wia_item" onclick="audioplayer.del('375988312_456239018', false, event);">Удалить 
+аудиозапись</A></DIV></DIV>
+<DIV class="ai_body">
+<DIV class="ai_dur" onclick="audioplayer.switchTimeFormat(this, event);" 
+data-dur="237">3:57</DIV>
+<DIV class="ai_label"><SPAN class="ai_title">Не боюсь</SPAN><SPAN class="divider">– 
+</SPAN>             <SPAN class="ai_artist">Nyusha</SPAN></DIV><INPUT type="hidden"> 
+        </DIV></DIV>
+<DIV class="ai_controls">
+<TABLE class="row_table">
+  <TBODY>
+  <TR>
+    <TD class="aic_progress_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setPosition(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_load_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD>
+    <TD class="aic_volume_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setVolume(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="audio_item audio_item audio_item_375988312_456239017 ai_has_btn " 
+onclick="audioplayer.playPause(event, '375988312_456239017')" data-id="375988312_456239017" 
+data-audio='[456239017,375988312,"","Розовое вино","Элджей, Feduk",236,0,0,"",0,66,"","[]","20fd1e55836e4491dd\/\/7355a4a2f9b50213fa\/937a536f9b3e0c7d51\/\/52325499941055147d\/eb816f55074a626e4c","https:\/\/sun9-65.userapi.com\/c841329\/v841329072\/4eb89\/0Wl_zK6aLLU.jpg,https:\/\/sun9-1.userapi.com\/c841329\/v841329072\/4eb86\/czFY5j1TkYg.jpg",{"duration":236,"content_id":"375988312_456239017","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"Radio Edit",[{"id":"9031738716807846840","name":"Элджей"},{"id":"8288547340863787761","name":"Feduk"}],"",[-2000649989,1649989,"ea2fdb1a47ebd477c5"],"404b8d63BcXQJtYSu4qnCQNMW5HTi5nImb9VDWh9F-beGwA",0,0,true,""]'>
+<DIV class="ai_info">
+<DIV class="ai_play" style='background-image: url("https://sun9-65.userapi.com/c841329/v841329072/4eb89/0Wl_zK6aLLU.jpg");'><I 
+class="i_play"></I></DIV>
+<DIV class="ai_menu_wrap"><I class="i_pointer"></I>         <A class="ai_menu_toggle_button" 
+aria-label="Ещё" onclick="ActionMenu.toggleMenu(event, this);" href="https://m.vk.com/audio#"></A> 
+        
+<DIV class="ai_menu wi_actions" id="ai_menu_375988312_456239017"><A tabindex="0" 
+class="ai_del wia_item" onclick="audioplayer.del('375988312_456239017', false, event);">Удалить 
+аудиозапись</A></DIV></DIV>
+<DIV class="ai_body">
+<DIV class="ai_dur" onclick="audioplayer.switchTimeFormat(this, event);" 
+data-dur="236">3:56</DIV>
+<DIV class="ai_label"><SPAN class="ai_title">Розовое вино <SPAN class="ai_subtitle">Radio 
+Edit</SPAN></SPAN><SPAN class="divider">– </SPAN>             <SPAN class="ai_artist">Элджей, 
+Feduk</SPAN></DIV><INPUT type="hidden">         </DIV></DIV>
+<DIV class="ai_controls">
+<TABLE class="row_table">
+  <TBODY>
+  <TR>
+    <TD class="aic_progress_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setPosition(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_load_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD>
+    <TD class="aic_volume_wrap">
+      <DIV class="aic_line" onmousedown="audioplayer.setVolume(this, event);" 
+      onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_back_line" onclick="cancelEvent(event);"></DIV>
+      <DIV class="aic_ln aic_pl_wrap" onclick="cancelEvent(event);">
+      <DIV class="aic_ln aic_progress_line" onclick="cancelEvent(event);">
+      <DIV class="aic_slider" 
+      onclick="cancelEvent(event);"></DIV></DIV></DIV></DIV></TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV class="AudioSerp__found">
+<DIV class="AudioSerp__noFound Row">
+<DIV class="AudioSerp__noFoundText">Ни одной аудиозаписи не 
+найдено</DIV></DIV></DIV></DIV></DIV>
+<DIV class="AudioSerp__bottomOffset"></DIV></DIV>
+<DIV class="basis__footer mfoot" id="mfoot">
+<DIV class="BottomMenu__offset"></DIV></DIV>
+<SCRIPT id="page_script" type="text/javascript">
+<!--
+onDOMReady(function(){cur.au_search = new QuickSearch(extend({"action":"\/audio","al_action":"\/audios375988312","container":"au_search_items","field":"au_search_field","btn":"au_search_btn","clear_btn":"au_search_clear","top_items":["375988312_456239021","375988312_456239020","375988312_456239019","375988312_456239018","375988312_456239017"],"_cache":{"375988312_456239021":[["T-Fest_Улети"],[456239021,375988312,"","Улети","T-Fest",209,0,0,"",0,66,"","[]","d298464c044efedac7\/\/c27b7c48e37d487266\/6f9dfb43f82518b6e0\/\/a4de0ca0eba78dff34\/1d9918f2b1a8c96bb7","https:\/\/sun9-55.userapi.com\/c853424\/v853424754\/bb211\/wVfw-TwMNnY.jpg,https:\/\/sun9-63.userapi.com\/c853424\/v853424754\/bb20e\/K4w_fGFirYQ.jpg",{"duration":209,"content_id":"375988312_456239021","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"1605419359760420133","name":"T-Fest"}],"",[-2000428260,1428260,"63df635caffb0f0e65"],"bccdde6dfD8cp8zXEQwGyx6Ig89ZKu69WWKISaWjKoiDfTI",0,0,true,""]],"375988312_456239020":[["Felix Jaehn feat. Hearts &amp; Colors, Adam Trigger_Like A Riddle"],[456239020,375988312,"","Like A Riddle","Felix Jaehn feat. Hearts &amp; Colors, Adam Trigger",179,0,0,"",0,98,"","[]","2d4354e28002e6edc5\/\/5810fa98aff807ae15\/971709c7309d3dcb40\/\/fc560498a38b0e15e9\/56ff70a639a4a6a363","https:\/\/sun9-65.userapi.com\/c857724\/v857724455\/86cf0\/kAA3bWOglkQ.jpg,https:\/\/sun9-67.userapi.com\/c857724\/v857724455\/86ced\/gToAqBTjcAs.jpg",{"duration":179,"content_id":"375988312_456239020","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"7540873822801617824","name":"Felix Jaehn"}],[{"id":"8402763481935720825","name":"Hearts & Colors"},{"id":"9175912286082501509","name":"Adam Trigger"}],[-2000867219,1867219,"71f11c50db54b1166f"],"95aa6fc9pFCzS74m2SXEy0DLNuPvEebkCONFX-umlzunen8",0,0,true,""]],"375988312_456239019":[["Sam Smith_Pray"],[456239019,375988312,"","Pray","Sam Smith",221,0,0,"",0,1122,"","[]","4a5d3bd9da13967838\/\/6c732e42598d4ee378\/d978952a5e0ef33d5a\/\/7f9a7af578505fe891\/918dfd37fbc7b122ca","https:\/\/sun9-26.userapi.com\/c849028\/v849028929\/173028\/wNtDEmMdgrk.jpg,https:\/\/sun9-49.userapi.com\/c849028\/v849028929\/173025\/LSmONXWOhe4.jpg",{"duration":221,"content_id":"375988312_456239019","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"6185900423019311748","name":"Sam Smith"}],"",[-2000217391,2217391,"25a52db981b21901d3"],"2abcda420rl8oKTgr4XdwV-IiFcezdmsgr-o3LyZPUfzjMM",0,0,true,""]],"375988312_456239018":[["Nyusha_Не боюсь"],[456239018,375988312,"","Не боюсь","Nyusha",237,0,0,"",0,66,"","[]","76252b8484242b9950\/\/c0953961942f418f27\/c571be7c1eb66c9965\/\/15d13694174b86adeb\/2e89218057735065f3","https:\/\/sun9-42.userapi.com\/c852036\/v852036083\/cef61\/w8QIIzFzNdI.jpg,https:\/\/sun9-64.userapi.com\/c852036\/v852036083\/cef5e\/l7-pFGBQyVs.jpg",{"duration":237,"content_id":"375988312_456239018","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"",[{"id":"3601166358488087100","name":"Nyusha"}],"",[-2000846812,1846812,"f8c564dedcf4d35884"],"2280798fNC-Gye5Hm5kXhtWUDpalJgHoWh7L3P3IrMes7cg",0,0,true,""]],"375988312_456239017":[["Элджей, Feduk_Розовое вино"],[456239017,375988312,"","Розовое вино","Элджей, Feduk",236,0,0,"",0,66,"","[]","20fd1e55836e4491dd\/\/7355a4a2f9b50213fa\/937a536f9b3e0c7d51\/\/52325499941055147d\/eb816f55074a626e4c","https:\/\/sun9-65.userapi.com\/c841329\/v841329072\/4eb89\/0Wl_zK6aLLU.jpg,https:\/\/sun9-1.userapi.com\/c841329\/v841329072\/4eb86\/czFY5j1TkYg.jpg",{"duration":236,"content_id":"375988312_456239017","puid22":14,"account_age_type":3,"_SITEID":276,"vk_id":375988312,"ver":251116},"Radio Edit",[{"id":"9031738716807846840","name":"Элджей"},{"id":"8288547340863787761","name":"Feduk"}],"",[-2000649989,1649989,"ea2fdb1a47ebd477c5"],"404b8d63BcXQJtYSu4qnCQNMW5HTi5nImb9VDWh9F-beGwA",0,0,true,""]]},"soft_filter":true,"need_invalid_keys":true,"top_len":20,"load_limit":false,"global_search":true,"skip_init_filter":false,"al_need":true,"init_offset":0,"_new":true,"no_search_query":null,"next_from":null}, {
+  tpl: function(items, q, al_need, add_html) {
+    if (q) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = items;
+
+      var audiosCount = (geByClass('audio_item', tmp) || []).length;
+      var disabledCount = (geByClass('audio_item_disabled', tmp) || []).length;
+      var totalCount = audiosCount - disabledCount;
+      var audiosCounterHTML = '';
+
+      if (!lang.mobile_audio_count) {
+        audiosCounterHTML = '';
+      } else if (totalCount > 0) {
+        audiosCounterHTML = '<div class="audioPage__count">'+langNumeric(totalCount, lang.mobile_audio_count)+'</div>';
+      }
+
+      return audiosCounterHTML + '<div class="audios_block audios_list _si_container" data-query="' + escapeAttr(q) + '">'+items+'</div>'+(add_html||'');
+    }
+    return '<div class="audioPage__count">5 аудиозаписей</div><div class="audios_block audios_list _si_container">'+items+'</div>'+(al_need?'':"");
+  },
+  item_tpl: function(preparedAudio) {
+  if (preparedAudio.data) {
+    preparedAudio.data[4] = this.highlight(preparedAudio.performer); // for now use hardcoded indexes for constants, since we can't import enums file here
+    preparedAudio.data[3] = this.highlight(preparedAudio.title);
+  }
+    return audioplayer&&audioplayer.getDOMFromAudio(preparedAudio, true, this.q)||'';
+  },
+  null_tpl: function(q) {
+    return '<div class="service_msg_box"><div class="service_msg service_msg_null">'+(q?'По запросу «<b>%s</b>» не найдено ни одной аудиозаписи'.replace('%s',htsc(q)):'')+'</div></div>';
+  },
+  onRendered: function() {
+    audioplayer&&audioplayer.initAudio();
+  }
+}));});uAudioSerp._init();extend(cur,{module:'audio'});window.isomorphicState = extend(window.isomorphicState || {}, []);window.vk={"id":375988312,"ts":1581592401,"sw":null,"stFiles":{"\/css\/mobile\/common.css":"a5295e8b417940e716f5aa39d1fc817495dd09389b775d50dddc7577a060bb74","\/js\/cmodules\/mobile\/runtime.27500d7cd9f9be73be58.js":"2ec6124f937873fc0f81da3c7b09c32bbb6bd49bc3efd73758a6c0121ed1c09e","\/js\/cmodules\/mobile\/vendors.fd595451a83a42b04ab2.js":"29ad49d59bc2a05c943ad13b63195e469232cffbe042555d60c558580e72ba5b","\/js\/cmodules\/mobile\/polyfills.56c3bfcc591508ccb655.js":"1dd6459ad38d16a2ebd87b94a2b59bb6dc2ab3b4b9f7a25fa35b7623ec3beacc","\/js\/cmodules\/mobile\/b-90e3308f10e8b0130de467d08f44484f.19d47dfbb768d87ec320.js":"1b07d4583c8bda13a31893740e01e5f1e41c31f19b0f976f5ee5d320e78cc4fb","\/js\/cmodules\/mobile\/b-7838b057c2226da38efb8152f7a6b628.6389f76247a5ee0fc584.js":"208ddb0bbd95e6d1ffbb01eb0e52e32e8d8e823ca4e534431beb52eebbbf9a77","\/js\/cmodules\/mobile\/common.0c92ffcd753e1c72053e.js":"e77838753eacb42da50d0ab08d5988eea9015333774ae5d4fc6892c3122d5470","\/js\/cmodules\/mobile\/grip.fc8ecbfc2f4c135657da.js":"23cf64555feb011c46f043fc84203aaa8efc2eb7a14511cabc0eb5cb86e52b28","\/js\/cmodules\/mobile\/app_use_time.d42e624501a182716a35.js":"bb2999db3fca7189c4582edea3a312c12561b41e3c92caa3773e229261385245"},"stNavMap":{"promocode(\\\/([0-9a-zA-Z-]+))?":["\/css\/mobile\/promocode.css","\/js\/cmodules\/mobile\/runtime.27500d7cd9f9be73be58.js","\/js\/cmodules\/mobile\/vendors.fd595451a83a42b04ab2.js","\/js\/cmodules\/mobile\/b-90e3308f10e8b0130de467d08f44484f.19d47dfbb768d87ec320.js","\/js\/cmodules\/mobile\/b-7838b057c2226da38efb8152f7a6b628.6389f76247a5ee0fc584.js","\/js\/cmodules\/mobile\/promocode.347d4c7d3e949db851c0.js"],"^\\\/video":["\/css\/mobile\/video.css","\/css\/mobile\/mail.css","\/js\/cmodules\/mobile\/runtime.27500d7cd9f9be73be58.js","\/js\/cmodules\/mobile\/vendors.fd595451a83a42b04ab2.js","\/js\/cmodules\/mobile\/b-90e3308f10e8b0130de467d08f44484f.19d47dfbb768d87ec320.js","\/js\/cmodules\/mobile\/b-7838b057c2226da38efb8152f7a6b628.6389f76247a5ee0fc584.js","\/js\/cmodules\/mobile\/video.c7cd9c5a1081cba71dac.js"],"^\\\/(photo|album|tag|attachments|market)":["\/css\/mobile\/photo.css","\/css\/mobile\/mail.css"],"^\\\/(wall|mail|write|im|chatjoin)":["\/css\/mobile\/mail.css"],"^\\\/up(\\??[0-9a-zA-Z=_-]+)?$":["\/css\/mobile\/vkapp_future.css"],"settings\\?act=groups_stories":["\/css\/mobile\/stories_settings_groups.css","\/js\/cmodules\/mobile\/runtime.27500d7cd9f9be73be58.js","\/js\/cmodules\/mobile\/vendors.fd595451a83a42b04ab2.js","\/js\/cmodules\/mobile\/b-90e3308f10e8b0130de467d08f44484f.19d47dfbb768d87ec320.js","\/js\/cmodules\/mobile\/b-7838b057c2226da38efb8152f7a6b628.6389f76247a5ee0fc584.js","\/js\/cmodules\/mobile\/stories_settings_groups.92a9b25b8525429340ec.js"],"reports\\?act=":["\/css\/mobile\/reports.css"],"^\\\/(product|cart|orders)(\\??[0-9a-zA-Z=_-]+)?":["\/css\/mobile\/market.css","\/js\/cmodules\/mobile\/runtime.27500d7cd9f9be73be58.js","\/js\/cmodules\/mobile\/vendors.fd595451a83a42b04ab2.js","\/js\/cmodules\/mobile\/b-90e3308f10e8b0130de467d08f44484f.19d47dfbb768d87ec320.js","\/js\/cmodules\/mobile\/b-7838b057c2226da38efb8152f7a6b628.6389f76247a5ee0fc584.js","\/js\/cmodules\/mobile\/market.c93102dde8a462b14d6b.js"]},"__debug":false,"pe":{"search_attempt_stats":1,"search_position_stats":1,"article_poll":1,"vk_apps_svg_qr":1,"upload.send_upload_stat":1,"push_notifier":1,"audio_search_new_catalog":1,"story_reactions_web":1,"notify_new_events_box":1,"web_ajax_json_object":1,"mini_apps_web_add_to_favorites":1,"cookie_secure_default_true":1,"mvk_skeleton_animation":1,"mvk_new_info_snackbar":1,"stickers_bot_link":1,"market_with_products_of_groups":1,"widgets_xdm_same_origin":1,"stickers_money_transfer_suggestions":1,"gifts_stickers_preview_tooltips":1,"performance_box_opening":1,"chrome_global_media_controls":1,"easy_market_promote_new_payment":1,"mvk_audio_cache2_fix":1},"iu_ex":true,"rv":"23091","audioAdsConfig":{"enabled":true,"sections":["my","user_playlists","group_playlists","my_playlists","recent","audio_feed","recs","recs_audio","recs_album","search","global_search","group_list","user_list","user_wall","group_wall","feed","other","recoms_recoms","recoms_new_audios","recoms_new_albums","recoms_communities","recoms_added_recommendation","recoms_top_audios_global","recoms_mood_playlists","games","any_case_playlists","collections","genre_rock","genre_pop","genre_rap","editors_playlists","recoms_recent_recommendation","recoms_new_artists","recoms_friends","recoms_recent_audios","recoms_recent_playlists","recoms_top_audios_global","recoms_artist_promo_playlists","recommended_concerts","search_suggestions","search_owned_audios","search_owned_playlist","search_global_audios","search_global_communities","search_global_playlist","search_global_albums","search_global_artists","search_videoclips","artist_info","artist_main_albums","artist_main_audios","artist_featured_albums","artist_featured_audios","artist_featured_albums","artist_featured_albums","artist_pages","artist_events","artist_related","artist_new_album","artist_top_audios","artist_top_videos","artist_awards","artist_concerts"],"day_limit_reached":false}};vk.started=vkNow();;window.QueueManager && window.QueueManager.init({"queue_id":"events_queue375988312","timestamp":947976022,"key":"CEvkDhxMUbmKwyoQWASH8qL4QsmVFyRn2XyMtUxcuuFB_Kw84fg8YLZvH6tYpY6k","uid":375988312,"version":10,"debug":false,"instance_id":"ODU0NTg=","server_url":"https:\/\/queuev4.vk.com\/im312","frame_path":"https:\/\/queuev4.vk.com\/q_frame.php?7","frame_url":"im312","refresh_url":"https:\/\/m.vk.com\/notifier.php"});window.audio && audio.init({"cookie":"remixmaudio","cookie_path":"\/"});
+window.audioplayer && audioplayer.init([]);lm_qsearch = new QuickSearch(extend({"action":"\/search?act=global","al_action":"\/search?act=global","container":"lm_search_items","field":"lm_search_field","btn":"lm_search_btn","clear_btn":"lm_search_clear","top_items":[],"_cache":[],"soft_filter":true,"need_invalid_keys":true,"top_len":9,"load_limit":false,"global_search":true,"skip_init_filter":true,"al_need":false,"init_offset":0,"_new":true,"no_search_query":null,"next_from":null}, {
+  tpl: function(items, q, al_need, add_html) {
+    if (!q) return items;
+    return items+(add_html||'')+'<a class="inline_item inline_item_blank al_menu" href="/search?c[section]=auto&c[q]='+encodeURIComponent(q)+'" data-header="Поиск"><div class="ii_body">'+'Искать <b>%s</b>'.replace('%s',htsc(q))+'</div></a>';
+  },
+  item_tpl: function(href, photo, name, online, desc, al_class, al_attr) {
+    return '<a href="'+(href||'')+'" class="simple_item'+(al_class?' '+al_class:'')+'"'+(al_attr||'')+'>'+(photo||'')+'<div class="si_body">'+(name?'<span class="si_owner">'+this.highlight(name||'')+'</span>':'')+(online||'')+(desc?'<div class="si_slabel">'+desc+'</div>':'')+'</div></a>';
+  },
+  onFiltered: function(q) {
+    lm_qsearch_counter = 0;
+  },
+  onFocusChanged: function(focused, q) {
+    window.lm_qsearch_focused = focused;
+    if (focused) {
+      menu && menu.qsOpen();
+    }
+  }
+}));window.menu && window.menu.initSearch();extend(al,{menu:[["feed","\/feed",""],["recommended","\/feed?section=recommended",""],["answers","\/feed?section=notifications","\/feed?section=notifications"],["mail","\/mail","\/mail"],["friends","\/friends","\/friends"],["groups","\/groups","\/groups"],["photos","\/albums","\/albums375988312"],["video","\/video",""],["audio","\/audio",""],["services","\/services",""],["fave","\/bookmarks","\/bookmarks"],["docs","\/docs",""],["likes","\/feed?section=likes",""],["search","\/search",""]], inited: true});!window.__jsInited&&(function(){window.langConfig={"id":0,"numDel":"<span class=\"num_delim\"> <\/span>","numDelS":" ","numDec":",","prepTags":["{prep_with}","{prep_With}","{prep_about}","{prep_About}","{prep_into}","{prep_Into}"],"prep":[["{prep_with},{prep_With}","С*,З*,Льв*","со,Со"],["{prep_with},{prep_With}","*,Са*,Се*,Сё*,Си*,Со*,Су*,Сэ*,Сю*,Ся*,За*,Зе*,Зё*,Зи*,Зо*,Зу*,Зэ*,Зю*,Зя*","с,С"],["{prep_about},{prep_About}","А*,О*,У*,И*,Э*","об,Об"],["{prep_about},{prep_About}","*","о,О"],["{prep_into},{prep_Into}","В*,Ф*,Льв*","во,Во"],["{prep_into},{prep_Into}","*,Ва*,Ве*,Вё*,Ви*,Во*,Ву*,Вэ*,Вю*,Вя*,Фа*,Фе*,Фё*,Фи*,Фо*,Фу*,Фэ*,Фю*,Фя*","в,В"]],"parent":0,"timeSys":["24hour"],"yearOffset":0,"flexLast":false,"revOrder":false,"RTL":false,"numRules":{"int":[[100,[11,12,13,14],3],[10,[1],1],[10,[2,3,4],2],["*",0,3]],"float":2},"sexRules":[[1,2],["*",1]],"larr":"&larr;","rarr":"&rarr;"};extend(lang,{"mobile_back":"Назад","mobile_search":"Поиск","mobile_search_not_found":"По Вашему запросу ничего не найдено","mobile_groups_no_groups_found":"По Вашему запросу не найдено ни одного сообщества.","mobile_friends_search_not_found":"По запросу «<b>%s<\/b>» не найдено ни одного друга","mobile_online":"Online","mobile_like":"Нравится","mobile_wall_post_publish":"Поделиться","mobile_wall_post_comments":["","%s комментарий","%s комментария","%s комментариев"],"mobile_wall_post_replies_title":"Комментарии","mobile_wall_only_you_liked":"Понравилось только Вам","mobile_wall_you_and_x_people_liked":["","Понравилось Вам и ещё <b>%s<\/b> человеку","Понравилось Вам и ещё <b>%s<\/b> людям","Понравилось Вам и ещё <b>%s<\/b> людям"],"mobile_wall_x_people_liked":["","Понравилось %s человеку","Понравилось %s людям","Понравилось %s людям"],"mobile_wall_only_you_shared":"Поделились только Вы","mobile_wall_you_and_x_people_shared":["","Поделились Вы и ещё <b>%s<\/b> человек","Поделились Вы и ещё <b>%s<\/b> человека","Поделились Вы и ещё <b>%s<\/b> человек"],"mobile_wall_x_people_shared":["","Поделился <b>%s<\/b> человек","Поделились <b>%s<\/b> человека","Поделились <b>%s<\/b> человек"],"mobile_wall_reply_as_title":"Автор комментария","mobile_group_head_title":"Группа","mobile_public_head_title":"Страница","mobile_event_head_title":"Мероприятие","mobile_photos_photo_author_label":"Отправитель:","mobile_photos_photo_header":"%s из {count}","mobile_photos_photo_title":"Фотография","mobile_photos_on_this_photo":"На этой фотографии:","mobile_photos_photo_was_edited":"Фотография отредактирована","mobile_photos_photo_album_label":"Альбом:","mobile_photos_photo_head_title":"Фотография","mobile_photos_photoview_header":"%s из {count}","mobile_photos_show_market_items":"Показать товары","mobile_photos_market_items_title":"Товары на фотографии","mobile_photos_choose_album_modal_title":"Выберите альбом","mobile_photos_choose_album_modal_create_album":"Создать альбом","mobile_photos_choose_album_modal_empty_text":"Чтобы загружать фотографии, сначала создайте альбом","mobile_photos_placeholder_album_text":"Пока в альбоме нет фотографий","mobile_photos_placeholder_album_action":"Добавить фотографии","mobile_menu_player_head_title":"Плейлист","mobile_audio_player_not_support":"Устройство не поддерживает воспроизведение встроенного аудио","mobile_audio_search_btn":"Искать","mobile_audio_search_placeholder":"Введите название...","mobile_audio_search_placeholder_simple":"Поиск","mobile_audio_search_not_found":"По запросу «<b>%s<\/b>» не найдено ни одной аудиозаписи","mobile_audio_no_audio":"Нет ни одной аудиозаписи.","mobile_audio_background_restriction_title":"Фоновое прослушивание недоступно без подписки","mobile_audio_background_restriction_description":"Оформите подписку, чтобы слушать музыку без ограничений и аудиорекламы","mobile_audio_background_restriction_button":"Снять ограничение","mobile_audio_background_restriction_explanation":"Почему произошли изменения?","mobile_audio_start_playback_title":"Запущено воспроизведение на другом устройстве.","mobile_audio_start_playback_body":"Воспроизведение музыки приостановлено, так как Вы запустили её на {device_name}","mobile_audio_continue":"Продолжить","mobile_more":"Ещё","mobile_gif_popup_title":"Документ","mobile_gif_popup_share":"Поделиться","mobile_gif_popup_add":"Добавить","mobile_wall_gif_size_warning":"Размер файла составляет {size}. Продолжить?","mobile_wall_gif_size_warning_popup_title":"Предупреждение","mobile_continue":"Продолжить","mobile_cancel":"Отмена","mobile_delete":"Удалить","mobile_close":"Закрыть","mobile_open":"Открыть","mobile_warning_header":"Предупреждение","mobile_prometheus_edit_warn_popup_title":"Отметка огня пропадёт после редактирования","mobile_wall_prometheus_edit_warn":"Запись отмечена огнём. Если Вы отредактируете её, то метка пропадёт и продвижение в разделе «Рекомендации» завершится. Уверены, что хотите продолжить?","mobile_wall_post_copyright_source":"Источник записи","mobile_wall_post_copyright_go":"Перейти к источнику","mobile_wall_post_copyright_mb_title_text":"Добавление источника","mobile_wall_post_copyright_mb_title_text_edit":"Редактирование источника","mobile_wall_post_copyright_mb_text":"Если Вы используете материалы других авторов, укажите ссылку на источник. Напоминаем, что ВКонтакте работает алгоритм защиты уникального контента — Немезида. {link}Подробнее{\/link}","mobile_wall_post_copyright_add_button":"Указать источник","mobile_wall_post_copyright_edit_button":"Изменить источник","mobile_wall_post_copyright_remove_button":"Удалить источник","mobile_post_copyright_input_placeholder":"vk.com\/wall-22822305_614253","mobile_captcha_enter_code":"Введите код с картинки","mobile_captcha_send_btn":"Отправить","mobile_msg_photos_tag_confirmed":"Вы подтвердили, что присутствуете на фотографии.","mobile_msg_photos_tag_deleted":"Отметка удалена.","mobile_send_device_info":"Отправить в Поддержку","mobile_device_info_sent":"Информация об устройстве отправлена в Поддержку.","mobile_wall_show_full_text":"Показать полностью…","mobile_upload_btn":"Выберите файл","mobile_photo_restore":"Восстановить","mobile_page_title_album":"Альбом","mobile_intro_hint_description_wall_post_copyright_tip":"Теперь можно указать источник Вашей записи","mobile_archive_restore_bulk":"Восстановить все записи, архивированные в течение последней недели","mobile_mail_edited":"Отредактировано","mobile_mail_edited_short":"(ред.)","mobile_mail_wait_until_uploaded":"Пожалуйста, дождитесь окончания загрузки файлов.","mobile_mail_send_error":"Ошибка","mobile_mail_in_reply_to":"В ответ на сообщение","mobile_mail_sent_gift":["","отправил подарок","отправила подарок"],"mobile_mail_keyboard_label_location":"Место","mobile_mail_keyboard_label_vkpay":"Оплатить через","mobile_mail_geo_send_question":"Отправить текущее местоположение?","mobile_mail_geo_send_confirm":"Отправить","mobile_mail_geo_not_available":"Не удалось получить доступ к геолокации","mobile_common_stickers_no_recent":"Нет недавних","mobile_mail_typing_1_short":"печатает","mobile_mail_typing_1":"{name} печатает","mobile_mail_typing_2":"{name1} и {name2} печатают","mobile_mail_typing_many":"{name} и ещё {count} печатают","mobile_mail_typing_N_unknown":["","%s участник печатает","%s участника печатают","%s участников печатают"],"mobile_mail_recaudio_1_short":"записывает аудио","mobile_mail_recaudio_1":"{name} записывает аудио","mobile_mail_recaudio_2":"{name1} и {name2} записывают аудио","mobile_mail_recaudio_many":"{name} и ещё {count} записывают аудио","mobile_mail_recaudio_N_unknown":["","%s участник записывает аудио","%s участника записывают аудио","%s участников записывают аудио"],"mobile_mail_mixtyping_2":"{name1} и {name2}","mobile_mail_mixtyping_many":"{name} и ещё {count}","mobile_mail_mixtyping_N_unknown":["","%s участник","%s участника","%s участников"],"mobile_mail_typing":["","{user} печатает...","{user} печатает..."],"mobile_mail_multi_typing":"{users} и {last_user} печатают...","mobile_mail_messages_selected":["","Выбрано {count} сообщение","Выбрано {count} сообщения","Выбрано {count} сообщений"],"mobile_mail_message_placeholder":"Ваше сообщение","mobile_mail_show_previous_dialogs":"Показать предыдущие диалоги","mobile_mail_show_previous_messages":"Показать предыдущие сообщения","mobile_mail_tab_all":"Все сообщения","mobile_mail_tab_unread":"Непрочитанные","mobile_mail_tab_important":"Важные","mobile_mail_tab_unrespond":"Неотвеченные","mobile_mail_message_editing":"Редактирование сообщения","mobile_mail_messages_actions_reply":"Ответить","mobile_mail_messages_actions_forward":"Переслать","mobile_mail_messages_actions_edit":"Редактировать сообщение","mobile_mail_messages_actions_pin":"Закрепить сообщение","mobile_mail_messages_actions_unpin":"Открепить сообщение","mobile_mail_messages_actions_important":"Отметить как важное","mobile_mail_messages_actions_important_off":"Снять отметку","mobile_mail_messages_actions_delete":"Удалить","mobile_mail_messages_actions_spam":"Спам","mobile_mail_no_peers":"Ни одного диалога не найдено","mobile_mail_not_found":"По Вашему запросу не найдено ни одного сообщения","mobile_mail_no_messages":"У Вас нет ни одного сообщения.","mobile_mail_sublist_empty":"Список диалогов пуст.","mobile_mail_no_important":"У Вас нет важных сообщений.","mobile_mail_no_unreaded":"У Вас нет непрочитанных сообщений.","mobile_mail_search_only_messages":"Искать в личных сообщениях","mobile_mail_you":"Вы","mobile_mail_show_medias":"Показать вложения","mobile_mail_delete_history":"Очистить диалог","mobile_mail_block_community":"Запретить сообщения","mobile_mail_block_community_notify":"Запретить оповещения","mobile_mail_unblock_community":"Разрешить сообщения","mobile_mail_add_to_chat":"Добавить собеседника","mobile_mail_chat_info":"Информация о беседе","mobile_mail_delete_chat_history":"Очистить беседу","mobile_mail_chat_leave":"Выйти из беседы","mobile_mail_channel_leave":"Отписаться от канала","mobile_mail_chat_return":"Вернуться в беседу","mobile_mail_N_members":["","%s участник","%s участника","%s участников"],"mobile_mail_channel_N_members":["","%s подписчик","%s подписчика","%s подписчиков"],"mobile_mail_online":"онлайн","mobile_mail_date":["","{day} {month} {year}","вчера","сегодня","завтра"],"mobile_mail_last_activity_tip":["","был в сети {time}","была в сети {time}"],"mobile_mail_short_date_time":["","{day} {month} в {hour}:{minute}","вчера в {hour}:{minute}","сегодня в {hour}:{minute}","завтра в {hour}:{minute}"],"mobile_mail_choose_recipient":"Выберите получателя","mobile_mail_messages":["","%s сообщение","%s сообщения","%s сообщений"],"mobile_mail_mark_as_important":"Отметить как важный","mobile_mail_remove_important_mark":"Убрать из важных","mobile_mail_mark_as_answered":"Отметить как отвеченный","mobile_mail_chat_selected_peers_new":["","Выбран: %s","Выбрано: %s","Выбрано: %s"],"mobile_mail_new_msgs":"Новые сообщения","mobile_mail_attachments_limit":"Вы можете прикрепить к сообщению не более 10 файлов.","mobile_mail_history_is_empty":"История сообщений пуста.","mobile_mail_unpin_msg":"Открепить сообщение","mobile_settings_blacklist_unban_user":"Разблокировать","mobile_settings_blacklist_ban_user":"Заблокировать","mobile_mail_invite_link":"Ссылка на беседу","mobile_mail_pin_show":"Показать закрепл. сообщение","mobile_mail_pin_hide":"Скрыть закрепл. сообщение","mobile_mail_dialog_msg_delete_N":["","Вы действительно хотите <b>удалить<\/b> %s сообщение?","Вы действительно хотите <b>удалить<\/b> %s сообщения?","Вы действительно хотите <b>удалить<\/b> %s сообщений?"],"mobile_mail_dialog_msg_delete_for_all":"Вы действительно хотите <b>удалить сообщение для всех<\/b>?","mobile_mail_delete_for_all":"Удалить для всех","mobile_mail_delete_popup_delete":"Удалить","mobile_mail_delete_popup_cancel":"Отмена","mobile_mail_channel_invite_link":"Ссылка на канал","mobile_mail_return_to_channel":"Подписаться на канал","mobile_mail_attachments":["","%s вложение","%s вложения","%s вложений"],"mobile_mail_added_poll":"Опрос","global_article":"Статья","mobile_mail_added_photo":"Фотография","mobile_mail_added_video":"Видеозапись","mobile_mail_added_audio":"Аудиозапись","mobile_mail_added_audio_playlist":"Плейлист","mobile_mail_added_money_transfer":"Денежный перевод","mobile_mail_added_podcast":"Подкаст","mobile_mail_added_money_request":"Запрос денежного перевода","mobile_mail_added_vkpay":"VK Pay","mobile_mail_added_story":"История","mobile_mail_added_narrative":"Сюжет","mobile_mail_added_graffiti":"Граффити","mobile_mail_added_audiomsg":"Голосовое сообщение","mobile_mail_added_doc":"Документ","mobile_mail_added_geo":"Карта","mobile_mail_added_wall":"Запись на стене","mobile_mail_added_wall_reply":"Комментарий на стене","mobile_mail_added_gift":"Подарок","mobile_mail_added_link":"Ссылка","mobile_mail_added_sticker":"Стикер","mobile_mail_added_market_item":"Товар","mobile_mail_added_call":"Звонок","mobile_mail_added_photos":["","%s фотография","%s фотографии","%s фотографий"],"mobile_mail_added_videos":["","%s видеозапись","%s видеозаписи","%s видеозаписей"],"mobile_mail_added_audios":["","%s аудиозапись","%s аудиозаписи","%s аудиозаписей"],"mobile_mail_added_docs":["","%s документ","%s документа","%s документов"],"mobile_mail_N_forwards":["","Пересланное сообщение","%s пересланных сообщения","%s пересланных сообщений"],"mobile_mail_templates_panel_title":"Шаблоны","mobile_mail_templates_action_edit":"Редактировать","mobile_mail_templates_action_delete":"Удалить","mobile_mail_templates_delete_popup_text":"Вы действительно хотите <b>удалить<\/b> шаблон «{name}»?","mobile_mail_templates_empty_info":"У Вас пока нет ни одного шаблона","mobile_mail_templates_empty_button":"Создать шаблон","mobile_mail_templates_delete_error":"Не удалось удалить шаблон «{name}»","mobile_mail_templates_toast_action_ok":"ОК","mobile_mail_templates_greeting_morning":"Доброе утро","mobile_mail_templates_greeting_afternoon":"Добрый день","mobile_mail_templates_greeting_evening":"Добрый вечер","mobile_mail_templates_greeting_night":"Доброй ночи","mobile_mail_mrs_page_title":"Запросы","mobile_mail_mrs_page_info":"Здесь отображаются сообщения от людей, которых нет в Вашем списке контактов. Они не узнают, что Вы увидели их сообщение, пока Вы не нажмёте на кнопку «Принять».","mobile_mail_mrs_empty_info":"Пока нет ни одного запроса","mobile_mail_mrs_confirm_info":"Пользователь не знает, что Вы прочитали его сообщения, и не видит информацию о Вас, пока Вы не нажмёте на кнопку «Принять».","mobile_mail_mrs_rejected_info":"Недавно Вы отклонили запрос на переписку от этого пользователя. Он пока не может Вам написать, а Вы можете начать с ним диалог.","mobile_mail_mrs_request_count":["","%s запрос","%s запроса","%s запросов"],"mobile_mail_mrs_button_accept":"Принять","mobile_mail_mrs_button_reject":"Отклонить","mobile_mail_mrs_button_reject_all":"Отклонить все","mobile_mail_presend_menu_retry":"Повторить отправку","mobile_mail_presend_menu_delete":"Удалить сообщение","mobile_mail_presend_menu_close":"Закрыть","mobile_mail_presend_menu_cancel":"Отменить отправку","mobile_profile_status_just_now":"только что","mobile_profile_status_mins_ago":["","%s минуту назад","%s минуты назад","%s минут назад"],"mobile_profile_status_word_mins_ago":["","минуту назад","две минуты назад","три минуты назад","4 минуты назад","5 минут назад"],"mobile_profile_status_hours_ago":["","%s час назад","%s часа назад","%s часов назад"],"mobile_profile_status_word_hours_ago":["","час назад","два часа назад","три часа назад","четыре часа назад","пять часов назад"],"mobile_security_error":"Ошибка доступа","mobile_unknown_error":"Неизвестная ошибка","mobile_flood_detected":"Вы попытались загрузить более одной однотипной страницы в секунду. Вернитесь назад и повторите попытку.","mobile_msg_no_rights":"У Вас недостаточно прав для совершения этого действия.","mobile_msg_reported":"Жалоба отправлена.","mobile_msg_cant_send_msg":"Вы не можете отправить сообщение этому пользователю, так как он ограничил круг лиц, которые могут присылать ему сообщения.","mobile_msg_cant_send_msg2":"Вы не можете отправить сообщение этому пользователю, так как он ограничил круг лиц, которые могут присылать ему сообщения.","mobile_msg_cant_send_notfriend":"Сообщение не может быть отправлено, так как Вы не состоите в друзьях у этого пользователя.","mobile_msg_mail_spam_chain_detected":"Вы только что попытались отправить сообщение, относящееся к так называемым «письмам-цепочкам». Такие письма загружают сервер и обычно не несут смысловой нагрузки (ложные сообщения о «вирусах», послания, заканчивающиеся угрозами и т.д.). Рассылка таких писем на нашем сайте не приветствуется.","mobile_msg_mail_server_error":"Сообщение не отправлено из-за ошибки на сервере.","mobile_msg_mail_privacy_error":"Вы не можете отправить сообщение этому пользователю, поскольку он ограничил круг лиц, которые могут присылать ему сообщения.","mobile_msg_mail_too_many_recipients":"Сообщение не может быть отправлено, так как Вы разослали слишком много сообщений за последнее время.","mobile_msg_mail_not_friend_in_chat":"Вы не можете создать беседу с человеком, который не является Вашим другом.","mobile_msg_mail_message_sent":"Сообщение отправлено.","mobile_like_publish_back":"Вернуться к оригиналу »","mobile_restore":"Восстановить","mobile_msg_mail_message_deleted":"Сообщение удалено.","mobile_msg_mail_message_marked_as_spam":"Сообщение помечено как спам и удалено.","mobile_zphoto_release_to_close":"Отпустите, чтобы закрыть...","mobile_zphoto_move_to_close":"Потяните, чтобы закрыть...","mobile_zphoto_close":"Закрыть","mobile_zphoto_upload_header":"Загрузка фотографии","mobile_zphoto_owner_crop_header":"Выбор миниатюры","mobile_zphoto_save_btn":"Сохранить","mobile_zphoto_cancel_btn":"Отмена","mobile_mail_head_title":"Сообщения","mobile_attachments_add_photo_vk":"Фото из альбома","mobile_attachments_add_video":"Видеозапись","mobile_attachments_add_audio":"Аудиозапись","mobile_attachments_add_doc":"Документ","mobile_attachments_add_gift":"Подарок","mobile_attachments_add_money":"Деньги","mobile_attachments_add_poll":"Опрос","text_N_symbols_remain":["","Остался %s знак","Осталось %s знака","Осталось %s знаков"],"mobile_playlist_add":"Добавить","mobile_playlist_added":"Добавлен","global_delete_audio":"Удалить аудиозапись","global_add_to_audio":"Добавить в мою музыку","global_audio_ad":"Реклама","global_ads_wall_post_mark_as_ads_action":"Это реклама","mobile_audio_count":["","%s аудиозапись","%s аудиозаписи","%s аудиозаписей"],"months_sm_of":{"1":"янв","2":"фев","3":"мар","4":"апр","5":"мая","6":"июн","7":"июл","8":"авг","9":"сен","10":"окт","11":"ноя","12":"дек"},"mobile_friends_got_notification":"Заявка отправлена.","mobile_friends_accept_request":"Добавить в друзья","mobile_friends_feed_recom_got_notification":"Заявка отправлена","mobile_friends_feed_recom_accept_request":"ДОБАВИТЬ","mobile_groups_public_subscribe":"Подписаться","mobile_groups_you_are_in_public":"Вы подписаны","mobile_assistance_profile_photo_uploaded_desc":"Поддерживайте её актуальность, чтобы друзьям было проще Вас узнать.","mobile_assistance_profile_photo_uploaded_title":"Фотография профиля обновлена","mobile_notifications_new":["","%s новое уведомление","%s новых уведомления","%s новых уведомлений"],"mobile_notifications_title":"Уведомления","mobile_notifications_restore":"Отменить","mobile_friends_import_error":"Произошла ошибка. Пожалуйста, попробуйте ещё раз.","mobile_join_friends_found_count":["","Найден %s друг","Найдено %s друга","Найдено %s друзей"],"mobile_stories_views_title":["","%s просмотр","%s просмотра","%s просмотров"],"mobile_stories_views_title_replies_and_views":"Ответы и просмотры","mobile_stories_views_title_interactions":"Обратная связь","mobile_stories_views_title_replies":"Ответы","mobile_stories_replies_title":["","%s ответ","%s ответа","%s ответов"],"mobile_stories_reply_deleted_title":"История удалена","mobile_stories_reply_private_title":"История скрыта","mobile_stories_reply_expired_title":"История истекла","mobile_stories_reply_you":"Вы","mobile_stories_delete_story":"Вы действительно хотите удалить историю?<br/>Отменить действие будет невозможно.","mobile_stories_delete_narrative":"Вы действительно хотите удалить сюжет?<br/>Отменить действие будет невозможно.","mobile_stories_error_expired":"Историю можно было посмотреть<br/>в течение 24 часов после публикации","mobile_stories_menu_share_title":"Поделиться","mobile_stories_menu_remove_title":"Удалить историю","mobile_stories_menu_remove_narrative_title":"Удалить сюжет","mobile_stories_menu_report_title":"Пожаловаться","mobile_stories_comment_placeholder":"Сообщение...","mobile_stories_comment_textarea":"Написать сообщение...","mobile_stories_comment_title":"Сообщение к истории","mobile_stories_comment_narrative_title":"Сообщение к сюжету","mobile_stories_comment_ok":"Отправить","mobile_stories_comment_cancel":"Отмена","mobile_stories_comment_success":"Сообщение отправлено","mobile_stories_video_error":"Ваш браузер не поддерживает видео","mobile_stories_inline_video_error":"Ваш браузер не поддерживает воспроизведение встроенного видео","mobile_stories_is_promo_title":"Реклама","mobile_stories_menu_bookmarked_title":"Удалить из закладок","mobile_stories_menu_bookmark_title":"Сохранить в закладках","mobile_stories_unmute":"Включить звук","mobile_stories_show_hashtag_link":"Поиск по хештегу","mobile_stories_go_to_profile":"Открыть профиль","mobile_stories_go_to_post":"Перейти к записи","mobile_stories_go_to_group":"Открыть сообщество","mobile_stories_go_to_place":"Перейти к месту","mobile_stories_go_to_story":"Перейти к истории","mobile_stories_narrative_show":"Посмотреть cюжет","mobile_stories_archive_empty_label":"Истории в архиве доступны только Вам, а удалить их из этого раздела Вы можете в любой момент","mobile_stories_archive_unavailable_label":"История недоступна","mobile_stories_ask_question_placeholder":"Введите текст...","mobile_stories_ask_question_ok":"Отправить","mobile_stories_ask_question_cancel":"Отмена","mobile_stories_ask_question_public":"Публично","mobile_stories_ask_question_author_only":"Видно только автору","mobile_stories_ask_question_group_owner":"Руководитель сообщества","mobile_stories_ask_question_public_tooltip":"{name} сможет указать Ваше имя при публикации мнения.","mobile_stories_ask_question_author_only_tooltip":"{name} увидит Ваше имя, но не сможет указать его при публикации мнения.","mobile_stories_ask_question_anonymous_tooltip":"{name} не увидит Ваше имя и не сможет указать его при публикации мнения.","mobile_stories_ask_question_anonymous":"Анонимно","mobile_stories_ask_question_forbidden":"Вы не можете поделиться мнением","mobile_stories_ask_question_anonymous_info":"{name} не увидит Ваше имя, если выбрано «Анонимно».","mobile_stories_question_anonymous":"Анонимный автор","mobile_stories_question_title":"Мнения","mobile_stories_question_show_all":"Показать все","mobile_stories_question_sent":"Вы поделились мнением с {name}","mobile_stories_question_actions":"Действия","mobile_stories_question_delete":"Удалить мнение","mobile_stories_question_ban":"Заблокировать","mobile_stories_question_unban":"Разблокировать автора","mobile_stories_question_report":"Пожаловаться","mobile_stories_question_reply":"Ответить в личном сообщении","mobile_stories_question_error":"Ошибка","mobile_stories_question_reply_title":"Мнение от {name}","mobile_stories_question_reply_to_message":"Ответить в сообщении","mobile_stories_question_ban_title":"Заблокировать автора","mobile_stories_question_ban_reason":"Выберите причину","mobile_stories_question_ban_reason_spam":"Спам","mobile_stories_question_ban_reason_abuse":"Оскорбление","mobile_stories_question_ban_reason_suicide":"Призыв к суициду","mobile_stories_question_ban_reason_other":"Другое","mobile_stories_question_author_blocked":"Автор заблокирован","mobile_stories_question_author_unblocked":"Автор разблокирован","mobile_stories_music_more":"Подробнее","mobile_stories_music_added":"Аудиозапись добавлена","mobile_stories_music_deleted":"Аудиозапись удалена","mobile_stories_music_next":"Слушать далее","mobile_stories_market_item_more":"Подробнее","mobile_stories_market_access_error_title":"Ошибка","mobile_stories_market_access_error_text":"Данный товар недоступен","mobile_stories_groups_grid_title":"Истории сообществ","mobile_stories_groups_grid_text":"Здесь собраны истории сообществ, на которые Вы подписаны","mobile_stories_go_to_app":"Перейти к приложению","mobile_stories_groups_settings_put_back":"Отображать в конце","mobile_stories_groups_settings_separately":"Отображать отдельно","mobile_stories_groups_settings_grouped":"Группировать","mobile_stories_groups_tooltip":"Отмечайте истории, которые хотите видеть в общем списке","global_type_narrative":"Сюжет","mobile_narratives_repeat_bottom":"Просмотреть ещё раз","mobile_narratives_back_bottom":"Вернуться к историям","mobile_narratives_more_bottom":"Ещё немного сюжетов","mobile_bookmarks_snackbar_added":"Сохранено в закладках","mobile_bookmarks_snackbar_edit_tags":"Добавить метку","mobile_bookmarks_actions_add":"Сохранить в закладках","mobile_bookmarks_actions_remove":"Убрать из закладок","mobile_menu_refresh_button":"Новые записи","mobile_like_publish_head_title":"Поделиться","mobile_share_list_no_friends":"Ни одного друга не найдено","mobile_share_list_no_groups":"Ни одного сообщества не найдено","mobile_share_box_to_single":"{name}","mobile_share_box_to_couple":"{name1} и {name2}","mobile_share_box_to_many":"{name} и ещё {count}","mobile_share_target_own":"На своей странице","mobile_share_target_group":"На стене сообщества","mobile_share_target_bookmark":"Сохранить в закладках","mobile_share_target_bookmark_active":"Сохранено в закладках","mobile_share_message_single":"Отправить","mobile_share_message_many":"Отправить по отдельности","mobile_share_message_placeholder":"Добавить сообщение","mobile_share_state_progress":"Отправка","mobile_share_state_success":"Готово","mobile_share_state_error":"Ошибка","mobile_share_external":"Поделиться в стороннем приложении","mobile_photo_qr_popup_title":"Отсканируйте QR-код<br/>камерой ВКонтакте","mobile_market_cart_quantity":"Кол-во","mobile_market_cart_go_to_order_button":"Перейти к оформлению","mobile_market_cart_order_button":"Оформить заказ","mobile_market_cart_delete_item":"Удалить товар","mobile_market_cart_total":["","{items} товар на сумму {price}","{items} товара на сумму {price}","{items} товаров на сумму {price}"],"mobile_market_cart_change_quantity_title":"Другое количество","mobile_market_cart_change_quantity_text":"Укажите количество, которое хотите добавить в корзину.","mobile_market_cart_change_quantity_button":"Изменить","mobile_market_cart_out_of_stock":"Данного товара нет в наличии","mobile_market_contact_with_merchant":"Написать продавцу","mobile_market_cart_quantity_button_title":["","В корзине {quantity} шт.","В корзине {quantity} шт.","В корзине {quantity} шт."],"mobile_market_cart_quantity_button_hint":"Перейти в корзину","mobile_market_cart_quantity_button_add":"Добавить в корзину","mobile_market_cart_quantity_button_inc":"+ 1 шт.","mobile_market_items_count_short":["","%s шт.","%s шт.","%s шт."],"mobile_market_shopper_accent_delivery":"Бесплатная доставка по России","mobile_market_shopper_accent_payment":"Безопасная оплата по банковской карте","mobile_market_shopper_accent_return":"Бесплатный возврат товара в течение 14 дней","mobile_market_order_details":"Подробнее","mobile_market_order_status":"Статус","mobile_market_order_total_price":"Сумма заказа","mobile_market_order_date":"Дата оформления","mobile_market_order_shop":"Магазин","mobile_market_cart_empty_title":"Корзина пуста","mobile_market_cart_empty_text":"Посетите каталог с товарами, чтобы наполнить свою корзину. Желаем приятных покупок&#33;","mobile_market_cart_go_to_goods":"Перейти в каталог","global_online_was_recently":["","заходил недавно","заходила недавно"],"global_online_was_week":["","заходил на этой неделе","заходила на этой неделе"],"global_online_this_month":["","заходил в этом месяце","заходил в этом месяце"],"global_online_long_ago":["","заходил давно","заходила давно"]});window.__jsInited=true;})();
+//-->
+</SCRIPT>
+           
+<DIV class="_cntrs" style="height: 0px; overflow: hidden;"><IMG width="1" 
+height="1" alt="" src="Музыка%20Теста%20Тестовича_files/p.gif">       <IMG 
+width="1" height="1" src="Музыка%20Теста%20Тестовича_files/k.gif">       <IMG 
+width="1" height="1" style="border: 0px currentColor; border-image: none;" src="Музыка%20Теста%20Тестовича_files/counter.gif"> 
+    </DIV></DIV></DIV></DIV></DIV>
+<SCRIPT type="text/javascript">
+<!--
+parent&&parent!=window&&(document.getElementsByTagName('body')[0].innerHTML='');try{sessionStorage.set('is_mvk_tab', 1)}catch(e){};page.save(page.getHash(nav),{
+  title: document.title,
+  html: val('m'),
+  js: val('page_script'),
+  lm: {tab: 'menu', is_tab_page: '1'},
+  bc: geByTag1('body').className,
+  options: {}
+});onDOMReady(nav.zInit);
+onDOMReady(nav.setFvLink('/fv?to=%2Faudio%3F%3D%26_fm%3D1%26_fm2%3D1'));window.store.stickers = {"url_template":"https:\/\/vk.com\/sticker\/1-%id%-%size%"};
+//-->
+</SCRIPT>
+         
+<DIV id="vk_utils"></DIV>
+<DIV id="z"></DIV>
+<DIV id="vk_bottom"></DIV>
+<DIV id="theme_color_shim"></DIV></BODY></HTML>

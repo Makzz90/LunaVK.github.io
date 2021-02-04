@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="LunaVK.Pages.AddEditVideoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    >
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--<uc:GenericHeaderUC x:Name="ucHeader" />-->
+        <uc:HeaderOffsetUC/>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" IsHitTestVisible="{Binding CanEdit}" Margin="10 0">
+
+            <ScrollViewer>
+                <StackPanel>
+
+                    <Grid HorizontalAlignment="Left" Margin="0 16 0 0"
+                          Height="150" Width="225" >
+
+                        <Image x:Name="PreviewImage"  
+                           Stretch="UniformToFill" HorizontalAlignment="Left"
+                          Source="{Binding LocalThumbPath}"
+                           
+                           />
+
+                        <ProgressBar x:Name="ProgressUpload" Value="{Binding Progress}" Visibility="{Binding IsUploadingVisibility}" 
+                                     VerticalAlignment="Center"  Margin="12 0"/>
+                    </Grid>
+                    
+                    <Grid>
+
+                        <StackPanel>
+                            <TextBlock Text="AddEditVideo_Title"/>
+
+
+                            <TextBox Text="{Binding Path=Name, Mode=TwoWay}"
+                 MinHeight="72"
+                  Name="textBoxName"/>
+
+                            <TextBlock Text="AddEditVideo_Description"
+                   Margin="0 10 0 0"
+                   />
+
+                            <TextBox Text="{Binding Path=Description, Mode=TwoWay}"
+                 TextWrapping="Wrap"
+                 
+                 AcceptsReturn="True"
+                     Name="textBoxDescription"
+                 
+                 MinHeight="126"
+                  />
+
+
+                            <Grid  Visibility="{Binding IsUserVideo}">
+                                <!--<uc:PrivacyHeaderUC 
+                 Margin="24,6, 24, 0" 
+                               
+                x:Name="ucPrivacyHeaderView"
+                DataContext="{Binding ViewVideoPrivacyVM}"/>-->
+                            </Grid>
+
+                            <Grid Visibility="{Binding IsUserVideo}">
+                                <!--<uc:PrivacyHeaderUC 
+                                  Margin="24,12, 24, 0"
+                                  
+                x:Name="ucPrivacyHeaderComment"
+                DataContext="{Binding CommentVideoPrivacyVM}"/>-->
+                            </Grid>
+                        </StackPanel>
+
+                    </Grid>
+                </StackPanel>
+
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

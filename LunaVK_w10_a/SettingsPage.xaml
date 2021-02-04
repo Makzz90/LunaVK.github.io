@@ -1,0 +1,57 @@
+﻿<local:PageBase
+    x:Class="LunaVK.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LunaVK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:uc="using:LunaVK.UC"
+    xmlns:framework="using:LunaVK.Framework"
+    d:DesignHeight="800">
+
+    <Grid Background="{ThemeResource BaseBackgroundBrush}">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled"
+                      VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <uc:HeaderOffsetUC/>
+                <GridView Background="{ThemeResource ItemBackgroundBrush}" SelectionMode="Single" framework:MouseOver.Cursor="Hand"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollMode="Enabled"
+                          >
+                    <uc:SettingsSectionUC Title="Уведомления" SubTitle="Push и уведомления внутри приложения" Icon="&#xE781;" Tapped="Notifications_OnClicked" x:Uid="NewSettings_Notifications"/>
+                    <uc:SettingsSectionUC Title="Основные" Icon="&#xE713;" SubTitle="Интеграция с устройством" Tapped="General_OnClicked" x:Uid="NewSettings_General"/>
+                    <uc:SettingsSectionUC Title="Персонализация" Icon="&#xE771;" SubTitle="Тема, цвет" Tapped="Personalization_OnClicked" x:Uid="NewSettings_Personalization"/>
+                    <uc:SettingsSectionUC Title="Учётная запись" Icon="&#xE77B;" SubTitle="Электроння почта, номер телефона" Tapped="Account_OnClicked" x:Uid="NewSettings_Account"/>
+                    <uc:SettingsSectionUC Title="Приватность" Icon="&#xF140;" SubTitle="Видимость ваших данных в интернете"  Tapped="Privacy_OnClicked" x:Uid="NewSettings_Privacy"/>
+                    <uc:SettingsSectionUC Title="Чёрный список" Icon="&#xE8F8;" SubTitle="Заблокированные пользователи" Tapped="Blacklist_OnClicked" x:Uid="NewSettings_BlackList"/>
+                    <!--<uc:SettingsSectionUC Title="Balance" Icon="&#xEC59;" Opacity="0.5"/>
+                    <uc:SettingsSectionUC Title="MoneyTransfers" Icon="&#xEC5B;" Opacity="0.5"/>
+                    <uc:SettingsSectionUC Title="QuestionsAndAnswers" Icon="&#xE897;" Opacity="0.5"/>-->
+                    <uc:SettingsSectionUC Title="Диагностика" Icon="&#xE964;" SubTitle="0x0E011D" Tapped="Diagnostics_OnClicked" x:Name="_debug" x:Uid="NewSettings_Diagnostics"/>
+                    <uc:SettingsSectionUC Title="О программе" SubTitle="Да кто ж это сделал?" Icon="&#xE928;" Tapped="About_OnClicked" x:Uid="NewSettings_About"/>
+
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="Margin" Value="0" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                </GridView>
+
+                <Border Height="64" Background="{ThemeResource ItemBackgroundBrush}" Tapped="Border_Tapped" Margin="0 20 0 0">
+                    <TextBlock VerticalAlignment="Center" x:Uid="LogOut"
+                            FontSize="{StaticResource FontSizeLarge}" Margin="20 0 0 0"
+                            Text="Log out" Foreground="{ThemeResource SystemControlHighlightAccentBrush}" FontWeight="Medium" />
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</local:PageBase>
