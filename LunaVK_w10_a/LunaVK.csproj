@@ -11,8 +11,8 @@
     <AssemblyName>LunaVK</AssemblyName>
     <DefaultLanguage>ru</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -123,6 +123,9 @@
     <Compile Include="Common\MessageBox.cs" />
     <Compile Include="Common\ParametersRepository.cs" />
     <Compile Include="Common\ThemeManager.cs" />
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Framework\DragControlsHelper.cs" />
     <Compile Include="Library\Events\AudioPlayerStateChanged.cs" />
     <Compile Include="Library\Events\AudioTrackDownloadProgress.cs" />
@@ -140,14 +143,62 @@
     <Compile Include="Pages\ChangePasswordPage.xaml.cs">
       <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Debug\TestAcrylic.xaml.cs">
+      <DependentUpon>TestAcrylic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Debug\TestAllSystemColors.xaml.cs">
       <DependentUpon>TestAllSystemColors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestAttach.xaml.cs">
+      <DependentUpon>TestAttach.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Debug\TestBotKeyboard.xaml.cs">
       <DependentUpon>TestBotKeyboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Debug\TestCall.xaml.cs">
+      <DependentUpon>TestCall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestControls.xaml.cs">
+      <DependentUpon>TestControls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestControls_Part2.xaml.cs">
+      <DependentUpon>TestControls_Part2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Debug\TestDownload.xaml.cs">
       <DependentUpon>TestDownload.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestDragDrop.xaml.cs">
+      <DependentUpon>TestDragDrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestElementPosition.xaml.cs">
+      <DependentUpon>TestElementPosition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestEmoji.xaml.cs">
+      <DependentUpon>TestEmoji.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestFillRowControl.xaml.cs">
+      <DependentUpon>TestFillRowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestLikesControl.xaml.cs">
+      <DependentUpon>TestLikesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestListGroup.xaml.cs">
+      <DependentUpon>TestListGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestLoadMore.xaml.cs">
+      <DependentUpon>TestLoadMore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestLoadUpDawn.xaml.cs">
+      <DependentUpon>TestLoadUpDawn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestMasterDetils.xaml.cs">
+      <DependentUpon>TestMasterDetils.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestMerge.xaml.cs">
+      <DependentUpon>TestMerge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestMsgitem.xaml.cs">
+      <DependentUpon>TestMsgitem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Debug\TestNavigationView.xaml.cs">
       <DependentUpon>TestNavigationView.xaml</DependentUpon>
@@ -155,17 +206,44 @@
     <Compile Include="Pages\Debug\TestNetworkRequest.xaml.cs">
       <DependentUpon>TestNetworkRequest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Debug\TestNotificationsPanel.xaml.cs">
+      <DependentUpon>TestNotificationsPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Debug\TestPhotoEditor.xaml.cs">
       <DependentUpon>TestPhotoEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Debug\TestPlayer.xaml.cs">
       <DependentUpon>TestPlayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Debug\TestPush.xaml.cs">
+      <DependentUpon>TestPush.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestRawNotification.xaml.cs">
+      <DependentUpon>TestRawNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestResponse.xaml.cs">
+      <DependentUpon>TestResponse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestSplitView2.xaml.cs">
+      <DependentUpon>TestSplitView2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestSticker.xaml.cs">
+      <DependentUpon>TestSticker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestStickersKeywords.xaml.cs">
+      <DependentUpon>TestStickersKeywords.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TestTile.xaml.cs">
+      <DependentUpon>TestTile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Debug\TestVideoPlayerPanel.xaml.cs">
       <DependentUpon>TestVideoPlayerPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Debug\TestVirtualBar.xaml.cs">
       <DependentUpon>TestVirtualBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Debug\TileTest.xaml.cs">
+      <DependentUpon>TileTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Debug\ViewColors.xaml.cs">
       <DependentUpon>ViewColors.xaml</DependentUpon>
@@ -2205,29 +2283,145 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Debug\TestAllSystemColors.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Pages\Debug\TestAcrylic.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestAllSystemColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestAttach.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Debug\TestBotKeyboard.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestCall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestControls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestControls_Part2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Debug\TestDownload.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestDragDrop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestElementPosition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestEmoji.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestFillRowControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestLikesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestListGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestLoadMore.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestLoadUpDawn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestMasterDetils.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestMerge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestMsgitem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestNavigationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Debug\TestNetworkRequest.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestNotificationsPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Debug\TestPhotoEditor.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestPush.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestRawNotification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestResponse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestSplitView2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestSticker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestStickersKeywords.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TestVideoPlayerPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Debug\TestVirtualBar.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\TileTest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Debug\ViewColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\GiftsPage.xaml">
       <SubType>Designer</SubType>
@@ -2283,82 +2477,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CommentsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestAcrylic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestControls_Part2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestDragDrop.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestElementPosition.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestEmoji.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestFillRowControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestLikesControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestListGroup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestMasterDetils.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestMsgitem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestNavigationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestPlayer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestRawNotification.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestResponse.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestSplitView2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestStickersKeywords.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestTile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestVideoPlayerPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\ViewColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -2674,78 +2792,6 @@
     </Compile>
     <Compile Include="Pages\CreateStoryPage.xaml.cs">
       <DependentUpon>CreateStoryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestAcrylic.xaml.cs">
-      <DependentUpon>TestAcrylic.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestAttach.xaml.cs">
-      <DependentUpon>TestAttach.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestCall.xaml.cs">
-      <DependentUpon>TestCall.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestControls.xaml.cs">
-      <DependentUpon>TestControls.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestControls_Part2.xaml.cs">
-      <DependentUpon>TestControls_Part2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestDragDrop.xaml.cs">
-      <DependentUpon>TestDragDrop.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestElementPosition.xaml.cs">
-      <DependentUpon>TestElementPosition.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestEmoji.xaml.cs">
-      <DependentUpon>TestEmoji.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestFillRowControl.xaml.cs">
-      <DependentUpon>TestFillRowControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestLikesControl.xaml.cs">
-      <DependentUpon>TestLikesControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestListGroup.xaml.cs">
-      <DependentUpon>TestListGroup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestLoadMore.xaml.cs">
-      <DependentUpon>TestLoadMore.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestLoadUpDawn.xaml.cs">
-      <DependentUpon>TestLoadUpDawn.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestMasterDetils.xaml.cs">
-      <DependentUpon>TestMasterDetils.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestMerge.xaml.cs">
-      <DependentUpon>TestMerge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestMsgitem.xaml.cs">
-      <DependentUpon>TestMsgitem.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestNotificationsPanel.xaml.cs">
-      <DependentUpon>TestNotificationsPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestPush.xaml.cs">
-      <DependentUpon>TestPush.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestRawNotification.xaml.cs">
-      <DependentUpon>TestRawNotification.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestResponse.xaml.cs">
-      <DependentUpon>TestResponse.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestSplitView2.xaml.cs">
-      <DependentUpon>TestSplitView2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestSticker.xaml.cs">
-      <DependentUpon>TestSticker.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestStickersKeywords.xaml.cs">
-      <DependentUpon>TestStickersKeywords.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Debug\TestTile.xaml.cs">
-      <DependentUpon>TestTile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DiagnosticsPage.xaml.cs">
       <DependentUpon>DiagnosticsPage.xaml</DependentUpon>
@@ -3488,42 +3534,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Debug\TestAttach.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Debug\TestCall.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestControls.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Debug\TestLoadMore.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Debug\TestLoadUpDawn.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestMerge.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Debug\TestNotificationsPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Debug\TestPush.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Debug\TestSticker.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Pages\Group\CommunitySubscribersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -4125,7 +4135,7 @@
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net">
-      <Version>0.16.5</Version>
+      <Version>0.16.6</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -4140,6 +4150,10 @@
     <ProjectReference Include="..\LunaVK.Photo\LunaVK.Photo.csproj">
       <Project>{fbb1664d-a9ee-4e8c-b6da-c6a64211c3d8}</Project>
       <Name>LunaVK.Photo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LunaVK.ScheduledUpdater\ScheduledUpdater.csproj">
+      <Project>{9575dda0-5d53-495f-8539-e8a397db0ebd}</Project>
+      <Name>ScheduledUpdater</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpusComponent\src\opusfile_winrt\opusfile_winrt.vcxproj">
       <Project>{3448342a-2165-438e-a5a3-2a832a985f98}</Project>
@@ -4163,11 +4177,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="WindowsMobile, Version=10.0.17134.0">
+    <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0006: Не удалось найти файл метаданных "P:\Clones\LunaVK\OpusComponent\src\opus\bin\x86\Debug\opus.winmd".
+dotnet_diagnostic.CS0006.severity = none
