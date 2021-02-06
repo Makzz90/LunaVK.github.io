@@ -8434,11 +8434,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Clones\\LunaVK\\LottieUWP\\LottieUWP.csproj",
+      "projectUniqueName": "P:\\LunaVK\\LottieUWP\\LottieUWP.csproj",
       "projectName": "LottieUWP",
-      "projectPath": "P:\\Clones\\LunaVK\\LottieUWP\\LottieUWP.csproj",
+      "projectPath": "P:\\LunaVK\\LottieUWP\\LottieUWP.csproj",
       "packagesPath": "C:\\Users\\codev\\.nuget\\packages\\",
-      "outputPath": "P:\\Clones\\LunaVK\\LottieUWP\\obj\\",
+      "outputPath": "P:\\LunaVK\\LottieUWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

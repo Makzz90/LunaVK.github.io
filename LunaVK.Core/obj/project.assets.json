@@ -8702,11 +8702,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj",
+      "projectUniqueName": "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj",
       "projectName": "LunaVK.Core",
-      "projectPath": "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj",
+      "projectPath": "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj",
       "packagesPath": "C:\\Users\\codev\\.nuget\\packages\\",
-      "outputPath": "P:\\Clones\\LunaVK\\LunaVK.Core\\obj\\",
+      "outputPath": "P:\\LunaVK\\LunaVK.Core\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

@@ -8826,11 +8826,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Clones\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj",
+      "projectUniqueName": "P:\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj",
       "projectName": "ScheduledUpdater",
-      "projectPath": "P:\\Clones\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj",
+      "projectPath": "P:\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj",
       "packagesPath": "C:\\Users\\codev\\.nuget\\packages\\",
-      "outputPath": "P:\\Clones\\LunaVK\\LunaVK.ScheduledUpdater\\obj\\",
+      "outputPath": "P:\\LunaVK\\LunaVK.ScheduledUpdater\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8850,8 +8850,8 @@
       "frameworks": {
         "uap10.0.17134": {
           "projectReferences": {
-            "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj"
+            "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj": {
+              "projectPath": "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj"
             }
           }
         }

@@ -10793,11 +10793,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Clones\\LunaVK\\LunaVK_w10_a\\LunaVK.csproj",
+      "projectUniqueName": "P:\\LunaVK\\LunaVK_w10_a\\LunaVK.csproj",
       "projectName": "LunaVK",
-      "projectPath": "P:\\Clones\\LunaVK\\LunaVK_w10_a\\LunaVK.csproj",
+      "projectPath": "P:\\LunaVK\\LunaVK_w10_a\\LunaVK.csproj",
       "packagesPath": "C:\\Users\\codev\\.nuget\\packages\\",
-      "outputPath": "P:\\Clones\\LunaVK\\LunaVK_w10_a\\obj\\",
+      "outputPath": "P:\\LunaVK\\LunaVK_w10_a\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -10817,32 +10817,32 @@
       "frameworks": {
         "uap10.0.17134": {
           "projectReferences": {
-            "P:\\Clones\\LunaVK\\LottieUWP\\LottieUWP.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\LottieUWP\\LottieUWP.csproj"
+            "P:\\LunaVK\\LottieUWP\\LottieUWP.csproj": {
+              "projectPath": "P:\\LunaVK\\LottieUWP\\LottieUWP.csproj"
             },
-            "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj"
+            "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj": {
+              "projectPath": "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj"
             },
-            "P:\\Clones\\LunaVK\\LunaVK.Photo\\LunaVK.Photo.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\LunaVK.Photo\\LunaVK.Photo.csproj"
+            "P:\\LunaVK\\LunaVK.Photo\\LunaVK.Photo.csproj": {
+              "projectPath": "P:\\LunaVK\\LunaVK.Photo\\LunaVK.Photo.csproj"
             },
-            "P:\\Clones\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj"
+            "P:\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj": {
+              "projectPath": "P:\\LunaVK\\LunaVK.ScheduledUpdater\\ScheduledUpdater.csproj"
             },
-            "P:\\Clones\\LunaVK\\OpusComponent\\src\\opusfile_winrt\\opusfile_winrt.vcxproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\OpusComponent\\src\\opusfile_winrt\\opusfile_winrt.vcxproj"
+            "P:\\LunaVK\\OpusComponent\\src\\opusfile_winrt\\opusfile_winrt.vcxproj": {
+              "projectPath": "P:\\LunaVK\\OpusComponent\\src\\opusfile_winrt\\opusfile_winrt.vcxproj"
             },
-            "P:\\Clones\\LunaVK\\RawNotificationBackgroundComponent\\RawNotificationBackgroundComponent.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\RawNotificationBackgroundComponent\\RawNotificationBackgroundComponent.csproj"
+            "P:\\LunaVK\\RawNotificationBackgroundComponent\\RawNotificationBackgroundComponent.csproj": {
+              "projectPath": "P:\\LunaVK\\RawNotificationBackgroundComponent\\RawNotificationBackgroundComponent.csproj"
             },
-            "P:\\Clones\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj"
+            "P:\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj": {
+              "projectPath": "P:\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj"
             },
-            "P:\\Clones\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj"
+            "P:\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj": {
+              "projectPath": "P:\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj"
             },
-            "P:\\Clones\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj"
+            "P:\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj": {
+              "projectPath": "P:\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj"
             }
           }
         }

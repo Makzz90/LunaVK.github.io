@@ -26,6 +26,7 @@ using Windows.Globalization;
 using Windows.Storage;
 using System.Threading.Tasks;
 using Windows.System;
+using UnhandledExceptionEventArgs = Windows.UI.Xaml.UnhandledExceptionEventArgs;
 
 namespace LunaVK
 {

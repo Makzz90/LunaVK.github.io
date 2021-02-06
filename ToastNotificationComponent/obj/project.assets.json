@@ -8826,11 +8826,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Clones\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj",
+      "projectUniqueName": "P:\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj",
       "projectName": "ToastNotificationComponent",
-      "projectPath": "P:\\Clones\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj",
+      "projectPath": "P:\\LunaVK\\ToastNotificationComponent\\ToastNotificationComponent.csproj",
       "packagesPath": "C:\\Users\\codev\\.nuget\\packages\\",
-      "outputPath": "P:\\Clones\\LunaVK\\ToastNotificationComponent\\obj\\",
+      "outputPath": "P:\\LunaVK\\ToastNotificationComponent\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8850,8 +8850,8 @@
       "frameworks": {
         "uap10.0.17134": {
           "projectReferences": {
-            "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj": {
-              "projectPath": "P:\\Clones\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj"
+            "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj": {
+              "projectPath": "P:\\LunaVK\\LunaVK.Core\\LunaVK.Core.csproj"
             }
           }
         }

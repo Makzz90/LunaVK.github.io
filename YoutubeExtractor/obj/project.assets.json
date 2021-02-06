@@ -8269,11 +8269,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Clones\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj",
+      "projectUniqueName": "P:\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj",
       "projectName": "YoutubeExtractor",
-      "projectPath": "P:\\Clones\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj",
+      "projectPath": "P:\\LunaVK\\YoutubeExtractor\\YoutubeExtractor.csproj",
       "packagesPath": "C:\\Users\\codev\\.nuget\\packages\\",
-      "outputPath": "P:\\Clones\\LunaVK\\YoutubeExtractor\\obj\\",
+      "outputPath": "P:\\LunaVK\\YoutubeExtractor\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

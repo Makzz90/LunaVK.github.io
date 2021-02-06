@@ -8165,11 +8165,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Clones\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj",
+      "projectUniqueName": "P:\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj",
       "projectName": "XamlAnimatedGif",
-      "projectPath": "P:\\Clones\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj",
+      "projectPath": "P:\\LunaVK\\XamlAnimatedGif\\XamlAnimatedGif.csproj",
       "packagesPath": "C:\\Users\\codev\\.nuget\\packages\\",
-      "outputPath": "P:\\Clones\\LunaVK\\XamlAnimatedGif\\obj\\",
+      "outputPath": "P:\\LunaVK\\XamlAnimatedGif\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
