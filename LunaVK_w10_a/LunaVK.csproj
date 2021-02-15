@@ -282,6 +282,9 @@
     <Compile Include="UC\Controls\NavigationViewItem\NavigationViewItem.cs" />
     <Compile Include="UC\Controls\NavigationView\NavigationView.cs" />
     <Compile Include="UC\Controls\RadialProgressBar\RadialProgressBar.cs" />
+    <Compile Include="UC\CustomBladeViewUC.xaml.cs">
+      <DependentUpon>CustomBladeViewUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UC\DownloadItemUC.xaml.cs">
       <DependentUpon>DownloadItemUC.xaml</DependentUpon>
     </Compile>
@@ -323,6 +326,9 @@
     </Compile>
     <Compile Include="UC\PopUp\ServiceSwitchUC.xaml.cs">
       <DependentUpon>ServiceSwitchUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\WindowTitleUC.xaml.cs">
+      <DependentUpon>WindowTitleUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddEditVideoViewModel.cs" />
     <Compile Include="ViewModels\AudioPlayerViewModel.cs" />
@@ -3762,6 +3768,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UC\CustomBladeViewUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UC\DebugUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -4114,6 +4124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UC\WindowTitleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VideoCatalogPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -4130,6 +4144,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.11</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>6.1.1</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>

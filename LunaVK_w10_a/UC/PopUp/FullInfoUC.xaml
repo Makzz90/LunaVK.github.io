@@ -1,86 +1,126 @@
 ﻿<UserControl
-    x:Class="LunaVK.UC.PopUp.FullInfoUC"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:LunaVK.UC.PopUp"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
-    xmlns:uc="using:LunaVK.UC"
-    xmlns:controls="using:LunaVK.UC.Controls"
-    xmlns:library="using:LunaVK.Library"
-    xmlns:converters="using:LunaVK.Network.Converters"
-    VerticalAlignment="Bottom"
-    xmlns:framework="using:LunaVK.Framework"
-    MaxWidth="900">
+	x:Class="LunaVK.UC.PopUp.FullInfoUC"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+	xmlns:controls="using:LunaVK.UC.Controls"
+	xmlns:converters="using:LunaVK.Network.Converters"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:framework="using:LunaVK.Framework"
+	xmlns:library="using:LunaVK.Library"
+	xmlns:local="using:LunaVK.UC.PopUp"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:uc="using:LunaVK.UC"
+	MaxWidth="900"
+	VerticalAlignment="Bottom"
+	d:DesignHeight="300"
+	d:DesignWidth="400"
+	mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
-        
-        <DataTemplate x:Key="RichTextTemplate">
-            <StackPanel Margin="10 10">
-                <TextBlock Text="{Binding Title}" FontSize="{StaticResource FontSizeContent}" Opacity="0.6"/>
-                <uc:ScrollableTextBlock Text="{Binding Data}" />
-            </StackPanel>
-        </DataTemplate>
+	<UserControl.Resources>
+		<converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
 
-        <DataTemplate x:Key="PlainTextTemplate">
-            <StackPanel Margin="10 0">
-                <TextBlock Text="{Binding Title}" FontSize="{StaticResource FontSizeContent}" Opacity="0.6"/>
-                <TextBlock Text="{Binding Data}"/>
-            </StackPanel>
-        </DataTemplate>
+		<DataTemplate x:Key="RichTextTemplate">
+			<StackPanel Margin="10,10">
+				<TextBlock
+					FontSize="{StaticResource FontSizeContent}"
+					Opacity="0.6"
+					Text="{Binding Title}" />
+				<uc:ScrollableTextBlock Text="{Binding Data}" />
+			</StackPanel>
+		</DataTemplate>
 
-        <DataTemplate x:Key="FullItemTemplate">
-            <Grid Margin="10 10" Background="Transparent" Tapped="InfoItem_OnTap" framework:MouseOver.Cursor="Hand">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+		<DataTemplate x:Key="PlainTextTemplate">
+			<StackPanel Margin="10,0">
+				<TextBlock
+					FontSize="{StaticResource FontSizeContent}"
+					Opacity="0.6"
+					Text="{Binding Title}" />
+				<TextBlock Text="{Binding Data}" />
+			</StackPanel>
+		</DataTemplate>
 
-                <TextBlock Text="{Binding Title}" VerticalAlignment="Bottom" Opacity="0.6" TextTrimming="CharacterEllipsis" IsTextSelectionEnabled="True"
-                           HorizontalAlignment="Left"/>
-                <TextBlock Text="{Binding Data}" VerticalAlignment="Top" Grid.Row="1" TextTrimming="CharacterEllipsis" IsTextSelectionEnabled="True"
-                           HorizontalAlignment="Left"/>
+		<DataTemplate x:Key="FullItemTemplate">
+			<Grid
+				Margin="10,10"
+				framework:MouseOver.Cursor="Hand"
+				Background="Transparent"
+				Tapped="InfoItem_OnTap">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
 
-                <Ellipse Grid.Column="1" Grid.RowSpan="2" Height="48" Width="48">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding GroupImage}"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-            </Grid>
-        </DataTemplate>
+				<TextBlock
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					IsTextSelectionEnabled="True"
+					Opacity="0.6"
+					Text="{Binding Title}"
+					TextTrimming="CharacterEllipsis" />
+				<TextBlock
+					Grid.Row="1"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					IsTextSelectionEnabled="True"
+					Text="{Binding Data}"
+					TextTrimming="CharacterEllipsis" />
 
-        <DataTemplate x:Key="ContactTemplate">
-            <StackPanel Orientation="Horizontal" Margin="10 0" Background="Transparent" Tapped="InfoItem_OnTap">
-                <uc:IconUC Glyph="{Binding Icon}" VerticalAlignment="Top" Foreground="{ThemeResource TextBrushMediumLow}"/>
-                <TextBlock Text="{Binding Data}" Margin="8 0 0 0" Foreground="{ThemeResource TextBrushMediumLow}"
-                           TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
-            </StackPanel>
-        </DataTemplate>
+				<Ellipse
+					Grid.RowSpan="2"
+					Grid.Column="1"
+					Width="48"
+					Height="48">
+					<Ellipse.Fill>
+						<ImageBrush ImageSource="{Binding GroupImage}" />
+					</Ellipse.Fill>
+				</Ellipse>
+			</Grid>
+		</DataTemplate>
 
-        <DataTemplate x:Key="PreviewsTemplate">
-            <uc:InfoListItemUC Text="{Binding Data}" PreviewUrls="{Binding Previews}" IconUrl="{Binding Icon}" Margin="10 0"
-                               Background="Transparent" Tapped="InfoItem_OnTap"/>
-        </DataTemplate>
+		<DataTemplate x:Key="ContactTemplate">
+			<StackPanel
+				Margin="10,0"
+				Background="Transparent"
+				Orientation="Horizontal"
+				Tapped="InfoItem_OnTap">
+				<uc:IconUC
+					VerticalAlignment="Top"
+					Foreground="{ThemeResource TextBrushMediumLow}"
+					Glyph="{Binding Icon}" />
+				<TextBlock
+					Margin="8,0,0,0"
+					Foreground="{ThemeResource TextBrushMediumLow}"
+					IsTextSelectionEnabled="True"
+					Text="{Binding Data}"
+					TextWrapping="Wrap" />
+			</StackPanel>
+		</DataTemplate>
 
-        <library:ProfileInfoTemplateSelector x:Key="profileInfoTemplateSelector"
-                                         RichTextTemplate="{StaticResource RichTextTemplate}"
-                                         SimpleTextTemplate="{StaticResource PlainTextTemplate}"
-                                         TextAndImageTemplate="{StaticResource FullItemTemplate}"
-                                         TextAndIconTemplate="{StaticResource ContactTemplate}"
-                                         PreviewsTemplate="{StaticResource PreviewsTemplate}"
-                                         />
-    </UserControl.Resources>
+		<DataTemplate x:Key="PreviewsTemplate">
+			<uc:InfoListItemUC
+				Margin="10,0"
+				Background="Transparent"
+				IconUrl="{Binding Icon}"
+				PreviewUrls="{Binding Previews}"
+				Tapped="InfoItem_OnTap"
+				Text="{Binding Data}" />
+		</DataTemplate>
 
-    <Grid Background="{ThemeResource ItemBackgroundBrush}">
-        <!--<ListView ItemsSource="{Binding InfoSections}" SelectionMode="None" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+		<library:ProfileInfoTemplateSelector
+			x:Key="profileInfoTemplateSelector"
+			PreviewsTemplate="{StaticResource PreviewsTemplate}"
+			RichTextTemplate="{StaticResource RichTextTemplate}"
+			SimpleTextTemplate="{StaticResource PlainTextTemplate}"
+			TextAndIconTemplate="{StaticResource ContactTemplate}"
+			TextAndImageTemplate="{StaticResource FullItemTemplate}" />
+	</UserControl.Resources>
+
+	<!--<ListView ItemsSource="{Binding InfoSections}" SelectionMode="None" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -110,15 +150,24 @@
             </ListView.ItemContainerStyle>
         </ListView>-->
 
-        <ListView ItemsSource="{Binding InfoSections}" SelectionMode="Single"  ItemTemplateSelector="{StaticResource profileInfoTemplateSelector}" Margin="0 5 0 10" SelectionChanged="ListView_SelectionChanged">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    <Setter Property="Padding" Value="0" />
-                    <Setter Property="Margin" Value="0" />
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
-
-    </Grid>
+	<ListView
+		x:Name="lv"
+		Margin="0,5,0,10"
+		Windows10version1809:CornerRadius="8"
+		Background="{ThemeResource ItemBackgroundBrush}"
+		BorderBrush="Gray"
+		BorderThickness="1"
+		ItemTemplateSelector="{StaticResource profileInfoTemplateSelector}"
+		ItemsSource="{Binding InfoSections}"
+		SelectionChanged="ListView_SelectionChanged"
+		SelectionMode="Single"
+		Visibility="Collapsed">
+		<ListView.ItemContainerStyle>
+			<Style TargetType="ListViewItem">
+				<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+				<Setter Property="Padding" Value="0" />
+				<Setter Property="Margin" Value="0" />
+			</Style>
+		</ListView.ItemContainerStyle>
+	</ListView>
 </UserControl>

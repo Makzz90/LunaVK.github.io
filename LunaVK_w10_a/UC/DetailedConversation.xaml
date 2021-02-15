@@ -167,7 +167,7 @@
             <local:NewMessageUC VerticalAlignment="Bottom" x:Name="ucNewMessage"/>
         </Grid>
 
-        <local:HeaderOffsetUC VerticalAlignment="Top" Background="{ThemeResource HeaderBrush}" DataContext="{Binding VM}">
+        <local:HeaderOffsetUC Margin="0,0,0,0" VerticalAlignment="Top" Background="{ThemeResource ItemBackgroundBrush}" DataContext="{Binding VM}">
             <Grid Height="48" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="48"/>

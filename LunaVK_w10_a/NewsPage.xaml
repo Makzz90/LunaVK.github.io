@@ -20,7 +20,7 @@
             <VisualStateGroup x:Name="MenuState">
                 <VisualState x:Name="Medium">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWindowWidth}" />
+                        <AdaptiveTrigger MinWindowWidth="1550" />
                     </VisualState.StateTriggers>
                     <Storyboard>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SecondContent" Storyboard.TargetProperty="Visibility">

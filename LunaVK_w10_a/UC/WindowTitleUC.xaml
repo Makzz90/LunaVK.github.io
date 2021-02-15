@@ -1,0 +1,32 @@
+﻿<Page
+	x:Class="LunaVK.UC.WindowTitleUC"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:LunaVK.UC"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Height="32"
+	HorizontalAlignment="Stretch"
+	VerticalAlignment="Top"
+	Visibility="Visible"
+	mc:Ignorable="d">
+	<Grid Name="trikibarRoot">
+		<Grid Name="trikibar" Background="Transparent" />
+
+		<Button
+			Name="_fullScreenBtn"
+			Width="48"
+			Height="32"
+			Margin="0,0,180,0"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Top"
+			Background="Transparent"
+			BorderThickness="0"
+			Tapped="_fullScreenBtn_Tapped">
+			<local:IconUC
+				FontSize="14"
+				Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+				Glyph="&#xE740;" />
+		</Button>
+	</Grid>
+</Page>

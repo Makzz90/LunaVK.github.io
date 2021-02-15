@@ -19,6 +19,19 @@ namespace LunaVK.UC
                 base.Loaded += HeaderOffsetUC_Loaded;
             else
                 CustomFrame.Instance.Header.HeaderHeightChanged += this.HeaderWithMenu_HeaderHeightChanged;
+
+            WindowTitleUC.OnFullScreenMode += WindowTitleUC_OnFullScreenMode;
+            WindowTitleUC.OnWindowedMode += WindowTitleUC_OnWindowedMode;
+        }
+
+        private void WindowTitleUC_OnWindowedMode()
+        {
+            Height = 80;
+        }
+
+        private void WindowTitleUC_OnFullScreenMode()
+        {
+            Height = 48;
         }
 
         private void HeaderOffsetUC_Loaded(object sender, RoutedEventArgs e)

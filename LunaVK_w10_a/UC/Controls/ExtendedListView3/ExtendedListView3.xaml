@@ -1,76 +1,87 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="using:LunaVK.UC.Controls"
-                    xmlns:uc="using:LunaVK.UC"
-                    >
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="using:LunaVK.UC.Controls"
+	xmlns:uc="using:LunaVK.UC">
 
-    <Style TargetType="controls:ExtendedListView3">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="controls:ExtendedListView3">
-                    <Grid>
-                        <ListView x:Name="listView" SelectionMode="{TemplateBinding SelectionMode}" 
-                              IsZoomedInView="False" IsSwipeEnabled="False"
-                              ItemsSource="{TemplateBinding ItemsSource}" ItemTemplate="{TemplateBinding ItemTemplate}"
-                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              VirtualizingStackPanel.VirtualizationMode="Recycling"
-                              Background="{TemplateBinding Background}"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Disabled"
-                              ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-                              ShowsScrollingPlaceholders="False"
-                                  CanReorderItems="{TemplateBinding CanReorderItems}"
-                                  ReorderMode="{TemplateBinding ReorderMode}"
-                                  CanDrag="{TemplateBinding CanDrag}"
-                                  AllowDrop="{TemplateBinding AllowDrop}"
-                              >
-                            <ListView.Header>
-                                <StackPanel>
-                                    <Rectangle Height="1" x:Name="rect" Margin="0 -1 0 0"/>
-                                    <Rectangle Height="80" x:Name="offsetForHeader"/>
-                                    <ContentPresenter Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}"/>
-                                </StackPanel>
-                            </ListView.Header>
-                            
-                            <ListView.Footer>
-                                <StackPanel>
-                                    <uc:FooterUC x:Name="_footer"/>
-                                    <ContentPresenter Content="{TemplateBinding Footer}"/>
-                                </StackPanel>
-                            </ListView.Footer>
+	<Style TargetType="controls:ExtendedListView3">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="controls:ExtendedListView3">
+					<Grid>
+						<ListView
+							x:Name="listView"
+							AllowDrop="{TemplateBinding AllowDrop}"
+							Background="{TemplateBinding Background}"
+							CanDrag="{TemplateBinding CanDrag}"
+							CanReorderItems="{TemplateBinding CanReorderItems}"
+							IsSwipeEnabled="False"
+							IsZoomedInView="False"
+							ItemTemplate="{TemplateBinding ItemTemplate}"
+							ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+							ItemsSource="{TemplateBinding ItemsSource}"
+							ReorderMode="{TemplateBinding ReorderMode}"
+							ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+							ScrollViewer.HorizontalScrollMode="Disabled"
+							ScrollViewer.VerticalScrollBarVisibility="Hidden"
+							SelectionMode="{TemplateBinding SelectionMode}"
+							ShowsScrollingPlaceholders="False"
+							VirtualizingStackPanel.VirtualizationMode="Recycling">
+							<ListView.Header>
+								<StackPanel Margin="16,0,16,0">
+									<Rectangle
+										x:Name="rect"
+										Height="1"
+										Margin="0,-1,0,0" />
+									<Rectangle x:Name="offsetForHeader" Height="80" />
+									<ContentPresenter Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" />
+								</StackPanel>
+							</ListView.Header>
 
-                            <!-- BugFix: элементы на всю ширину -->
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                    <Setter Property="Padding" Value="0" />
-                                    <Setter Property="Margin" Value="0" />
-                                </Style>
-                            </ListView.ItemContainerStyle>
+							<ListView.Footer>
+								<StackPanel>
+									<uc:FooterUC x:Name="_footer" />
+									<ContentPresenter Content="{TemplateBinding Footer}" />
+								</StackPanel>
+							</ListView.Footer>
 
-                            <ListView.ItemContainerTransitions>
-                                <TransitionCollection>
-                                    <EntranceThemeTransition FromHorizontalOffset="0" FromVerticalOffset="50" IsStaggeringEnabled="True"/>
-                                    <AddDeleteThemeTransition/>
-                                    <!--<RepositionThemeTransition/>-->
-                                </TransitionCollection>
-                            </ListView.ItemContainerTransitions>
+							<!--  BugFix: элементы на всю ширину  -->
+							<ListView.ItemContainerStyle>
+								<Style TargetType="ListViewItem">
+									<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+									<Setter Property="Padding" Value="0" />
+									<Setter Property="Margin" Value="16,0,16,0" />
+								</Style>
+							</ListView.ItemContainerStyle>
 
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <ItemsStackPanel/>
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>
-                        </ListView>
+							<ListView.ItemContainerTransitions>
+								<TransitionCollection>
+									<EntranceThemeTransition
+										FromHorizontalOffset="0"
+										FromVerticalOffset="50"
+										IsStaggeringEnabled="True" />
+									<AddDeleteThemeTransition />
+									<!--<RepositionThemeTransition/>-->
+								</TransitionCollection>
+							</ListView.ItemContainerTransitions>
 
-                        <uc:LoadingUC x:Name="_loading" MaxWidth="600"/>
+							<ListView.ItemsPanel>
+								<ItemsPanelTemplate>
+									<ItemsStackPanel />
+								</ItemsPanelTemplate>
+							</ListView.ItemsPanel>
+						</ListView>
 
-                        <ContentPresenter x:Name="NoContentPresenter" Visibility="Collapsed"
-                                  Content="{TemplateBinding NoContent}"
-                                  />
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+						<uc:LoadingUC x:Name="_loading" MaxWidth="600" />
+
+						<ContentPresenter
+							x:Name="NoContentPresenter"
+							Content="{TemplateBinding NoContent}"
+							Visibility="Collapsed" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 
 </ResourceDictionary>

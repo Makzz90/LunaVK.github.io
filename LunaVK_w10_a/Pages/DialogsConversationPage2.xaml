@@ -57,7 +57,7 @@
 
 
 
-                    <uc:HeaderOffsetUC Background="{ThemeResource HeaderBrush}" VerticalAlignment="Top" Tapped="_header_Tapped">
+                    <uc:HeaderOffsetUC Background="{ThemeResource ItemBackgroundBrush}" VerticalAlignment="Top" Tapped="_header_Tapped">
                         <StackPanel Height="48" Orientation="Horizontal" VerticalAlignment="Bottom">
                             <AppBarButton Width="48" Height="48" x:Name="Burger" Tapped="Burger_Tapped">
                                 <Grid>

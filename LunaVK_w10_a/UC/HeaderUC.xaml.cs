@@ -16,6 +16,7 @@ using LunaVK.Core;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.Foundation.Metadata;
+using LunaVK.Pages;
 
 namespace LunaVK.UC
 {
@@ -60,10 +61,10 @@ namespace LunaVK.UC
             get { return this.TopBarInterBackground; }
         }
 
-        public UIElement FullScreenBtn
-        {
-            get { return this._fullScreenBtn; }
-        }
+        //public UIElement FullScreenBtn
+        //{
+        //    get { return this._fullScreenBtn; }
+        //}
         /*
         public void ShowProgress(bool show)
         {
@@ -217,9 +218,35 @@ namespace LunaVK.UC
             {
                 this.Offset.Height = 32;
             }
+
+            DialogsConversationPage2.OnIsLoaded += DialogsConversationPage2_OnIsLoaded;
+            WindowTitleUC.OnFullScreenMode += WindowTitleUC_OnFullScreenMode;
+			WindowTitleUC.OnWindowedMode += WindowTitleUC_OnWindowedMode;
         }
 
-        void HeaderWithMenuUC_Loaded(object sender, RoutedEventArgs e)
+        private void DialogsConversationPage2_OnIsLoaded(bool isLoaded)
+		{
+			if(isLoaded)
+			{
+                root.Visibility = Visibility.Collapsed;
+			}
+			else
+			{
+                root.Visibility = Visibility.Visible;
+			}
+		}
+
+        private void WindowTitleUC_OnWindowedMode()
+		{
+            Offset.Height = 32;
+        }
+
+		private void WindowTitleUC_OnFullScreenMode()
+		{
+            Offset.Height = 0;
+        }
+
+		void HeaderWithMenuUC_Loaded(object sender, RoutedEventArgs e)
         {
             this._headerHeightChanged?.Invoke(this, this.HeaderHeight);
             base.Loaded -= this.HeaderWithMenuUC_Loaded;
@@ -287,35 +314,35 @@ namespace LunaVK.UC
             if (Settings.UI_HideApplicationFrame)
             {
 
-                this.trikibarRoot.Visibility = Visibility.Collapsed;
-                this._fullScreenBtn.Visibility = Visibility.Collapsed;
+                //this.trikibarRoot.Visibility = Visibility.Collapsed;
+                //this._fullScreenBtn.Visibility = Visibility.Collapsed;
 
                 //titleBar.ButtonBackgroundColor = Colors.Transparent;
                 //titleBar.ButtonForegroundColor = Colors.White;
                 //titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
                 //titleBar.ButtonInactiveForegroundColor = Colors.White;
 
-                Window.Current.SetTitleBar(null);
+                //Window.Current.SetTitleBar(null);
             }
             
             else
             {
 
-                this.trikibarRoot.Visibility = Visibility.Visible;
-                this._fullScreenBtn.Visibility = Visibility.Visible;
+                //this.trikibarRoot.Visibility = Visibility.Visible;
+                //this._fullScreenBtn.Visibility = Visibility.Visible;
 
                 //titleBar.ButtonBackgroundColor = null;
                 //titleBar.ButtonForegroundColor = null;
                 //titleBar.ButtonInactiveBackgroundColor = null;
                 //titleBar.ButtonInactiveForegroundColor = null;
 
-                Window.Current.SetTitleBar(this.trikibar);
+                //Window.Current.SetTitleBar(this.trikibar);
             }
         }
 
         private void TitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
         {
-            this._fullScreenBtn.Margin = new Thickness(0, 0, sender.SystemOverlayRightInset, 0);
+            //this._fullScreenBtn.Margin = new Thickness(0, 0, sender.SystemOverlayRightInset, 0);
             //this.CoreTitleBar_IsVisibleChanged(sender, args);
         }
 
@@ -519,49 +546,49 @@ namespace LunaVK.UC
             this.MoreSearchClicked?.Invoke();
         }
 
-        private void _fullScreenBtn_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            ApplicationView view = ApplicationView.GetForCurrentView();
+        //private void _fullScreenBtn_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    ApplicationView view = ApplicationView.GetForCurrentView();
             
-            if (view.IsFullScreenMode)
-            {
-                this.Offset.Height = 32;
-                view.ExitFullScreenMode();
-                this.trikibarRoot.Visibility = Visibility.Visible;
-                //this._fullScreenBtn.Icon = new SymbolIcon(Symbol.FullScreen);
-                //this._headerGrid.Margin = new Thickness(0, 0, Settings.UI_HideApplicationFrame ? 150 : 0, 0);
-            }
-            else
-            {
-                bool succeeded = view.TryEnterFullScreenMode();
-                if (succeeded)
-                {
-                    this.Offset.Height = 0;
-                    this.trikibarRoot.Visibility = Visibility.Collapsed;
-                    //this._fullScreenBtn.Icon = new SymbolIcon(Symbol.BackToWindow);
-                    //this._headerGrid.Margin = new Thickness();
+        //    if (view.IsFullScreenMode)
+        //    {
+        //        this.Offset.Height = 32;
+        //        view.ExitFullScreenMode();
+        //        this.trikibarRoot.Visibility = Visibility.Visible;
+        //        //this._fullScreenBtn.Icon = new SymbolIcon(Symbol.FullScreen);
+        //        //this._headerGrid.Margin = new Thickness(0, 0, Settings.UI_HideApplicationFrame ? 150 : 0, 0);
+        //    }
+        //    else
+        //    {
+        //        bool succeeded = view.TryEnterFullScreenMode();
+        //        if (succeeded)
+        //        {
+        //            this.Offset.Height = 0;
+        //            this.trikibarRoot.Visibility = Visibility.Collapsed;
+        //            //this._fullScreenBtn.Icon = new SymbolIcon(Symbol.BackToWindow);
+        //            //this._headerGrid.Margin = new Thickness();
 
-                    ApplicationView.GetForCurrentView().VisibleBoundsChanged += FullScreenModeTrigger_VisibleBoundsChanged;
-                }
-                else
-                {
-                    // cannot maximize
-                }
-            }
+        //            ApplicationView.GetForCurrentView().VisibleBoundsChanged += FullScreenModeTrigger_VisibleBoundsChanged;
+        //        }
+        //        else
+        //        {
+        //            // cannot maximize
+        //        }
+        //    }
 
-            this._headerHeightChanged?.Invoke(this, this.HeaderHeight);
-        }
+        //    this._headerHeightChanged?.Invoke(this, this.HeaderHeight);
+        //}
 
-        private void FullScreenModeTrigger_VisibleBoundsChanged(ApplicationView sender, object args)
-        {
-            if (!sender.IsFullScreenMode)
-            {
-                sender.VisibleBoundsChanged -= FullScreenModeTrigger_VisibleBoundsChanged;
-                this.trikibarRoot.Visibility = Visibility.Visible;
-                this.Offset.Height = 32;
-                this._headerGrid.Margin = new Thickness(0, 0, Settings.UI_HideApplicationFrame ? 180 : 0, 0);
-                this._headerHeightChanged?.Invoke(this, this.HeaderHeight);
-            }
-        }
+        //private void FullScreenModeTrigger_VisibleBoundsChanged(ApplicationView sender, object args)
+        //{
+        //    if (!sender.IsFullScreenMode)
+        //    {
+        //        sender.VisibleBoundsChanged -= FullScreenModeTrigger_VisibleBoundsChanged;
+        //        this.trikibarRoot.Visibility = Visibility.Visible;
+        //        this.Offset.Height = 32;
+        //        this._headerGrid.Margin = new Thickness(0, 0, Settings.UI_HideApplicationFrame ? 180 : 0, 0);
+        //        this._headerHeightChanged?.Invoke(this, this.HeaderHeight);
+        //    }
+        //}
     }
 }

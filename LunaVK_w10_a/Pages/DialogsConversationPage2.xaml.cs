@@ -36,6 +36,9 @@ namespace LunaVK.Pages
         private bool _updateConversaationAfterFail;
         private uint? group_id;
 
+        public delegate void LoadedEvent(bool isLoaded);
+        public static LoadedEvent OnIsLoaded;
+
         public DialogsConversationPage2()
         {
             this.InitializeComponent();
@@ -96,10 +99,16 @@ namespace LunaVK.Pages
                 this._exListView.Loaded2 += this._exListView_Loaded2;
             }
 
+			Loaded += DialogsConversationPage2_Loaded;
             this.Unloaded += this.DialogsConversationPage2_Unloaded;
         }
 
-        private async void ProcessParametersRepository()
+		private void DialogsConversationPage2_Loaded(object sender, RoutedEventArgs e)
+		{
+            OnIsLoaded.Invoke(true);
+		}
+
+		private async void ProcessParametersRepository()
         {
             string parameterForIdAndReset2 = ParametersRepository.GetParameterForIdAndReset("ChoosenPhotos") as string;
             if(parameterForIdAndReset2!=null)
@@ -127,6 +136,7 @@ namespace LunaVK.Pages
 
         private void DialogsConversationPage2_Unloaded(object sender, RoutedEventArgs e)
         {
+            OnIsLoaded.Invoke(false);
             if(StickersAutoSuggestDictionary.Instance.Count>0)
                 StickersAutoSuggestDictionary.Instance.SaveState();
             StickersAutoSuggestDictionary.Instance.Clear();

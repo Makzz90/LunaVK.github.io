@@ -592,12 +592,8 @@ namespace LunaVK.Pages
 
         private void BorderFullInformation_OnTap(object sender, TappedRoutedEventArgs e)
         {
-            
-
             if (this.fullInfoViewModel == null)
             {
-                
-
                 this.VM.ShowFullInfoPopup((result) =>
                 {
                     if (result)
@@ -610,6 +606,7 @@ namespace LunaVK.Pages
                         this.dialogService.OverrideBackKey = true;
                         this.dialogService.AnimationTypeChild = PopUpService.AnimationTypes.SlideInversed;
                         this.dialogService.Show();
+                        OnUpdateVisibilityList.Invoke();
                     }
                 });
             }
@@ -622,10 +619,12 @@ namespace LunaVK.Pages
                 this.dialogService.OverrideBackKey = true;
                 this.dialogService.AnimationTypeChild = PopUpService.AnimationTypes.SlideInversed;
                 this.dialogService.Show();
+                OnUpdateVisibilityList.Invoke();
             }
-            
-            
         }
+
+        public delegate void UpdateVisibilityList();
+        public static event UpdateVisibilityList OnUpdateVisibilityList;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -997,5 +996,5 @@ namespace LunaVK.Pages
         {
             this.VM.OpenProfilePhotos();
         }
-    }
+	}
 }

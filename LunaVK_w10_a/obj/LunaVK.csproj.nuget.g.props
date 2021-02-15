@@ -45,5 +45,6 @@
     <Pkgruntime_win10-arm_Microsoft_Net_Native_Compiler Condition=" '$(Pkgruntime_win10-arm_Microsoft_Net_Native_Compiler)' == '' ">C:\Users\codev\.nuget\packages\runtime.win10-arm.microsoft.net.native.compiler\2.2.9-rel-29512-01</Pkgruntime_win10-arm_Microsoft_Net_Native_Compiler>
     <PkgMicrosoft_Net_UWPCoreRuntimeSdk Condition=" '$(PkgMicrosoft_Net_UWPCoreRuntimeSdk)' == '' ">C:\Users\codev\.nuget\packages\microsoft.net.uwpcoreruntimesdk\2.2.11</PkgMicrosoft_Net_UWPCoreRuntimeSdk>
     <PkgMicrosoft_Net_Native_Compiler Condition=" '$(PkgMicrosoft_Net_Native_Compiler)' == '' ">C:\Users\codev\.nuget\packages\microsoft.net.native.compiler\2.2.9-rel-29512-01</PkgMicrosoft_Net_Native_Compiler>
+    <PkgMicrosoft_Toolkit_Uwp_UI_Controls Condition=" '$(PkgMicrosoft_Toolkit_Uwp_UI_Controls)' == '' ">C:\Users\codev\.nuget\packages\microsoft.toolkit.uwp.ui.controls\6.1.1</PkgMicrosoft_Toolkit_Uwp_UI_Controls>
   </PropertyGroup>
 </Project>

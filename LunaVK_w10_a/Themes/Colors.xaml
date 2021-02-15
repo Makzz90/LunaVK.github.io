@@ -130,7 +130,7 @@
             <SolidColorBrush x:Key="AccentBrushLow" Color="#FFCBDBF7" />
 
             <!-- Цвет основного фона (серый) -->
-            <SolidColorBrush x:Key="BaseBackgroundBrush" Color="#FFEBEDF0" />
+            <SolidColorBrush x:Key="BaseBackgroundBrush" Color="White" />
 
             <!-- Цвет фона элементов (белый) -->
             <SolidColorBrush x:Key="ItemBackgroundBrush" Color="White" />
@@ -150,7 +150,7 @@
             <!-- 20% цвет текста -->
             <SolidColorBrush x:Key="TextBrushLow" Color="#5C5C5C" />
             
-            <SolidColorBrush x:Key="HeaderBrush" Color="#FF4877CB" />
+            <SolidColorBrush x:Key="HeaderBrush" Color="Black" />
 
             <SolidColorBrush x:Key="ImagePlaceholderBackgroundBrush" Color="#ffe9edf2" />
 
@@ -188,7 +188,7 @@
             <SolidColorBrush x:Key="BaseBackgroundBrush" Color="Black" />
 
             <!-- Цвет фона элементов (серый) -->
-            <SolidColorBrush x:Key="ItemBackgroundBrush" Color="#19191B" />
+            <SolidColorBrush x:Key="ItemBackgroundBrush" Color="Black" />
 
             <!-- 100% цвет текста -->
             <SolidColorBrush x:Key="TextBrushHigh" Color="White" />

@@ -1,92 +1,65 @@
 ﻿<UserControl
-    x:Class="LunaVK.UC.ItemDialogUC"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:LunaVK.UC"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="80"
-    d:DesignWidth="400"
-    
-    xmlns:converters="using:LunaVK.Network.Converters">
+	x:Class="LunaVK.UC.ItemDialogUC"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:converters="using:LunaVK.Network.Converters"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:LunaVK.UC"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	d:DesignHeight="80"
+	d:DesignWidth="400"
+	mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <converters:UIStringMessageTimeConverter x:Key="UIStringMessageTimeConverter"/>
-        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
-    </UserControl.Resources>
+	<UserControl.Resources>
+		<converters:UIStringMessageTimeConverter x:Key="UIStringMessageTimeConverter" />
+		<converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+	</UserControl.Resources>
 
 
-    <Grid Background="Transparent" Tapped="Back_Tapped" Height="80">
+	<Grid
+		Height="80"
+		Background="Transparent"
+		Tapped="Back_Tapped">
+		<Border Background="{ThemeResource PhoneDialogOutMessageBackgroundBrush}" Visibility="{Binding DialogBackgroundVisibility, FallbackValue=Collapsed}" />
+		<Grid Margin="0 12">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
 
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{Binding IsAdminId}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="Title.Foreground" Value="#FF00A400" />
-                    </VisualState.Setters>
-                </VisualState>
+			<local:AvatarUC
+				Width="56"
+				Height="56"
+				Margin="10 0"
+				Data="{Binding ConversationAvatarVM}"
+				PlatformIcon="{Binding ConversationAvatarVM.PlatformIcon}"
+				Tapped="Avatar_Tapped" />
 
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{Binding SomeAttachments}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SubTitle.Foreground" Value="{ThemeResource SystemControlHighlightAccentBrush}" />
-                    </VisualState.Setters>
-                </VisualState>
+			<Grid Grid.Column="1" VerticalAlignment="Center">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
 
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{Binding AreNotificationsDisabled}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="_brdCount.Background" Value="Gray" />
-                    </VisualState.Setters>
-                </VisualState>
+				<!--  Шапка с заголовком и датой  -->
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
 
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <Border Background="{ThemeResource PhoneDialogOutMessageBackgroundBrush}" Visibility="{Binding DialogBackgroundVisibility, FallbackValue=Collapsed}"/>
-        <Grid Margin="0 12">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <local:AvatarUC Data="{Binding ConversationAvatarVM}" PlatformIcon="{Binding ConversationAvatarVM.PlatformIcon}"
-                            Width="56" Height="56"
-                            Margin="10 0" Tapped="Avatar_Tapped"/>
-
-            <Grid Grid.Column="1" VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <!-- Шапка с заголовком и датой -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <!-- Имя собеседника с иконками Verified и Беззвучием -->
-                    <!--<StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+					<!--  Имя собеседника с иконками Verified и Беззвучием  -->
+					<!--<StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                         <TextBlock Text="{Binding Title, FallbackValue='Title'}" TextTrimming="CharacterEllipsis" FontSize="18" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
                                    x:Name="Title" FontWeight="Medium"/>
                         <local:IconUC Glyph="&#xE930;" Margin="5 0 0 0" FontSize="{StaticResource FontSizeContent}" Visibility="{Binding UserVerified, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed2}"
                               Foreground="{ThemeResource AccentBrushHigh}"/>
                         <local:IconUC Glyph="&#xE74F;" Opacity="0.6" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}" Margin="5 0 0 0" Visibility="{Binding AreNotificationsDisabled, Converter={StaticResource BoolToVisibilityConverter}}"/>
                     </StackPanel>-->
-                    <!--<RichTextBlock TextWrapping="NoWrap"
+					<!--<RichTextBlock TextWrapping="NoWrap"
                                      TextTrimming="CharacterEllipsis"
                                  Foreground="{ThemeResource TextBrushMediumHigh}"
-                                 
+
                                  FontSize="{StaticResource FontSizeLarge}">
                         <Paragraph>
                             <InlineUIContainer>
@@ -99,67 +72,145 @@
                             </InlineUIContainer>
                         </Paragraph>
                     </RichTextBlock>-->
-                    <Border>
-                        <Grid HorizontalAlignment="Left">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+					<Border>
+						<Grid HorizontalAlignment="Left">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" FontSize="18" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
-                                   x:Name="Title" FontWeight="Medium"/>
-                            
-                            <local:IconUC Glyph="&#xE930;" Margin="6 0 0 0" FontSize="{StaticResource FontSizeContent}" Visibility="{Binding UserVerified, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}"
-                              Foreground="{ThemeResource SystemControlHighlightAccentBrush}" Grid.Column="1"/>
+							<TextBlock
+								x:Name="Title"
+								FontSize="18"
+								FontWeight="Medium"
+								Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+								Text="{Binding Title}"
+								TextTrimming="CharacterEllipsis" />
 
-                            <local:IconUC Glyph="&#xE74F;" Opacity="0.6" Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}" Margin="8 0 0 0" Visibility="{Binding AreNotificationsDisabled, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}" Grid.Column="2"/>
-                        </Grid>
-                    </Border>
+							<local:IconUC
+								Grid.Column="1"
+								Margin="6 0 0 0"
+								FontSize="{StaticResource FontSizeContent}"
+								Foreground="{ThemeResource SystemControlHighlightAccentBrush}"
+								Glyph="&#xE930;"
+								Visibility="{Binding UserVerified, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}" />
 
-                    <TextBlock Foreground="{ThemeResource TextBrushLow}" FontSize="{StaticResource FontSizeSmall}"
-                                Text="{Binding last_message.date, FallbackValue='вчера', Converter={StaticResource UIStringMessageTimeConverter}}"
-                                Margin="10 0"
-                                VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1"/>
+							<local:IconUC
+								Grid.Column="2"
+								Margin="8 0 0 0"
+								Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+								Glyph="&#xE74F;"
+								Opacity="0.6"
+								Visibility="{Binding AreNotificationsDisabled, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed}" />
+						</Grid>
+					</Border>
 
-                </Grid>
+					<TextBlock
+						Grid.Column="1"
+						Margin="10 0"
+						HorizontalAlignment="Right"
+						VerticalAlignment="Center"
+						FontSize="{StaticResource FontSizeSmall}"
+						Foreground="{ThemeResource TextBrushLow}"
+						Text="{Binding last_message.date, FallbackValue='вчера', Converter={StaticResource UIStringMessageTimeConverter}}" />
 
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Ellipse Width="20" Height="20" Margin="0 0 8 0" Visibility="{Binding UserThumbVisibility}" VerticalAlignment="Center">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding UserThumb}" />
-                        </Ellipse.Fill>
-                    </Ellipse>
+				</Grid>
 
-                    <Grid Grid.Column="1" VerticalAlignment="Center">
-                        <Grid Background="{ThemeResource SystemControlHighlightAccentBrush}"
-                              Visibility="{Binding BodyTextBackgroundVisibility, FallbackValue=Collapsed}" Opacity="0.4"/>
+				<Grid Grid.Row="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
 
-                        <TextBlock TextWrapping="NoWrap" MaxLines="1" x:Name="SubTitle"
-                                Text="{Binding UIBody}" TextTrimming="CharacterEllipsis"
-                                Foreground="{ThemeResource TextBrushMediumLow}" FontSize="16"
-                                   Padding="0 2"/>
+					<Ellipse
+						Width="20"
+						Height="20"
+						Margin="0 0 8 0"
+						VerticalAlignment="Center"
+						Visibility="{Binding UserThumbVisibility}">
+						<Ellipse.Fill>
+							<ImageBrush ImageSource="{Binding UserThumb}" />
+						</Ellipse.Fill>
+					</Ellipse>
 
-                    </Grid>
+					<Grid Grid.Column="1" VerticalAlignment="Center">
+						<Grid
+							Background="{ThemeResource SystemControlHighlightAccentBrush}"
+							Opacity="0.4"
+							Visibility="{Binding BodyTextBackgroundVisibility, FallbackValue=Collapsed}" />
 
-                    <Border Grid.Column="2" Background="{StaticResource SystemControlHighlightAccentBrush}" Visibility="{Binding CounterVisibility, FallbackValue=Collapsed}"
-                        MinWidth="20" CornerRadius="10" Margin="10 0" HorizontalAlignment="Right" VerticalAlignment="Center" Name="_brdCount">
-                        <TextBlock Text="{Binding Unread}" Foreground="White" VerticalAlignment="Center" TextAlignment="Center"
-                                   FontSize="12" FontWeight="SemiBold" Padding="5 2"/>
-                    </Border>
-                </Grid>
+						<TextBlock
+							x:Name="SubTitle"
+							Padding="0 2"
+							FontSize="16"
+							Foreground="{ThemeResource TextBrushMediumLow}"
+							MaxLines="1"
+							Text="{Binding UIBody}"
+							TextTrimming="CharacterEllipsis"
+							TextWrapping="NoWrap" />
+
+					</Grid>
+
+					<Border
+						Name="_brdCount"
+						Grid.Column="2"
+						MinWidth="20"
+						Margin="10 0"
+						HorizontalAlignment="Right"
+						VerticalAlignment="Center"
+						Background="{StaticResource SystemControlHighlightAccentBrush}"
+						CornerRadius="10"
+						Visibility="{Binding CounterVisibility, FallbackValue=Collapsed}">
+						<TextBlock
+							Padding="5 2"
+							VerticalAlignment="Center"
+							FontSize="12"
+							FontWeight="SemiBold"
+							Foreground="White"
+							Text="{Binding Unread}"
+							TextAlignment="Center" />
+					</Border>
+				</Grid>
 
 
 
-            </Grid>
-        </Grid>
-        <!--<Rectangle Height="1" VerticalAlignment="Bottom" Margin="60 0 0 0" Fill="{ThemeResource TextBrushMediumHigh}" Opacity="0.1"/>-->
-        <!--<Border Width="4" HorizontalAlignment="Left" Background="{ThemeResource AccentBrushHigh}" Name="_brdSelected" Visibility="Collapsed"/>-->
-    </Grid>
+			</Grid>
+		</Grid>
+		<!--<Rectangle Height="1" VerticalAlignment="Bottom" Margin="60 0 0 0" Fill="{ThemeResource TextBrushMediumHigh}" Opacity="0.1"/>-->
+		<!--<Border Width="4" HorizontalAlignment="Left" Background="{ThemeResource AccentBrushHigh}" Name="_brdSelected" Visibility="Collapsed"/>-->
+
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup>
+				<VisualState>
+					<VisualState.StateTriggers>
+						<StateTrigger IsActive="{Binding IsAdminId}" />
+					</VisualState.StateTriggers>
+					<VisualState.Setters>
+						<Setter Target="Title.Foreground" Value="#FF00A400" />
+					</VisualState.Setters>
+				</VisualState>
+
+				<VisualState>
+					<VisualState.StateTriggers>
+						<StateTrigger IsActive="{Binding SomeAttachments}" />
+					</VisualState.StateTriggers>
+					<VisualState.Setters>
+						<Setter Target="SubTitle.Foreground" Value="{ThemeResource SystemControlHighlightAccentBrush}" />
+					</VisualState.Setters>
+				</VisualState>
+
+				<VisualState>
+					<VisualState.StateTriggers>
+						<StateTrigger IsActive="{Binding AreNotificationsDisabled}" />
+					</VisualState.StateTriggers>
+					<VisualState.Setters>
+						<Setter Target="_brdCount.Background" Value="Gray" />
+					</VisualState.Setters>
+				</VisualState>
+
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+	</Grid>
 </UserControl>

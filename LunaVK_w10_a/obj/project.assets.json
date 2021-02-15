@@ -2,6 +2,30 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.17134": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -215,6 +239,98 @@
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
         }
       },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -340,10 +456,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -352,13 +468,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -608,6 +733,30 @@
       }
     },
     "UAP,Version=v10.0.17134/win10-arm": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -820,6 +969,98 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -1125,10 +1366,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -1137,13 +1378,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -1378,6 +1628,30 @@
       }
     },
     "UAP,Version=v10.0.17134/win10-arm-aot": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -1590,6 +1864,98 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -1896,10 +2262,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -1908,13 +2274,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -2149,6 +2524,30 @@
       }
     },
     "UAP,Version=v10.0.17134/win10-arm64-aot": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -2361,6 +2760,98 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -2667,10 +3158,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -2679,13 +3170,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -2920,6 +3420,30 @@
       }
     },
     "UAP,Version=v10.0.17134/win10-x64": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -3132,6 +3656,98 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -3437,10 +4053,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -3449,13 +4065,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -3690,6 +4315,30 @@
       }
     },
     "UAP,Version=v10.0.17134/win10-x64-aot": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -3902,6 +4551,98 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -4208,10 +4949,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -4220,13 +4961,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -4461,6 +5211,30 @@
       }
     },
     "UAP,Version=v10.0.17134/win10-x86": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -4673,6 +5447,98 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -4978,10 +5844,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -4990,13 +5856,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -5231,6 +6106,30 @@
       }
     },
     "UAP,Version=v10.0.17134/win10-x86-aot": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.UWP/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6"
+        },
+        "compile": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ColorCode.UWP.dll": {}
+        }
+      },
       "Microsoft.Data.Sqlite.Core/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -5443,6 +6342,98 @@
         "build": {
           "build/Microsoft.NETCore.UniversalWindowsPlatform.props": {},
           "build/Microsoft.NetCore.UniversalWindowsPlatform.targets": {}
+        }
+      },
+      "Microsoft.Toolkit/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Parsers/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit": "6.1.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI": "6.1.1",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1",
+          "System.ValueTuple": "4.5.0",
+          "Win2D.uwp": "1.25.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.UWP": "2.0.6",
+          "Microsoft.Toolkit.Parsers": "6.1.1",
+          "Microsoft.Toolkit.Uwp": "6.1.1",
+          "Microsoft.Toolkit.Uwp.UI.Animations": "6.1.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -5749,10 +6740,10 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         },
         "compile": {
           "lib/netstandard2.0/System.Memory.dll": {}
@@ -5761,13 +6752,22 @@
           "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/uap10.0.16299/_._": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/_._": {}
         }
       },
       "Win2D.uwp/1.25.0": {
@@ -6003,6 +7003,33 @@
     }
   },
   "libraries": {
+    "ColorCode.Core/2.0.6": {
+      "sha512": "Fn3CE3fyeql2Vj7+0H4QTAlceWsQvas3flzE2dRJ7JW6XBmPUR/zx69XhX0HPcDzoelfy2qh/wgG3rjDzqu2BQ==",
+      "type": "package",
+      "path": "colorcode.core/2.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "colorcode.core.2.0.6.nupkg.sha512",
+        "colorcode.core.nuspec",
+        "lib/netstandard1.4/ColorCode.Core.dll",
+        "lib/netstandard1.4/ColorCode.Core.pdb"
+      ]
+    },
+    "ColorCode.UWP/2.0.6": {
+      "sha512": "HEJWP0qttXPjUCtvcqDe2PtMa5r3foWZd2Vx56U1Irl+LppuKXMpM2CrPqFAA+8Te3KDzH+YyBqlYKy79LFfvQ==",
+      "type": "package",
+      "path": "colorcode.uwp/2.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "colorcode.uwp.2.0.6.nupkg.sha512",
+        "colorcode.uwp.nuspec",
+        "lib/uap10.0/ColorCode.UWP.dll",
+        "lib/uap10.0/ColorCode.UWP.pdb",
+        "lib/uap10.0/ColorCode.UWP.pri"
+      ]
+    },
     "Microsoft.Data.Sqlite.Core/5.0.2": {
       "sha512": "yVg0iPiiHCd/p//ez3xJxWf/9RrggYFyZXMnkcwbu7ZxlNfFmB32lXcHvsmoXpDN4pVUvDIhEchfDsJzg8hM2w==",
       "type": "package",
@@ -6396,6 +7423,209 @@
         "ref/uap10.0.15138/mscorlib.dll",
         "ref/uap10.0.15138/netstandard.dll",
         "runtime.json"
+      ]
+    },
+    "Microsoft.Toolkit/6.1.1": {
+      "sha512": "9JpDYIXnyu+GwCuP00PzS14E8unVg4lx/HrthoYWlNT1CY9HeGzul8T5yd0j/PxgMtEY9c6t+gg+QEC8eevS+A==",
+      "type": "package",
+      "path": "microsoft.toolkit/6.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Toolkit.dll",
+        "lib/netstandard2.0/Microsoft.Toolkit.pdb",
+        "lib/netstandard2.0/Microsoft.Toolkit.xml",
+        "lib/netstandard2.1/Microsoft.Toolkit.dll",
+        "lib/netstandard2.1/Microsoft.Toolkit.pdb",
+        "lib/netstandard2.1/Microsoft.Toolkit.xml",
+        "microsoft.toolkit.6.1.1.nupkg.sha512",
+        "microsoft.toolkit.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Parsers/6.1.1": {
+      "sha512": "t7olz/2604GyMzOJrgGPi2kK3ixXhPEA2/IAcQG2QHENfTjK/COH3dPm6tthD3+Caj/nSX8wfZIwymOcGM9iAQ==",
+      "type": "package",
+      "path": "microsoft.toolkit.parsers/6.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Toolkit.Parsers.dll",
+        "lib/netstandard2.0/Microsoft.Toolkit.Parsers.pdb",
+        "lib/netstandard2.0/Microsoft.Toolkit.Parsers.xml",
+        "microsoft.toolkit.parsers.6.1.1.nupkg.sha512",
+        "microsoft.toolkit.parsers.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp/6.1.1": {
+      "sha512": "REZgM/3PLeirDu2rEeoSwIQuByReNEwnkL05rxMhUzQ5dSOzqHBwV8MR/wXET/BDIWLxPxjMTYzlE+WSCLGgQw==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp/6.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.pri",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.xml",
+        "microsoft.toolkit.uwp.6.1.1.nupkg.sha512",
+        "microsoft.toolkit.uwp.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.UI/6.1.1": {
+      "sha512": "yjMqNR2IkjdFdNBlx4KHzJezzWzyKkkiK+Qq7uisPjdju5byk823hDQf+8BTFggg8Kb5Aahj51P4UO2x1pAJfA==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui/6.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.pri",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.xml",
+        "microsoft.toolkit.uwp.ui.6.1.1.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.UI.Animations/6.1.1": {
+      "sha512": "aStJGufN97Bu17m57+QWRyC7NhBHu8EP2o5ydgrSvzDKJ948Qo7Zm8ik/FOXo572xsXFB7969oTVTM6aOoRM9A==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui.animations/6.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.dll",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.pri",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Animations.xml",
+        "microsoft.toolkit.uwp.ui.animations.6.1.1.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.animations.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.UI.Controls/6.1.1": {
+      "sha512": "6doqZjf6QwsKkcLNHegDtxEVui/PYOQRSj88al0yHMBEgC8qw4m1WQZ/O2G5dnDyPcEHiFa5JuBHcyacA2trsQ==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui.controls/6.1.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0.16299/Design/Microsoft.Toolkit.Uwp.UI.Controls.Design.dll",
+        "lib/uap10.0.16299/Design/Microsoft.Toolkit.Uwp.UI.Controls.Design.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.dll",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.pri",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls.xml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/BladeView/BladeView.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/CameraPreview/CameraPreview.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Carousel/Carousel.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/DropShadowPanel/DropShadowPanel.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Expander/Expander.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Eyedropper/Eyedropper.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Eyedropper/EyedropperToolButton.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/GridSplitter/GridSplitter.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedContentControl/HeaderedContentControl.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedItemsControl/HeaderedItemsControl.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock/HeaderedTextBlock.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/ImageCropper/ImageCropper.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/ImageCropper/ImageCropperThumb.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/ImageEx/ImageEx.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/InAppNotification/InAppNotification.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/InAppNotification/Styles/MSEdgeNotificationStyle.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/InAppNotification/Styles/VSCodeNotificationStyle.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/InfiniteCanvas/InfiniteCanvas.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/LayoutTransformControl/LayoutTransformControl.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Loading/Loading.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/MarkdownTextBlock/MarkdownTextBlock.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/MasterDetailsView/MasterDetailsView.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Menu/Menu.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Microsoft.Toolkit.Uwp.UI.Controls.xr.xml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/OrbitView/OrbitView.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/RadialGauge/RadialGauge.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/RadialProgressBar/RadialProgressBar.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/RangeSelector/RangeSelector.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/RemoteDevicePicker/RemoteDevicePicker.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/RotatorTile/RotatorTile.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/ScrollHeader/ScrollHeader.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TabView/TabView.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TextToolbar/Symbols/Symbols.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TextToolbar/TextToolbar.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TextToolbar/ToolbarItems/ToolbarButton.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TextToolbar/ToolbarItems/ToolbarSeparator.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/Themes/Generic.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TileControl/TileControl.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TokenizingTextBox/TokenizingTextBox.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TokenizingTextBox/TokenizingTextBoxItem.AutoSuggestBox.xaml",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.Controls/TokenizingTextBox/TokenizingTextBoxItem.Token.xaml",
+        "microsoft.toolkit.uwp.ui.controls.6.1.1.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.controls.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "Microsoft.Xaml.Behaviors.Uwp.Managed/2.0.1": {
+      "sha512": "apwpIX7KU6//EzgbKmsoCPD2nLO8x+evVStxRr+Rjt8K1jw7ixuo8yHOSwpyt6K8MSLYONZP94cxC9Qbg8GIqQ==",
+      "type": "package",
+      "path": "microsoft.xaml.behaviors.uwp.managed/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactions.Design.dll",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactions.Design.pdb",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactivity.Design.dll",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactivity.Design.pdb",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.pdb",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.pri",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.xml",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.pdb",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.pri",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.xml",
+        "microsoft.xaml.behaviors.uwp.managed.2.0.1.nupkg.sha512",
+        "microsoft.xaml.behaviors.uwp.managed.nuspec",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions.Design/MetadataTableProvider.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions.Design/Properties/AssemblyInfo.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions.Design/Properties/Resources.Designer.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions.Design/Properties/Settings.Designer.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/CallMethodAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/ChangePropertyAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/ComparisonConditionType.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/DataBindingHelper.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/DataTriggerBehavior.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/EventTriggerBehavior.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/GoToStateAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/IncrementalUpdateBehavior.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/InvokeCommandAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/NavigateToPageAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/ResourceHelper.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Core/TypeConverterHelper.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/GlobalSuppressions.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Media/ControlStoryboardAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Media/ControlStoryboardOption.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Media/PlaySoundAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Properties/AssemblyInfo.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Utility/IVisualTreeHelper.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactions/Utility/UwpVisualTreeHelper.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity.Design/MetadataTableProvider.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity.Design/Properties/AssemblyInfo.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity.Design/Properties/Resources.Designer.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity.Design/Properties/Settings.Designer.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/ActionCollection.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/Behavior.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/BehaviorCollection.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/BehaviorOfT.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/CustomPropertyValueEditorAttribute.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/DefaultEventAttribute.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/GlobalSuppressions.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/IAction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/IBehavior.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/ITrigger.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/Interaction.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/Properties/AssemblyInfo.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/ResourceHelper.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/Trigger.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/TriggerOfT.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/TypeConstraintAttribute.cs",
+        "src/BehaviorsSDKManaged/Microsoft.Xaml.Interactivity/VisualStateUtilities.cs"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -10496,48 +11726,98 @@
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
-      "path": "system.memory/4.5.3",
+      "path": "system.memory/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.1/System.Memory.dll",
         "lib/netstandard1.1/System.Memory.xml",
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.4.5.4.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
-      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+    "System.Runtime.CompilerServices.Unsafe/4.5.3": {
+      "sha512": "3TIsJhD1EiiT0w2CcDMN/iSSwnNnsrnbzeVHSKkaEgV85txMprmuO+Yq2AdSbeVGcg28pdNDTPK87tJhX7VFHw==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "path": "system.runtime.compilerservices.unsafe/4.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/net461/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.ValueTuple/4.5.0": {
+      "sha512": "okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
+      "type": "package",
+      "path": "system.valuetuple/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.ValueTuple.dll",
+        "lib/net461/System.ValueTuple.xml",
+        "lib/net47/System.ValueTuple.dll",
+        "lib/net47/System.ValueTuple.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.ValueTuple.dll",
+        "lib/netstandard1.0/System.ValueTuple.xml",
+        "lib/netstandard2.0/_._",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.ValueTuple.dll",
+        "ref/net47/System.ValueTuple.dll",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard2.0/_._",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.valuetuple.4.5.0.nupkg.sha512",
+        "system.valuetuple.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -10776,6 +12056,7 @@
       "LunaVK.Core >= 1.0.0",
       "LunaVK.Photo >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.11",
+      "Microsoft.Toolkit.Uwp.UI.Controls >= 6.1.1",
       "Newtonsoft.Json >= 12.0.3",
       "RawNotificationBackgroundComponent >= 1.0.0",
       "ScheduledUpdater >= 1.0.0",
@@ -10854,6 +12135,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.11, )"
+          },
+          "Microsoft.Toolkit.Uwp.UI.Controls": {
+            "target": "Package",
+            "version": "[6.1.1, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

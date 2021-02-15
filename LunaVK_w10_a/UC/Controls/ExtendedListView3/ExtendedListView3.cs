@@ -402,9 +402,22 @@ namespace LunaVK.UC.Controls
 
             this._loading.TryAgainCmd = this.Reload;
             this._footer.TryAgainCmd = this.Reload;
+
+			WindowTitleUC.OnFullScreenMode += WindowTitleUC_OnFullScreenMode;
+			WindowTitleUC.OnWindowedMode += WindowTitleUC_OnWindowedMode;
         }
 
-        private void ExtendedListView3_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
+		private void WindowTitleUC_OnWindowedMode()
+		{
+            offsetForHeader.Height = 80;
+        }
+
+		private void WindowTitleUC_OnFullScreenMode()
+        {
+            offsetForHeader.Height = 48;
+        }
+
+		private void ExtendedListView3_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
             //todo: возможная утечка памяти: а если DataContext у списка станет пустышкой, то мы не отпишеся от LoadingStatusUpdated
             if (args.NewValue!=null)

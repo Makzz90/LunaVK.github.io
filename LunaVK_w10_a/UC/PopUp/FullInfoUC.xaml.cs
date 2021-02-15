@@ -1,4 +1,5 @@
-﻿using LunaVK.ViewModels;
+﻿using LunaVK.Pages;
+using LunaVK.ViewModels;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,9 +16,15 @@ namespace LunaVK.UC.PopUp
         public FullInfoUC()
         {
             this.InitializeComponent();
+			ProfilePage.OnUpdateVisibilityList += ProfilePage_OnUpdateVisibilityList;
         }
 
-        private void InfoItem_OnTap(object sender, TappedRoutedEventArgs e)
+        private void ProfilePage_OnUpdateVisibilityList()
+        {
+            lv.Visibility = Visibility.Visible;
+        }
+
+		private void InfoItem_OnTap(object sender, TappedRoutedEventArgs e)
         {
             e.Handled = true;
 
@@ -29,9 +36,9 @@ namespace LunaVK.UC.PopUp
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListView lv = sender as ListView;
-            lv.SelectionMode = ListViewSelectionMode.None;
-            lv.SelectionMode = ListViewSelectionMode.Single;
+            ListView _lv = sender as ListView;
+            _lv.SelectionMode = ListViewSelectionMode.None;
+            _lv.SelectionMode = ListViewSelectionMode.Single;
         }
-    }
+	}
 }

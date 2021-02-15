@@ -1,72 +1,71 @@
 ﻿<UserControl
-    x:Class="LunaVK.UC.TitleWithSubtitleUC"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:LunaVK.UC"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="48"
-    d:DesignWidth="400"
-    Height="48"
-    >
+	x:Class="LunaVK.UC.TitleWithSubtitleUC"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:LunaVK.UC"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Height="48"
+	d:DesignHeight="48"
+	d:DesignWidth="400"
+	mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <Storyboard x:Name="SubTitleFadeIn">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatTitleBlockXForm" Storyboard.TargetProperty="TranslateY">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="3"/>
-            </DoubleAnimationUsingKeyFrames>
+	<UserControl.Resources>
+		<Storyboard x:Name="SubTitleFadeIn">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatTitleBlockXForm" Storyboard.TargetProperty="TranslateY">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="3" />
+			</DoubleAnimationUsingKeyFrames>
 
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ChatSubtitleBlock">
-                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ChatSubtitleBlock">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChatSubtitleBlock" Storyboard.TargetProperty="Visibility">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatSubtitleBlock" Storyboard.TargetProperty="Opacity">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.4" Value="1" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 
-        <Storyboard x:Name="SubTitleFadeOut">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatTitleBlockXForm" Storyboard.TargetProperty="TranslateY">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="12"/>
-            </DoubleAnimationUsingKeyFrames>
+		<Storyboard x:Name="SubTitleFadeOut">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatTitleBlockXForm" Storyboard.TargetProperty="TranslateY">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="12" />
+			</DoubleAnimationUsingKeyFrames>
 
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ChatSubtitleBlock">
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="Collapsed"/>
-            </ObjectAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ChatSubtitleBlock">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChatSubtitleBlock" Storyboard.TargetProperty="Visibility">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="Collapsed" />
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatSubtitleBlock" Storyboard.TargetProperty="Opacity">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 
-        <Storyboard x:Name="TitleFadeIn" >
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ChatTitleBlock">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+		<Storyboard x:Name="TitleFadeIn">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatTitleBlock" Storyboard.TargetProperty="Opacity">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 
-        <Storyboard x:Name="TitleFadeOut" Completed="TitleFadeOut_Completed">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ChatTitleBlock">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+		<Storyboard x:Name="TitleFadeOut" Completed="TitleFadeOut_Completed">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatTitleBlock" Storyboard.TargetProperty="Opacity">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 
-        <Storyboard x:Name="SubTitleChangeStart" Completed="SubTitleChangeStart_Completed">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ChatSubtitleBlock">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+		<Storyboard x:Name="SubTitleChangeStart" Completed="SubTitleChangeStart_Completed">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatSubtitleBlock" Storyboard.TargetProperty="Opacity">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 
-        <Storyboard x:Name="SubTitleChangeEnd">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ChatSubtitleBlock">
-                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+		<Storyboard x:Name="SubTitleChangeEnd">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChatSubtitleBlock" Storyboard.TargetProperty="Opacity">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
 
-    </UserControl.Resources>
+	</UserControl.Resources>
 
 
-    <Grid>
-        <!--<StackPanel Orientation="Horizontal" Height="24" Name="ChatTitleBlock" VerticalAlignment="Top" RenderTransformOrigin="0.5 0.5" Opacity="0">
+	<Grid>
+		<!--<StackPanel Orientation="Horizontal" Height="24" Name="ChatTitleBlock" VerticalAlignment="Top" RenderTransformOrigin="0.5 0.5" Opacity="0">
             <TextBlock Name="_tbTitle" Foreground="White" VerticalAlignment="Center" FontSize="{StaticResource FontSizeContent}" TextTrimming="CharacterEllipsis"/>
             <local:IconUC Glyph="&#xE972;" FontSize="10" Margin="6 0" Height="10" Foreground="White" FontWeight="Bold" x:Name="iconMenuOpen" Visibility="Collapsed"/>
 
@@ -74,25 +73,51 @@
                 <CompositeTransform TranslateY="12" x:Name="ChatTitleBlockXForm"/>
             </StackPanel.RenderTransform>
         </StackPanel>-->
-        <Border Height="24" Name="ChatTitleBlock" VerticalAlignment="Top" RenderTransformOrigin="0.5 0.5" Opacity="0">
-            <Grid HorizontalAlignment="Left">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+		<Border
+			Name="ChatTitleBlock"
+			Height="24"
+			VerticalAlignment="Top"
+			Opacity="0"
+			RenderTransformOrigin="0.5 0.5">
+			<Grid HorizontalAlignment="Left">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
 
-                <TextBlock Name="_tbTitle" Foreground="White" VerticalAlignment="Center" FontSize="{StaticResource FontSizeContent}" TextTrimming="CharacterEllipsis"/>
-                <local:IconUC Glyph="&#xE972;" Grid.Column="1" FontSize="10" Margin="6 0" Height="10" Foreground="White" FontWeight="Bold" x:Name="iconMenuOpen" Visibility="Collapsed"/>
-            </Grid>
+				<TextBlock
+					Name="_tbTitle"
+					VerticalAlignment="Center"
+					FontSize="{StaticResource FontSizeContent}"
+					TextTrimming="CharacterEllipsis" />
+				<local:IconUC
+					x:Name="iconMenuOpen"
+					Grid.Column="1"
+					Height="10"
+					Margin="6,0"
+					FontSize="10"
+					FontWeight="Bold"
+					Glyph="&#xE972;"
+					Visibility="Collapsed" />
+			</Grid>
 
-            <Border.RenderTransform>
-                <CompositeTransform TranslateY="12" x:Name="ChatTitleBlockXForm"/>
-            </Border.RenderTransform>
-        </Border>
+			<Border.RenderTransform>
+				<CompositeTransform x:Name="ChatTitleBlockXForm" TranslateY="12" />
+			</Border.RenderTransform>
+		</Border>
 
 
-        <Border Margin="0 18 0 0" Height="24" Name="ChatSubtitleBlock" Opacity="0" Visibility="Collapsed">
-            <TextBlock Name="_tbSubTitle" Foreground="White" VerticalAlignment="Center" FontSize="10"/>
-        </Border>
-    </Grid>
+		<Border
+			Name="ChatSubtitleBlock"
+			Height="24"
+			Margin="0,18,0,0"
+			Opacity="0"
+			Visibility="Collapsed">
+			<TextBlock
+				Name="_tbSubTitle"
+				VerticalAlignment="Center"
+				FontSize="10"
+				Foreground="White" />
+		</Border>
+	</Grid>
 </UserControl>

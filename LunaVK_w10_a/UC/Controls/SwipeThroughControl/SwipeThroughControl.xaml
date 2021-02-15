@@ -1,84 +1,101 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="using:LunaVK.UC.Controls"
-                    xmlns:uc="using:LunaVK.UC"
-                    >
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="using:LunaVK.UC.Controls"
+	xmlns:uc="using:LunaVK.UC">
 
 
-    <Style TargetType="controls:SwipeThroughControl">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="controls:SwipeThroughControl">
-                    <Grid x:Name="gridRoot">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+	<Style TargetType="controls:SwipeThroughControl">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="controls:SwipeThroughControl">
+					<Grid x:Name="gridRoot">
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
 
-                        <!-- Здесь контролы хранятся. Их 3, происходит СВАП -->
-                        <Grid x:Name="_layoutRoot" VerticalAlignment="Stretch"/>
+						<!--  Здесь контролы хранятся. Их 3, происходит СВАП  -->
+						<Grid x:Name="_layoutRoot" VerticalAlignment="Stretch" />
 
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
+						<Grid Grid.Row="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
 
-                            
 
-                            <ListView Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollMode="Enabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
-                                  Name="_lv" SelectionMode="Single"
-                                  Background="{TemplateBinding FooterBackground}" 
-                                  ItemsSource="{TemplateBinding Items}"
-                                  ItemTemplate="{TemplateBinding FooterItemTemplate}">
-                                <ListView.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"/>
-                                    </ItemsPanelTemplate>
-                                </ListView.ItemsPanel>
 
-                                <ListView.Header>
-                                    <StackPanel Orientation="Horizontal" Height="54">
+							<ListView
+								Name="_lv"
+								Grid.Column="1"
+								Background="{TemplateBinding FooterBackground}"
+								ItemTemplate="{TemplateBinding FooterItemTemplate}"
+								ItemsSource="{TemplateBinding Items}"
+								ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+								ScrollViewer.HorizontalScrollMode="Enabled"
+								ScrollViewer.VerticalScrollBarVisibility="Disabled"
+								ScrollViewer.VerticalScrollMode="Disabled"
+								SelectionMode="Single">
+								<ListView.ItemsPanel>
+									<ItemsPanelTemplate>
+										<StackPanel Orientation="Horizontal" />
+									</ItemsPanelTemplate>
+								</ListView.ItemsPanel>
 
-                                        <!-- Магазин -->
-                                        <Border Width="48" Background="Transparent">
-                                            <uc:IconUC Glyph="&#xE7BF;" FontSize="20" Foreground="{StaticResource SystemControlHighlightAccentBrush}"/>
-                                        </Border>
-                                        
-                                        <!-- Настройки -->
-                                        <Border Width="48" Background="Transparent" x:Name="_settingTab">
-                                            <uc:IconUC Glyph="&#xE713;" FontSize="20" Foreground="{StaticResource SystemControlHighlightAccentBrush}"/>
-                                        </Border>
-                                        
-                                        <!-- Emoji --><!--
+								<ListView.Header>
+									<StackPanel Height="54" Orientation="Horizontal">
+
+										<!--  Магазин  -->
+										<Border Width="48" Background="Transparent">
+											<uc:IconUC
+												FontSize="20"
+												Foreground="{StaticResource SystemControlHighlightAccentBrush}"
+												Glyph="&#xE7BF;" />
+										</Border>
+
+										<!--  Настройки  -->
+										<Border
+											x:Name="_settingTab"
+											Width="48"
+											Background="Transparent">
+											<uc:IconUC
+												FontSize="20"
+												Foreground="{StaticResource SystemControlHighlightAccentBrush}"
+												Glyph="&#xE713;" />
+										</Border>
+
+										<!--  Emoji  -->
+										<!--
                                         <Border Width="48" Background="Transparent">
                                             <uc:IconUC Glyph="&#xE76E;" FontSize="20" Foreground="{StaticResource PhoneAccentColor}"/>
                                         </Border>
 
-                                        --><!-- Недавние --><!--
+										-->
+										<!--  Недавние  -->
+										<!--
                                         <Border Width="48" Background="Transparent">
                                             <uc:IconUC Glyph="&#xED5A;" FontSize="20" Foreground="{StaticResource PhoneAccentColor}"/>
                                         </Border>
-                                        -->
-                                    </StackPanel>
-                                </ListView.Header>
-                                
-                                <ListView.ItemContainerStyle>
-                                    <Style TargetType="ListViewItem">
-                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                        <Setter Property="Padding" Value="0" />
-                                        <Setter Property="Margin" Value="0" />
-                                        <Setter Property="MinWidth" Value="40" />
-                                        <Setter Property="MinHeight" Value="40" />
-                                    </Style>
-                                </ListView.ItemContainerStyle>
-                            </ListView>
-                        </Grid>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+										-->
+									</StackPanel>
+								</ListView.Header>
+
+								<ListView.ItemContainerStyle>
+									<Style TargetType="ListViewItem">
+										<Setter Property="HorizontalContentAlignment" Value="Center" />
+										<Setter Property="VerticalContentAlignment" Value="Center" />
+										<Setter Property="Padding" Value="0" />
+										<Setter Property="Margin" Value="0" />
+										<Setter Property="MinWidth" Value="40" />
+										<Setter Property="MinHeight" Value="40" />
+									</Style>
+								</ListView.ItemContainerStyle>
+							</ListView>
+						</Grid>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 </ResourceDictionary>
